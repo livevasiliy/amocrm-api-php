@@ -2,7 +2,7 @@
   "name": "livevasiliy/amocrm-api-library",
   "description": "amoCRM API Client",
   "license": "MIT",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "minimum-stability": "stable",
   "authors": [
     {
