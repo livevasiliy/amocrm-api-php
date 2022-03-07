@@ -32,7 +32,7 @@
     "fig/http-message-util": "1.*",
     "ramsey/uuid": "^3",
     "lcobucci/jwt": "^3.4.6",
-    "nesbot/carbon": "^1.39.1",
+    "nesbot/carbon": "~1.17.0",
     "illuminate/support": "^5.4"
   },
   "require-dev": {
