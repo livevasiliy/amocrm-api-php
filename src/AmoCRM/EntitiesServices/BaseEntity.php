@@ -81,7 +81,8 @@ abstract class BaseEntity
         if ($filter instanceof BaseEntityFilter) {
             $queryParams = $filter->buildFilter();
         }
-        $with = array_intersect($with, (static::ITEM_CLASS)::getAvailableWith());
+        $availableWith = static::ITEM_CLASS::getAvailableWith();
+        $with = array_intersect($with, $availableWith);
         if (!empty($with)) {
             $queryParams['with'] = implode(',', $with);
         }

@@ -2,6 +2,8 @@
   "name": "livevasiliy/amocrm-api-library",
   "description": "amoCRM API Client",
   "license": "MIT",
+  "version": "1.0.1",
+  "minimum-stability": "stable",
   "authors": [
     {
       "name": "Nikita Bessudnov",
