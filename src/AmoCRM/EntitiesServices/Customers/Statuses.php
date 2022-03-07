@@ -54,7 +54,8 @@ class Statuses extends BaseEntity implements HasDeleteMethodInterface
     {
         $entities = [];
 
-        if (isset($response[AmoCRMApiRequest::EMBEDDED]) && isset($response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CUSTOMERS_STATUSES])) {
+        if (isset($response[AmoCRMApiRequest::EMBEDDED]) &&
+            isset($response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CUSTOMERS_STATUSES])) {
             $entities = $response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CUSTOMERS_STATUSES];
         }
 

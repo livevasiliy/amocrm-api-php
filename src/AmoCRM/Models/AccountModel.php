@@ -355,7 +355,7 @@ class AccountModel extends BaseApiModel
             ->setCurrentUserId((int)$account['current_user_id'])
             ->setCountry((string)$account['country'])
             ->setCurrency((string)$account['currency'])
-            ->setCurrencySymbol((string)($account['currency_symbol'] ?? null) ?: null)
+            ->setCurrencySymbol((string)(isset($account['currency_symbol']) ? $account['currency_symbol'] : null) ?: null)
             ->setUnsortedOn((bool)$account['is_unsorted_on'])
             ->setMobileFeatureVersion((int)$account['mobile_feature_version'])
             ->setCustomersMode($account['customers_mode'])
@@ -413,7 +413,7 @@ class AccountModel extends BaseApiModel
 
         if (isset($account[self::INVOICES_SETTINGS])) {
             $accountModel->setInvoicesSettings(new InvoicesSettings(
-                $account[self::INVOICES_SETTINGS]['lang'] ?? null
+                isset($account[self::INVOICES_SETTINGS]['lang']) ? $account[self::INVOICES_SETTINGS]['lang'] : null
             ));
         }
 

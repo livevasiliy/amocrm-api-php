@@ -28,9 +28,10 @@ class NotesCollection extends BaseApiCollection implements HasPagesInterface
     const ITEM_CLASS = NoteModel::class;
 
     /**
-     * @param array $array
+     * @param  array  $array
      *
      * @return self
+     * @throws \AmoCRM\Exceptions\InvalidArgumentException
      */
     public static function fromArray(array $array)
     {

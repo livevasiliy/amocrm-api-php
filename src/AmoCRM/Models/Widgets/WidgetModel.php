@@ -100,7 +100,7 @@ class WidgetModel extends BaseApiModel
             ->setIsActiveInAccount($widget['is_active_in_account'])
             ->setPipelineId($widget['pipeline_id'])
             ->setClientUuid($widget['client_uuid'])
-            ->setSettings($widget['settings'] ?? null);
+            ->setSettings(isset($widget['settings']) ? $widget['settings'] : null);
 
         return $model;
     }

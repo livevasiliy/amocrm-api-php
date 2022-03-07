@@ -617,6 +617,9 @@ class AmoCRMApiClient
         return new Products($request);
     }
 
+    /**
+     * @throws AmoCRMMissedTokenException
+     */
     public function talks()
     {
         return new Talks($this->buildRequest());

@@ -14,11 +14,6 @@ use function is_null;
 trait PageMethodsTrait
 {
     /**
-     * @var AmoCRMApiRequest
-     */
-    protected $request;
-
-    /**
      * @param HasPagesInterface|BaseApiCollection $collection
      * @return BaseApiCollection|null
      * @throws AmoCRMApiException

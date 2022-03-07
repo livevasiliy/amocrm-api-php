@@ -96,7 +96,8 @@ class CatalogRightsTest extends TestCase
     {
         $rightsModel = (new RightModel())->setCatalogRights([['catalog_id' => 1, 'rights' => $rights]]);
         $rightsFromModel = $rightsModel->getCatalogRights();
-        $rightsFromModel = reset($rightsFromModel)['rights'] ?? [];
+        $reset = reset($rightsFromModel)['rights'];
+        $rightsFromModel = isset($reset) ? $reset : [];
 
         $this::assertEquals($rightsReference, $rightsFromModel, 'Rights are not equals');
     }

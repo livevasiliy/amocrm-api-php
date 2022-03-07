@@ -55,7 +55,9 @@ class Templates extends BaseEntity implements HasPageMethodsInterface, HasDelete
      */
     protected function getEntitiesFromResponse(array $response)
     {
-        return isset($response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CHAT_TEMPLATES]) ? $response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CHAT_TEMPLATES] : $response;
+        return isset($response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CHAT_TEMPLATES]) ?
+            $response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CHAT_TEMPLATES]
+            : $response;
     }
 
     /**

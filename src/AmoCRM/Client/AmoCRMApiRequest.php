@@ -457,8 +457,7 @@ class AmoCRMApiRequest
                 isset($decodedBody['detail']) ? $decodedBody['detail'] : ''
             );
 
-            if (
-                $response->getStatusCode() === StatusCodeInterface::STATUS_BAD_REQUEST
+            if ($response->getStatusCode() === StatusCodeInterface::STATUS_BAD_REQUEST
                 && !empty($decodedBody['validation-errors'])
             ) {
                 $exception = new AmoCRMApiErrorResponseException(
@@ -489,8 +488,7 @@ class AmoCRMApiRequest
 
         $decodedBody = json_decode($bodyContents, true);
 
-        if (
-            $response->getStatusCode() !== StatusCodeInterface::STATUS_ACCEPTED
+        if ($response->getStatusCode() !== StatusCodeInterface::STATUS_ACCEPTED
             && !$decodedBody
             && !empty($bodyContents)
         ) {

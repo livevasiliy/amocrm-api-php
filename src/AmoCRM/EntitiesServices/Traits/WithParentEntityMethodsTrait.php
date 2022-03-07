@@ -75,7 +75,6 @@ trait WithParentEntityMethodsTrait
 
         $response = $this->request->get($this->getMethodWithParent($parentId, $id), $queryParams);
 
-        $class = static::ITEM_CLASS;
         /** @var BaseApiModel $entity */
         $entity = new $class();
 
@@ -141,7 +140,8 @@ trait WithParentEntityMethodsTrait
         if ($filter instanceof BaseEntityFilter) {
             $queryParams = $filter->buildFilter();
         }
-        $with = array_intersect($with, (static::ITEM_CLASS)::getAvailableWith());
+        $model = self::ITEM_CLASS;
+        $with = array_intersect($with, $model::getAvailableWith());
         if (!empty($with)) {
             $queryParams['with'] = implode(',', $with);
         }

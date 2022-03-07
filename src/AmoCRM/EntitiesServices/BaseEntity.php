@@ -81,7 +81,8 @@ abstract class BaseEntity
         if ($filter instanceof BaseEntityFilter) {
             $queryParams = $filter->buildFilter();
         }
-        $availableWith = static::ITEM_CLASS::getAvailableWith();
+        $model = static::ITEM_CLASS;
+        $availableWith = $model::getAvailableWith();
         $with = array_intersect($with, $availableWith);
         if (!empty($with)) {
             $queryParams['with'] = implode(',', $with);
@@ -128,7 +129,8 @@ abstract class BaseEntity
     public function getOne($id, array $with = [])
     {
         $queryParams = [];
-        $with = array_intersect($with, (static::ITEM_CLASS)::getAvailableWith());
+        $model = static::ITEM_CLASS;
+        $with = array_intersect($with, $model::getAvailableWith());
         if (!empty($with)) {
             $queryParams['with'] = implode(',', $with);
         }

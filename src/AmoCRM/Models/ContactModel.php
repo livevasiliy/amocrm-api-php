@@ -731,7 +731,7 @@ class ContactModel extends BaseApiModel implements
 
         if (!is_null($this->getId())) {
             $result['id'] = $this->getId();
-            $result['is_main'] = $this->getIsMain() ?? false;
+            $result['is_main'] = $this->getIsMain() !== null ? $this->getIsMain() : false;
         }
 
         return $result;

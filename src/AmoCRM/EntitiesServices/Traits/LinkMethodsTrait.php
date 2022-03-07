@@ -17,11 +17,6 @@ use AmoCRM\Models\LinkModel;
 trait LinkMethodsTrait
 {
     /**
-     * @var AmoCRMApiRequest
-     */
-    protected $request;
-
-    /**
      * @param array $response
      *
      * @return LinksCollection

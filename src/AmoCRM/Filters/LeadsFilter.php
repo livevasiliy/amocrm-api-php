@@ -317,8 +317,8 @@ class LeadsFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
             }
 
             $statusesFilter[] = [
-                'status_id' => (int)$status['status_id'] ?? null,
-                'pipeline_id' => (int)$status['pipeline_id'] ?? null,
+                'status_id' => (int)$status['status_id'] !== null ? (int)$status['status_id'] : null,
+                'pipeline_id' => (int)$status['pipeline_id'] !== null ? (int)$status['pipeline_id'] : null,
             ];
         }
 

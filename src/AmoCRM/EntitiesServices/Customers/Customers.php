@@ -62,7 +62,8 @@ class Customers extends BaseEntity implements HasLinkMethodInterface, HasPageMet
     {
         $entities = [];
 
-        if (isset($response[AmoCRMApiRequest::EMBEDDED]) && isset($response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CUSTOMERS])) {
+        if (isset($response[AmoCRMApiRequest::EMBEDDED]) &&
+            isset($response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CUSTOMERS])) {
             $entities = $response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CUSTOMERS];
         }
 
