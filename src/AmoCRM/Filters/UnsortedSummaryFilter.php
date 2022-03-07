@@ -21,7 +21,7 @@ class UnsortedSummaryFilter extends BaseEntityFilter
     /**
      * @return int|null
      */
-    public function getPipelineId(): ?int
+    public function getPipelineId()
     {
         return $this->pipelineId;
     }
@@ -30,7 +30,7 @@ class UnsortedSummaryFilter extends BaseEntityFilter
      * @param int|null $pipelineId
      * @return UnsortedSummaryFilter
      */
-    public function setPipelineId(?int $pipelineId): UnsortedSummaryFilter
+    public function setPipelineId($pipelineId)
     {
         $this->pipelineId = $pipelineId;
 
@@ -40,7 +40,7 @@ class UnsortedSummaryFilter extends BaseEntityFilter
     /**
      * @return array|null
      */
-    public function getCreatedAt(): ?array
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -49,7 +49,7 @@ class UnsortedSummaryFilter extends BaseEntityFilter
      * @param BaseRangeFilter|int|null $createdAt
      * @return UnsortedSummaryFilter
      */
-    public function setCreatedAt($createdAt): UnsortedSummaryFilter
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $this->parseIntOrIntRangeFilter($createdAt);
 
@@ -59,7 +59,7 @@ class UnsortedSummaryFilter extends BaseEntityFilter
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

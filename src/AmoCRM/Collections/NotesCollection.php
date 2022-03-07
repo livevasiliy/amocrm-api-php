@@ -25,14 +25,14 @@ class NotesCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = NoteModel::class;
+    const ITEM_CLASS = NoteModel::class;
 
     /**
      * @param array $array
      *
      * @return self
      */
-    public static function fromArray(array $array): BaseApiCollection
+    public static function fromArray(array $array)
     {
         return self::make(
             array_map(

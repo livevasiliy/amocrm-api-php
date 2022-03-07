@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models\Chats\Templates\Buttons;
 
 use AmoCRM\Enum\Chats\Templates\Buttons\ButtonsEnums;
@@ -22,7 +20,7 @@ abstract class AbstractButtonModel extends BaseApiModel implements Arrayable
      * @return AbstractButtonModel
      * @throws InvalidArgumentException
      */
-    public static function fromArray(array $button): AbstractButtonModel
+    public static function fromArray(array $button)
     {
         if (empty($button['type']) || !in_array($button['type'], ButtonsEnums::getAll(), true)) {
             throw new InvalidArgumentException('Button type missed');
@@ -47,7 +45,7 @@ abstract class AbstractButtonModel extends BaseApiModel implements Arrayable
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return $this->toArray();
     }

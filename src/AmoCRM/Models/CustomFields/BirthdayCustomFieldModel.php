@@ -9,10 +9,10 @@ namespace AmoCRM\Models\CustomFields;
  */
 class BirthdayCustomFieldModel extends CustomFieldModel
 {
-    public const REMIND_NEVER = 'never';
-    public const REMIND_DAY = 'day';
-    public const REMIND_WEEK = 'week';
-    public const REMIND_MONTH = 'month';
+    const REMIND_NEVER = 'never';
+    const REMIND_DAY = 'day';
+    const REMIND_WEEK = 'week';
+    const REMIND_MONTH = 'month';
 
     /**
      * @var string|null
@@ -22,7 +22,7 @@ class BirthdayCustomFieldModel extends CustomFieldModel
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return CustomFieldModel::TYPE_BIRTHDAY;
     }
@@ -30,7 +30,7 @@ class BirthdayCustomFieldModel extends CustomFieldModel
     /**
      * @return null|string
      */
-    public function getRemind(): ?string
+    public function getRemind()
     {
         return $this->remind;
     }
@@ -40,7 +40,7 @@ class BirthdayCustomFieldModel extends CustomFieldModel
      *
      * @return BirthdayCustomFieldModel
      */
-    public function setRemind(string $remind): BirthdayCustomFieldModel
+    public function setRemind($remind)
     {
         if (
             !in_array(
@@ -64,7 +64,7 @@ class BirthdayCustomFieldModel extends CustomFieldModel
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -78,7 +78,7 @@ class BirthdayCustomFieldModel extends CustomFieldModel
      *
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -92,7 +92,7 @@ class BirthdayCustomFieldModel extends CustomFieldModel
      *
      * @return CustomFieldModel|BirthdayCustomFieldModel
      */
-    public static function fromArray(array $customField): CustomFieldModel
+    public static function fromArray(array $customField)
     {
         /** @var BirthdayCustomFieldModel $result */
         $result = parent::fromArray($customField);

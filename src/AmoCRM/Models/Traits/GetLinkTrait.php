@@ -14,7 +14,7 @@ trait GetLinkTrait
     /**
      * @return LinkModel
      */
-    public function getLink(): LinkModel
+    public function getLink()
     {
         $linkModel = new LinkModel();
         $linkModel->setToEntityId($this->getId())
@@ -24,5 +24,5 @@ trait GetLinkTrait
         return $linkModel;
     }
 
-    abstract protected function getMetadataForLink(): ?array;
+    abstract protected function getMetadataForLink();
 }

@@ -27,12 +27,12 @@ class CustomFieldsValuesCollection extends BaseApiCollection
         CustomFieldModel::TYPE_ORG_LEGAL_NAME,
     ];
 
-    public const ITEM_CLASS = BaseCustomFieldValuesModel::class;
+    const ITEM_CLASS = BaseCustomFieldValuesModel::class;
 
     /**
      * @return null|array
      */
-    public function toApi(): ?array
+    public function toApi()
     {
         $result = [];
         /** @var BaseCustomFieldValuesModel $item */

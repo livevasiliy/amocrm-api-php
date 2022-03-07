@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\EntitiesServices;
 
 use AmoCRM\Client\AmoCRMApiClient;
@@ -28,7 +26,7 @@ class Links extends BaseEntityTypeEntity
     protected $collectionClass = LinksCollection::class;
 
     /** @var string */
-    public const ITEM_CLASS = LinkModel::class;
+    const ITEM_CLASS = LinkModel::class;
 
     /**
      * @param BaseEntityFilter|null $filter
@@ -38,7 +36,7 @@ class Links extends BaseEntityTypeEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function get(BaseEntityFilter $filter = null, array $with = []): ?BaseApiCollection
+    public function get(BaseEntityFilter $filter = null, array $with = [])
     {
         $queryParams = [];
         if ($filter instanceof BaseEntityFilter) {
@@ -50,14 +48,28 @@ class Links extends BaseEntityTypeEntity
         return $this->createCollection($response);
     }
 
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    /**
+     * @param  BaseApiCollection  $collection
+     * @return BaseApiCollection
+     * @throws AmoCRMApiException
+     * @throws AmoCRMoAuthApiException
+     * @throws \AmoCRM\Exceptions\AmoCRMApiNoContentException
+     */
+    public function add(BaseApiCollection $collection)
     {
         $this->request->post($this->getMethod() . '/link', $collection->toApi());
 
         return $collection;
     }
 
-    public function delete(BaseApiCollection $collection): BaseApiCollection
+    /**
+     * @param  BaseApiCollection  $collection
+     * @return BaseApiCollection
+     * @throws AmoCRMApiException
+     * @throws AmoCRMoAuthApiException
+     * @throws \AmoCRM\Exceptions\AmoCRMApiNoContentException
+     */
+    public function delete(BaseApiCollection $collection)
     {
         $this->request->post($this->getMethod() . '/unlink', $collection->toApi());
 
@@ -69,37 +81,69 @@ class Links extends BaseEntityTypeEntity
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
-        return $response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::LINKS] ?? [];
+        return isset($response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::LINKS]) ? $response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::LINKS] : [];
     }
 
-    public function getOne($id, array $with = []): ?BaseApiModel
-    {
-        throw new NotAvailableForActionException('Method not available for this entity');
-    }
-
-    public function addOne(BaseApiModel $model): BaseApiModel
-    {
-        throw new NotAvailableForActionException('Method not available for this entity');
-    }
-
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    /**
+     * @param $id
+     * @param  array  $with
+     * @return BaseApiModel|null
+     * @throws NotAvailableForActionException
+     */
+    public function getOne($id, array $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
 
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    /**
+     * @param  BaseApiModel  $model
+     * @return BaseApiModel
+     * @throws NotAvailableForActionException
+     */
+    public function addOne(BaseApiModel $model)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
 
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    /**
+     * @param  BaseApiCollection  $collection
+     * @return BaseApiCollection
+     * @throws NotAvailableForActionException
+     */
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
 
-    protected function validateEntityType(string $entityType): string
+    /**
+     * @param  BaseApiModel  $apiModel
+     * @return BaseApiModel
+     * @throws NotAvailableForActionException
+     */
+    public function updateOne(BaseApiModel $apiModel)
+    {
+        throw new NotAvailableForActionException('Method not available for this entity');
+    }
+
+    /**
+     * @param  BaseApiModel  $apiModel
+     * @param $with
+     * @return BaseApiModel
+     * @throws NotAvailableForActionException
+     */
+    public function syncOne(BaseApiModel $apiModel, $with = [])
+    {
+        throw new NotAvailableForActionException('Method not available for this entity');
+    }
+
+    /**
+     * @param  string  $entityType
+     * @return string
+     * @throws InvalidArgumentException
+     */
+    protected function validateEntityType($entityType)
     {
         $availableEntities = [
             EntityTypesInterface::CONTACTS,

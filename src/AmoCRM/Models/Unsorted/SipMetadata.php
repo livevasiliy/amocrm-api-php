@@ -55,17 +55,17 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
      *
      * @return self
      */
-    public static function fromArray(array $metadata): self
+    public static function fromArray(array $metadata)
     {
         $model = new self();
 
-        $model->setFrom($metadata['from'] ?? null);
-        $model->setPhone($metadata['phone'] ?? null);
-        $model->setCalledAt($metadata['called_at'] ?? null);
-        $model->setDuration($metadata['duration'] ?? null);
-        $model->setLink($metadata['link'] ?? null);
-        $model->setServiceCode($metadata['service_code'] ?? null);
-        $model->setUniq($metadata['uniq'] ?? null);
+        $model->setFrom(isset($metadata['from']) ? $metadata['from'] : null);
+        $model->setPhone(isset($metadata['phone']) ? $metadata['phone'] : null);
+        $model->setCalledAt(isset($metadata['called_at']) ? $metadata['called_at'] : null);
+        $model->setDuration(isset($metadata['duration']) ? $metadata['duration'] : null);
+        $model->setLink(isset($metadata['link']) ? $metadata['link'] : null);
+        $model->setServiceCode(isset($metadata['service_code']) ? $metadata['service_code'] : null);
+        $model->setUniq(isset($metadata['uniq']) ? $metadata['uniq'] : null);
 
         return $model;
     }
@@ -73,7 +73,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'from' => $this->getFrom(),
@@ -89,7 +89,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
     /**
      * @return int|null
      */
-    public function getFrom(): ?int
+    public function getFrom()
     {
         return $this->from;
     }
@@ -98,7 +98,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
      * @param int|null|string $from
      * @return SipMetadata
      */
-    public function setFrom($from): SipMetadata
+    public function setFrom($from)
     {
         if (is_scalar($from)) {
             $this->from = $from;
@@ -112,7 +112,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
     /**
      * @return string|null
      */
-    public function getPhone(): ?string
+    public function getPhone()
     {
         return $this->phone;
     }
@@ -121,7 +121,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
      * @param string|null $phone
      * @return SipMetadata
      */
-    public function setPhone(?string $phone): SipMetadata
+    public function setPhone($phone)
     {
         $this->phone = $phone;
 
@@ -131,7 +131,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
     /**
      * @return int|null
      */
-    public function getCalledAt(): ?int
+    public function getCalledAt()
     {
         return $this->calledAt;
     }
@@ -140,7 +140,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
      * @param int|null $calledAt
      * @return SipMetadata
      */
-    public function setCalledAt(?int $calledAt): SipMetadata
+    public function setCalledAt($calledAt)
     {
         $this->calledAt = $calledAt;
 
@@ -150,7 +150,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
     /**
      * @return int|null
      */
-    public function getDuration(): ?int
+    public function getDuration()
     {
         return $this->duration;
     }
@@ -159,7 +159,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
      * @param int|null $duration
      * @return SipMetadata
      */
-    public function setDuration(?int $duration): SipMetadata
+    public function setDuration($duration)
     {
         $this->duration = $duration;
 
@@ -169,7 +169,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
     /**
      * @return string|null
      */
-    public function getLink(): ?string
+    public function getLink()
     {
         return $this->link;
     }
@@ -178,7 +178,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
      * @param string|null $link
      * @return SipMetadata
      */
-    public function setLink(?string $link): SipMetadata
+    public function setLink($link)
     {
         $this->link = $link;
 
@@ -188,7 +188,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
     /**
      * @return string|null
      */
-    public function getServiceCode(): ?string
+    public function getServiceCode()
     {
         return $this->serviceCode;
     }
@@ -197,7 +197,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
      * @param string|null $serviceCode
      * @return SipMetadata
      */
-    public function setServiceCode(?string $serviceCode): SipMetadata
+    public function setServiceCode($serviceCode)
     {
         $this->serviceCode = $serviceCode;
 
@@ -207,7 +207,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
     /**
      * @return string|null
      */
-    public function getUniq(): ?string
+    public function getUniq()
     {
         return $this->uniq;
     }
@@ -216,7 +216,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
      * @param string|null $uniq
      * @return SipMetadata
      */
-    public function setUniq(?string $uniq): SipMetadata
+    public function setUniq($uniq)
     {
         $this->uniq = $uniq;
 
@@ -226,7 +226,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
     /**
      * @return bool|null
      */
-    public function getIsCallEventNeeded(): ?bool
+    public function getIsCallEventNeeded()
     {
         return $this->isCallEventNeeded;
     }
@@ -236,7 +236,7 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
      *
      * @return SipMetadata
      */
-    public function setIsCallEventNeeded(?bool $isCallEventNeeded): SipMetadata
+    public function setIsCallEventNeeded($isCallEventNeeded)
     {
         $this->isCallEventNeeded = $isCallEventNeeded;
 
@@ -247,24 +247,24 @@ class SipMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataInt
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return [
             'from' => $this->getFrom(),
             'phone' => $this->getPhone(),
-            'called_at' => $this->getCalledAt() ?? time(),
+            'called_at' => !is_null($this->getCalledAt()) ? $this->getCalledAt() : time(),
             'duration' => $this->getDuration(),
             'link' => $this->getLink(),
             'service_code' => $this->getServiceCode(),
             'uniq' => $this->getUniq(),
-            'is_call_event_needed' => $this->getIsCallEventNeeded() ?? true,
+            'is_call_event_needed' => $this->getIsCallEventNeeded() !== null ? $this->getIsCallEventNeeded() : true,
         ];
     }
 
     /**
      * @return array
      */
-    public function toComplexApi(): array
+    public function toComplexApi()
     {
         $result = $this->toApi();
 

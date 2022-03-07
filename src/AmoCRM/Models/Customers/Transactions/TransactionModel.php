@@ -106,7 +106,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public static function fromArray(array $transaction): self
+    public static function fromArray(array $transaction)
     {
         if (empty($transaction['id'])) {
             throw new InvalidArgumentException('Transaction id is empty in ' . json_encode($transaction));
@@ -167,7 +167,9 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
                 $catalogElementModel
                     ->setId($catalogElement['id'])
                     ->setCatalogId($catalogElement['metadata']['catalog_id'])
-                    ->setQuantity($catalogElement['metadata']['quantity'] ?? 1);
+                    ->setQuantity(
+                        isset($catalogElement['metadata']['quantity']) ? $catalogElement['metadata']['quantity'] : 1
+                    );
                 $catalogElementsCollection->add($catalogElementModel);
             }
 
@@ -180,7 +182,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -202,7 +204,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -212,7 +214,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -222,7 +224,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getPrice(): ?int
+    public function getPrice()
     {
         return $this->price;
     }
@@ -232,7 +234,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setPrice(?int $price): TransactionModel
+    public function setPrice($price)
     {
         $this->price = $price;
 
@@ -242,7 +244,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getCompletedAt(): ?int
+    public function getCompletedAt()
     {
         return $this->completedAt;
     }
@@ -252,7 +254,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setCompletedAt(?int $completedAt): TransactionModel
+    public function setCompletedAt($completedAt)
     {
         $this->completedAt = $completedAt;
 
@@ -262,7 +264,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getComment(): ?string
+    public function getComment()
     {
         return $this->comment;
     }
@@ -272,7 +274,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setComment(?string $comment): TransactionModel
+    public function setComment($comment)
     {
         $this->comment = $comment;
 
@@ -282,7 +284,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -292,7 +294,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setCreatedBy(?int $createdBy): TransactionModel
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -302,7 +304,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -312,7 +314,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setUpdatedBy(?int $updatedBy): TransactionModel
+    public function setUpdatedBy($updatedBy)
     {
         $this->updatedBy = $updatedBy;
 
@@ -322,7 +324,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -332,7 +334,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setCreatedAt(?int $createdAt): TransactionModel
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -342,7 +344,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -352,7 +354,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setUpdatedAt(?int $updatedAt): TransactionModel
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
 
@@ -362,7 +364,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return CustomerModel|null
      */
-    public function getCustomer(): ?CustomerModel
+    public function getCustomer()
     {
         return $this->customer;
     }
@@ -372,7 +374,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setCustomer(?CustomerModel $customer): TransactionModel
+    public function setCustomer($customer)
     {
         $this->customer = $customer;
 
@@ -382,7 +384,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return bool|null
      */
-    public function getIdDeleted(): ?bool
+    public function getIdDeleted()
     {
         return $this->idDeleted;
     }
@@ -392,7 +394,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setIdDeleted(?bool $idDeleted): TransactionModel
+    public function setIdDeleted($idDeleted)
     {
         $this->idDeleted = $idDeleted;
 
@@ -402,7 +404,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -412,7 +414,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setAccountId(?int $accountId): TransactionModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -422,7 +424,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getCustomerId(): ?int
+    public function getCustomerId()
     {
         return $this->customerId;
     }
@@ -432,7 +434,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setCustomerId(?int $customerId): TransactionModel
+    public function setCustomerId($customerId)
     {
         $this->customerId = $customerId;
 
@@ -442,7 +444,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return CatalogElementsCollection|null
      */
-    public function getCatalogElements(): ?CatalogElementsCollection
+    public function getCatalogElements()
     {
         return $this->catalogElements;
     }
@@ -452,7 +454,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setCatalogElements(?CatalogElementsCollection $catalogElements): TransactionModel
+    public function setCatalogElements($catalogElements)
     {
         $this->catalogElements = $catalogElements;
 
@@ -462,7 +464,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getNextDate(): ?int
+    public function getNextDate()
     {
         return $this->nextDate;
     }
@@ -472,7 +474,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setNextDate(?int $nextDate): TransactionModel
+    public function setNextDate($nextDate)
     {
         $this->nextDate = $nextDate;
 
@@ -482,7 +484,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getNextPrice(): ?int
+    public function getNextPrice()
     {
         return $this->nextPrice;
     }
@@ -492,7 +494,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return TransactionModel
      */
-    public function setNextPrice(?int $nextPrice): TransactionModel
+    public function setNextPrice($nextPrice)
     {
         $this->nextPrice = $nextPrice;
 
@@ -504,7 +506,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      *
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [
             'price' => $this->getPrice(),
@@ -526,7 +528,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
                     'id' => $catalogElement->getId(),
                     'metadata' => [
                         'catalog_id' => $catalogElement->getCatalogId(),
-                        'quantity' => $catalogElement->getQuantity() ?? 1,
+                        'quantity' => $catalogElement->getQuantity() !== null ? $catalogElement->getQuantity() : 1,
                     ]
                 ];
             }
@@ -543,12 +545,12 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
         }
 
         if (!is_null($this->getReceiptLink())) {
-            $result['metadata'] = $result['metadata'] ?? [];
+            $result['metadata'] = isset($result['metadata']) ? $result['metadata'] : [];
             $result['metadata']['receipt_link'] = $this->getReceiptLink();
         }
 
         if (!is_null($this->getExternalId())) {
-            $result['metadata'] = $result['metadata'] ?? [];
+            $result['metadata'] = isset($result['metadata']) ? $result['metadata'] : [];
             $result['metadata']['external_id'] = $this->getExternalId();
         }
 
@@ -564,7 +566,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getReceiptLink(): ?string
+    public function getReceiptLink()
     {
         return $this->receiptLink;
     }
@@ -573,7 +575,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      * @param string|null $receiptLink
      * @return TransactionModel
      */
-    public function setReceiptLink(?string $receiptLink)
+    public function setReceiptLink($receiptLink)
     {
         $this->receiptLink = $receiptLink;
 
@@ -583,7 +585,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getExternalId(): ?string
+    public function getExternalId()
     {
         return $this->externalId;
     }
@@ -592,7 +594,7 @@ class TransactionModel extends BaseApiModel implements HasIdInterface
      * @param string|null $externalId
      * @return TransactionModel
      */
-    public function setExternalId(?string $externalId)
+    public function setExternalId($externalId)
     {
         $this->externalId = $externalId;
 

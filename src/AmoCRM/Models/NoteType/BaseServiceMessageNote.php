@@ -19,9 +19,9 @@ abstract class BaseServiceMessageNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -39,7 +39,7 @@ abstract class BaseServiceMessageNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -53,7 +53,7 @@ abstract class BaseServiceMessageNote extends NoteModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -66,7 +66,7 @@ abstract class BaseServiceMessageNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getService(): ?string
+    public function getService()
     {
         return $this->service;
     }
@@ -75,7 +75,7 @@ abstract class BaseServiceMessageNote extends NoteModel
      * @param string|null $service
      * @return BaseServiceMessageNote
      */
-    public function setService(?string $service): BaseServiceMessageNote
+    public function setService($service)
     {
         $this->service = $service;
 
@@ -85,7 +85,7 @@ abstract class BaseServiceMessageNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getText(): ?string
+    public function getText()
     {
         return $this->text;
     }
@@ -94,7 +94,7 @@ abstract class BaseServiceMessageNote extends NoteModel
      * @param string|null $text
      * @return BaseServiceMessageNote
      */
-    public function setText(?string $text): BaseServiceMessageNote
+    public function setText($text)
     {
         $this->text = $text;
 

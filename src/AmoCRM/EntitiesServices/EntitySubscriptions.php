@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\EntitiesServices;
 
 use AmoCRM\Models\SubscriptionModel;
@@ -22,14 +20,14 @@ use AmoCRM\Helpers\EntityTypesInterface;
 use AmoCRM\Models\BaseApiModel;
 
 /**
- * @method null|SubscriptionsCollection getByParentId(int $parentId, BaseEntityFilter $filter = null, array $with = [])
+ * @method null|SubscriptionsCollection getByParentId($parentId, BaseEntityFilter $filter = null, array $with = [])
  */
 class EntitySubscriptions extends BaseEntityTypeEntity implements HasPageMethodsInterface, HasParentEntity
 {
     use PageMethodsTrait;
     use WithParentEntityMethodsTrait;
 
-    public const ITEM_CLASS = SubscriptionModel::class;
+    const ITEM_CLASS = SubscriptionModel::class;
 
     /** @var string */
     protected $methodWithParent = 'api/v' . AmoCRMApiClient::API_VERSION . '/%s/%d/' . EntityTypesInterface::SUBSCRIPTIONS;
@@ -42,7 +40,7 @@ class EntitySubscriptions extends BaseEntityTypeEntity implements HasPageMethods
      * @return string
      * @throws InvalidArgumentException
      */
-    protected function validateEntityType(string $entityType): string
+    protected function validateEntityType($entityType)
     {
         $availableTypes = [
             EntityTypesInterface::LEADS,
@@ -61,7 +59,7 @@ class EntitySubscriptions extends BaseEntityTypeEntity implements HasPageMethods
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -78,7 +76,7 @@ class EntitySubscriptions extends BaseEntityTypeEntity implements HasPageMethods
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -89,7 +87,7 @@ class EntitySubscriptions extends BaseEntityTypeEntity implements HasPageMethods
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -100,7 +98,7 @@ class EntitySubscriptions extends BaseEntityTypeEntity implements HasPageMethods
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -111,7 +109,7 @@ class EntitySubscriptions extends BaseEntityTypeEntity implements HasPageMethods
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -123,7 +121,7 @@ class EntitySubscriptions extends BaseEntityTypeEntity implements HasPageMethods
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -136,7 +134,7 @@ class EntitySubscriptions extends BaseEntityTypeEntity implements HasPageMethods
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function getOne($id, array $with = []): ?BaseApiModel
+    public function getOne($id, array $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -149,7 +147,7 @@ class EntitySubscriptions extends BaseEntityTypeEntity implements HasPageMethods
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function get(BaseEntityFilter $filter = null, array $with = []): ?BaseApiCollection
+    public function get(BaseEntityFilter $filter = null, array $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }

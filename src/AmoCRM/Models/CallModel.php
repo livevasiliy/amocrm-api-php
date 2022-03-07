@@ -73,7 +73,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public function fromArray(array $call): CallModel
+    public function fromArray(array $call)
     {
         $model = new static();
 
@@ -121,7 +121,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -148,7 +148,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         if (is_null($this->getRequestId()) && !is_null($requestId)) {
             $this->setRequestId($requestId);
@@ -192,7 +192,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -202,7 +202,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return CallModel
      */
-    public function setId(int $id): CallModel
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -212,7 +212,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getDirection(): ?string
+    public function getDirection()
     {
         return $this->direction;
     }
@@ -222,7 +222,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return CallModel
      */
-    public function setDirection(?string $direction): CallModel
+    public function setDirection($direction)
     {
         $this->direction = $direction;
 
@@ -232,7 +232,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getEntityId(): ?int
+    public function getEntityId()
     {
         return $this->entityId;
     }
@@ -242,7 +242,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return CallModel
      */
-    public function setEntityId(?int $entityId): CallModel
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
         return $this;
@@ -251,7 +251,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getEntityType(): ?string
+    public function getEntityType()
     {
         return $this->entityType;
     }
@@ -261,7 +261,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return CallModel
      */
-    public function setEntityType(?string $entityType): CallModel
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
@@ -271,7 +271,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @return BaseApiModel|null
      */
-    public function getEntity(): ?BaseApiModel
+    public function getEntity()
     {
         return $this->entity;
     }
@@ -281,7 +281,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return CallModel
      */
-    public function setEntity(?BaseApiModel $entity): CallModel
+    public function setEntity($entity)
     {
         $this->entity = $entity;
 
@@ -291,7 +291,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getResponsibleUserId(): ?int
+    public function getResponsibleUserId()
     {
         return $this->responsibleUserId;
     }
@@ -301,7 +301,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return CallModel
      */
-    public function setResponsibleUserId(int $responsibleUserId): CallModel
+    public function setResponsibleUserId($responsibleUserId)
     {
         $this->responsibleUserId = $responsibleUserId;
 
@@ -311,7 +311,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -321,7 +321,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return CallModel
      */
-    public function setCreatedBy(int $createdBy): CallModel
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -331,7 +331,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -341,7 +341,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return CallModel
      */
-    public function setUpdatedBy(int $updatedBy): CallModel
+    public function setUpdatedBy($updatedBy)
     {
         $this->updatedBy = $updatedBy;
 
@@ -351,7 +351,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -361,7 +361,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return CallModel
      */
-    public function setCreatedAt(int $createdAt): CallModel
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -371,7 +371,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -381,7 +381,7 @@ class CallModel extends BaseApiModel implements HasIdInterface
      *
      * @return CallModel
      */
-    public function setUpdatedAt(int $updatedAt): CallModel
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
 

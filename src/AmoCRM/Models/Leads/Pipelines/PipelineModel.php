@@ -60,7 +60,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return self
      */
-    public static function fromArray(array $pipeline): self
+    public static function fromArray(array $pipeline)
     {
         $model = new self();
 
@@ -79,7 +79,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -96,7 +96,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -106,7 +106,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return PipelineModel
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -116,7 +116,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -126,7 +126,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return PipelineModel
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -136,7 +136,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getSort(): ?int
+    public function getSort()
     {
         return $this->sort;
     }
@@ -144,7 +144,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return StatusesCollection
      */
-    public function getStatuses(): StatusesCollection
+    public function getStatuses()
     {
         return $this->statuses;
     }
@@ -153,7 +153,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param StatusesCollection $statuses
      * @return PipelineModel
      */
-    public function setStatuses(StatusesCollection $statuses): PipelineModel
+    public function setStatuses(StatusesCollection $statuses)
     {
         $this->statuses = $statuses;
 
@@ -164,7 +164,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param array $statuses
      * @return PipelineModel
      */
-    public function setStatusesFromArray(array $statuses): PipelineModel
+    public function setStatusesFromArray(array $statuses)
     {
         $statusesCollection = new StatusesCollection();
         if (!empty($statuses)) {
@@ -178,7 +178,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param StatusModel $status
      * @return PipelineModel
      */
-    public function addStatus(StatusModel $status): PipelineModel
+    public function addStatus(StatusModel $status)
     {
         $this->statuses->add($status);
 
@@ -190,7 +190,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return PipelineModel
      */
-    public function setSort(?int $sort): PipelineModel
+    public function setSort($sort)
     {
         $this->sort = $sort;
 
@@ -200,7 +200,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -210,7 +210,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return PipelineModel
      */
-    public function setAccountId(?int $accountId): PipelineModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -220,7 +220,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return bool|null
      */
-    public function getIsMain(): ?bool
+    public function getIsMain()
     {
         return $this->isMain;
     }
@@ -230,7 +230,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return PipelineModel
      */
-    public function setIsMain(?bool $isMain): PipelineModel
+    public function setIsMain($isMain)
     {
         $this->isMain = $isMain;
 
@@ -240,7 +240,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return bool|null
      */
-    public function getIsUnsortedOn(): ?bool
+    public function getIsUnsortedOn()
     {
         return $this->isUnsortedOn;
     }
@@ -250,7 +250,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return PipelineModel
      */
-    public function setIsUnsortedOn(?bool $isUnsortedOn): PipelineModel
+    public function setIsUnsortedOn($isUnsortedOn)
     {
         $this->isUnsortedOn = $isUnsortedOn;
 
@@ -260,7 +260,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return bool|null
      */
-    public function getIsArchive(): ?bool
+    public function getIsArchive()
     {
         return $this->isArchive;
     }
@@ -270,7 +270,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return PipelineModel
      */
-    public function setIsArchive(?bool $isArchive): PipelineModel
+    public function setIsArchive($isArchive)
     {
         $this->isArchive = $isArchive;
 
@@ -281,7 +281,7 @@ class PipelineModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 

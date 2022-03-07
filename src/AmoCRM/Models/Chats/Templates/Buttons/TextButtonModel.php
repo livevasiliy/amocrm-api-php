@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models\Chats\Templates\Buttons;
 
 use AmoCRM\Enum\Chats\Templates\Buttons\ButtonsEnums;
@@ -21,7 +19,7 @@ class TextButtonModel extends AbstractButtonModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'type' => ButtonsEnums::TYPE_TEXT,
@@ -32,7 +30,7 @@ class TextButtonModel extends AbstractButtonModel
     /**
      * @return string
      */
-    public function getText(): string
+    public function getText()
     {
         return $this->text;
     }
@@ -42,7 +40,7 @@ class TextButtonModel extends AbstractButtonModel
      *
      * @return TextButtonModel
      */
-    public function setText(string $text): TextButtonModel
+    public function setText($text)
     {
         $this->text = $text;
 

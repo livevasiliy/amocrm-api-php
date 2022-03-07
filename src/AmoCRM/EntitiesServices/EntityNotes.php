@@ -30,7 +30,7 @@ use AmoCRM\Models\NoteModel;
  * @method NoteModel updateOne(BaseApiModel $apiModel)
  * @method NotesCollection update(BaseApiCollection $collection)
  * @method NoteModel syncOne(BaseApiModel $apiModel, $with = [])
- * @method null|NotesCollection getByParentId(int $parentId, BaseEntityFilter $filter = null, array $with = [])
+ * @method null|NotesCollection getByParentId($parentId, BaseEntityFilter $filter = null, array $with = [])
  */
 class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterface, HasParentEntity
 {
@@ -50,7 +50,7 @@ class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterfac
     /**
      * @var NoteModel
      */
-    public const ITEM_CLASS = NoteModel::class;
+    const ITEM_CLASS = NoteModel::class;
 
     /**
      * @var string
@@ -63,7 +63,7 @@ class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterfac
      * @return string
      * @throws InvalidArgumentException
      */
-    protected function validateEntityType(string $entityType): string
+    protected function validateEntityType($entityType)
     {
         $availableTypes = [
             EntityTypesInterface::LEADS,
@@ -84,7 +84,7 @@ class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterfac
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -101,7 +101,7 @@ class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterfac
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -114,7 +114,7 @@ class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterfac
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -125,7 +125,7 @@ class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterfac
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -136,7 +136,7 @@ class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterfac
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -159,8 +159,9 @@ class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterfac
     /**
      * @param BaseApiModel|NoteModel $apiModel
      * @param array $entity
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);
@@ -180,7 +181,7 @@ class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterfac
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function getOne($id, array $with = []): ?BaseApiModel
+    public function getOne($id, array $with = [])
     {
         $queryParams = [];
         $class = static::ITEM_CLASS;
@@ -189,12 +190,13 @@ class EntityNotes extends BaseEntityTypeEntity implements HasPageMethodsInterfac
             $queryParams['with'] = implode(',', $with);
         }
 
-        $parentId = $id[HasParentEntity::PARENT_ID_KEY] ?? null;
-        $id = $id[HasParentEntity::ID_KEY] ?? null;
+        $parentId = isset($id[HasParentEntity::PARENT_ID_KEY]) ? $id[HasParentEntity::PARENT_ID_KEY] : null;
+        $id = isset($id[HasParentEntity::ID_KEY]) ? $id[HasParentEntity::ID_KEY] : null;
 
         $response = $this->request->get($this->getMethodWithParent($parentId, $id), $queryParams);
 
-        $collection = !empty($response) ? $this->collectionClass::fromArray([$response]) : null;
+        $notesCollection = NotesCollection::fromArray([$response]);
+        $collection = !empty($response) ? $notesCollection : null;
 
         return !empty($response) ? $collection->first() : null;
     }

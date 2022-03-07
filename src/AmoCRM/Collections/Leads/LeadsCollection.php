@@ -25,12 +25,12 @@ class LeadsCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = LeadModel::class;
+    const ITEM_CLASS = LeadModel::class;
 
     /**
      * @return null|array
      */
-    public function toComplexApi(): ?array
+    public function toComplexApi()
     {
         $result = [];
         /** @var LeadModel $item */

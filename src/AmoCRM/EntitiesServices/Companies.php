@@ -45,14 +45,14 @@ class Companies extends BaseEntity implements HasLinkMethodInterface, HasPageMet
     /**
      * @var string
      */
-    public const ITEM_CLASS = CompanyModel::class;
+    const ITEM_CLASS = CompanyModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -72,7 +72,7 @@ class Companies extends BaseEntity implements HasLinkMethodInterface, HasPageMet
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -85,7 +85,7 @@ class Companies extends BaseEntity implements HasLinkMethodInterface, HasPageMet
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -96,7 +96,7 @@ class Companies extends BaseEntity implements HasLinkMethodInterface, HasPageMet
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -107,7 +107,7 @@ class Companies extends BaseEntity implements HasLinkMethodInterface, HasPageMet
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -125,8 +125,10 @@ class Companies extends BaseEntity implements HasLinkMethodInterface, HasPageMet
     /**
      * @param BaseApiModel|CompanyModel $apiModel
      * @param array $entity
+     *
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);
@@ -140,7 +142,7 @@ class Companies extends BaseEntity implements HasLinkMethodInterface, HasPageMet
     /**
      * @return array
      */
-    protected function getAvailableLinkTypes(): array
+    protected function getAvailableLinkTypes()
     {
         return [
             EntityTypesInterface::CONTACTS,

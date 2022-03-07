@@ -37,14 +37,14 @@ class Calls extends BaseEntity
     /**
      * @var string
      */
-    public const ITEM_CLASS = CallModel::class;
+    const ITEM_CLASS = CallModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -62,7 +62,7 @@ class Calls extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -74,7 +74,7 @@ class Calls extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -86,7 +86,7 @@ class Calls extends BaseEntity
      * @return BaseApiCollection
      * @throws InvalidArgumentException
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -98,7 +98,7 @@ class Calls extends BaseEntity
      * @return BaseApiCollection
      * @throws InvalidArgumentException
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -119,7 +119,7 @@ class Calls extends BaseEntity
      *
      * @throws InvalidArgumentException
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         /** @var CallModel $apiModel */
         if (isset($entity['id'])) {
@@ -141,7 +141,7 @@ class Calls extends BaseEntity
      * @return BaseApiModel|null
      * @throws NotAvailableForActionException
      */
-    public function getOne($id, array $with = []): ?BaseApiModel
+    public function getOne($id, array $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -153,7 +153,7 @@ class Calls extends BaseEntity
      * @return BaseApiCollection|null
      * @throws NotAvailableForActionException
      */
-    public function get(BaseEntityFilter $filter = null, array $with = []): ?BaseApiCollection
+    public function get(BaseEntityFilter $filter = null, array $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -164,7 +164,7 @@ class Calls extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -175,7 +175,7 @@ class Calls extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -187,7 +187,7 @@ class Calls extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }

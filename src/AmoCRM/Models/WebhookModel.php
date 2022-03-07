@@ -58,7 +58,7 @@ class WebhookModel extends BaseApiModel
      * @param array $webhook
      * @return self
      */
-    public static function fromArray(array $webhook): self
+    public static function fromArray(array $webhook)
     {
         $model = new self();
 
@@ -78,7 +78,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -88,7 +88,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }
@@ -97,7 +97,7 @@ class WebhookModel extends BaseApiModel
      * @param string $id
      * @return WebhookModel
      */
-    public function setId(string $id): WebhookModel
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -107,7 +107,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getDestination(): string
+    public function getDestination()
     {
         return $this->destination;
     }
@@ -116,7 +116,7 @@ class WebhookModel extends BaseApiModel
      * @param string $destination
      * @return WebhookModel
      */
-    public function setDestination(string $destination): WebhookModel
+    public function setDestination($destination)
     {
         $this->destination = $destination;
 
@@ -126,7 +126,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -135,7 +135,7 @@ class WebhookModel extends BaseApiModel
      * @param int|null $createdAt
      * @return WebhookModel
      */
-    public function setCreatedAt(?int $createdAt): WebhookModel
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -145,7 +145,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -154,7 +154,7 @@ class WebhookModel extends BaseApiModel
      * @param int|null $updatedAt
      * @return WebhookModel
      */
-    public function setUpdatedAt(?int $updatedAt): WebhookModel
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
 
@@ -164,7 +164,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -173,7 +173,7 @@ class WebhookModel extends BaseApiModel
      * @param int|null $createdBy
      * @return WebhookModel
      */
-    public function setCreatedBy(?int $createdBy): WebhookModel
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -183,7 +183,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -192,7 +192,7 @@ class WebhookModel extends BaseApiModel
      * @param int|null $accountId
      * @return WebhookModel
      */
-    public function setAccountId(?int $accountId): WebhookModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -202,7 +202,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getSort(): ?int
+    public function getSort()
     {
         return $this->sort;
     }
@@ -211,7 +211,7 @@ class WebhookModel extends BaseApiModel
      * @param int|null $sort
      * @return WebhookModel
      */
-    public function setSort(?int $sort): WebhookModel
+    public function setSort($sort)
     {
         $this->sort = $sort;
 
@@ -221,7 +221,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @return bool|null
      */
-    public function getDisabled(): ?bool
+    public function getDisabled()
     {
         return $this->disabled;
     }
@@ -230,7 +230,7 @@ class WebhookModel extends BaseApiModel
      * @param bool|null $disabled
      * @return WebhookModel
      */
-    public function setDisabled(?bool $disabled): WebhookModel
+    public function setDisabled($disabled)
     {
         $this->disabled = $disabled;
 
@@ -240,7 +240,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @return array|null
      */
-    public function getSettings(): ?array
+    public function getSettings()
     {
         return $this->settings;
     }
@@ -249,7 +249,7 @@ class WebhookModel extends BaseApiModel
      * @param array|null $settings
      * @return WebhookModel
      */
-    public function setSettings(?array $settings): WebhookModel
+    public function setSettings($settings)
     {
         $this->settings = $settings;
 
@@ -260,7 +260,7 @@ class WebhookModel extends BaseApiModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -282,7 +282,7 @@ class WebhookModel extends BaseApiModel
     /**
      * @return array
      */
-    public function toUnsubscribeApi(): array
+    public function toUnsubscribeApi()
     {
         $result = [];
 

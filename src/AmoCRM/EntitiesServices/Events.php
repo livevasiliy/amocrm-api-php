@@ -39,14 +39,14 @@ class Events extends BaseEntity implements HasPageMethodsInterface
     /**
      * @var string
      */
-    public const ITEM_CLASS = EventModel::class;
+    const ITEM_CLASS = EventModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -63,7 +63,7 @@ class Events extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -74,7 +74,7 @@ class Events extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -85,7 +85,7 @@ class Events extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -96,7 +96,7 @@ class Events extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -108,7 +108,7 @@ class Events extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }

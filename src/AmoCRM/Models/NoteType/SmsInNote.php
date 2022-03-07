@@ -8,7 +8,7 @@ class SmsInNote extends SmsNote
 {
     protected $modelClass = SmsInNote::class;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_SMS_IN;
     }

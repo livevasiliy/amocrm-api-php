@@ -20,7 +20,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
 {
     use RequestIdTrait;
 
-    public const SEGMENT_COLORS = [
+    const SEGMENT_COLORS = [
         '10599d',
         '2176ff',
         '006acc',
@@ -108,7 +108,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public static function fromArray(array $segment): self
+    public static function fromArray(array $segment)
     {
         if (empty($segment['id'])) {
             throw new InvalidArgumentException('Segment id is empty in ' . json_encode($segment));
@@ -153,7 +153,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -172,7 +172,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -181,7 +181,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
      * @param int $id
      * @return SegmentModel
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -191,7 +191,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|string
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -200,7 +200,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
      * @param string $name
      * @return SegmentModel
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -211,7 +211,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -248,7 +248,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -258,7 +258,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public function setCreatedAt(int $timestamp): self
+    public function setCreatedAt($timestamp)
     {
         $this->createdAt = $timestamp;
 
@@ -268,7 +268,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -278,7 +278,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public function setUpdatedAt(int $timestamp): self
+    public function setUpdatedAt($timestamp)
     {
         $this->updatedAt = $timestamp;
 
@@ -286,7 +286,10 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
     }
 
 
-    public static function getAvailableWith(): array
+    /**
+     * @return array
+     */
+    public static function getAvailableWith()
     {
         return [];
     }
@@ -294,7 +297,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|string
      */
-    public function getColor(): ?string
+    public function getColor()
     {
         return $this->color;
     }
@@ -303,7 +306,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
      * @param string $color
      * @return SegmentModel
      */
-    public function setColor(string $color): self
+    public function setColor($color)
     {
         if (!in_array($color, self::SEGMENT_COLORS, true)) {
             $color = '10599d';
@@ -317,7 +320,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int
      */
-    public function getCustomersCount(): ?int
+    public function getCustomersCount()
     {
         return $this->customersCount;
     }
@@ -326,7 +329,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
      * @param int $customersCount
      * @return SegmentModel
      */
-    public function setCustomersCount(int $customersCount): self
+    public function setCustomersCount($customersCount)
     {
         $this->customersCount = $customersCount;
 
@@ -336,7 +339,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
     /**
      * @return CustomFieldsValuesCollection|null
      */
-    public function getCustomFieldsValues(): ?CustomFieldsValuesCollection
+    public function getCustomFieldsValues()
     {
         return $this->customFieldsValues;
     }
@@ -346,7 +349,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public function setCustomFieldsValues(?CustomFieldsValuesCollection $values): self
+    public function setCustomFieldsValues($values)
     {
         $this->customFieldsValues = $values;
 
@@ -356,7 +359,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|array
      */
-    public function getAvailableProductsPriceTypes(): ?array
+    public function getAvailableProductsPriceTypes()
     {
         return $this->availableProductsPriceTypes;
     }
@@ -365,7 +368,7 @@ class SegmentModel extends BaseApiModel implements HasIdInterface
      * @param null|array $availableProductsPriceTypes
      * @return SegmentModel
      */
-    public function setAvailableProductsPriceTypes(?array $availableProductsPriceTypes): self
+    public function setAvailableProductsPriceTypes($availableProductsPriceTypes)
     {
         $this->availableProductsPriceTypes = $availableProductsPriceTypes;
 

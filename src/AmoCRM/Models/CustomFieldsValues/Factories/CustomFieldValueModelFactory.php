@@ -43,9 +43,9 @@ class CustomFieldValueModelFactory
      *
      * @return BaseCustomFieldValueModel
      */
-    public static function createModel(array $field): BaseCustomFieldValueModel
+    public static function createModel(array $field)
     {
-        $fieldType = $field['field_type'] ?? null;
+        $fieldType = isset($field['field_type']) ? $field['field_type'] : null;
 
         switch ($fieldType) {
             case CustomFieldHelper::FIELD_TYPE_CODE_BIRTHDAY:

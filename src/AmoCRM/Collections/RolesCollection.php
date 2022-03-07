@@ -24,5 +24,5 @@ class RolesCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = RoleModel::class;
+    const ITEM_CLASS = RoleModel::class;
 }

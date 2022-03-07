@@ -15,5 +15,5 @@ use AmoCRM\Models\CustomFieldsValues\ValueModels\BaseCustomFieldValueModel;
  */
 class BaseCustomFieldValueCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = BaseCustomFieldValueModel::class;
+    const ITEM_CLASS = BaseCustomFieldValueModel::class;
 }

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Collections;
 
 use AmoCRM\Models\SubscriptionModel;
@@ -23,5 +21,5 @@ class SubscriptionsCollection extends BaseApiCollection implements HasPagesInter
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = SubscriptionModel::class;
+    const ITEM_CLASS = SubscriptionModel::class;
 }

@@ -8,7 +8,6 @@ use Illuminate\Contracts\Support\Arrayable;
 
 class SourceServiceModel extends BaseApiModel implements Arrayable
 {
-
     /**
      * @var string
      */
@@ -20,17 +19,17 @@ class SourceServiceModel extends BaseApiModel implements Arrayable
     protected $pages;
 
 
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data)
     {
         $service = new static();
 
-        $service->setType($data['type'] ?? '');
-        $service->setPages(SourceServicesPagesCollection::fromArray((array)($data['pages'] ?? [])));
+        $service->setType(isset($data['type']) ? $data['type'] : '');
+        $service->setPages(SourceServicesPagesCollection::fromArray((array)(isset($data['pages']) ? $data['pages'] : [])));
 
         return $service;
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'type'  => $this->getType(),
@@ -38,7 +37,7 @@ class SourceServiceModel extends BaseApiModel implements Arrayable
         ];
     }
 
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return $this->toArray();
     }
@@ -46,7 +45,7 @@ class SourceServiceModel extends BaseApiModel implements Arrayable
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -54,7 +53,7 @@ class SourceServiceModel extends BaseApiModel implements Arrayable
     /**
      * @param  string  $type
      */
-    public function setType(string $type): void
+    public function setType($type)
     {
         $this->type = $type;
     }
@@ -62,7 +61,7 @@ class SourceServiceModel extends BaseApiModel implements Arrayable
     /**
      * @return \AmoCRM\Collections\Sources\SourceServicesPagesCollection
      */
-    public function getPages(): SourceServicesPagesCollection
+    public function getPages()
     {
         if (is_null($this->pages)) {
             $this->pages = new SourceServicesPagesCollection();
@@ -74,7 +73,7 @@ class SourceServiceModel extends BaseApiModel implements Arrayable
     /**
      * @param  \AmoCRM\Collections\Sources\SourceServicesPagesCollection  $pages
      */
-    public function setPages(SourceServicesPagesCollection $pages): void
+    public function setPages(SourceServicesPagesCollection $pages)
     {
         $this->pages = $pages;
     }

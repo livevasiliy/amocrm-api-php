@@ -17,12 +17,12 @@ interface HasDeleteMethodInterface
      *
      * @return bool
      */
-    public function deleteOne(BaseApiModel $model): bool;
+    public function deleteOne(BaseApiModel $model);
 
     /**
      * @param BaseApiCollection $collection
      *
      * @return bool
      */
-    public function delete(BaseApiCollection $collection): bool;
+    public function delete(BaseApiCollection $collection);
 }

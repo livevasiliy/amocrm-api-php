@@ -7,7 +7,6 @@ use Illuminate\Contracts\Support\Arrayable;
 
 class SourceServicePageModel extends BaseApiModel implements Arrayable
 {
-
     /**
      * @var string
      */
@@ -23,18 +22,18 @@ class SourceServicePageModel extends BaseApiModel implements Arrayable
      */
     protected $link = '';
 
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data)
     {
         $page = new static();
 
-        $page->setId($data['id'] ?? '');
-        $page->setName($data['name'] ?? '');
-        $page->setLink($data['link'] ?? '');
+        $page->setId(isset($data['id']) ? $data['id'] : '');
+        $page->setName(isset($data['name']) ? $data['name'] : '');
+        $page->setLink(isset($data['link']) ? $data['link'] : '');
 
         return $page;
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id'   => $this->getId(),
@@ -43,7 +42,7 @@ class SourceServicePageModel extends BaseApiModel implements Arrayable
         ];
     }
 
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return $this->toArray();
     }
@@ -51,7 +50,7 @@ class SourceServicePageModel extends BaseApiModel implements Arrayable
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }
@@ -59,7 +58,7 @@ class SourceServicePageModel extends BaseApiModel implements Arrayable
     /**
      * @param  string  $id
      */
-    public function setId(string $id): void
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -67,7 +66,7 @@ class SourceServicePageModel extends BaseApiModel implements Arrayable
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -75,7 +74,7 @@ class SourceServicePageModel extends BaseApiModel implements Arrayable
     /**
      * @param  string  $name
      */
-    public function setName(string $name): void
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -83,7 +82,7 @@ class SourceServicePageModel extends BaseApiModel implements Arrayable
     /**
      * @return string
      */
-    public function getLink(): string
+    public function getLink()
     {
         return $this->link;
     }
@@ -91,7 +90,7 @@ class SourceServicePageModel extends BaseApiModel implements Arrayable
     /**
      * @param  string  $link
      */
-    public function setLink(string $link): void
+    public function setLink($link)
     {
         $this->link = $link;
     }

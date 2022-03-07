@@ -21,5 +21,5 @@ use AmoCRM\Models\AccountSettings\TaskType;
  */
 class TaskTypesCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = TaskType::class;
+    const ITEM_CLASS = TaskType::class;
 }

@@ -53,14 +53,14 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
     /**
      * @var string
      */
-    public const ITEM_CLASS = BaseUnsortedModel::class;
+    const ITEM_CLASS = BaseUnsortedModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -77,7 +77,7 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
      * @param array $response
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -88,7 +88,7 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -112,7 +112,7 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function accept(BaseApiModel $unsortedModel, $body = []): AcceptUnsortedModel
+    public function accept(BaseApiModel $unsortedModel, $body = [])
     {
         $response = $this->request->post($this->getMethod() . '/' . $unsortedModel->getUid() . '/accept', $body);
 
@@ -168,7 +168,7 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function summary(BaseEntityFilter $filter): UnsortedSummaryModel
+    public function summary(BaseEntityFilter $filter)
     {
         $queryParams = [];
         if ($filter instanceof BaseEntityFilter) {
@@ -185,8 +185,10 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
      * @param array $entity
      *
      * @throws InvalidArgumentException
+     *
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['uid'])) {
             $apiModel->setUid($entity['uid']);
@@ -225,7 +227,7 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         if (
             !$collection->getCategory() ||
@@ -245,14 +247,14 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
     }
 
     /**
-     * Добавление сщуности
+     * Добавление сущности
      * @param BaseApiModel|BaseUnsortedModel|SipUnsortedModel|FormUnsortedModel $model
      *
-     * @return BaseApiModel|BaseUnsortedModel
+     * @return BaseApiModel|null
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         if (
             !$model->getCategory() ||
@@ -290,7 +292,7 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -301,7 +303,7 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -310,11 +312,11 @@ class Unsorted extends BaseEntity implements HasPageMethodsInterface
      * @param BaseApiModel $apiModel
      * @param array $with
      *
-     * @return BaseUnsortedModel
+     * @return BaseApiModel
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         /** @var BaseUnsortedModel $apiModel */
         return $this->mergeModels($this->getOne($apiModel->getUid(), $with), $apiModel);

@@ -25,5 +25,5 @@ class CustomersCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = CustomerModel::class;
+    const ITEM_CLASS = CustomerModel::class;
 }

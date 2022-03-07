@@ -21,12 +21,12 @@ use AmoCRM\Models\Unsorted\SipUnsortedModel;
  */
 class SipUnsortedCollection extends UnsortedCollection
 {
-    public const ITEM_CLASS = SipUnsortedModel::class;
+    const ITEM_CLASS = SipUnsortedModel::class;
 
     /**
      * @return null|string
      */
-    public function getCategory(): ?string
+    public function getCategory()
     {
         return BaseUnsortedModel::CATEGORY_CODE_SIP;
     }

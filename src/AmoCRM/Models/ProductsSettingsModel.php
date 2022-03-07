@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models;
 
 use function is_null;
@@ -19,7 +17,7 @@ class ProductsSettingsModel extends BaseApiModel
     /**
      * @return bool|null
      */
-    public function isEnabled(): ?bool
+    public function isEnabled()
     {
         return $this->isEnabled;
     }
@@ -29,7 +27,7 @@ class ProductsSettingsModel extends BaseApiModel
      *
      * @return ProductsSettingsModel
      */
-    public function setIsEnabled(bool $isEnabled): ProductsSettingsModel
+    public function setIsEnabled($isEnabled)
     {
         $this->isEnabled = $isEnabled;
 
@@ -40,7 +38,7 @@ class ProductsSettingsModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'is_enabled' => $this->isEnabled(),
@@ -52,7 +50,7 @@ class ProductsSettingsModel extends BaseApiModel
      *
      * @return ProductsSettingsModel
      */
-    public static function fromArray(array $settings): ProductsSettingsModel
+    public static function fromArray(array $settings)
     {
         $model = new self();
 
@@ -65,7 +63,7 @@ class ProductsSettingsModel extends BaseApiModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 

@@ -42,7 +42,7 @@ class SocialProfileModel extends BaseApiModel
      *
      * @return self
      */
-    public static function fromArray(array $socialProfile): self
+    public static function fromArray(array $socialProfile)
     {
         $model = new static();
 
@@ -59,7 +59,7 @@ class SocialProfileModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getId(): ?string
+    public function getId()
     {
         return $this->id;
     }
@@ -69,7 +69,7 @@ class SocialProfileModel extends BaseApiModel
      *
      * @return SocialProfileModel
      */
-    public function setId(?string $id): SocialProfileModel
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -79,7 +79,7 @@ class SocialProfileModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -89,7 +89,7 @@ class SocialProfileModel extends BaseApiModel
      *
      * @return SocialProfileModel
      */
-    public function setName(?string $name): SocialProfileModel
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -99,7 +99,7 @@ class SocialProfileModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getAvatar(): ?string
+    public function getAvatar()
     {
         return $this->avatar;
     }
@@ -109,7 +109,7 @@ class SocialProfileModel extends BaseApiModel
      *
      * @return SocialProfileModel
      */
-    public function setAvatar(?string $avatar): SocialProfileModel
+    public function setAvatar($avatar)
     {
         $this->avatar = $avatar;
 
@@ -119,7 +119,7 @@ class SocialProfileModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getSourceName(): ?string
+    public function getSourceName()
     {
         return $this->sourceName;
     }
@@ -129,7 +129,7 @@ class SocialProfileModel extends BaseApiModel
      *
      * @return SocialProfileModel
      */
-    public function setSourceName(?string $sourceName): SocialProfileModel
+    public function setSourceName($sourceName)
     {
         $this->sourceName = $sourceName;
 
@@ -139,7 +139,7 @@ class SocialProfileModel extends BaseApiModel
     /**
      * @return array|null
      */
-    public function getData(): ?array
+    public function getData()
     {
         return $this->data;
     }
@@ -149,7 +149,7 @@ class SocialProfileModel extends BaseApiModel
      *
      * @return SocialProfileModel
      */
-    public function setData(?array $data): SocialProfileModel
+    public function setData($data)
     {
         $this->data = $data;
 
@@ -159,7 +159,7 @@ class SocialProfileModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -175,7 +175,7 @@ class SocialProfileModel extends BaseApiModel
      * @return array
      * @throws NotAvailableForActionException
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         throw new NotAvailableForActionException();
     }

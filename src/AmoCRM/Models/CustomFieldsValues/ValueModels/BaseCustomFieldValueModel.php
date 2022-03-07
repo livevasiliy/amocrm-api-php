@@ -21,12 +21,12 @@ class BaseCustomFieldValueModel extends BaseApiModel
      *
      * @return BaseCustomFieldValueModel
      */
-    public static function fromArray($value): BaseCustomFieldValueModel
+    public static function fromArray($value)
     {
         $model = new static();
 
         $model
-            ->setValue($value['value'] ?? null);
+            ->setValue(isset($value['value']) ? $value['value'] : null);
 
         return $model;
     }
@@ -44,21 +44,21 @@ class BaseCustomFieldValueModel extends BaseApiModel
      *
      * @return BaseCustomFieldValueModel
      */
-    public function setValue($value): BaseCustomFieldValueModel
+    public function setValue($value)
     {
         $this->value = $value;
 
         return $this;
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'value' => $this->getValue(),
         ];
     }
 
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return [
             'value' => $this->getValue(),

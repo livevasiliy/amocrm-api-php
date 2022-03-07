@@ -43,14 +43,14 @@ class Statuses extends BaseEntityIdEntity implements HasDeleteMethodInterface
     /**
      * @var string
      */
-    public const ITEM_CLASS = StatusModel::class;
+    const ITEM_CLASS = StatusModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -67,7 +67,7 @@ class Statuses extends BaseEntityIdEntity implements HasDeleteMethodInterface
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -78,7 +78,7 @@ class Statuses extends BaseEntityIdEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -91,7 +91,7 @@ class Statuses extends BaseEntityIdEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -102,7 +102,7 @@ class Statuses extends BaseEntityIdEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -120,8 +120,10 @@ class Statuses extends BaseEntityIdEntity implements HasDeleteMethodInterface
     /**
      * @param BaseApiModel|StatusModel $apiModel
      * @param array $entity
+     *
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);
@@ -143,7 +145,7 @@ class Statuses extends BaseEntityIdEntity implements HasDeleteMethodInterface
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function deleteOne(BaseApiModel $model): bool
+    public function deleteOne(BaseApiModel $model)
     {
         $result = $this->request->delete($this->getMethod() . '/' . $model->getId());
 
@@ -156,7 +158,7 @@ class Statuses extends BaseEntityIdEntity implements HasDeleteMethodInterface
      * @return bool
      * @throws NotAvailableForActionException
      */
-    public function delete(BaseApiCollection $collection): bool
+    public function delete(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('This entity supports only deleteOne method');
     }
@@ -170,7 +172,7 @@ class Statuses extends BaseEntityIdEntity implements HasDeleteMethodInterface
      * @throws AmoCRMoAuthApiException
      * @throws Exception
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         $this->setEntityId($apiModel->getPipelineId());
 

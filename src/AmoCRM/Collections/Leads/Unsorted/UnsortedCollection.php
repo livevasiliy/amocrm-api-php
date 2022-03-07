@@ -25,12 +25,12 @@ class UnsortedCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = BaseUnsortedModel::class;
+    const ITEM_CLASS = BaseUnsortedModel::class;
 
     /**
      * @return null|string
      */
-    public function getCategory(): ?string
+    public function getCategory()
     {
         return null;
     }

@@ -14,7 +14,7 @@ class ItemsCustomFieldValuesModel extends BaseCustomFieldValuesModel
     /**
      * @return string
      */
-    public function getFieldType(): string
+    public function getFieldType()
     {
         return CustomFieldModel::TYPE_ITEMS;
     }

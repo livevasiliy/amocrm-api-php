@@ -42,14 +42,14 @@ class Tasks extends BaseEntity implements HasPageMethodsInterface
     /**
      * @var string
      */
-    public const ITEM_CLASS = TaskModel::class;
+    const ITEM_CLASS = TaskModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -65,7 +65,7 @@ class Tasks extends BaseEntity implements HasPageMethodsInterface
      * @param array $response
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -77,7 +77,7 @@ class Tasks extends BaseEntity implements HasPageMethodsInterface
      * @param array $response
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -87,7 +87,7 @@ class Tasks extends BaseEntity implements HasPageMethodsInterface
      * @param array $response
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -98,7 +98,7 @@ class Tasks extends BaseEntity implements HasPageMethodsInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -117,7 +117,7 @@ class Tasks extends BaseEntity implements HasPageMethodsInterface
      * @param BaseApiModel|TaskModel $apiModel
      * @param array $entity
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);

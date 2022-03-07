@@ -28,7 +28,7 @@ class LinkModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getToEntityId(): ?int
+    public function getToEntityId()
     {
         return $this->toEntityId;
     }
@@ -38,7 +38,7 @@ class LinkModel extends BaseApiModel
      *
      * @return LinkModel
      */
-    public function setToEntityId(?int $toEntityId): LinkModel
+    public function setToEntityId($toEntityId)
     {
         $this->toEntityId = $toEntityId;
 
@@ -48,7 +48,7 @@ class LinkModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getToEntityType(): ?string
+    public function getToEntityType()
     {
         return $this->toEntityType;
     }
@@ -58,7 +58,7 @@ class LinkModel extends BaseApiModel
      *
      * @return LinkModel
      */
-    public function setToEntityType(?string $toEntityType): LinkModel
+    public function setToEntityType($toEntityType)
     {
         $this->toEntityType = $toEntityType;
 
@@ -68,7 +68,7 @@ class LinkModel extends BaseApiModel
     /**
      * @return array|null
      */
-    public function getMetadata(): ?array
+    public function getMetadata()
     {
         return $this->metadata;
     }
@@ -78,31 +78,31 @@ class LinkModel extends BaseApiModel
      *
      * @return LinkModel
      */
-    public function setMetadata(?array $metadata): LinkModel
+    public function setMetadata($metadata)
     {
         $this->metadata = $metadata;
 
         return $this;
     }
 
-    public function getEntityId(): ?int
+    public function getEntityId()
     {
         return $this->entityId;
     }
 
-    public function setEntityId(?int $entityId): self
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
 
         return $this;
     }
 
-    public function getEntityType(): ?string
+    public function getEntityType()
     {
         return $this->entityType;
     }
 
-    public function setEntityType(?string $entityType): self
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
@@ -114,16 +114,16 @@ class LinkModel extends BaseApiModel
      *
      * @return self
      */
-    public static function fromArray(array $link): self
+    public static function fromArray(array $link)
     {
         $model = new self();
 
         $model
-            ->setEntityId($link['entity_id'] ?? null)
-            ->setEntityType($link['entity_type'] ?? null)
-            ->setToEntityType($link['to_entity_type'] ?? null)
-            ->setToEntityId($link['to_entity_id'] ?? null)
-            ->setMetadata($link['metadata'] ?? null);
+            ->setEntityId(isset($link['entity_id']) ? $link['entity_id'] : null)
+            ->setEntityType(isset($link['entity_type']) ? $link['entity_type'] : null)
+            ->setToEntityType(isset($link['to_entity_type']) ? $link['to_entity_type'] : null)
+            ->setToEntityId(isset($link['to_entity_id']) ? $link['to_entity_id'] : null)
+            ->setMetadata(isset($link['metadata']) ? $link['metadata'] : null);
 
         return $model;
     }
@@ -131,7 +131,7 @@ class LinkModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'entity_type' => $this->getEntityType(),
@@ -142,7 +142,7 @@ class LinkModel extends BaseApiModel
         ];
     }
 
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return $this->toArray();
     }

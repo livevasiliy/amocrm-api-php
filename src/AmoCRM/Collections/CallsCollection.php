@@ -24,5 +24,5 @@ class CallsCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = CallModel::class;
+    const ITEM_CLASS = CallModel::class;
 }

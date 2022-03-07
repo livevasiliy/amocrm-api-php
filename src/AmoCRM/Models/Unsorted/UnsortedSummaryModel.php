@@ -35,7 +35,7 @@ class UnsortedSummaryModel implements Arrayable
      * @param array $summary
      * @return self
      */
-    public static function fromArray(array $summary): self
+    public static function fromArray(array $summary)
     {
         $model = new self();
 
@@ -51,7 +51,7 @@ class UnsortedSummaryModel implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'total' => $this->getTotal(),
@@ -65,7 +65,7 @@ class UnsortedSummaryModel implements Arrayable
     /**
      * @return int
      */
-    public function getTotal(): int
+    public function getTotal()
     {
         return $this->total;
     }
@@ -74,7 +74,7 @@ class UnsortedSummaryModel implements Arrayable
      * @param int $total
      * @return UnsortedSummaryModel
      */
-    public function setTotal(int $total): UnsortedSummaryModel
+    public function setTotal($total)
     {
         $this->total = $total;
 
@@ -84,7 +84,7 @@ class UnsortedSummaryModel implements Arrayable
     /**
      * @return int
      */
-    public function getAccepted(): int
+    public function getAccepted()
     {
         return $this->accepted;
     }
@@ -93,7 +93,7 @@ class UnsortedSummaryModel implements Arrayable
      * @param int $accepted
      * @return UnsortedSummaryModel
      */
-    public function setAccepted(int $accepted): UnsortedSummaryModel
+    public function setAccepted($accepted)
     {
         $this->accepted = $accepted;
 
@@ -103,7 +103,7 @@ class UnsortedSummaryModel implements Arrayable
     /**
      * @return int
      */
-    public function getDeclined(): int
+    public function getDeclined()
     {
         return $this->declined;
     }
@@ -112,7 +112,7 @@ class UnsortedSummaryModel implements Arrayable
      * @param int $declined
      * @return UnsortedSummaryModel
      */
-    public function setDeclined(int $declined): UnsortedSummaryModel
+    public function setDeclined($declined)
     {
         $this->declined = $declined;
 
@@ -122,7 +122,7 @@ class UnsortedSummaryModel implements Arrayable
     /**
      * @return int
      */
-    public function getAverageSortTime(): int
+    public function getAverageSortTime()
     {
         return $this->averageSortTime;
     }
@@ -131,7 +131,7 @@ class UnsortedSummaryModel implements Arrayable
      * @param int $averageSortTime
      * @return UnsortedSummaryModel
      */
-    public function setAverageSortTime(int $averageSortTime): UnsortedSummaryModel
+    public function setAverageSortTime($averageSortTime)
     {
         $this->averageSortTime = $averageSortTime;
 
@@ -141,7 +141,7 @@ class UnsortedSummaryModel implements Arrayable
     /**
      * @return array
      */
-    public function getCategories(): array
+    public function getCategories()
     {
         return $this->categories;
     }
@@ -150,7 +150,7 @@ class UnsortedSummaryModel implements Arrayable
      * @param array $categories
      * @return UnsortedSummaryModel
      */
-    public function setCategories(array $categories): UnsortedSummaryModel
+    public function setCategories(array $categories)
     {
         $this->categories = $categories;
 

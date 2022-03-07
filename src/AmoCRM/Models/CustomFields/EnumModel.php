@@ -32,7 +32,7 @@ class EnumModel extends BaseApiModel implements Arrayable
      *
      * @return self
      */
-    public static function fromArray(array $enum): self
+    public static function fromArray(array $enum)
     {
         $model = new self();
 
@@ -47,7 +47,7 @@ class EnumModel extends BaseApiModel implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -59,7 +59,7 @@ class EnumModel extends BaseApiModel implements Arrayable
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -69,7 +69,7 @@ class EnumModel extends BaseApiModel implements Arrayable
      *
      * @return EnumModel
      */
-    public function setId(int $id): EnumModel
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -79,7 +79,7 @@ class EnumModel extends BaseApiModel implements Arrayable
     /**
      * @return string
      */
-    public function getValue(): string
+    public function getValue()
     {
         return $this->value;
     }
@@ -89,7 +89,7 @@ class EnumModel extends BaseApiModel implements Arrayable
      *
      * @return EnumModel
      */
-    public function setValue(string $value): EnumModel
+    public function setValue($value)
     {
         $this->value = $value;
 
@@ -99,7 +99,7 @@ class EnumModel extends BaseApiModel implements Arrayable
     /**
      * @return int
      */
-    public function getSort(): int
+    public function getSort()
     {
         return $this->sort;
     }
@@ -109,7 +109,7 @@ class EnumModel extends BaseApiModel implements Arrayable
      *
      * @return EnumModel
      */
-    public function setSort(int $sort): EnumModel
+    public function setSort($sort)
     {
         $this->sort = $sort;
 
@@ -120,7 +120,7 @@ class EnumModel extends BaseApiModel implements Arrayable
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [
             'value' => $this->getValue(),

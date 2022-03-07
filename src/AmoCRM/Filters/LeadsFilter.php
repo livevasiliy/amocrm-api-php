@@ -297,7 +297,7 @@ class LeadsFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return array|null
      */
-    public function getStatuses(): ?array
+    public function getStatuses()
     {
         return $this->statuses;
     }
@@ -307,7 +307,7 @@ class LeadsFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return LeadsFilter
      */
-    public function setStatuses(?array $statuses): LeadsFilter
+    public function setStatuses($statuses)
     {
         $statusesFilter = [];
 
@@ -330,7 +330,7 @@ class LeadsFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return array|null
      */
-    public function getPipelineIds(): ?array
+    public function getPipelineIds()
     {
         return $this->pipelineIds;
     }
@@ -340,7 +340,7 @@ class LeadsFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return LeadsFilter
      */
-    public function setPipelineIds($pipelineIds): LeadsFilter
+    public function setPipelineIds($pipelineIds)
     {
         if (!is_array($pipelineIds)) {
             $pipelineIds = [$pipelineIds];
@@ -365,7 +365,7 @@ class LeadsFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return array|null
      */
-    public function getCustomFieldsValues(): ?array
+    public function getCustomFieldsValues()
     {
         return $this->customFieldsValues;
     }
@@ -375,7 +375,7 @@ class LeadsFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return LeadsFilter
      */
-    public function setCustomFieldsValues(?array $customFieldsValues): LeadsFilter
+    public function setCustomFieldsValues($customFieldsValues)
     {
         $cfFilter = [];
 
@@ -395,7 +395,7 @@ class LeadsFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return string|null
      */
-    public function getQuery(): ?string
+    public function getQuery()
     {
         return $this->query;
     }
@@ -405,7 +405,7 @@ class LeadsFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return LeadsFilter
      */
-    public function setQuery(?string $query): self
+    public function setQuery($query)
     {
         if (!empty($query)) {
             $this->query = (string)$query;
@@ -417,7 +417,7 @@ class LeadsFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

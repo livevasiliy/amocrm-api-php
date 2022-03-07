@@ -12,24 +12,24 @@ use AmoCRM\Models\BaseApiModel;
  */
 class RightModel extends BaseApiModel
 {
-    public const RIGHTS_DENIED = 'D'; //D - Deny
-    public const RIGHTS_FULL = 'A'; //A - Allow
-    public const RIGHTS_GROUP = 'G'; //G - Group
-    public const RIGHTS_LINKED = 'L'; //L - Linked
-    public const RIGHTS_ONLY_RESPONSIBLE = 'M'; //M - Main
+    const RIGHTS_DENIED = 'D'; //D - Deny
+    const RIGHTS_FULL = 'A'; //A - Allow
+    const RIGHTS_GROUP = 'G'; //G - Group
+    const RIGHTS_LINKED = 'L'; //L - Linked
+    const RIGHTS_ONLY_RESPONSIBLE = 'M'; //M - Main
 
-    public const ACTION_ADD = 'add';
-    public const ACTION_EDIT = 'edit';
-    public const ACTION_VIEW = 'view';
-    public const ACTION_DELETE = 'delete';
-    public const ACTION_EXPORT = 'export';
+    const ACTION_ADD = 'add';
+    const ACTION_EDIT = 'edit';
+    const ACTION_VIEW = 'view';
+    const ACTION_DELETE = 'delete';
+    const ACTION_EXPORT = 'export';
 
-    protected const ADD_PERMISSIONS = [
+    const ADD_PERMISSIONS = [
         self::RIGHTS_FULL,
         self::RIGHTS_DENIED,
     ];
 
-    protected const TYPE_ACTIONS = [
+    const TYPE_ACTIONS = [
         EntityTypesInterface::TASKS => [
             self::ACTION_EDIT,
             self::ACTION_DELETE,
@@ -70,7 +70,7 @@ class RightModel extends BaseApiModel
         ]
     ];
 
-    protected const TYPE_PERMISSIONS = [
+    const TYPE_PERMISSIONS = [
         EntityTypesInterface::TASKS => [
             self::RIGHTS_FULL,
             self::RIGHTS_DENIED,
@@ -106,7 +106,7 @@ class RightModel extends BaseApiModel
         ],
     ];
 
-    protected const ACTION_DEPENDENCIES = [
+    const ACTION_DEPENDENCIES = [
         self::ACTION_ADD    => [],
         self::ACTION_VIEW   => [],
         self::ACTION_EDIT   => [self::ACTION_VIEW],
@@ -114,7 +114,7 @@ class RightModel extends BaseApiModel
         self::ACTION_EXPORT => [self::ACTION_VIEW],
     ];
 
-    protected const PERMISSIONS_PRIORITY = [
+    const PERMISSIONS_PRIORITY = [
         self::RIGHTS_FULL => 0,
         self::RIGHTS_LINKED => 1,
         self::RIGHTS_GROUP => 2,
@@ -190,7 +190,7 @@ class RightModel extends BaseApiModel
     /**
      * @return null|array
      */
-    public function getLeadsRights(): ?array
+    public function getLeadsRights()
     {
         return $this->leadsRights;
     }
@@ -200,7 +200,7 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setLeadsRights(array $leadsRights): RightModel
+    public function setLeadsRights(array $leadsRights)
     {
         $this->leadsRights = $this->completeRightsDependencies($leadsRights, EntityTypesInterface::LEADS);
 
@@ -210,7 +210,7 @@ class RightModel extends BaseApiModel
     /**
      * @return null|array
      */
-    public function getContactsRights(): ?array
+    public function getContactsRights()
     {
         return $this->contactsRights;
     }
@@ -220,7 +220,7 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setContactsRights(array $contactsRights): RightModel
+    public function setContactsRights(array $contactsRights)
     {
         $this->contactsRights = $this->completeRightsDependencies($contactsRights, EntityTypesInterface::CONTACTS);
 
@@ -230,7 +230,7 @@ class RightModel extends BaseApiModel
     /**
      * @return null|array
      */
-    public function getCompaniesRights(): ?array
+    public function getCompaniesRights()
     {
         return $this->companiesRights;
     }
@@ -240,7 +240,7 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setCompaniesRights(array $companiesRights): RightModel
+    public function setCompaniesRights(array $companiesRights)
     {
         $this->companiesRights = $this->completeRightsDependencies($companiesRights, EntityTypesInterface::COMPANIES);
 
@@ -250,7 +250,7 @@ class RightModel extends BaseApiModel
     /**
      * @return null|array
      */
-    public function getTasksRights(): ?array
+    public function getTasksRights()
     {
         return $this->tasksRights;
     }
@@ -260,7 +260,7 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setTasksRights(array $tasksRights): RightModel
+    public function setTasksRights(array $tasksRights)
     {
         $this->tasksRights = $this->completeRightsDependencies($tasksRights, EntityTypesInterface::TASKS);
 
@@ -270,7 +270,7 @@ class RightModel extends BaseApiModel
     /**
      * @return null|bool
      */
-    public function getMailAccess(): ?bool
+    public function getMailAccess()
     {
         return $this->mailAccess;
     }
@@ -280,7 +280,7 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setMailAccess(bool $mailAccess): RightModel
+    public function setMailAccess($mailAccess)
     {
         $this->mailAccess = $mailAccess;
 
@@ -291,7 +291,7 @@ class RightModel extends BaseApiModel
      * @return null|bool
      * @deprecated will be removed in next major version
      */
-    public function getCatalogAccess(): ?bool
+    public function getCatalogAccess()
     {
         return $this->catalogAccess;
     }
@@ -302,7 +302,7 @@ class RightModel extends BaseApiModel
      * @return RightModel
      * @deprecated will be removed in next major version
      */
-    public function setCatalogAccess(bool $catalogAccess): RightModel
+    public function setCatalogAccess($catalogAccess)
     {
         $this->catalogAccess = $catalogAccess;
 
@@ -312,12 +312,12 @@ class RightModel extends BaseApiModel
     /**
      * @return null|array
      */
-    public function getStatusRights(): ?array
+    public function getStatusRights()
     {
         return $this->statusRights;
     }
 
-    public function getCatalogRights(): ?array
+    public function getCatalogRights()
     {
         return $this->catalogRights;
     }
@@ -327,15 +327,15 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setStatusRights(array $statusRights): RightModel
+    public function setStatusRights(array $statusRights)
     {
         $result = [];
 
         foreach ($statusRights as $statusRight) {
             $result[] = [
-                'entity_type' => $statusRight['entity_type'] ?? EntityTypesInterface::LEADS,
-                'pipeline_id' => $statusRight['pipeline_id'] ?? null,
-                'status_id' => $statusRight['status_id'] ?? null,
+                'entity_type' => isset($statusRight['entity_type']) ? $statusRight['entity_type'] : EntityTypesInterface::LEADS,
+                'pipeline_id' => isset($statusRight['pipeline_id']) ? $statusRight['pipeline_id'] : null,
+                'status_id' => isset($statusRight['status_id']) ? $statusRight['status_id'] : null,
                 'rights' => $this->completeRightsDependencies($statusRight['rights'], EntityTypesInterface::STATUS_RIGHTS),
             ];
         }
@@ -345,13 +345,13 @@ class RightModel extends BaseApiModel
         return $this;
     }
 
-    public function setCatalogRights(array $catalogRights): RightModel
+    public function setCatalogRights(array $catalogRights)
     {
         $result = [];
 
         foreach ($catalogRights as $catalogRight) {
             $result[] = [
-                'catalog_id' => $catalogRight['catalog_id'] ?? null,
+                'catalog_id' => isset($catalogRight['catalog_id']) ? $catalogRight['catalog_id'] : null,
                 'rights'     => $this->completeRightsDependencies(
                     $catalogRight['rights'],
                     EntityTypesInterface::CATALOG_RIGHTS
@@ -367,7 +367,7 @@ class RightModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getRoleId(): ?int
+    public function getRoleId()
     {
         return $this->roleId;
     }
@@ -377,7 +377,7 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setRoleId(?int $roleId): RightModel
+    public function setRoleId($roleId)
     {
         $this->roleId = $roleId;
 
@@ -387,7 +387,7 @@ class RightModel extends BaseApiModel
     /**
      * @return bool|null
      */
-    public function getIsFree(): ?bool
+    public function getIsFree()
     {
         return $this->isFree;
     }
@@ -397,7 +397,7 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setIsFree(?bool $isFree): RightModel
+    public function setIsFree($isFree)
     {
         $this->isFree = $isFree;
 
@@ -407,7 +407,7 @@ class RightModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getGroupId(): ?int
+    public function getGroupId()
     {
         return $this->groupId;
     }
@@ -417,7 +417,7 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setGroupId(?int $groupId): RightModel
+    public function setGroupId($groupId)
     {
         $this->groupId = $groupId;
 
@@ -427,7 +427,7 @@ class RightModel extends BaseApiModel
     /**
      * @return bool|null
      */
-    public function getIsAdmin(): ?bool
+    public function getIsAdmin()
     {
         return $this->isAdmin;
     }
@@ -437,7 +437,7 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setIsAdmin(?bool $isAdmin): RightModel
+    public function setIsAdmin($isAdmin)
     {
         $this->isAdmin = $isAdmin;
 
@@ -447,7 +447,7 @@ class RightModel extends BaseApiModel
     /**
      * @return bool|null
      */
-    public function getIsActive(): ?bool
+    public function getIsActive()
     {
         return $this->isActive;
     }
@@ -457,7 +457,7 @@ class RightModel extends BaseApiModel
      *
      * @return RightModel
      */
-    public function setIsActive(?bool $isActive): RightModel
+    public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
 
@@ -471,7 +471,7 @@ class RightModel extends BaseApiModel
      *
      * @return array
      */
-    protected function completeRightsDependencies(array $rights, string $entityType): array
+    protected function completeRightsDependencies(array $rights, $entityType)
     {
         $finalRights = [];
 
@@ -527,7 +527,7 @@ class RightModel extends BaseApiModel
      *
      * @return self
      */
-    public static function fromArray(array $rights): self
+    public static function fromArray(array $rights)
     {
         $model = new self();
 
@@ -538,11 +538,11 @@ class RightModel extends BaseApiModel
             ->setContactsRights($rights['contacts'])
             ->setCompaniesRights($rights['companies'])
             ->setTasksRights($rights['tasks'])
-            ->setIsAdmin($rights['is_admin'] ?? null)
-            ->setIsFree($rights['is_free'] ?? null)
-            ->setIsActive($rights['is_active'] ?? null)
-            ->setRoleId($rights['role_id'] ?? null)
-            ->setGroupId($rights['group_id'] ?? null);
+            ->setIsAdmin(isset($rights['is_admin']) ? $rights['is_admin'] : null)
+            ->setIsFree(isset($rights['is_free']) ? $rights['is_free'] : null)
+            ->setIsActive(isset($rights['is_active']) ? $rights['is_active'] : null)
+            ->setRoleId(isset($rights['role_id']) ? $rights['role_id'] : null)
+            ->setGroupId(isset($rights['group_id']) ? $rights['group_id'] : null);
 
         if (!empty($rights['status_rights'])) {
             $model->setStatusRights($rights['status_rights']);
@@ -558,7 +558,7 @@ class RightModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = [
             'leads' => $this->getLeadsRights(),
@@ -594,7 +594,7 @@ class RightModel extends BaseApiModel
         return $result;
     }
 
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [
             'leads' => $this->getLeadsRights(),
@@ -613,7 +613,7 @@ class RightModel extends BaseApiModel
         return $result;
     }
 
-    public function toUsersApi(?string $requestId = null): array
+    public function toUsersApi($requestId = null)
     {
         $result = $this->toApi($requestId);
 

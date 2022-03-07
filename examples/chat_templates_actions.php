@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use AmoCRM\Collections\Chats\Templates\Buttons\ButtonsCollection;
 use AmoCRM\Exceptions\AmoCRMApiException;
 use AmoCRM\Models\Chats\Templates\Buttons\TextButtonModel;

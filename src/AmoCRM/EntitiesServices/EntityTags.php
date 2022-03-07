@@ -41,7 +41,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
     /**
      * @var string
      */
-    public const ITEM_CLASS = TagModel::class;
+    const ITEM_CLASS = TagModel::class;
 
     /**
      * @param string $entityType
@@ -49,7 +49,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
      * @return string
      * @throws InvalidArgumentException
      */
-    protected function validateEntityType(string $entityType): string
+    protected function validateEntityType($entityType)
     {
         $availableTypes = [
             EntityTypesInterface::LEADS,
@@ -70,7 +70,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -87,7 +87,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -100,7 +100,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -111,7 +111,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -123,7 +123,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
      * @return BaseApiModel|null
      * @throws NotAvailableForActionException
      */
-    public function getOne($id, array $with = []): ?BaseApiModel
+    public function getOne($id, array $with = [])
     {
         throw new NotAvailableForActionException('No such method for this entity');
     }
@@ -134,7 +134,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('This entity supports only updateOne method');
     }
@@ -146,7 +146,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -158,7 +158,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -169,7 +169,7 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -187,8 +187,9 @@ class EntityTags extends BaseEntityTypeEntity implements HasPageMethodsInterface
     /**
      * @param BaseApiModel|TagModel $apiModel
      * @param array $entity
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);

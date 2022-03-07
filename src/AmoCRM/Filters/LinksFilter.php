@@ -22,7 +22,7 @@ class LinksFilter extends BaseEntityFilter
     /**
      * @return int|null
      */
-    public function getToEntityId(): ?int
+    public function getToEntityId()
     {
         return $this->toEntityId;
     }
@@ -32,7 +32,7 @@ class LinksFilter extends BaseEntityFilter
      *
      * @return LinksFilter
      */
-    public function setToEntityId(?int $toEntityId): LinksFilter
+    public function setToEntityId($toEntityId)
     {
         $this->toEntityId = $toEntityId;
 
@@ -42,7 +42,7 @@ class LinksFilter extends BaseEntityFilter
     /**
      * @return string|null
      */
-    public function getToEntityType(): ?string
+    public function getToEntityType()
     {
         return $this->toEntityType;
     }
@@ -52,7 +52,7 @@ class LinksFilter extends BaseEntityFilter
      *
      * @return LinksFilter
      */
-    public function setToEntityType(?string $toEntityType): LinksFilter
+    public function setToEntityType($toEntityType)
     {
         $this->toEntityType = $toEntityType;
 
@@ -62,7 +62,7 @@ class LinksFilter extends BaseEntityFilter
     /**
      * @return int|null
      */
-    public function getToCatalogId(): ?int
+    public function getToCatalogId()
     {
         return $this->toCatalogId;
     }
@@ -72,7 +72,7 @@ class LinksFilter extends BaseEntityFilter
      *
      * @return LinksFilter
      */
-    public function setToCatalogId(?int $toCatalogId): LinksFilter
+    public function setToCatalogId($toCatalogId)
     {
         $this->toCatalogId = $toCatalogId;
 
@@ -82,7 +82,7 @@ class LinksFilter extends BaseEntityFilter
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

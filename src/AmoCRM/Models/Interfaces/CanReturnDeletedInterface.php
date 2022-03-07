@@ -10,5 +10,5 @@ namespace AmoCRM\Models\Interfaces;
  */
 interface CanReturnDeletedInterface
 {
-    public const ONLY_DELETED = 'only_deleted';
+    const ONLY_DELETED = 'only_deleted';
 }

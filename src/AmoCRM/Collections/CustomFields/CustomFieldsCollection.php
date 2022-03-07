@@ -28,14 +28,14 @@ class CustomFieldsCollection extends BaseApiCollection implements HasPagesInterf
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = CustomFieldModel::class;
+    const ITEM_CLASS = CustomFieldModel::class;
 
     /**
      * @param array $array
      *
      * @return self
      */
-    public static function fromArray(array $array): BaseApiCollection
+    public static function fromArray(array $array)
     {
         $items = array_map(
             function (array $item) {

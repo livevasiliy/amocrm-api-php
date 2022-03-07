@@ -46,7 +46,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public static function fromArray(array $lossReason): self
+    public static function fromArray(array $lossReason)
     {
         if (empty($lossReason['id'])) {
             throw new InvalidArgumentException('Loss reason id is empty in ' . json_encode($lossReason));
@@ -67,7 +67,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -81,7 +81,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -91,7 +91,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
      *
      * @return LossReasonModel
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -101,7 +101,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -111,7 +111,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
      *
      * @return LossReasonModel
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -121,7 +121,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int
      */
-    public function getSort(): int
+    public function getSort()
     {
         return $this->sort;
     }
@@ -131,7 +131,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
      *
      * @return LossReasonModel
      */
-    public function setSort(int $sort): self
+    public function setSort($sort)
     {
         $this->sort = $sort;
 
@@ -141,7 +141,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int
      */
-    public function getCreatedAt(): int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -151,7 +151,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
      *
      * @return LossReasonModel
      */
-    public function setCreatedAt(int $timestamp): self
+    public function setCreatedAt($timestamp)
     {
         $this->createdAt = $timestamp;
 
@@ -161,7 +161,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int
      */
-    public function getUpdatedAt(): int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -171,7 +171,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
      *
      * @return LossReasonModel
      */
-    public function setUpdatedAt(int $timestamp): self
+    public function setUpdatedAt($timestamp)
     {
         $this->updatedAt = $timestamp;
 
@@ -183,7 +183,7 @@ class LossReasonModel extends BaseApiModel implements HasIdInterface
      *
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [
             'name' => $this->getName(),

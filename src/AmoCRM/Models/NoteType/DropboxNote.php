@@ -20,7 +20,7 @@ class DropboxNote extends NoteModel
      */
     protected $filename;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_DROPBOX;
     }
@@ -28,9 +28,9 @@ class DropboxNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -48,7 +48,7 @@ class DropboxNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -63,7 +63,7 @@ class DropboxNote extends NoteModel
      * @return array
      * @throws NotAvailableForActionException
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         throw new NotAvailableForActionException();
     }
@@ -71,7 +71,7 @@ class DropboxNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getLink(): ?string
+    public function getLink()
     {
         return $this->link;
     }
@@ -80,7 +80,7 @@ class DropboxNote extends NoteModel
      * @param string|null $link
      * @return DropboxNote
      */
-    public function setLink(?string $link): DropboxNote
+    public function setLink($link)
     {
         $this->link = $link;
 
@@ -90,7 +90,7 @@ class DropboxNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getFilename(): ?string
+    public function getFilename()
     {
         return $this->filename;
     }
@@ -99,7 +99,7 @@ class DropboxNote extends NoteModel
      * @param string|null $filename
      * @return DropboxNote
      */
-    public function setFilename(?string $filename): DropboxNote
+    public function setFilename($filename)
     {
         $this->filename = $filename;
 

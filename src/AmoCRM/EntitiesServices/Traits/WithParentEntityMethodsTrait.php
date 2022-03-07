@@ -29,7 +29,7 @@ trait WithParentEntityMethodsTrait
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         if (!$apiModel instanceof HasIdInterface) {
             throw new InvalidArgumentException('Entity should have getId method');
@@ -61,7 +61,7 @@ trait WithParentEntityMethodsTrait
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function getOne($id, array $with = []): ?BaseApiModel
+    public function getOne($id, array $with = [])
     {
         $queryParams = [];
         $class = static::ITEM_CLASS;
@@ -70,8 +70,8 @@ trait WithParentEntityMethodsTrait
             $queryParams['with'] = implode(',', $with);
         }
 
-        $parentId = $id[HasParentEntity::PARENT_ID_KEY] ?? null;
-        $id = $id[HasParentEntity::ID_KEY] ?? null;
+        $parentId = isset($id[HasParentEntity::PARENT_ID_KEY]) ? $id[HasParentEntity::PARENT_ID_KEY] : null;
+        $id = isset($id[HasParentEntity::ID_KEY]) ? $id[HasParentEntity::ID_KEY] : null;
 
         $response = $this->request->get($this->getMethodWithParent($parentId, $id), $queryParams);
 
@@ -90,7 +90,7 @@ trait WithParentEntityMethodsTrait
      *
      * @return string
      */
-    protected function getMethodWithParent($parentId, $id = null): string
+    protected function getMethodWithParent($parentId, $id = null)
     {
         $method = sprintf($this->methodWithParent, $this->getEntityType(), $parentId);
 
@@ -109,7 +109,7 @@ trait WithParentEntityMethodsTrait
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         $id = method_exists($apiModel, 'getId') ? $apiModel->getId() : null;
         if (is_null($id)) {
@@ -135,7 +135,7 @@ trait WithParentEntityMethodsTrait
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function getByParentId(int $parentId, BaseEntityFilter $filter = null, array $with = []): ?BaseApiCollection
+    public function getByParentId($parentId, BaseEntityFilter $filter = null, array $with = [])
     {
         $queryParams = [];
         if ($filter instanceof BaseEntityFilter) {

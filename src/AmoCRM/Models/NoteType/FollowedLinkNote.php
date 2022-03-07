@@ -15,7 +15,7 @@ class FollowedLinkNote extends NoteModel
      */
     protected $url;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_LINK_FOLLOWED;
     }
@@ -23,9 +23,9 @@ class FollowedLinkNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -39,7 +39,7 @@ class FollowedLinkNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -53,7 +53,7 @@ class FollowedLinkNote extends NoteModel
      * @return array
      * @throws NotAvailableForActionException
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         throw new NotAvailableForActionException();
     }
@@ -61,7 +61,7 @@ class FollowedLinkNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getUrl(): ?string
+    public function getUrl()
     {
         return $this->url;
     }
@@ -70,7 +70,7 @@ class FollowedLinkNote extends NoteModel
      * @param string|null $url
      * @return FollowedLinkNote
      */
-    public function setUrl(?string $url): FollowedLinkNote
+    public function setUrl($url)
     {
         $this->url = $url;
 

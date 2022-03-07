@@ -8,7 +8,7 @@ class ChatNote extends NoParamNote
 {
     protected $modelClass = ChatNote::class;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_CHAT;
     }

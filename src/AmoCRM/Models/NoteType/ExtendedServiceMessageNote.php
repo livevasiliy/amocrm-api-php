@@ -8,7 +8,7 @@ class ExtendedServiceMessageNote extends BaseServiceMessageNote
 {
     protected $modelClass = ExtendedServiceMessageNote::class;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_EXTENDED_SERVICE_MESSAGE;
     }

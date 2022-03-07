@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\EntitiesServices\Chats;
 
 use AmoCRM\Collections\Chats\Templates\Buttons\ButtonsCollection;
@@ -48,16 +46,16 @@ class Templates extends BaseEntity implements HasPageMethodsInterface, HasDelete
     /**
      * @var string
      */
-    public const ITEM_CLASS = TemplateModel::class;
+    const ITEM_CLASS = TemplateModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
-        return $response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CHAT_TEMPLATES] ?? $response;
+        return isset($response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CHAT_TEMPLATES]) ? $response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::CHAT_TEMPLATES] : $response;
     }
 
     /**
@@ -66,7 +64,7 @@ class Templates extends BaseEntity implements HasPageMethodsInterface, HasDelete
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -79,7 +77,7 @@ class Templates extends BaseEntity implements HasPageMethodsInterface, HasDelete
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -90,7 +88,7 @@ class Templates extends BaseEntity implements HasPageMethodsInterface, HasDelete
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -101,7 +99,7 @@ class Templates extends BaseEntity implements HasPageMethodsInterface, HasDelete
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
 
@@ -140,7 +138,7 @@ class Templates extends BaseEntity implements HasPageMethodsInterface, HasDelete
      * @param BaseApiModel|TemplateModel $apiModel
      * @param array $entity
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);
@@ -188,7 +186,7 @@ class Templates extends BaseEntity implements HasPageMethodsInterface, HasDelete
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function deleteOne(BaseApiModel $model): bool
+    public function deleteOne(BaseApiModel $model)
     {
         $method = $this->getMethod() . '/' . $model->getId();
         $response = $this->request->delete($method);
@@ -203,7 +201,7 @@ class Templates extends BaseEntity implements HasPageMethodsInterface, HasDelete
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function delete(BaseApiCollection $collection): bool
+    public function delete(BaseApiCollection $collection)
     {
         $body = array_map(
             static function ($item) {
@@ -214,6 +212,6 @@ class Templates extends BaseEntity implements HasPageMethodsInterface, HasDelete
 
         $result = $this->request->delete($this->getMethod(), $body);
 
-        return $result['result'] ?? false;
+        return isset($result['result']) ? $result['result'] : false;
     }
 }

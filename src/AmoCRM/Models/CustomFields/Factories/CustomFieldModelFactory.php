@@ -41,9 +41,9 @@ class CustomFieldModelFactory
      *
      * @return CustomFieldModel
      */
-    public static function createModel(array $field): CustomFieldModel
+    public static function createModel(array $field)
     {
-        $fieldType = $field['type'] ?? null;
+        $fieldType = isset($field['type']) ? $field['type'] : null;
 
         switch ($fieldType) {
             case CustomFieldModel::TYPE_BIRTHDAY:
@@ -126,7 +126,7 @@ class CustomFieldModelFactory
      *
      * @return CustomFieldModel
      */
-    public static function createEmptyModel(string $fieldType): CustomFieldModel
+    public static function createEmptyModel($fieldType)
     {
         switch ($fieldType) {
             case CustomFieldModel::TYPE_BIRTHDAY:

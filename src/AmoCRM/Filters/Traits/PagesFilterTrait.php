@@ -19,7 +19,7 @@ trait PagesFilterTrait
      *
      * @return PagesFilterTrait
      */
-    public function setPage(int $page): self
+    public function setPage($page)
     {
         $this->page = $page;
 
@@ -29,7 +29,7 @@ trait PagesFilterTrait
     /**
      * @return int
      */
-    public function getPage(): int
+    public function getPage()
     {
         return $this->page;
     }
@@ -38,7 +38,7 @@ trait PagesFilterTrait
      * @param int $limit
      * @return PagesFilterTrait
      */
-    public function setLimit(int $limit): self
+    public function setLimit($limit)
     {
         $this->limit = $limit;
 
@@ -48,12 +48,12 @@ trait PagesFilterTrait
     /**
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->limit;
     }
 
-    protected function buildPagesFilter(array $filter = []): array
+    protected function buildPagesFilter(array $filter = [])
     {
         if (!is_null($this->getLimit())) {
             $filter['limit'] = $this->getLimit();

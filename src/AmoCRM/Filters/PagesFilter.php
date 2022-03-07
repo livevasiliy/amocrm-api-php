@@ -12,7 +12,7 @@ class PagesFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         return $this->buildPagesFilter();
     }

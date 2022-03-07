@@ -14,7 +14,7 @@ class TextareaCustomFieldValuesModel extends BaseCustomFieldValuesModel
     /**
      * @return string
      */
-    public function getFieldType(): string
+    public function getFieldType()
     {
         return CustomFieldHelper::FIELD_TYPE_CODE_TEXTAREA;
     }

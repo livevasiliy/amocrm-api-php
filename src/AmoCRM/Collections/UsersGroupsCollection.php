@@ -21,5 +21,5 @@ use AmoCRM\Models\AccountSettings\UsersGroup;
  */
 class UsersGroupsCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = UsersGroup::class;
+    const ITEM_CLASS = UsersGroup::class;
 }

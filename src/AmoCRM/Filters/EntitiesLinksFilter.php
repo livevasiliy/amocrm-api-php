@@ -18,7 +18,7 @@ class EntitiesLinksFilter extends LinksFilter
     /**
      * @return int[]
      */
-    public function getEntityId(): array
+    public function getEntityId()
     {
         return $this->entityId;
     }
@@ -26,7 +26,7 @@ class EntitiesLinksFilter extends LinksFilter
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = parent::buildFilter();
         $filter['filter']['entity_id'] = $this->getEntityId();

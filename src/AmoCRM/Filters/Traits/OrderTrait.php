@@ -22,7 +22,7 @@ trait OrderTrait
      *
      * @return $this
      */
-    public function setOrder(string $field, string $direction = HasOrderInterface::SORT_ASC): self
+    public function setOrder($field, $direction = HasOrderInterface::SORT_ASC)
     {
         $this->orderField = $field;
         $this->direction = $direction;
@@ -33,7 +33,7 @@ trait OrderTrait
     /**
      * @return null|array
      */
-    public function getOrder(): ?array
+    public function getOrder()
     {
         return empty($this->orderField) || empty($this->direction) ? null : [$this->orderField => $this->direction];
     }

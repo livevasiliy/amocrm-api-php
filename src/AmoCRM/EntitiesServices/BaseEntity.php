@@ -33,7 +33,7 @@ abstract class BaseEntity
      * @var BaseApiModel
      * override in child
      */
-    public const ITEM_CLASS = '';
+    const ITEM_CLASS = '';
 
     /**
      * @var AmoCRMApiRequest
@@ -53,7 +53,7 @@ abstract class BaseEntity
     /**
      * @return string
      */
-    protected function getMethod(): string
+    protected function getMethod()
     {
         return $this->method;
     }
@@ -64,7 +64,7 @@ abstract class BaseEntity
      *
      * @return array
      */
-    abstract protected function getEntitiesFromResponse(array $response): array;
+    abstract protected function getEntitiesFromResponse(array $response);
 
     /**
      * Получение коллекции сущностей
@@ -75,7 +75,7 @@ abstract class BaseEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function get(BaseEntityFilter $filter = null, array $with = []): ?BaseApiCollection
+    public function get(BaseEntityFilter $filter = null, array $with = [])
     {
         $queryParams = [];
         if ($filter instanceof BaseEntityFilter) {
@@ -96,7 +96,7 @@ abstract class BaseEntity
      *
      * @return BaseApiCollection|null
      */
-    protected function createCollection(array $response): ?BaseApiCollection
+    protected function createCollection(array $response)
     {
         /** @var BaseApiCollection $collection */
         $collection = new $this->collectionClass();
@@ -124,7 +124,7 @@ abstract class BaseEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function getOne($id, array $with = []): ?BaseApiModel
+    public function getOne($id, array $with = [])
     {
         $queryParams = [];
         $with = array_intersect($with, (static::ITEM_CLASS)::getAvailableWith());
@@ -148,7 +148,7 @@ abstract class BaseEntity
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         //override in child
         return $collection;
@@ -160,7 +160,7 @@ abstract class BaseEntity
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         //override in child
         return $model;
@@ -172,7 +172,7 @@ abstract class BaseEntity
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         //override in child
         return $collection;
@@ -186,7 +186,7 @@ abstract class BaseEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         $response = $this->request->post($this->getMethod(), $collection->toApi());
         $collection = $this->processAdd($collection, $response);
@@ -202,7 +202,7 @@ abstract class BaseEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         /** @var BaseApiCollection $collection */
         $collection = new $this->collectionClass();
@@ -220,7 +220,7 @@ abstract class BaseEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         $response = $this->request->patch($this->getMethod(), $collection->toApi());
         $collection = $this->processUpdate($collection, $response);
@@ -236,7 +236,7 @@ abstract class BaseEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         if (!$apiModel instanceof HasIdInterface) {
             throw new InvalidArgumentException('Entity should have getId method');
@@ -262,7 +262,7 @@ abstract class BaseEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         return $this->mergeModels($this->getOne($apiModel->getId(), $with), $apiModel);
     }
@@ -311,7 +311,7 @@ abstract class BaseEntity
     protected function mergeModels(
         BaseApiModel $objectA,
         BaseApiModel $objectB
-    ): BaseApiModel {
+    ) {
         $this->checkModelsClasses($objectA, $objectB);
 
         //Так как обе модели должны быть одного класса, нам без разницы у какой получить финальный класс
@@ -348,7 +348,7 @@ abstract class BaseEntity
     /**
      * @return array
      */
-    public function getLastRequestInfo(): array
+    public function getLastRequestInfo()
     {
         return $this->request->getLastRequestInfo();
     }

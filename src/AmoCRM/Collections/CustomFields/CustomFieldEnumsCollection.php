@@ -21,5 +21,5 @@ use AmoCRM\Models\CustomFields\EnumModel;
  */
 class CustomFieldEnumsCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = EnumModel::class;
+    const ITEM_CLASS = EnumModel::class;
 }

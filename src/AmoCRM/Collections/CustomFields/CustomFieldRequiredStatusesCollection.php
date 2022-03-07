@@ -21,5 +21,5 @@ use AmoCRM\Models\CustomFields\RequiredStatusModel;
  */
 class CustomFieldRequiredStatusesCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = RequiredStatusModel::class;
+    const ITEM_CLASS = RequiredStatusModel::class;
 }

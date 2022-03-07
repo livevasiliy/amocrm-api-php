@@ -20,7 +20,7 @@ class BonusPointsActionModel
      * @param int $customerId
      * @param int $points
      */
-    public function __construct(int $customerId, int $points)
+    public function __construct($customerId, $points)
     {
         $this->customerId = $customerId;
         $this->points = $points;
@@ -29,7 +29,7 @@ class BonusPointsActionModel
     /**
      * @return int
      */
-    public function getCustomerId(): int
+    public function getCustomerId()
     {
         return $this->customerId;
     }
@@ -37,7 +37,7 @@ class BonusPointsActionModel
     /**
      * @return int
      */
-    public function getPoints(): int
+    public function getPoints()
     {
         return $this->points;
     }

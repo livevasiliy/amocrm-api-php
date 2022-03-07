@@ -20,5 +20,5 @@ use AmoCRM\Models\WebhookModel;
  */
 class WebhooksCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = WebhookModel::class;
+    const ITEM_CLASS = WebhookModel::class;
 }

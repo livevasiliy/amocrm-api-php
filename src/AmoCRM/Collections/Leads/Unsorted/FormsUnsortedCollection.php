@@ -21,12 +21,12 @@ use AmoCRM\Models\Unsorted\FormUnsortedModel;
  */
 class FormsUnsortedCollection extends UnsortedCollection
 {
-    public const ITEM_CLASS = FormUnsortedModel::class;
+    const ITEM_CLASS = FormUnsortedModel::class;
 
     /**
      * @return null|string
      */
-    public function getCategory(): ?string
+    public function getCategory()
     {
         return BaseUnsortedModel::CATEGORY_CODE_FORMS;
     }

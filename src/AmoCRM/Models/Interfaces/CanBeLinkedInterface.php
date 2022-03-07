@@ -15,5 +15,5 @@ interface CanBeLinkedInterface
     /**
      * @return LinkModel
      */
-    public function getLink(): LinkModel;
+    public function getLink();
 }

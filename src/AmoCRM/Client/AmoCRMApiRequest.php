@@ -26,25 +26,25 @@ use Psr\Http\Message\ResponseInterface;
  */
 class AmoCRMApiRequest
 {
-    public const POST_REQUEST = 'POST';
-    public const GET_REQUEST = 'GET';
-    public const PATCH_REQUEST = 'PATCH';
-    public const DELETE_REQUEST = 'DELETE';
+    const POST_REQUEST = 'POST';
+    const GET_REQUEST = 'GET';
+    const PATCH_REQUEST = 'PATCH';
+    const DELETE_REQUEST = 'DELETE';
 
-    public const CONNECT_TIMEOUT = 5;
-    public const REQUEST_TIMEOUT = 20;
+    const CONNECT_TIMEOUT = 5;
+    const REQUEST_TIMEOUT = 20;
     //TODO Do not forget to change this on each release
-    public const LIBRARY_VERSION = '0.7.0';
-    public const USER_AGENT = 'amoCRM-API-Library/' . self::LIBRARY_VERSION;
+    const LIBRARY_VERSION = '0.7.0';
+    const USER_AGENT = 'amoCRM-API-Library/' . self::LIBRARY_VERSION;
 
-    public const SUCCESS_STATUSES = [
+    const SUCCESS_STATUSES = [
         StatusCodeInterface::STATUS_OK,
         StatusCodeInterface::STATUS_CREATED,
         StatusCodeInterface::STATUS_ACCEPTED,
         StatusCodeInterface::STATUS_NO_CONTENT,
     ];
 
-    public const EMBEDDED = '_embedded';
+    const EMBEDDED = '_embedded';
 
     /**
      * @var AccessTokenInterface
@@ -131,12 +131,12 @@ class AmoCRMApiRequest
      * @throws AmoCRMApiNoContentException
      */
     public function post(
-        string $method,
+        $method,
         array $body = [],
         array $queryParams = [],
         array $headers = [],
-        bool $needToRefresh = false
-    ): array {
+        $needToRefresh = false
+    ) {
         if ($this->accessToken->hasExpired()) {
             $needToRefresh = true;
         }
@@ -206,12 +206,12 @@ class AmoCRMApiRequest
      * @throws AmoCRMApiNoContentException
      */
     public function patch(
-        string $method,
+        $method,
         array $body = [],
         array $queryParams = [],
         array $headers = [],
-        bool $needToRefresh = false
-    ): array {
+        $needToRefresh = false
+    ) {
         if ($this->accessToken->hasExpired()) {
             $needToRefresh = true;
         }
@@ -280,12 +280,12 @@ class AmoCRMApiRequest
      * @throws AmoCRMoAuthApiException
      */
     public function delete(
-        string $method,
+        $method,
         array $body = [],
         array $queryParams = [],
         array $headers = [],
-        bool $needToRefresh = false
-    ): array {
+        $needToRefresh = false
+    ) {
         if ($this->accessToken->hasExpired()) {
             $needToRefresh = true;
         }
@@ -355,11 +355,11 @@ class AmoCRMApiRequest
      * @throws AmoCRMApiException
      */
     public function get(
-        string $method,
+        $method,
         array $queryParams = [],
         array $headers = [],
-        bool $needToRefresh = false
-    ): array {
+        $needToRefresh = false
+    ) {
         if ($this->accessToken->hasExpired()) {
             $needToRefresh = true;
         }
@@ -429,7 +429,7 @@ class AmoCRMApiRequest
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    protected function checkHttpStatus(ResponseInterface $response, $decodedBody = []): void
+    protected function checkHttpStatus(ResponseInterface $response, $decodedBody = [])
     {
         $this->lastResponseCode = $response->getStatusCode();
         if ((int)$response->getStatusCode() === StatusCodeInterface::STATUS_UNAUTHORIZED) {
@@ -482,7 +482,7 @@ class AmoCRMApiRequest
      * @throws AmoCRMoAuthApiException
      * @throws AmoCRMApiException
      */
-    private function parseResponse(ResponseInterface $response): array
+    private function parseResponse(ResponseInterface $response)
     {
         $bodyContents = (string)$response->getBody();
         $this->lastResponse = $bodyContents;
@@ -503,7 +503,7 @@ class AmoCRMApiRequest
 
         $this->checkHttpStatus($response, $decodedBody);
 
-        return $decodedBody ?? [];
+        return isset($decodedBody) ? $decodedBody : [];
     }
 
     /**
@@ -523,7 +523,7 @@ class AmoCRMApiRequest
     /**
      * @return array
      */
-    public function getLastRequestInfo(): array
+    public function getLastRequestInfo()
     {
         return [
             'last_http_method' => $this->lastHttpMethod,
@@ -542,7 +542,7 @@ class AmoCRMApiRequest
     /**
      * @return string
      */
-    private function buildJqueryCall(): string
+    private function buildJqueryCall()
     {
         $url = $this->lastMethod;
 
@@ -565,7 +565,7 @@ $.ajax({
     /**
      * @return string
      */
-    private function buildCurlCall(): string
+    private function buildCurlCall()
     {
         $url = $this->lastMethod;
 

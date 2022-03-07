@@ -29,7 +29,7 @@ class GeolocationNote extends NoteModel
      */
     protected $text;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_GEOLOCATION;
     }
@@ -37,9 +37,9 @@ class GeolocationNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -65,7 +65,7 @@ class GeolocationNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -81,7 +81,7 @@ class GeolocationNote extends NoteModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -96,7 +96,7 @@ class GeolocationNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getAddress(): ?string
+    public function getAddress()
     {
         return $this->address;
     }
@@ -105,7 +105,7 @@ class GeolocationNote extends NoteModel
      * @param string|null $address
      * @return GeolocationNote
      */
-    public function setAddress(?string $address): GeolocationNote
+    public function setAddress($address)
     {
         $this->address = $address;
 
@@ -115,7 +115,7 @@ class GeolocationNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getLongitude(): ?string
+    public function getLongitude()
     {
         return $this->longitude;
     }
@@ -124,7 +124,7 @@ class GeolocationNote extends NoteModel
      * @param string|null $longitude
      * @return GeolocationNote
      */
-    public function setLongitude(?string $longitude): GeolocationNote
+    public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
 
@@ -134,7 +134,7 @@ class GeolocationNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getLatitude(): ?string
+    public function getLatitude()
     {
         return $this->latitude;
     }
@@ -143,7 +143,7 @@ class GeolocationNote extends NoteModel
      * @param string|null $latitude
      * @return GeolocationNote
      */
-    public function setLatitude(?string $latitude): GeolocationNote
+    public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
 
@@ -153,7 +153,7 @@ class GeolocationNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getText(): ?string
+    public function getText()
     {
         return $this->text;
     }
@@ -162,7 +162,7 @@ class GeolocationNote extends NoteModel
      * @param string|null $text
      * @return GeolocationNote
      */
-    public function setText(?string $text): GeolocationNote
+    public function setText($text)
     {
         $this->text = $text;
         return $this;

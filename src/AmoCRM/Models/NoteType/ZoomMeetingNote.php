@@ -19,7 +19,7 @@ class ZoomMeetingNote extends NoteModel
      */
     protected $recordings;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_ZOOM_MEETING;
     }
@@ -27,9 +27,9 @@ class ZoomMeetingNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -47,7 +47,7 @@ class ZoomMeetingNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -61,7 +61,7 @@ class ZoomMeetingNote extends NoteModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -74,7 +74,7 @@ class ZoomMeetingNote extends NoteModel
     /**
      * @return array|null
      */
-    public function getConference(): ?array
+    public function getConference()
     {
         return $this->conference;
     }
@@ -83,7 +83,7 @@ class ZoomMeetingNote extends NoteModel
      * @param array|null $conference
      * @return ZoomMeetingNote
      */
-    public function setConference(?array $conference): ZoomMeetingNote
+    public function setConference($conference)
     {
         $this->conference = $conference;
 
@@ -93,7 +93,7 @@ class ZoomMeetingNote extends NoteModel
     /**
      * @return array|null
      */
-    public function getRecordings(): ?array
+    public function getRecordings()
     {
         return $this->recordings;
     }
@@ -102,7 +102,7 @@ class ZoomMeetingNote extends NoteModel
      * @param array|null $recordings
      * @return ZoomMeetingNote
      */
-    public function setRecordings(?array $recordings): ZoomMeetingNote
+    public function setRecordings($recordings)
     {
         $this->recordings = $recordings;
 

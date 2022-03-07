@@ -24,21 +24,17 @@ class UnsortedMetadataFactory
      * @return UnsortedMetadataInterface
      * @throws BadTypeException
      */
-    public static function createForCategory(string $category, array $metadata): UnsortedMetadataInterface
+    public static function createForCategory($category, array $metadata)
     {
         switch ($category) {
             case BaseUnsortedModel::CATEGORY_CODE_CHATS:
                 return (new ChatsMetadata())->fromArray($metadata);
-                break;
             case BaseUnsortedModel::CATEGORY_CODE_FORMS:
                 return (new FormsMetadata())->fromArray($metadata);
-                break;
             case BaseUnsortedModel::CATEGORY_CODE_SIP:
                 return (new SipMetadata())->fromArray($metadata);
-                break;
             case BaseUnsortedModel::CATEGORY_CODE_MAIL:
                 return (new MailMetadata())->fromArray($metadata);
-                break;
         }
 
         throw new BadTypeException('Given category is not supported - ' . $category);

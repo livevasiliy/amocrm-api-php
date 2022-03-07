@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Collections\Chats\Templates;
 
 use AmoCRM\Collections\BaseApiCollection;
@@ -27,5 +25,5 @@ class TemplatesCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = TemplateModel::class;
+    const ITEM_CLASS = TemplateModel::class;
 }

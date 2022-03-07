@@ -12,28 +12,28 @@ use AmoCRM\Models\AccountSettings\InvoicesSettings;
 class AccountModel extends BaseApiModel
 {
     /** @var string ID аккаунта в сервисе чатов */
-    public const AMOJO_ID = 'amojo_id';
+    const AMOJO_ID = 'amojo_id';
     /** @var string UUID аккаунта */
-    public const UUID = 'uuid';
+    const UUID = 'uuid';
     /** @var string Права на встроенные чаты */
-    public const AMOJO_RIGHTS = 'amojo_rights';
+    const AMOJO_RIGHTS = 'amojo_rights';
     /** @var string Группы пользователей */
-    public const USER_GROUPS = 'users_groups';
+    const USER_GROUPS = 'users_groups';
     /** @var string Типы задач */
-    public const TASK_TYPES = 'task_types';
+    const TASK_TYPES = 'task_types';
     /** @var string Версия аккаунта */
-    public const VERSION = 'version';
+    const VERSION = 'version';
     /** @var string Настройки форматов времени */
-    public const DATETIME_SETTINGS = 'datetime_settings';
+    const DATETIME_SETTINGS = 'datetime_settings';
     /** @var string Настройки для публичных счетов */
-    public const INVOICES_SETTINGS = 'invoices_settings';
+    const INVOICES_SETTINGS = 'invoices_settings';
     /** @var string Доступ к фильтрации */
-    public const IS_API_FILTER_ENABLED = 'is_api_filter_enabled';
+    const IS_API_FILTER_ENABLED = 'is_api_filter_enabled';
 
     /** @var string Покупатели недоступны. */
-    public const CUSTOMERS_MODE_UNAVAILABLE = 'unavailable';
+    const CUSTOMERS_MODE_UNAVAILABLE = 'unavailable';
     /** @var string Покупатели выключены. */
-    public const CUSTOMERS_MODE_DISABLED = 'disabled';
+    const CUSTOMERS_MODE_DISABLED = 'disabled';
 
     /**
      * Режим периодических покупок (когда статус покупателя зависит от кол-ва дней до следующего платежа)
@@ -41,7 +41,7 @@ class AccountModel extends BaseApiModel
      *
      * @var string
      */
-    public const CUSTOMERS_MODE_PERIODICITY = 'periodicity';
+    const CUSTOMERS_MODE_PERIODICITY = 'periodicity';
 
     /**
      * Статус, в котором находится покупатель, не зависит от даты следующей покупки
@@ -49,7 +49,7 @@ class AccountModel extends BaseApiModel
      * @var string
      * @deprecated
      */
-    public const CUSTOMERS_MODE_DYNAMIC = 'dynamic';
+    const CUSTOMERS_MODE_DYNAMIC = 'dynamic';
 
     /**
      * Покупатели не имеют статусов, но разделены по сегментам по принципу:
@@ -58,7 +58,7 @@ class AccountModel extends BaseApiModel
      *
      * @var string
      */
-    public const SEGMENTS = 'segments';
+    const SEGMENTS = 'segments';
 
     /** @var int */
     protected $id;
@@ -144,7 +144,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -154,7 +154,7 @@ class AccountModel extends BaseApiModel
      *
      * @return self
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -164,7 +164,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -174,7 +174,7 @@ class AccountModel extends BaseApiModel
      *
      * @return self
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -185,7 +185,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return null|int
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -195,7 +195,7 @@ class AccountModel extends BaseApiModel
      *
      * @return self
      */
-    public function setCreatedBy(?int $userId): self
+    public function setCreatedBy($userId)
     {
         $this->createdBy = $userId;
 
@@ -205,7 +205,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return null|int
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -215,7 +215,7 @@ class AccountModel extends BaseApiModel
      *
      * @return self
      */
-    public function setUpdatedBy(?int $userId): self
+    public function setUpdatedBy($userId)
     {
         $this->updatedBy = $userId;
 
@@ -225,7 +225,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getCreatedAt(): int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -235,7 +235,7 @@ class AccountModel extends BaseApiModel
      *
      * @return self
      */
-    public function setCreatedAt(int $timestamp): self
+    public function setCreatedAt($timestamp)
     {
         $this->createdAt = $timestamp;
 
@@ -245,7 +245,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getUpdatedAt(): int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -255,7 +255,7 @@ class AccountModel extends BaseApiModel
      *
      * @return self
      */
-    public function setUpdatedAt(int $timestamp): self
+    public function setUpdatedAt($timestamp)
     {
         $this->updatedAt = $timestamp;
 
@@ -265,7 +265,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getSubdomain(): string
+    public function getSubdomain()
     {
         return $this->subdomain;
     }
@@ -274,7 +274,7 @@ class AccountModel extends BaseApiModel
      * @param string $subdomain
      * @return $this
      */
-    public function setSubdomain(string $subdomain): self
+    public function setSubdomain($subdomain)
     {
         $this->subdomain = $subdomain;
 
@@ -284,7 +284,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getAmojoId(): ?string
+    public function getAmojoId()
     {
         return $this->amojoId;
     }
@@ -293,7 +293,7 @@ class AccountModel extends BaseApiModel
      * @param string|null $id
      * @return $this
      */
-    public function setAmojoId(?string $id): self
+    public function setAmojoId($id)
     {
         $this->amojoId = $id;
 
@@ -303,7 +303,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return bool|null
      */
-    public function getIsApiFilterEnabled(): ?bool
+    public function getIsApiFilterEnabled()
     {
         return $this->isApiFilterEnabled;
     }
@@ -312,7 +312,7 @@ class AccountModel extends BaseApiModel
      * @param bool $is_enabled
      * @return $this
      */
-    public function setIsApiFilterEnabled(bool $is_enabled): self
+    public function setIsApiFilterEnabled($is_enabled)
     {
         $this->isApiFilterEnabled = $is_enabled;
 
@@ -322,7 +322,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getUuid(): ?string
+    public function getUuid()
     {
         return $this->uuid;
     }
@@ -331,7 +331,7 @@ class AccountModel extends BaseApiModel
      * @param string|null $id
      * @return $this
      */
-    public function setUuid(?string $id): self
+    public function setUuid($id)
     {
         $this->uuid = $id;
 
@@ -342,7 +342,7 @@ class AccountModel extends BaseApiModel
      * @param array $account
      * @return static
      */
-    public static function fromArray(array $account): self
+    public static function fromArray(array $account)
     {
         $accountModel = new self();
         $accountModel->setId((int)$account['id'])
@@ -427,7 +427,7 @@ class AccountModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = [
             'id' => $this->getId(),
@@ -492,7 +492,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getCustomersMode(): string
+    public function getCustomersMode()
     {
         return $this->customersMode;
     }
@@ -502,7 +502,7 @@ class AccountModel extends BaseApiModel
      *
      * @return AccountModel
      */
-    public function setCustomersMode(string $customersMode): AccountModel
+    public function setCustomersMode($customersMode)
     {
         $this->customersMode = $customersMode;
 
@@ -512,7 +512,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return AmojoRights|null
      */
-    public function getAmojoRights(): ?AmojoRights
+    public function getAmojoRights()
     {
         return $this->amojoRights;
     }
@@ -521,7 +521,7 @@ class AccountModel extends BaseApiModel
      * @param AmojoRights $amojoRights
      * @return $this
      */
-    public function setAmojoRights(AmojoRights $amojoRights): self
+    public function setAmojoRights(AmojoRights $amojoRights)
     {
         $this->amojoRights = $amojoRights;
 
@@ -531,7 +531,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return UsersGroupsCollection
      */
-    public function getUsersGroups(): ?UsersGroupsCollection
+    public function getUsersGroups()
     {
         return $this->usersGroups;
     }
@@ -540,7 +540,7 @@ class AccountModel extends BaseApiModel
      * @param UsersGroupsCollection $usersGroups
      * @return $this
      */
-    public function setUsersGroups(UsersGroupsCollection $usersGroups): self
+    public function setUsersGroups(UsersGroupsCollection $usersGroups)
     {
         $this->usersGroups = $usersGroups;
 
@@ -550,7 +550,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return TaskTypesCollection
      */
-    public function getTaskTypes(): ?TaskTypesCollection
+    public function getTaskTypes()
     {
         return $this->taskTypes;
     }
@@ -559,7 +559,7 @@ class AccountModel extends BaseApiModel
      * @param TaskTypesCollection $taskTypes
      * @return AccountModel
      */
-    public function setTaskTypes(TaskTypesCollection $taskTypes): self
+    public function setTaskTypes(TaskTypesCollection $taskTypes)
     {
         $this->taskTypes = $taskTypes;
 
@@ -569,7 +569,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getVersion(): ?int
+    public function getVersion()
     {
         return $this->version;
     }
@@ -578,7 +578,7 @@ class AccountModel extends BaseApiModel
      * @param int $version
      * @return AccountModel
      */
-    public function setVersion(int $version): self
+    public function setVersion($version)
     {
         $this->version = $version;
 
@@ -588,7 +588,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return bool
      */
-    public function getIsUnsortedOn(): bool
+    public function getIsUnsortedOn()
     {
         return $this->unsortedOn;
     }
@@ -597,7 +597,7 @@ class AccountModel extends BaseApiModel
      * @param bool $unsortedOn
      * @return AccountModel
      */
-    public function setUnsortedOn(bool $unsortedOn): self
+    public function setUnsortedOn($unsortedOn)
     {
         $this->unsortedOn = $unsortedOn;
 
@@ -607,7 +607,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getMobileFeatureVersion(): int
+    public function getMobileFeatureVersion()
     {
         return $this->mobileFeatureVersion;
     }
@@ -616,7 +616,7 @@ class AccountModel extends BaseApiModel
      * @param int $mobileFeatureVersion
      * @return AccountModel
      */
-    public function setMobileFeatureVersion(int $mobileFeatureVersion): self
+    public function setMobileFeatureVersion($mobileFeatureVersion)
     {
         $this->mobileFeatureVersion = $mobileFeatureVersion;
 
@@ -626,7 +626,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return bool
      */
-    public function getIsLossReasonsEnabled(): bool
+    public function getIsLossReasonsEnabled()
     {
         return $this->lossReasonsEnabled;
     }
@@ -635,7 +635,7 @@ class AccountModel extends BaseApiModel
      * @param bool $lossReasonsEnabled
      * @return AccountModel
      */
-    public function setLossReasonsEnabled(bool $lossReasonsEnabled): self
+    public function setLossReasonsEnabled($lossReasonsEnabled)
     {
         $this->lossReasonsEnabled = $lossReasonsEnabled;
 
@@ -645,7 +645,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return bool
      */
-    public function getIsHelpbotEnabled(): bool
+    public function getIsHelpbotEnabled()
     {
         return $this->helpbotEnabled;
     }
@@ -654,7 +654,7 @@ class AccountModel extends BaseApiModel
      * @param bool $helpbotEnabled
      * @return AccountModel
      */
-    public function setHelpbotEnabled(bool $helpbotEnabled): self
+    public function setHelpbotEnabled($helpbotEnabled)
     {
         $this->helpbotEnabled = $helpbotEnabled;
 
@@ -664,7 +664,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getContactNameDisplayOrder(): int
+    public function getContactNameDisplayOrder()
     {
         return $this->contactNameDisplayOrder;
     }
@@ -673,7 +673,7 @@ class AccountModel extends BaseApiModel
      * @param int $contactNameDisplayOrder
      * @return AccountModel
      */
-    public function setContactNameDisplayOrder(int $contactNameDisplayOrder): self
+    public function setContactNameDisplayOrder($contactNameDisplayOrder)
     {
         $this->contactNameDisplayOrder = $contactNameDisplayOrder;
 
@@ -683,7 +683,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return DateTimeSettings|null
      */
-    public function getDatetimeSettings(): ?DateTimeSettings
+    public function getDatetimeSettings()
     {
         return $this->datetimeSettings;
     }
@@ -692,7 +692,7 @@ class AccountModel extends BaseApiModel
      * @param DateTimeSettings $datetimeSettings
      * @return AccountModel
      */
-    public function setDatetimeSettings(DateTimeSettings $datetimeSettings): self
+    public function setDatetimeSettings(DateTimeSettings $datetimeSettings)
     {
         $this->datetimeSettings = $datetimeSettings;
 
@@ -702,7 +702,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getCurrentUserId(): ?int
+    public function getCurrentUserId()
     {
         return $this->currentUserId;
     }
@@ -711,7 +711,7 @@ class AccountModel extends BaseApiModel
      * @param int $currentUserId
      * @return AccountModel
      */
-    public function setCurrentUserId(int $currentUserId): self
+    public function setCurrentUserId($currentUserId)
     {
         $this->currentUserId = $currentUserId;
 
@@ -721,7 +721,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getCountry(): ?string
+    public function getCountry()
     {
         return $this->country;
     }
@@ -730,7 +730,7 @@ class AccountModel extends BaseApiModel
      * @param string|null $country
      * @return AccountModel
      */
-    public function setCountry(?string $country): self
+    public function setCountry($country)
     {
         $this->country = $country;
 
@@ -740,7 +740,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getCurrency(): ?string
+    public function getCurrency()
     {
         return $this->currency;
     }
@@ -750,7 +750,7 @@ class AccountModel extends BaseApiModel
      *
      * @return AccountModel
      */
-    public function setCurrency(?string $currency): AccountModel
+    public function setCurrency($currency)
     {
         $this->currency = $currency;
 
@@ -760,7 +760,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getCurrencySymbol(): ?string
+    public function getCurrencySymbol()
     {
         return $this->currencySymbol;
     }
@@ -770,7 +770,7 @@ class AccountModel extends BaseApiModel
      *
      * @return AccountModel
      */
-    public function setCurrencySymbol(?string $currencySymbol): AccountModel
+    public function setCurrencySymbol($currencySymbol)
     {
         $this->currencySymbol = $currencySymbol;
 
@@ -780,7 +780,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return null|InvoicesSettings
      */
-    public function getInvoicesSettings(): ?InvoicesSettings
+    public function getInvoicesSettings()
     {
         return $this->invoicesSettings;
     }
@@ -789,7 +789,7 @@ class AccountModel extends BaseApiModel
      * @param InvoicesSettings $invoicesSettings
      * @return $this
      */
-    public function setInvoicesSettings(InvoicesSettings $invoicesSettings): self
+    public function setInvoicesSettings(InvoicesSettings $invoicesSettings)
     {
         $this->invoicesSettings = $invoicesSettings;
 
@@ -799,7 +799,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return bool
      */
-    public function getIsTechnicalAccount(): bool
+    public function getIsTechnicalAccount()
     {
         return $this->isTechnicalAccount;
     }
@@ -809,7 +809,7 @@ class AccountModel extends BaseApiModel
      *
      * @return AccountModel
      */
-    public function setIsTechnicalAccount(bool $isTechnicalAccount): AccountModel
+    public function setIsTechnicalAccount($isTechnicalAccount)
     {
         $this->isTechnicalAccount = $isTechnicalAccount;
 
@@ -819,7 +819,7 @@ class AccountModel extends BaseApiModel
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [
             self::AMOJO_ID,
@@ -838,7 +838,7 @@ class AccountModel extends BaseApiModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return $this->toArray();
     }

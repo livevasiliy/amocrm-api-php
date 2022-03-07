@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models;
 
 use AmoCRM\Exceptions\NotAvailableForActionException;
@@ -40,7 +38,7 @@ class TalkModel extends BaseApiModel
      *
      * @return self
      */
-    public static function fromArray(array $talk): self
+    public static function fromArray(array $talk)
     {
         return (new static())
             ->setTalkId((int)$talk['talk_id'])
@@ -53,161 +51,161 @@ class TalkModel extends BaseApiModel
             ->setEntityType(empty($talk['entity_type']) ?: (string)$talk['entity_type'])
             ->setIsInWork(!empty($talk['is_in_work']))
             ->setIsRead(!empty($talk['is_read']))
-            ->setOrigin((string)($talk['origin'] ?? ''))
+            ->setOrigin((string)(isset($talk['origin']) ? $talk['origin'] : ''))
             ->setMissedAt(empty($talk['missed_at']) ? null : (int)$talk['missed_at'])
             ->setAccountId((int)$talk['account_id']);
     }
 
-    public function getTalkId(): int
+    public function getTalkId()
     {
         return $this->talkId;
     }
 
-    public function setTalkId(int $talkId): self
+    public function setTalkId($talkId)
     {
         $this->talkId = $talkId;
 
         return $this;
     }
 
-    public function getCreatedAt(): int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(int $createdAt): self
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUpdatedAt(): int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(int $updatedAt): self
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
-    public function getRate(): int
+    public function getRate()
     {
         return $this->rate;
     }
 
-    public function setRate(int $rate): self
+    public function setRate($rate)
     {
         $this->rate = $rate;
 
         return $this;
     }
 
-    public function getContactId(): int
+    public function getContactId()
     {
         return $this->contactId;
     }
 
-    public function setContactId(int $contactId): self
+    public function setContactId($contactId)
     {
         $this->contactId = $contactId;
 
         return $this;
     }
 
-    public function getChatId(): ?string
+    public function getChatId()
     {
         return $this->chatId;
     }
 
-    public function setChatId(?string $chatId): self
+    public function setChatId($chatId)
     {
         $this->chatId = $chatId;
 
         return $this;
     }
 
-    public function getEntityId(): ?int
+    public function getEntityId()
     {
         return $this->entityId;
     }
 
-    public function setEntityId(?int $entityId): self
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
 
         return $this;
     }
 
-    public function getEntityType(): ?string
+    public function getEntityType()
     {
         return $this->entityType;
     }
 
-    public function setEntityType(?string $entityType): self
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
         return $this;
     }
 
-    public function isInWork(): bool
+    public function isInWork()
     {
         return $this->isInWork;
     }
 
-    public function setIsInWork(bool $isInWork): self
+    public function setIsInWork($isInWork)
     {
         $this->isInWork = $isInWork;
 
         return $this;
     }
 
-    public function isRead(): bool
+    public function isRead()
     {
         return $this->isRead;
     }
 
-    public function setIsRead(bool $isRead): self
+    public function setIsRead($isRead)
     {
         $this->isRead = $isRead;
 
         return $this;
     }
 
-    public function getOrigin(): string
+    public function getOrigin()
     {
         return $this->origin;
     }
 
-    public function setOrigin(string $origin): self
+    public function setOrigin($origin)
     {
         $this->origin = $origin;
 
         return $this;
     }
 
-    public function getMissedAt(): ?int
+    public function getMissedAt()
     {
         return $this->missedAt;
     }
 
-    public function setMissedAt(?int $missedAt): self
+    public function setMissedAt($missedAt)
     {
         $this->missedAt = $missedAt;
 
         return $this;
     }
 
-    public function getAccountId(): int
+    public function getAccountId()
     {
         return $this->accountId;
     }
 
-    public function setAccountId(int $accountId): self
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -217,7 +215,7 @@ class TalkModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'talk_id'     => $this->getTalkId(),
@@ -242,7 +240,7 @@ class TalkModel extends BaseApiModel
      * @return array
      * @throws NotAvailableForActionException
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         throw new NotAvailableForActionException();
     }

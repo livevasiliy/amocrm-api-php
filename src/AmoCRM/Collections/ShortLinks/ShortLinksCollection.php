@@ -21,5 +21,5 @@ use AmoCRM\Models\ShortLinks\ShortLinkModel;
  */
 class ShortLinksCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = ShortLinkModel::class;
+    const ITEM_CLASS = ShortLinkModel::class;
 }

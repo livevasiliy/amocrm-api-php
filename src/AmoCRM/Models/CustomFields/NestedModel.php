@@ -51,7 +51,7 @@ class NestedModel extends BaseApiModel implements Arrayable
      *
      * @return self
      */
-    public static function fromArray(array $nested): self
+    public static function fromArray(array $nested)
     {
         $model = new self();
 
@@ -67,7 +67,7 @@ class NestedModel extends BaseApiModel implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -80,7 +80,7 @@ class NestedModel extends BaseApiModel implements Arrayable
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -90,7 +90,7 @@ class NestedModel extends BaseApiModel implements Arrayable
      *
      * @return NestedModel
      */
-    public function setId(int $id): NestedModel
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -100,7 +100,7 @@ class NestedModel extends BaseApiModel implements Arrayable
     /**
      * @return string
      */
-    public function getValue(): string
+    public function getValue()
     {
         return $this->value;
     }
@@ -110,7 +110,7 @@ class NestedModel extends BaseApiModel implements Arrayable
      *
      * @return NestedModel
      */
-    public function setValue(string $value): NestedModel
+    public function setValue($value)
     {
         $this->value = $value;
 
@@ -120,7 +120,7 @@ class NestedModel extends BaseApiModel implements Arrayable
     /**
      * @return int
      */
-    public function getSort(): int
+    public function getSort()
     {
         return $this->sort;
     }
@@ -130,7 +130,7 @@ class NestedModel extends BaseApiModel implements Arrayable
      *
      * @return NestedModel
      */
-    public function setSort(int $sort): NestedModel
+    public function setSort($sort)
     {
         $this->sort = $sort;
 
@@ -140,7 +140,7 @@ class NestedModel extends BaseApiModel implements Arrayable
     /**
      * @return int|null
      */
-    public function getParentId(): ?int
+    public function getParentId()
     {
         return $this->parentId;
     }
@@ -150,7 +150,7 @@ class NestedModel extends BaseApiModel implements Arrayable
      *
      * @return NestedModel
      */
-    public function setParentId(?int $parentId): NestedModel
+    public function setParentId($parentId)
     {
         $this->parentId = $parentId;
 
@@ -163,7 +163,7 @@ class NestedModel extends BaseApiModel implements Arrayable
      * @return $this
      * @throws InvalidArgumentException
      */
-    public function setRequestId(string $requestId): self
+    public function setRequestId($requestId)
     {
         $this->validateRequestId($requestId);
 
@@ -175,7 +175,7 @@ class NestedModel extends BaseApiModel implements Arrayable
     /**
      * @return string|null
      */
-    public function getRequestId(): ?string
+    public function getRequestId()
     {
         return $this->requestId;
     }
@@ -186,7 +186,7 @@ class NestedModel extends BaseApiModel implements Arrayable
      * @return $this
      * @throws InvalidArgumentException
      */
-    public function setParentRequestId(string $requestId): self
+    public function setParentRequestId($requestId)
     {
         $this->validateRequestId($requestId);
 
@@ -198,7 +198,7 @@ class NestedModel extends BaseApiModel implements Arrayable
     /**
      * @return string|null
      */
-    public function getParentRequestId(): ?string
+    public function getParentRequestId()
     {
         return $this->parentRequestId;
     }
@@ -207,8 +207,9 @@ class NestedModel extends BaseApiModel implements Arrayable
      * @param string $requestId
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    protected function validateRequestId(string $requestId): void
+    protected function validateRequestId($requestId)
     {
         if (!preg_match('/^[a-zA-Z0-9]+$/', $requestId)) {
             throw new InvalidArgumentException('Request id must consists of only letters and numbers');
@@ -219,7 +220,7 @@ class NestedModel extends BaseApiModel implements Arrayable
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [
             'parent_id' => $this->getParentId(),

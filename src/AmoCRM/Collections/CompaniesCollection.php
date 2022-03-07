@@ -24,5 +24,5 @@ class CompaniesCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = CompanyModel::class;
+    const ITEM_CLASS = CompanyModel::class;
 }

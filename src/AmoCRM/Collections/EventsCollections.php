@@ -24,5 +24,5 @@ class EventsCollections extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = EventModel::class;
+    const ITEM_CLASS = EventModel::class;
 }

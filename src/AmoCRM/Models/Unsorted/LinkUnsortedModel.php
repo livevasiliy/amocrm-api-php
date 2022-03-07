@@ -34,7 +34,7 @@ class LinkUnsortedModel implements Arrayable
      * @param array $result
      * @return self
      */
-    public static function fromArray(array $result): self
+    public static function fromArray(array $result)
     {
         $model = new self();
 
@@ -64,7 +64,7 @@ class LinkUnsortedModel implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'uid' => $this->getUid(),
@@ -77,7 +77,7 @@ class LinkUnsortedModel implements Arrayable
     /**
      * @return string
      */
-    public function getUid(): string
+    public function getUid()
     {
         return $this->uid;
     }
@@ -86,7 +86,7 @@ class LinkUnsortedModel implements Arrayable
      * @param string $uid
      * @return LinkUnsortedModel
      */
-    public function setUid(string $uid): LinkUnsortedModel
+    public function setUid($uid)
     {
         $this->uid = $uid;
 
@@ -96,7 +96,7 @@ class LinkUnsortedModel implements Arrayable
     /**
      * @return LeadsCollection|null
      */
-    public function getLeads(): ?LeadsCollection
+    public function getLeads()
     {
         return $this->leads;
     }
@@ -105,7 +105,7 @@ class LinkUnsortedModel implements Arrayable
      * @param LeadsCollection|null $leads
      * @return LinkUnsortedModel
      */
-    public function setLeads(?LeadsCollection $leads): LinkUnsortedModel
+    public function setLeads($leads)
     {
         $this->leads = $leads;
 
@@ -115,7 +115,7 @@ class LinkUnsortedModel implements Arrayable
     /**
      * @return ContactsCollection|null
      */
-    public function getContacts(): ?ContactsCollection
+    public function getContacts()
     {
         return $this->contacts;
     }
@@ -124,7 +124,7 @@ class LinkUnsortedModel implements Arrayable
      * @param ContactsCollection|null $contacts
      * @return LinkUnsortedModel
      */
-    public function setContacts(?ContactsCollection $contacts): LinkUnsortedModel
+    public function setContacts($contacts)
     {
         $this->contacts = $contacts;
 
@@ -134,7 +134,7 @@ class LinkUnsortedModel implements Arrayable
     /**
      * @return CompaniesCollection|null
      */
-    public function getCompanies(): ?CompaniesCollection
+    public function getCompanies()
     {
         return $this->companies;
     }
@@ -143,7 +143,7 @@ class LinkUnsortedModel implements Arrayable
      * @param CompaniesCollection|null $companies
      * @return LinkUnsortedModel
      */
-    public function setCompanies(?CompaniesCollection $companies): LinkUnsortedModel
+    public function setCompanies($companies)
     {
         $this->companies = $companies;
 

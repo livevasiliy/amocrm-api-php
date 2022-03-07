@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace Tests\Cases\NoteTypes;
 
@@ -16,7 +15,7 @@ final class DateCustomFieldValueModelTest extends TestCase
     /**
      * @return array
      */
-    public function getInvalidDates(): array
+    public function getInvalidDates()
     {
         return [
             ['$test'], // spec symbols
@@ -33,7 +32,7 @@ final class DateCustomFieldValueModelTest extends TestCase
     /**
      * @return array
      */
-    public function getValidDates(): array
+    public function getValidDates()
     {
         return [
             [1596187802],
@@ -53,7 +52,7 @@ final class DateCustomFieldValueModelTest extends TestCase
      *
      * @param mixed $date
      */
-    public function testInvalidDate($date): void
+    public function testInvalidDate($date)
     {
         $this->expectException(InvalidArgumentException::class);
         (new DateCustomFieldValueModel())->setValue($date);
@@ -66,7 +65,7 @@ final class DateCustomFieldValueModelTest extends TestCase
      *
      * @throws InvalidArgumentException
      */
-    public function testValidDate($date): void
+    public function testValidDate($date)
     {
         $dateField = (new DateCustomFieldValueModel())->setValue($date);
         $value = $dateField->getValue();
@@ -82,7 +81,7 @@ final class DateCustomFieldValueModelTest extends TestCase
      *
      * @throws InvalidArgumentException
      */
-    public function testValidDateApi($date): void
+    public function testValidDateApi($date)
     {
         $dateField = (new DateCustomFieldValueModel())->setValue($date);
 

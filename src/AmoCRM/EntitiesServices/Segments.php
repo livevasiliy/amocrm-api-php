@@ -44,14 +44,14 @@ class Segments extends BaseEntity implements HasPageMethodsInterface
     /**
      * @var string
      */
-    public const ITEM_CLASS = SegmentModel::class;
+    const ITEM_CLASS = SegmentModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -68,7 +68,7 @@ class Segments extends BaseEntity implements HasPageMethodsInterface
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -81,7 +81,7 @@ class Segments extends BaseEntity implements HasPageMethodsInterface
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -92,7 +92,7 @@ class Segments extends BaseEntity implements HasPageMethodsInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -103,7 +103,7 @@ class Segments extends BaseEntity implements HasPageMethodsInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -125,7 +125,7 @@ class Segments extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiCollection|SegmentsCollection
      * @throws AmoCRMApiException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('This entity supports only addOne method');
     }
@@ -138,7 +138,7 @@ class Segments extends BaseEntity implements HasPageMethodsInterface
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         $response = $this->request->post($this->getMethod(), $model->toApi());
         $this->processModelAction($model, $response);
@@ -152,7 +152,7 @@ class Segments extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiCollection|SegmentsCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('This entity supports only updateOne method');
     }
@@ -160,8 +160,9 @@ class Segments extends BaseEntity implements HasPageMethodsInterface
     /**
      * @param BaseApiModel|SegmentModel $apiModel
      * @param array $entity
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);

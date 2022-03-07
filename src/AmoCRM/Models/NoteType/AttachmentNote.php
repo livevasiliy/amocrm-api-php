@@ -20,7 +20,10 @@ class AttachmentNote extends NoteModel
      */
     protected $attachment;
 
-    public function getNoteType(): string
+    /**
+     * @return string
+     */
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_ATTACHMENT;
     }
@@ -28,9 +31,9 @@ class AttachmentNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -48,7 +51,7 @@ class AttachmentNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -63,7 +66,7 @@ class AttachmentNote extends NoteModel
      * @return array
      * @throws NotAvailableForActionException
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         throw new NotAvailableForActionException();
     }
@@ -71,7 +74,7 @@ class AttachmentNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getOriginalName(): ?string
+    public function getOriginalName()
     {
         return $this->originalName;
     }
@@ -80,7 +83,7 @@ class AttachmentNote extends NoteModel
      * @param string|null $originalName
      * @return AttachmentNote
      */
-    public function setOriginalName(?string $originalName): AttachmentNote
+    public function setOriginalName($originalName)
     {
         $this->originalName = $originalName;
 
@@ -90,7 +93,7 @@ class AttachmentNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getAttachment(): ?string
+    public function getAttachment()
     {
         return $this->attachment;
     }
@@ -99,7 +102,7 @@ class AttachmentNote extends NoteModel
      * @param string|null $attachment
      * @return AttachmentNote
      */
-    public function setAttachment(?string $attachment): AttachmentNote
+    public function setAttachment($attachment)
     {
         $this->attachment = $attachment;
 

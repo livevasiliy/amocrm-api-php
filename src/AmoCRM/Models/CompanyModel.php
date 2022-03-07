@@ -29,10 +29,10 @@ class CompanyModel extends BaseApiModel implements
     use RequestIdTrait;
     use GetLinkTrait;
 
-    public const LEADS = 'leads';
-    public const CUSTOMERS = 'customers';
-    public const CONTACTS = 'contacts';
-    public const CATALOG_ELEMENTS = 'catalog_elements';
+    const LEADS = 'leads';
+    const CUSTOMERS = 'customers';
+    const CONTACTS = 'contacts';
+    const CATALOG_ELEMENTS = 'catalog_elements';
 
     /**
      * @var int
@@ -114,7 +114,7 @@ class CompanyModel extends BaseApiModel implements
      */
     protected $catalogElementsLinks = null;
 
-    public function getType(): string
+    public function getType()
     {
         return EntityTypesInterface::COMPANIES;
     }
@@ -122,7 +122,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -132,7 +132,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -142,7 +142,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|string
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -152,7 +152,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -162,7 +162,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -172,7 +172,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setAccountId(int $id): self
+    public function setAccountId($id)
     {
         $this->accountId = $id;
 
@@ -183,7 +183,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getGroupId(): ?int
+    public function getGroupId()
     {
         return $this->groupId;
     }
@@ -193,7 +193,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setGroupId(int $groupId): self
+    public function setGroupId($groupId)
     {
         $this->groupId = $groupId;
 
@@ -203,7 +203,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getResponsibleUserId(): ?int
+    public function getResponsibleUserId()
     {
         return $this->responsibleUserId;
     }
@@ -213,7 +213,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setResponsibleUserId(int $userId): self
+    public function setResponsibleUserId($userId)
     {
         $this->responsibleUserId = $userId;
 
@@ -223,7 +223,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -233,7 +233,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCreatedBy(int $userId): self
+    public function setCreatedBy($userId)
     {
         $this->createdBy = $userId;
 
@@ -243,7 +243,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -253,7 +253,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setUpdatedBy(int $userId): self
+    public function setUpdatedBy($userId)
     {
         $this->updatedBy = $userId;
 
@@ -263,7 +263,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -273,7 +273,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCreatedAt(int $timestamp): self
+    public function setCreatedAt($timestamp)
     {
         $this->createdAt = $timestamp;
 
@@ -283,7 +283,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -293,7 +293,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setUpdatedAt(int $timestamp): self
+    public function setUpdatedAt($timestamp)
     {
         $this->updatedAt = $timestamp;
 
@@ -303,7 +303,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return int|null
      */
-    public function getClosestTaskAt(): ?int
+    public function getClosestTaskAt()
     {
         return $this->closestTaskAt;
     }
@@ -313,7 +313,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setClosestTaskAt(?int $timestamp): self
+    public function setClosestTaskAt($timestamp)
     {
         $this->closestTaskAt = $timestamp;
 
@@ -323,7 +323,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|TagsCollection
      */
-    public function getTags(): ?TagsCollection
+    public function getTags()
     {
         return $this->tags;
     }
@@ -333,7 +333,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setTags(?TagsCollection $tags): self
+    public function setTags($tags)
     {
         $this->tags = $tags;
 
@@ -343,7 +343,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return CustomFieldsValuesCollection|null
      */
-    public function getCustomFieldsValues(): ?CustomFieldsValuesCollection
+    public function getCustomFieldsValues()
     {
         return $this->customFieldsValues;
     }
@@ -353,7 +353,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCustomFieldsValues(?CustomFieldsValuesCollection $values): self
+    public function setCustomFieldsValues($values)
     {
         $this->customFieldsValues = $values;
 
@@ -363,7 +363,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return CatalogElementsCollection|null
      */
-    public function getCatalogElementsLinks(): ?CatalogElementsCollection
+    public function getCatalogElementsLinks()
     {
         return $this->catalogElementsLinks;
     }
@@ -372,7 +372,7 @@ class CompanyModel extends BaseApiModel implements
      * @param CatalogElementsCollection|null $catalogElementsLinks
      * @return CompanyModel
      */
-    public function setCatalogElementsLinks(CatalogElementsCollection $catalogElementsLinks): self
+    public function setCatalogElementsLinks(CatalogElementsCollection $catalogElementsLinks)
     {
         $this->catalogElementsLinks = $catalogElementsLinks;
 
@@ -382,7 +382,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return LeadsCollection|null
      */
-    public function getLeads(): ?LeadsCollection
+    public function getLeads()
     {
         return $this->leads;
     }
@@ -391,7 +391,7 @@ class CompanyModel extends BaseApiModel implements
      * @param LeadsCollection $leads
      * @return CompanyModel
      */
-    public function setLeads(LeadsCollection $leads): self
+    public function setLeads(LeadsCollection $leads)
     {
         $this->leads = $leads;
 
@@ -401,7 +401,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|ContactsCollection
      */
-    public function getContacts(): ?ContactsCollection
+    public function getContacts()
     {
         return $this->contacts;
     }
@@ -411,7 +411,7 @@ class CompanyModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setContacts(ContactsCollection $contacts): self
+    public function setContacts(ContactsCollection $contacts)
     {
         $this->contacts = $contacts;
 
@@ -421,7 +421,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return null|CustomersCollection
      */
-    public function getCustomers(): ?CustomersCollection
+    public function getCustomers()
     {
         return $this->customers;
     }
@@ -430,7 +430,7 @@ class CompanyModel extends BaseApiModel implements
      * @param CustomersCollection $customersCollection
      * @return self
      */
-    public function setCustomers(CustomersCollection $customersCollection): self
+    public function setCustomers(CustomersCollection $customersCollection)
     {
         $this->customers = $customersCollection;
 
@@ -443,7 +443,7 @@ class CompanyModel extends BaseApiModel implements
      * @return self
      * @throws InvalidArgumentException
      */
-    public static function fromArray(array $company): self
+    public static function fromArray(array $company)
     {
         if (empty($company['id'])) {
             throw new InvalidArgumentException('Contact id is empty in ' . json_encode($company));
@@ -525,7 +525,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = [
             'name' => $this->getName(),
@@ -569,7 +569,7 @@ class CompanyModel extends BaseApiModel implements
         return $result;
     }
 
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -619,7 +619,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [
             self::LEADS,
@@ -633,7 +633,7 @@ class CompanyModel extends BaseApiModel implements
     /**
      * @return array|null
      */
-    protected function getMetadataForLink(): ?array
+    protected function getMetadataForLink()
     {
         $result = null;
 

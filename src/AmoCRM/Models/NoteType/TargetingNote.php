@@ -7,12 +7,12 @@ use AmoCRM\Models\NoteModel;
 
 abstract class TargetingNote extends NoteModel
 {
-    public const TARGETING_NOTE_SERVICE_FACEBOOK = 'facebook';
-    public const TARGETING_NOTE_SERVICE_VKONTAKTE = 'vkontakte';
-    public const TARGETING_NOTE_SERVICE_MAILCHIMP = 'mailchimp';
-    public const TARGETING_NOTE_SERVICE_ADWORDS = 'adwords';
+    const TARGETING_NOTE_SERVICE_FACEBOOK = 'facebook';
+    const TARGETING_NOTE_SERVICE_VKONTAKTE = 'vkontakte';
+    const TARGETING_NOTE_SERVICE_MAILCHIMP = 'mailchimp';
+    const TARGETING_NOTE_SERVICE_ADWORDS = 'adwords';
 
-    public const AVAILABLE_SERVICES = [
+    const AVAILABLE_SERVICES = [
         self::TARGETING_NOTE_SERVICE_ADWORDS,
         self::TARGETING_NOTE_SERVICE_MAILCHIMP,
         self::TARGETING_NOTE_SERVICE_VKONTAKTE,
@@ -37,10 +37,10 @@ abstract class TargetingNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      * @throws InvalidArgumentException
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -62,7 +62,7 @@ abstract class TargetingNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -79,7 +79,7 @@ abstract class TargetingNote extends NoteModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -95,7 +95,7 @@ abstract class TargetingNote extends NoteModel
     /**
      * @return null|array
      */
-    public function getContacts(): ?array
+    public function getContacts()
     {
         return $this->contacts;
     }
@@ -104,7 +104,7 @@ abstract class TargetingNote extends NoteModel
      * @param array|null $contacts
      * @return TargetingNote
      */
-    public function setContacts(?array $contacts): TargetingNote
+    public function setContacts($contacts)
     {
         $this->contacts = $contacts;
 
@@ -114,7 +114,7 @@ abstract class TargetingNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getCampaign(): ?string
+    public function getCampaign()
     {
         return $this->campaign;
     }
@@ -123,7 +123,7 @@ abstract class TargetingNote extends NoteModel
      * @param string|null $campaign
      * @return TargetingNote
      */
-    public function setCampaign(?string $campaign): TargetingNote
+    public function setCampaign($campaign)
     {
         $this->campaign = $campaign;
 
@@ -133,7 +133,7 @@ abstract class TargetingNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getService(): ?string
+    public function getService()
     {
         return $this->service;
     }
@@ -144,7 +144,7 @@ abstract class TargetingNote extends NoteModel
      * @return TargetingNote
      * @throws InvalidArgumentException
      */
-    public function setService(?string $service): TargetingNote
+    public function setService($service)
     {
         if (!in_array($service, self::AVAILABLE_SERVICES, true)) {
             throw new InvalidArgumentException('Invalid value given:' . $service);

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models\Chats\Templates\Buttons;
 
 use AmoCRM\Enum\Chats\Templates\Buttons\ButtonsEnums;
@@ -21,7 +19,7 @@ class UrlButtonModel extends TextButtonModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'type' => ButtonsEnums::TYPE_URL,
@@ -33,7 +31,7 @@ class UrlButtonModel extends TextButtonModel
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl()
     {
         return $this->url;
     }
@@ -43,7 +41,7 @@ class UrlButtonModel extends TextButtonModel
      *
      * @return UrlButtonModel
      */
-    public function setUrl(string $url): UrlButtonModel
+    public function setUrl($url)
     {
         $this->url = $url;
 

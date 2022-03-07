@@ -55,14 +55,14 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
     /**
      * @var string
      */
-    public const ITEM_CLASS = TransactionModel::class;
+    const ITEM_CLASS = TransactionModel::class;
 
     /**
      * @param int $customerId
      *
      * @return Transactions
      */
-    public function setCustomerId(int $customerId): Transactions
+    public function setCustomerId($customerId)
     {
         $this->customerId = $customerId;
 
@@ -74,7 +74,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return Transactions
      */
-    public function setAccrueBonus(bool $accrueBonus): Transactions
+    public function setAccrueBonus($accrueBonus)
     {
         $this->accrueBonus = $accrueBonus;
 
@@ -86,7 +86,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -103,7 +103,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -114,7 +114,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -132,8 +132,10 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
     /**
      * @param BaseApiModel|TransactionModel $apiModel
      * @param array $entity
+     *
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);
@@ -152,7 +154,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      * @return string
      * @throws NotAvailableForActionException
      */
-    protected function getMethodWithId(): string
+    protected function getMethodWithId()
     {
         $id = $this->customerId;
 
@@ -171,7 +173,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         $this->setCustomerId($model->getCustomerId());
 
@@ -188,11 +190,11 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      * Добавление коллекции сущностей
      * @param BaseApiCollection|TransactionsCollection $collection
      *
-     * @return BaseApiCollection|TransactionsCollection
+     * @return BaseApiCollection
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         $response = $this->request->post($this->getMethodWithId(), $collection->toApi(), $this->getQueryParams());
         $collection = $this->processAdd($collection, $response);
@@ -207,7 +209,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function deleteOne(BaseApiModel $model): bool
+    public function deleteOne(BaseApiModel $model)
     {
         $this->setCustomerId($model->getCustomerId());
 
@@ -222,7 +224,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -233,7 +235,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $collection): BaseApiModel
+    public function updateOne(BaseApiModel $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -244,7 +246,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
      * @return bool
      * @throws NotAvailableForActionException
      */
-    public function delete(BaseApiCollection $collection): bool
+    public function delete(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('This entity supports only deleteOne method');
     }
@@ -252,7 +254,7 @@ class Transactions extends BaseEntity implements HasDeleteMethodInterface
     /**
      * @return array
      */
-    protected function getQueryParams(): array
+    protected function getQueryParams()
     {
         return [
             'accrue_bonus' => $this->accrueBonus ? 'true' : 'false',

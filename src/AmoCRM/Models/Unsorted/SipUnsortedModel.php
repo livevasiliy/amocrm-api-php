@@ -16,7 +16,7 @@ class SipUnsortedModel extends BaseUnsortedModel
      * @param string $category
      * @return BaseUnsortedModel
      */
-    public function setCategory(string $category): BaseUnsortedModel
+    public function setCategory($category)
     {
         $this->category = BaseUnsortedModel::CATEGORY_CODE_SIP;
 
@@ -26,7 +26,7 @@ class SipUnsortedModel extends BaseUnsortedModel
     /**
      * @return UnsortedMetadataInterface|null
      */
-    public function getMetadata(): ?UnsortedMetadataInterface
+    public function getMetadata()
     {
         return $this->metadata;
     }
@@ -37,7 +37,7 @@ class SipUnsortedModel extends BaseUnsortedModel
      * @return BaseUnsortedModel
      * @throws BadTypeException
      */
-    public function setMetadata(UnsortedMetadataInterface $metadata): BaseUnsortedModel
+    public function setMetadata(UnsortedMetadataInterface $metadata)
     {
         if (!($metadata instanceof SipMetadata)) {
             throw new BadTypeException('metadata should be instance of SipMetadata');

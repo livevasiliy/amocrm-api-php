@@ -53,7 +53,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      *
      * @return self
      */
-    public static function fromArray(array $metadata): self
+    public static function fromArray(array $metadata)
     {
         $model = new self();
 
@@ -72,7 +72,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'from' => $this->getFrom(),
@@ -80,13 +80,13 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
             'received_at' => $this->getReceivedAt(),
             'service' => $this->getService(),
             'client' => [
-                'name' => $this->getClient()['name'] ?? null,
-                'avatar' => $this->getClient()['avatar'] ?? null,
+                'name' => isset($this->getClient()['name']) ? $this->getClient()['name'] : null,
+                'avatar' => isset($this->getClient()['avatar']) ? $this->getClient()['avatar'] : null,
             ],
             'origin' => [
-                'chat_id' => $this->getOrigin()['chat_id'] ?? null,
-                'ref' => $this->getOrigin()['ref'] ?? null,
-                'visitor_uid' => $this->getOrigin()['visitor_uid'] ?? null,
+                'chat_id' => isset($this->getOrigin()['chat_id']) ? $this->getOrigin()['chat_id'] : null,
+                'ref' => isset($this->getOrigin()['ref']) ? $this->getOrigin()['ref'] : null,
+                'visitor_uid' => isset($this->getOrigin()['visitor_uid']) ? $this->getOrigin()['visitor_uid'] : null,
             ],
             'last_message_text' => $this->getLastMessageText(),
             'source_name' => $this->getSourceName(),
@@ -96,7 +96,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return string|null
      */
-    public function getFrom(): ?string
+    public function getFrom()
     {
         return $this->from;
     }
@@ -105,7 +105,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $from
      * @return ChatsMetadata
      */
-    public function setFrom(?string $from): ChatsMetadata
+    public function setFrom($from)
     {
         $this->from = $from;
 
@@ -115,7 +115,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return string|null
      */
-    public function getTo(): ?string
+    public function getTo()
     {
         return $this->to;
     }
@@ -124,7 +124,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $to
      * @return ChatsMetadata
      */
-    public function setTo(?string $to): ChatsMetadata
+    public function setTo($to)
     {
         $this->to = $to;
 
@@ -134,7 +134,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return int|null
      */
-    public function getReceivedAt(): ?int
+    public function getReceivedAt()
     {
         return $this->receivedAt;
     }
@@ -143,7 +143,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param int|null $receivedAt
      * @return ChatsMetadata
      */
-    public function setReceivedAt(?int $receivedAt): ChatsMetadata
+    public function setReceivedAt($receivedAt)
     {
         $this->receivedAt = $receivedAt;
 
@@ -153,7 +153,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return string|null
      */
-    public function getService(): ?string
+    public function getService()
     {
         return $this->service;
     }
@@ -162,7 +162,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $service
      * @return ChatsMetadata
      */
-    public function setService(?string $service): ChatsMetadata
+    public function setService($service)
     {
         $this->service = $service;
 
@@ -172,7 +172,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return array|null
      */
-    public function getClient(): ?array
+    public function getClient()
     {
         return $this->client;
     }
@@ -181,7 +181,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param array|null $client
      * @return ChatsMetadata
      */
-    public function setClient(?array $client): ChatsMetadata
+    public function setClient($client)
     {
         $this->client = $client;
 
@@ -191,7 +191,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return array|null
      */
-    public function getOrigin(): ?array
+    public function getOrigin()
     {
         return $this->origin;
     }
@@ -200,7 +200,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param array|null $origin
      * @return ChatsMetadata
      */
-    public function setOrigin(?array $origin): ChatsMetadata
+    public function setOrigin($origin)
     {
         $this->origin = $origin;
 
@@ -210,7 +210,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return string|null
      */
-    public function getLastMessageText(): ?string
+    public function getLastMessageText()
     {
         return $this->lastMessageText;
     }
@@ -219,7 +219,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $lastMessageText
      * @return ChatsMetadata
      */
-    public function setLastMessageText(?string $lastMessageText): ChatsMetadata
+    public function setLastMessageText($lastMessageText)
     {
         $this->lastMessageText = $lastMessageText;
 
@@ -229,7 +229,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return string|null
      */
-    public function getSourceName(): ?string
+    public function getSourceName()
     {
         return $this->sourceName;
     }
@@ -238,7 +238,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $sourceName
      * @return ChatsMetadata
      */
-    public function setSourceName(?string $sourceName): ChatsMetadata
+    public function setSourceName($sourceName)
     {
         $this->sourceName = $sourceName;
 
@@ -249,7 +249,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return [];
     }
@@ -258,7 +258,7 @@ class ChatsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return array
      */
-    public function toComplexApi(): array
+    public function toComplexApi()
     {
         $result = $this->toApi();
 

@@ -45,14 +45,14 @@ class Contacts extends BaseEntity implements HasLinkMethodInterface, HasPageMeth
     /**
      * @var string
      */
-    public const ITEM_CLASS = ContactModel::class;
+    const ITEM_CLASS = ContactModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -69,7 +69,7 @@ class Contacts extends BaseEntity implements HasLinkMethodInterface, HasPageMeth
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -82,7 +82,7 @@ class Contacts extends BaseEntity implements HasLinkMethodInterface, HasPageMeth
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -93,7 +93,7 @@ class Contacts extends BaseEntity implements HasLinkMethodInterface, HasPageMeth
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -104,7 +104,7 @@ class Contacts extends BaseEntity implements HasLinkMethodInterface, HasPageMeth
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -122,8 +122,10 @@ class Contacts extends BaseEntity implements HasLinkMethodInterface, HasPageMeth
     /**
      * @param BaseApiModel $apiModel
      * @param array $entity
+     *
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         /** @var ContactModel $apiModel */
         if (isset($entity['id'])) {
@@ -138,7 +140,7 @@ class Contacts extends BaseEntity implements HasLinkMethodInterface, HasPageMeth
     /**
      * @return array|string[]
      */
-    protected function getAvailableLinkTypes(): array
+    protected function getAvailableLinkTypes()
     {
         return [
             EntityTypesInterface::CATALOG_ELEMENTS_FULL,

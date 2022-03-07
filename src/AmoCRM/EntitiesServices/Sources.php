@@ -27,7 +27,6 @@ use AmoCRM\Models\SourceModel;
  */
 class Sources extends BaseEntity implements HasDeleteMethodInterface
 {
-
     /**
      * @var string
      */
@@ -41,9 +40,9 @@ class Sources extends BaseEntity implements HasDeleteMethodInterface
     /**
      * @var string
      */
-    public const ITEM_CLASS = SourceModel::class;
+    const ITEM_CLASS = SourceModel::class;
 
-    public function deleteOne(BaseApiModel $model): bool
+    public function deleteOne(BaseApiModel $model)
     {
         if (!$model instanceof HasIdInterface) {
             throw new InvalidArgumentException('Entity should have getId method');
@@ -57,13 +56,13 @@ class Sources extends BaseEntity implements HasDeleteMethodInterface
 
         $result = $this->request->delete($this->getMethod() . '/' . $model->getId());
 
-        return $result['result'] ?? false;
+        return isset($result['result']) ? $result['result'] : false;
     }
 
-    public function delete(BaseApiCollection $collection): bool
+    public function delete(BaseApiCollection $collection)
     {
         $result = $this->request->delete($this->getMethod(), $collection->toApi());
-        return $result['result'] ?? false;
+        return isset($result['result']) ? $result['result'] : false;
     }
 
 
@@ -72,7 +71,7 @@ class Sources extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -92,7 +91,7 @@ class Sources extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -105,7 +104,7 @@ class Sources extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -116,7 +115,7 @@ class Sources extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -128,7 +127,7 @@ class Sources extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -146,8 +145,9 @@ class Sources extends BaseEntity implements HasDeleteMethodInterface
     /**
      * @param BaseApiModel|SourceModel $apiModel
      * @param array $entity
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         /** @var SourceModel|BaseApiModel $apiModel */
         if (isset($entity['id'])) {

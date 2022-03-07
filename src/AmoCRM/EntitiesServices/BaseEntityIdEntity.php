@@ -20,8 +20,10 @@ abstract class BaseEntityIdEntity extends BaseEntity
      * @param int $entityId
      *
      * @throws NotAvailableForActionException
+     *
+     * @return void
      */
-    protected function validateEntityId(int $entityId): void
+    protected function validateEntityId($entityId)
     {
         if ($entityId < 0) {
             throw new NotAvailableForActionException('Invalid entity id');
@@ -32,7 +34,7 @@ abstract class BaseEntityIdEntity extends BaseEntity
      * @param int $entityId
      * @return $this
      */
-    public function setEntityId(int $entityId): self
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
 
@@ -42,7 +44,7 @@ abstract class BaseEntityIdEntity extends BaseEntity
     /**
      * @return int
      */
-    public function getEntityId(): int
+    public function getEntityId()
     {
         return $this->entityId;
     }
@@ -50,7 +52,7 @@ abstract class BaseEntityIdEntity extends BaseEntity
     /**
      * @return string
      */
-    protected function getMethod(): string
+    protected function getMethod()
     {
         $method = parent::getMethod();
 

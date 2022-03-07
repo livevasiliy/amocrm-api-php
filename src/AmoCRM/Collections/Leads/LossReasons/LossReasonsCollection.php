@@ -21,5 +21,5 @@ use AmoCRM\Models\Leads\LossReasons\LossReasonModel;
  */
 class LossReasonsCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = LossReasonModel::class;
+    const ITEM_CLASS = LossReasonModel::class;
 }

@@ -33,11 +33,11 @@ class TaskType extends BaseApiModel implements Arrayable
     protected $code;
 
     /**
-     * @param array $type
+     * @param  array  $type
      *
      * @return self
      */
-    public static function fromArray(array $type): self
+    public static function fromArray(array $type)
     {
         $model = new self();
 
@@ -53,7 +53,7 @@ class TaskType extends BaseApiModel implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -67,15 +67,16 @@ class TaskType extends BaseApiModel implements Arrayable
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
 
     /**
-     * @param int $id
+     * @param  int  $id
+     * @return  void
      */
-    public function setId(int $id): void
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -83,15 +84,17 @@ class TaskType extends BaseApiModel implements Arrayable
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
 
     /**
-     * @param string $name
+     * @param  string  $name
+     *
+     * @return void
      */
-    public function setName(string $name): void
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -99,15 +102,17 @@ class TaskType extends BaseApiModel implements Arrayable
     /**
      * @return string|null
      */
-    public function getColor(): ?string
+    public function getColor()
     {
         return $this->color;
     }
 
     /**
-     * @param string|null $color
+     * @param  string|null  $color
+     *
+     * @return void
      */
-    public function setColor(?string $color): void
+    public function setColor($color)
     {
         $this->color = $color;
     }
@@ -115,15 +120,17 @@ class TaskType extends BaseApiModel implements Arrayable
     /**
      * @return int|null
      */
-    public function getIconId(): ?int
+    public function getIconId()
     {
         return $this->iconId;
     }
 
     /**
-     * @param int|null $iconId
+     * @param  int|null  $iconId
+     *
+     * @return void
      */
-    public function setIconId(?int $iconId): void
+    public function setIconId($iconId)
     {
         $this->iconId = $iconId;
     }
@@ -131,24 +138,26 @@ class TaskType extends BaseApiModel implements Arrayable
     /**
      * @return string|null
      */
-    public function getCode(): ?string
+    public function getCode()
     {
         return $this->code;
     }
 
     /**
-     * @param string|null $code
+     * @param  string|null  $code
+     *
+     * @return void
      */
-    public function setCode(?string $code): void
+    public function setCode($code)
     {
         $this->code = $code;
     }
 
     /**
-     * @param string|null $requestId
+     * @param  string|null  $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return [];
     }

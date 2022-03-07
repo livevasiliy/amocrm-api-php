@@ -10,33 +10,33 @@ namespace AmoCRM\Models\CustomFieldsValues\ValueModels;
 class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
 {
     /** Артикул товара */
-    public const FIELD_SKU = 'sku';
+    const FIELD_SKU = 'sku';
     /** Описание товара */
-    public const FIELD_DESCRIPTION = 'description';
+    const FIELD_DESCRIPTION = 'description';
     /** Цена за единицу товара */
-    public const FIELD_UNIT_PRICE = 'unit_price';
+    const FIELD_UNIT_PRICE = 'unit_price';
     /** Количство единиц товара */
-    public const FIELD_QUANTITY = 'quantity';
+    const FIELD_QUANTITY = 'quantity';
     /** Единица измерения товвара */
-    public const FIELD_UNIT_TYPE = 'unit_type';
+    const FIELD_UNIT_TYPE = 'unit_type';
     /** Скидка на товар */
-    public const FIELD_DISCOUNT = 'discount';
-    /** Поля подлежит к удалению, хранился ID системы налогооблажения, но больше поле не поддерживается */
+    const FIELD_DISCOUNT = 'discount';
+    /** Поля подлежит к удалению, хранился ID системы налогообложения, но больше поле не поддерживается */
     /** @deprecated */
-    public const FIELD_VAT_RATE_ID = 'vat_rate_id';
+    const FIELD_VAT_RATE_ID = 'vat_rate_id';
     /** процент НДС */
-    public const FIELD_VAT_RATE_VALUE = 'vat_rate_value';
+    const FIELD_VAT_RATE_VALUE = 'vat_rate_value';
     /** ID товара во внешней системе */
-    public const FIELD_EXTERNAL_UID = 'external_uid';
+    const FIELD_EXTERNAL_UID = 'external_uid';
     /** ID элемента списка товаров amoCRM */
-    public const FIELD_PRODUCT_ID = 'product_id';
+    const FIELD_PRODUCT_ID = 'product_id';
     /** Сколько бонусных баллов будет начислено покупателю, если счет привязан к нему и переходит в статус оплачено */
-    public const FIELD_BONUS_POINTS_PER_PURCHASE = 'bonus_points_per_purchase';
+    const FIELD_BONUS_POINTS_PER_PURCHASE = 'bonus_points_per_purchase';
 
     /** Скдика - процент от стоимости товара */
-    public const FIELD_DISCOUNT_TYPE_PERCENTAGE = 'percentage';
+    const FIELD_DISCOUNT_TYPE_PERCENTAGE = 'percentage';
     /** Скдика - цифра от стоимости товара */
-    public const FIELD_DISCOUNT_TYPE_AMOUNT = 'amount';
+    const FIELD_DISCOUNT_TYPE_AMOUNT = 'amount';
 
     /**
      * @var string|int|null
@@ -96,7 +96,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return ItemsCustomFieldValueModel
      */
-    public static function fromArray($value): BaseCustomFieldValueModel
+    public static function fromArray($value)
     {
         $model = new static();
 
@@ -109,21 +109,35 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
                         self::FIELD_DISCOUNT_TYPE_PERCENTAGE,
                     ]
                 ) ? $value['value'][self::FIELD_DISCOUNT]['type'] : null,
-            'value' => $value['value'][self::FIELD_DISCOUNT]['value'] ?? null,
+            'value' => isset($value['value'][self::FIELD_DISCOUNT]['value']) ? $value['value'][self::FIELD_DISCOUNT]['value'] : null,
         ];
 
         $model
-            ->setSku($value['value'][self::FIELD_SKU] ?? null)
-            ->setDescription($value['value'][self::FIELD_DESCRIPTION] ?? null)
-            ->setUnitPrice($value['value'][self::FIELD_UNIT_PRICE] ?? null)
-            ->setQuantity($value['value'][self::FIELD_QUANTITY] ?? null)
-            ->setUnitType($value['value'][self::FIELD_UNIT_TYPE] ?? null)
+            ->setSku(isset($value['value'][self::FIELD_SKU]) ? $value['value'][self::FIELD_SKU] : null)
+            ->setDescription(
+                isset($value['value'][self::FIELD_DESCRIPTION]) ? $value['value'][self::FIELD_DESCRIPTION] : null
+            )
+            ->setUnitPrice(
+                isset($value['value'][self::FIELD_UNIT_PRICE]) ? $value['value'][self::FIELD_UNIT_PRICE] : null
+            )
+            ->setQuantity(isset($value['value'][self::FIELD_QUANTITY]) ? $value['value'][self::FIELD_QUANTITY] : null)
+            ->setUnitType(isset($value['value'][self::FIELD_UNIT_TYPE]) ? $value['value'][self::FIELD_UNIT_TYPE] : null)
             ->setDiscount($discount)
-            ->setVatRateId($value['value'][self::FIELD_VAT_RATE_ID] ?? null)
-            ->setVatRateValue($value['value'][self::FIELD_VAT_RATE_VALUE] ?? null)
-            ->setExternalUid($value['value'][self::FIELD_EXTERNAL_UID] ?? null)
-            ->setProductId($value['value'][self::FIELD_PRODUCT_ID] ?? null)
-            ->setBonusPointsPerPurchase($value['value'][self::FIELD_BONUS_POINTS_PER_PURCHASE] ?? null)
+            ->setVatRateId(
+                isset($value['value'][self::FIELD_VAT_RATE_ID]) ? $value['value'][self::FIELD_VAT_RATE_ID] : null
+            )
+            ->setVatRateValue(
+                isset($value['value'][self::FIELD_VAT_RATE_VALUE]) ? $value['value'][self::FIELD_VAT_RATE_VALUE] : null
+            )
+            ->setExternalUid(
+                isset($value['value'][self::FIELD_EXTERNAL_UID]) ? $value['value'][self::FIELD_EXTERNAL_UID] : null
+            )
+            ->setProductId(
+                isset($value['value'][self::FIELD_PRODUCT_ID]) ? $value['value'][self::FIELD_PRODUCT_ID] : null
+            )
+            ->setBonusPointsPerPurchase(
+                isset($value['value'][self::FIELD_BONUS_POINTS_PER_PURCHASE]) ? $value['value'][self::FIELD_BONUS_POINTS_PER_PURCHASE] : null
+            )
         ;
 
         return $model;
@@ -172,7 +186,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
     /**
      * @return float|null
      */
-    public function getUnitPrice(): ?float
+    public function getUnitPrice()
     {
         return $this->unitPrice;
     }
@@ -182,7 +196,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return ItemsCustomFieldValueModel
      */
-    public function setUnitPrice(?float $unitPrice): ItemsCustomFieldValueModel
+    public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
 
@@ -192,7 +206,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
     /**
      * @return float|null
      */
-    public function getQuantity(): ?float
+    public function getQuantity()
     {
         return $this->quantity;
     }
@@ -202,7 +216,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return ItemsCustomFieldValueModel
      */
-    public function setQuantity(?float $quantity): ItemsCustomFieldValueModel
+    public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
 
@@ -212,7 +226,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
     /**
      * @return string|null
      */
-    public function getUnitType(): ?string
+    public function getUnitType()
     {
         return $this->unitType;
     }
@@ -222,7 +236,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return ItemsCustomFieldValueModel
      */
-    public function setUnitType(?string $unitType): ItemsCustomFieldValueModel
+    public function setUnitType($unitType)
     {
         $this->unitType = $unitType;
 
@@ -232,7 +246,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
     /**
      * @return array|null
      */
-    public function getDiscount(): ?array
+    public function getDiscount()
     {
         return $this->discount;
     }
@@ -242,7 +256,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return ItemsCustomFieldValueModel
      */
-    public function setDiscount(?array $discount): ItemsCustomFieldValueModel
+    public function setDiscount($discount)
     {
         $this->discount = $discount;
 
@@ -292,7 +306,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
     /**
      * @return int|null
      */
-    public function getProductId(): ?int
+    public function getProductId()
     {
         return $this->productId;
     }
@@ -302,7 +316,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return ItemsCustomFieldValueModel
      */
-    public function setProductId(?int $productId): ItemsCustomFieldValueModel
+    public function setProductId($productId)
     {
         $this->productId = $productId;
 
@@ -312,7 +326,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
     /**
      * @return int|null
      */
-    public function getVatRateValue(): ?int
+    public function getVatRateValue()
     {
         return $this->vatRateValue;
     }
@@ -322,7 +336,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return ItemsCustomFieldValueModel
      */
-    public function setVatRateValue(?int $vatRateValue): ItemsCustomFieldValueModel
+    public function setVatRateValue($vatRateValue)
     {
         $this->vatRateValue = $vatRateValue;
 
@@ -332,7 +346,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
     /**
      * @return int|null
      */
-    public function getBonusPointsPerPurchase(): ?int
+    public function getBonusPointsPerPurchase()
     {
         return $this->bonusPointsPerPurchase;
     }
@@ -342,14 +356,14 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return ItemsCustomFieldValueModel
      */
-    public function setBonusPointsPerPurchase(?int $bonusPointsPerPurchase): ItemsCustomFieldValueModel
+    public function setBonusPointsPerPurchase($bonusPointsPerPurchase)
     {
         $this->bonusPointsPerPurchase = $bonusPointsPerPurchase;
 
         return $this;
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         return [
             self::FIELD_SKU => $this->getSku(),
@@ -375,7 +389,7 @@ class ItemsCustomFieldValueModel extends BaseCustomFieldValueModel
     }
 
 
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return [
             'value' => $this->getValue(),

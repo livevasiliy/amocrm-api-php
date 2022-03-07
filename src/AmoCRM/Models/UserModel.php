@@ -18,16 +18,16 @@ class UserModel extends BaseApiModel implements HasIdInterface
     use RequestIdTrait;
 
     /** @var string Информация о роли пользователя */
-    public const ROLE = 'role';
+    const ROLE = 'role';
 
     /** @var string Информация о группе пользователя */
-    public const GROUP = 'group';
+    const GROUP = 'group';
 
     /** @var string amoJo ID пользователя */
-    public const AMOJO_ID = 'amojo_id';
+    const AMOJO_ID = 'amojo_id';
 
     /** @var string UUID пользователя */
-    public const UUID = 'uuid';
+    const UUID = 'uuid';
 
     /**
      * @var int|null
@@ -84,7 +84,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public static function fromArray(array $user): self
+    public static function fromArray(array $user)
     {
         if (empty($user['id'])) {
             throw new InvalidArgumentException('User id is empty in ' . json_encode($user));
@@ -94,11 +94,11 @@ class UserModel extends BaseApiModel implements HasIdInterface
 
         $model
             ->setId($user['id'])
-            ->setName($user['name'] ?? null)
+            ->setName(isset($user['name']) ? $user['name'] : null)
             ->setEmail($user['email'])
-            ->setLang($user['lang'] ?? null)
-            ->setUuid($user['uuid'] ?? null)
-            ->setAmojoId($user['amojo_id'] ?? null)
+            ->setLang(isset($user['lang']) ? $user['lang'] : null)
+            ->setUuid(isset($user['uuid']) ? $user['uuid'] : null)
+            ->setAmojoId(isset($user['amojo_id']) ? $user['amojo_id'] : null)
             ->setRights(RightModel::fromArray($user['rights']));
 
         $groupsCollection = new UsersGroupsCollection();
@@ -119,7 +119,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -137,7 +137,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -146,7 +146,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      * @param int $id
      * @return UserModel
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -156,7 +156,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getUuid(): ?string
+    public function getUuid()
     {
         return $this->uuid;
     }
@@ -166,7 +166,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      *
      * @return UserModel
      */
-    public function setUuid(?string $uuid): UserModel
+    public function setUuid($uuid)
     {
         $this->uuid = $uuid;
 
@@ -176,7 +176,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -185,7 +185,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      * @param string $name
      * @return UserModel
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -195,7 +195,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return RightModel
      */
-    public function getRights(): RightModel
+    public function getRights()
     {
         return $this->rights;
     }
@@ -204,7 +204,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      * @param RightModel $rights
      * @return UserModel
      */
-    public function setRights(RightModel $rights): self
+    public function setRights(RightModel $rights)
     {
         $this->rights = $rights;
 
@@ -214,7 +214,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getEmail(): ?string
+    public function getEmail()
     {
         return $this->email;
     }
@@ -224,7 +224,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      *
      * @return UserModel
      */
-    public function setEmail(?string $email): UserModel
+    public function setEmail($email)
     {
         $this->email = $email;
 
@@ -234,7 +234,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getLang(): ?string
+    public function getLang()
     {
         return $this->lang;
     }
@@ -244,7 +244,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      *
      * @return UserModel
      */
-    public function setLang(?string $lang): UserModel
+    public function setLang($lang)
     {
         $this->lang = $lang;
 
@@ -254,7 +254,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return RolesCollection|null
      */
-    public function getRoles(): ?RolesCollection
+    public function getRoles()
     {
         return $this->roles;
     }
@@ -264,7 +264,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      *
      * @return UserModel
      */
-    public function setRoles(?RolesCollection $roles): UserModel
+    public function setRoles($roles)
     {
         $this->roles = $roles;
 
@@ -274,7 +274,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return UsersGroupsCollection|null
      */
-    public function getGroups(): ?UsersGroupsCollection
+    public function getGroups()
     {
         return $this->groups;
     }
@@ -284,7 +284,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      *
      * @return UserModel
      */
-    public function setGroups(?UsersGroupsCollection $groups): UserModel
+    public function setGroups($groups)
     {
         $this->groups = $groups;
 
@@ -294,7 +294,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|string
      */
-    protected function getPassword(): ?string
+    protected function getPassword()
     {
         return $this->password;
     }
@@ -304,7 +304,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      *
      * @return UserModel
      */
-    public function setPassword(?string $password): UserModel
+    public function setPassword($password)
     {
         $this->password = $password;
 
@@ -314,7 +314,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getAmojoId(): ?string
+    public function getAmojoId()
     {
         return $this->amojoId;
     }
@@ -324,7 +324,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      *
      * @return UserModel
      */
-    public function setAmojoId(?string $amojoId): UserModel
+    public function setAmojoId($amojoId)
     {
         $this->amojoId = $amojoId;
 
@@ -335,7 +335,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -371,7 +371,7 @@ class UserModel extends BaseApiModel implements HasIdInterface
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [
             self::ROLE,

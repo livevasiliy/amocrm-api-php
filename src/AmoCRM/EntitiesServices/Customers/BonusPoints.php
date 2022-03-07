@@ -17,9 +17,9 @@ use AmoCRM\Helpers\EntityTypesInterface;
  */
 class BonusPoints
 {
-    public const BONUS_POINTS = 'bonus_points';
-    public const EARN_POINTS = 'earn';
-    public const REDEEM_POINTS = 'redeem';
+    const BONUS_POINTS = 'bonus_points';
+    const EARN_POINTS = 'earn';
+    const REDEEM_POINTS = 'redeem';
 
     /** @var string */
     protected $method = 'api/v' . AmoCRMApiClient::API_VERSION . '/' . EntityTypesInterface::CUSTOMERS;
@@ -55,14 +55,14 @@ class BonusPoints
      * @throws AmoCRMApiNoContentException
      * @throws AmoCRMoAuthApiException
      */
-    public function earnPoints(BonusPointsActionModel $bonusPointsActionModel): ?int
+    public function earnPoints(BonusPointsActionModel $bonusPointsActionModel)
     {
         $response = $this->request->post(
             $this->getMethod($bonusPointsActionModel->getCustomerId()),
             [self::EARN_POINTS => $bonusPointsActionModel->getPoints()]
         );
 
-        return $response['bonus_points'] ?? null;
+        return isset($response['bonus_points']) ? $response['bonus_points'] : null;
     }
 
     /**
@@ -75,14 +75,14 @@ class BonusPoints
      * @throws AmoCRMApiNoContentException
      * @throws AmoCRMoAuthApiException
      */
-    public function redeemPoints(BonusPointsActionModel $bonusPointsActionModel): ?int
+    public function redeemPoints(BonusPointsActionModel $bonusPointsActionModel)
     {
         $response = $this->request->post(
             $this->getMethod($bonusPointsActionModel->getCustomerId()),
             [self::REDEEM_POINTS => $bonusPointsActionModel->getPoints()]
         );
 
-        return $response['bonus_points'] ?? null;
+        return isset($response['bonus_points']) ? $response['bonus_points'] : null;
     }
 
     /**
@@ -90,7 +90,7 @@ class BonusPoints
      *
      * @return string
      */
-    protected function getMethod(int $customerId): string
+    protected function getMethod($customerId)
     {
         return $this->method . '/' . $customerId . '/' . self::BONUS_POINTS;
     }

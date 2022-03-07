@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Filters;
 
 use function is_null;
@@ -16,7 +14,7 @@ class CatalogsFilter extends BaseEntityFilter
      *
      * @return $this
      */
-    public function setType(?string $type): self
+    public function setType($type)
     {
         $this->type = $type;
 
@@ -26,12 +24,15 @@ class CatalogsFilter extends BaseEntityFilter
     /**
      * @return null|string
      */
-    public function getType(): ?string
+    public function getType()
     {
         return $this->type;
     }
 
-    public function buildFilter(): array
+    /**
+     * @return array
+     */
+    public function buildFilter()
     {
         $filter = [];
 

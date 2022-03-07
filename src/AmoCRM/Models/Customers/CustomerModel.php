@@ -31,9 +31,9 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     use GetLinkTrait;
     use RequestIdTrait;
 
-    public const CATALOG_ELEMENTS = 'catalog_elements';
-    public const CONTACTS = 'contacts';
-    public const COMPANIES = 'companies';
+    const CATALOG_ELEMENTS = 'catalog_elements';
+    const CONTACTS = 'contacts';
+    const COMPANIES = 'companies';
 
     /**
      * @var int
@@ -150,7 +150,10 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      */
     protected $catalogElementsLinks = null;
 
-    public function getType(): string
+    /**
+     * @return string
+     */
+    public function getType()
     {
         return EntityTypesInterface::CUSTOMERS;
     }
@@ -158,7 +161,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -168,7 +171,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -178,7 +181,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|string
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -188,7 +191,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -198,7 +201,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|int
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -208,7 +211,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setAccountId(int $id): self
+    public function setAccountId($id)
     {
         $this->accountId = $id;
 
@@ -218,7 +221,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|int
      */
-    public function getResponsibleUserId(): ?int
+    public function getResponsibleUserId()
     {
         return $this->responsibleUserId;
     }
@@ -228,7 +231,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setResponsibleUserId(int $userId): self
+    public function setResponsibleUserId($userId)
     {
         $this->responsibleUserId = $userId;
 
@@ -238,7 +241,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|int
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -248,7 +251,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setCreatedBy(int $userId): self
+    public function setCreatedBy($userId)
     {
         $this->createdBy = $userId;
 
@@ -258,7 +261,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|int
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -268,7 +271,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setUpdatedBy(int $userId): self
+    public function setUpdatedBy($userId)
     {
         $this->updatedBy = $userId;
 
@@ -278,7 +281,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|int
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -288,7 +291,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setCreatedAt(int $timestamp): self
+    public function setCreatedAt($timestamp)
     {
         $this->createdAt = $timestamp;
 
@@ -298,7 +301,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|int
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -308,7 +311,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setUpdatedAt(int $timestamp): self
+    public function setUpdatedAt($timestamp)
     {
         $this->updatedAt = $timestamp;
 
@@ -318,7 +321,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|int
      */
-    public function getStatusId(): ?int
+    public function getStatusId()
     {
         return $this->statusId;
     }
@@ -328,7 +331,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setStatusId(int $statusId): self
+    public function setStatusId($statusId)
     {
         $this->statusId = $statusId;
 
@@ -338,7 +341,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return int|null
      */
-    public function getClosestTaskAt(): ?int
+    public function getClosestTaskAt()
     {
         return $this->closestTaskAt;
     }
@@ -348,7 +351,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setClosestTaskAt(?int $timestamp): self
+    public function setClosestTaskAt($timestamp)
     {
         $this->closestTaskAt = $timestamp;
 
@@ -358,7 +361,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|bool
      */
-    public function getIsDeleted(): ?bool
+    public function getIsDeleted()
     {
         return $this->isDeleted;
     }
@@ -368,7 +371,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setIsDeleted(bool $flag): self
+    public function setIsDeleted($flag)
     {
         $this->isDeleted = $flag;
 
@@ -378,7 +381,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|TagsCollection
      */
-    public function getTags(): ?TagsCollection
+    public function getTags()
     {
         return $this->tags;
     }
@@ -388,7 +391,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setTags(?TagsCollection $tags): self
+    public function setTags($tags)
     {
         $this->tags = $tags;
 
@@ -398,7 +401,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return null|CompanyModel
      */
-    public function getCompany(): ?CompanyModel
+    public function getCompany()
     {
         return $this->company;
     }
@@ -408,7 +411,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setCompany(CompanyModel $company): self
+    public function setCompany(CompanyModel $company)
     {
         $this->company = $company;
 
@@ -418,7 +421,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return CustomFieldsValuesCollection|null
      */
-    public function getCustomFieldsValues(): ?CustomFieldsValuesCollection
+    public function getCustomFieldsValues()
     {
         return $this->customFieldsValues;
     }
@@ -428,7 +431,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setCustomFieldsValues(?CustomFieldsValuesCollection $values): self
+    public function setCustomFieldsValues($values)
     {
         $this->customFieldsValues = $values;
 
@@ -438,7 +441,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return ContactsCollection|null
      */
-    public function getContacts(): ?ContactsCollection
+    public function getContacts()
     {
         return $this->contacts;
     }
@@ -448,7 +451,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return self
      */
-    public function setContacts(ContactsCollection $contacts): self
+    public function setContacts(ContactsCollection $contacts)
     {
         $this->contacts = $contacts;
 
@@ -458,7 +461,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return int|null
      */
-    public function getNextPrice(): ?int
+    public function getNextPrice()
     {
         return $this->nextPrice;
     }
@@ -468,7 +471,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return CustomerModel
      */
-    public function setNextPrice(?int $nextPrice): CustomerModel
+    public function setNextPrice($nextPrice)
     {
         $this->nextPrice = $nextPrice;
 
@@ -478,7 +481,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return int|null
      */
-    public function getNextDate(): ?int
+    public function getNextDate()
     {
         return $this->nextDate;
     }
@@ -488,7 +491,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return CustomerModel
      */
-    public function setNextDate(?int $nextDate): CustomerModel
+    public function setNextDate($nextDate)
     {
         $this->nextDate = $nextDate;
 
@@ -498,7 +501,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return int|null
      */
-    public function getPeriodicity(): ?int
+    public function getPeriodicity()
     {
         return $this->periodicity;
     }
@@ -508,7 +511,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return CustomerModel
      */
-    public function setPeriodicity(?int $periodicity): CustomerModel
+    public function setPeriodicity($periodicity)
     {
         $this->periodicity = $periodicity;
 
@@ -518,7 +521,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return int|null
      */
-    public function getLtv(): ?int
+    public function getLtv()
     {
         return $this->ltv;
     }
@@ -528,7 +531,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return CustomerModel
      */
-    public function setLtv(?int $ltv): CustomerModel
+    public function setLtv($ltv)
     {
         $this->ltv = $ltv;
 
@@ -538,7 +541,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return int|null
      */
-    public function getPurchasesCount(): ?int
+    public function getPurchasesCount()
     {
         return $this->purchasesCount;
     }
@@ -548,7 +551,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return CustomerModel
      */
-    public function setPurchasesCount(?int $purchasesCount): CustomerModel
+    public function setPurchasesCount($purchasesCount)
     {
         $this->purchasesCount = $purchasesCount;
 
@@ -558,7 +561,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return int|null
      */
-    public function getAverageCheck(): ?int
+    public function getAverageCheck()
     {
         return $this->averageCheck;
     }
@@ -568,7 +571,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return CustomerModel
      */
-    public function setAverageCheck(?int $averageCheck): CustomerModel
+    public function setAverageCheck($averageCheck)
     {
         $this->averageCheck = $averageCheck;
 
@@ -578,7 +581,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return SegmentsCollection|null
      */
-    public function getSegments(): ?SegmentsCollection
+    public function getSegments()
     {
         return $this->segments;
     }
@@ -588,7 +591,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      *
      * @return CustomerModel
      */
-    public function setSegments(?SegmentsCollection $segments): CustomerModel
+    public function setSegments($segments)
     {
         $this->segments = $segments;
 
@@ -602,7 +605,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      * @return self
      * @throws InvalidArgumentException
      */
-    public static function fromArray(array $customer): self
+    public static function fromArray(array $customer)
     {
         if (empty($customer['id'])) {
             throw new InvalidArgumentException('Customer id is empty in ' . json_encode($customer));
@@ -714,7 +717,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = [
             'id' => $this->getId(),
@@ -766,7 +769,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -834,7 +837,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [
             self::CATALOG_ELEMENTS,
@@ -846,7 +849,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return CatalogElementsCollection|null
      */
-    public function getCatalogElementsLinks(): ?CatalogElementsCollection
+    public function getCatalogElementsLinks()
     {
         return $this->catalogElementsLinks;
     }
@@ -855,7 +858,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
      * @param CatalogElementsCollection|null $catalogElementsLinks
      * @return CustomerModel
      */
-    public function setCatalogElementsLinks(CatalogElementsCollection $catalogElementsLinks): self
+    public function setCatalogElementsLinks(CatalogElementsCollection $catalogElementsLinks)
     {
         $this->catalogElementsLinks = $catalogElementsLinks;
 
@@ -865,7 +868,7 @@ class CustomerModel extends BaseApiModel implements TypeAwareInterface, CanBeLin
     /**
      * @return array|null
      */
-    protected function getMetadataForLink(): ?array
+    protected function getMetadataForLink()
     {
         $result = null;
 

@@ -14,7 +14,7 @@ class SiteVisitNote extends NoteModel
      */
     protected $url;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_SITE_VISIT;
     }
@@ -22,9 +22,9 @@ class SiteVisitNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -38,7 +38,7 @@ class SiteVisitNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -51,7 +51,7 @@ class SiteVisitNote extends NoteModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -63,7 +63,7 @@ class SiteVisitNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getUrl(): ?string
+    public function getUrl()
     {
         return $this->url;
     }
@@ -72,7 +72,7 @@ class SiteVisitNote extends NoteModel
      * @param string|null $url
      * @return SiteVisitNote
      */
-    public function setUrl(?string $url): SiteVisitNote
+    public function setUrl($url)
     {
         $this->url = $url;
 

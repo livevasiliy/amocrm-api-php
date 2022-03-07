@@ -11,7 +11,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
 {
     use RequestIdTrait;
 
-    public const COLORS = [
+    const COLORS = [
         '#fffeb2','#fffd7f','#fff000','#ffeab2','#ffdc7f',
         '#ffce5a','#ffdbdb','#ffc8c8','#ff8f92','#d6eaff',
         '#c1e0ff','#98cbff','#ebffb1','#deff81','#87f2c0',
@@ -65,7 +65,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return self
      */
-    public static function fromArray(array $status): self
+    public static function fromArray(array $status)
     {
         $model = new self();
 
@@ -84,7 +84,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -101,7 +101,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -111,7 +111,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return StatusModel
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -121,7 +121,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -131,7 +131,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return StatusModel
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -141,7 +141,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getSort(): ?int
+    public function getSort()
     {
         return $this->sort;
     }
@@ -151,7 +151,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return StatusModel
      */
-    public function setSort(?int $sort): StatusModel
+    public function setSort($sort)
     {
         $this->sort = $sort;
 
@@ -161,7 +161,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -171,7 +171,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return StatusModel
      */
-    public function setAccountId(?int $accountId): StatusModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -181,7 +181,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return bool|null
      */
-    public function getIsDefault(): ?bool
+    public function getIsDefault()
     {
         return $this->isDefault;
     }
@@ -191,7 +191,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return StatusModel
      */
-    public function setIsDefault(?bool $isDefault): StatusModel
+    public function setIsDefault($isDefault)
     {
         $this->isDefault = $isDefault;
 
@@ -201,7 +201,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return null|array
      */
-    public function getConditions(): ?array
+    public function getConditions()
     {
         return $this->conditions;
     }
@@ -211,7 +211,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return StatusModel
      */
-    public function setConditions(?array $conditions): StatusModel
+    public function setConditions($conditions)
     {
         $this->conditions = $conditions;
 
@@ -221,7 +221,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return string|null
      */
-    public function getColor(): ?string
+    public function getColor()
     {
         return $this->color;
     }
@@ -231,7 +231,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return StatusModel
      */
-    public function setColor(?string $color): StatusModel
+    public function setColor($color)
     {
         $this->color = $color;
 
@@ -241,7 +241,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getType(): ?int
+    public function getType()
     {
         return $this->type;
     }
@@ -251,7 +251,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return StatusModel
      */
-    public function setType(?int $type): StatusModel
+    public function setType($type)
     {
         $this->type = $type;
 
@@ -262,7 +262,7 @@ class StatusModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 

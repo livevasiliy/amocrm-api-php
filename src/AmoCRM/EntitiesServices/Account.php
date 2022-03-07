@@ -31,14 +31,14 @@ class Account extends BaseEntity
     /**
      * @var string
      */
-    public const ITEM_CLASS = AccountModel::class;
+    const ITEM_CLASS = AccountModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         return $response;
     }
@@ -47,11 +47,11 @@ class Account extends BaseEntity
      * Обновление одной конкретной сущности
      * @param array $with
      *
-     * @return BaseApiCollection|null
+     * @return AccountModel|null
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function getCurrent(array $with = []): ?AccountModel
+    public function getCurrent(array $with = [])
     {
         $queryParams = [];
         $with = array_intersect($with, AccountModel::getAvailableWith());
@@ -77,7 +77,7 @@ class Account extends BaseEntity
      * @return BaseApiModel|null
      * @throws NotAvailableForActionException
      */
-    public function getOne($id, array $with = []): ?BaseApiModel
+    public function getOne($id, array $with = [])
     {
         throw new NotAvailableForActionException('Use getCurrent for this entity');
     }
@@ -89,7 +89,7 @@ class Account extends BaseEntity
      * @return BaseApiCollection|null
      * @throws NotAvailableForActionException
      */
-    public function get(BaseEntityFilter $filter = null, array $with = []): ?BaseApiCollection
+    public function get(BaseEntityFilter $filter = null, array $with = [])
     {
         throw new NotAvailableForActionException('Use getCurrent for this entity');
     }
@@ -100,7 +100,7 @@ class Account extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -111,7 +111,7 @@ class Account extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -122,7 +122,7 @@ class Account extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -133,7 +133,7 @@ class Account extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -145,7 +145,7 @@ class Account extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }

@@ -26,5 +26,5 @@ class TagsCollection extends BaseApiCollection implements HasPagesInterface
     use EntityApiTrait;
     use PagesTrait;
 
-    public const ITEM_CLASS = TagModel::class;
+    const ITEM_CLASS = TagModel::class;
 }

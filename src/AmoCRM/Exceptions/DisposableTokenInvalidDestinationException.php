@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Exceptions;
 
 /**
@@ -13,7 +11,10 @@ namespace AmoCRM\Exceptions;
  */
 class DisposableTokenInvalidDestinationException extends AmoCRMApiException
 {
-    public static function create(): self
+    /**
+     * @return DisposableTokenInvalidDestinationException
+     */
+    public static function create()
     {
         return new self('Disposable token invalid destination');
     }

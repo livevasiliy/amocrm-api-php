@@ -19,9 +19,9 @@ abstract class SmsNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -39,7 +39,7 @@ abstract class SmsNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -55,7 +55,7 @@ abstract class SmsNote extends NoteModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -71,7 +71,7 @@ abstract class SmsNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getText(): ?string
+    public function getText()
     {
         return $this->text;
     }
@@ -80,7 +80,7 @@ abstract class SmsNote extends NoteModel
      * @param string|null $text
      * @return SmsNote
      */
-    public function setText(?string $text): SmsNote
+    public function setText($text)
     {
         $this->text = $text;
 
@@ -90,7 +90,7 @@ abstract class SmsNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getPhone(): ?string
+    public function getPhone()
     {
         return $this->phone;
     }
@@ -99,7 +99,7 @@ abstract class SmsNote extends NoteModel
      * @param string|null $phone
      * @return SmsNote
      */
-    public function setPhone(?string $phone): SmsNote
+    public function setPhone($phone)
     {
         $this->phone = $phone;
 

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Filters\Chats;
 
 use AmoCRM\Filters\BaseEntityFilter;
@@ -16,7 +14,7 @@ class TemplatesFilter extends BaseEntityFilter
     /**
      * @return array|null
      */
-    public function getExternalIds(): ?array
+    public function getExternalIds()
     {
         return $this->externalIds;
     }
@@ -26,7 +24,7 @@ class TemplatesFilter extends BaseEntityFilter
      *
      * @return TemplatesFilter
      */
-    public function setExternalIds(?array $externalIds): self
+    public function setExternalIds($externalIds)
     {
         $this->externalIds = $externalIds;
 
@@ -36,7 +34,7 @@ class TemplatesFilter extends BaseEntityFilter
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

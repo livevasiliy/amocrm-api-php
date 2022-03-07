@@ -41,7 +41,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
     /**
      * @var string
      */
-    public const ITEM_CLASS = CustomFieldGroupModel::class;
+    const ITEM_CLASS = CustomFieldGroupModel::class;
 
     /**
      * @param string $entityType
@@ -49,7 +49,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
      * @return string
      * @throws InvalidArgumentException
      */
-    protected function validateEntityType(string $entityType): string
+    protected function validateEntityType($entityType)
     {
         $availableEntities = [
             EntityTypesInterface::CONTACTS,
@@ -70,7 +70,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -90,7 +90,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('This entity supports only updateOne method');
     }
@@ -101,7 +101,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
      * @param array $response
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -114,7 +114,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -125,7 +125,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -136,7 +136,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -154,8 +154,9 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
     /**
      * @param BaseApiModel|CustomFieldGroupModel $apiModel
      * @param array $entity
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);
@@ -174,7 +175,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function deleteOne(BaseApiModel $model): bool
+    public function deleteOne(BaseApiModel $model)
     {
         $method = $this->getMethod() . '/' . $model->getId();
         $response = $this->request->delete($method);
@@ -188,7 +189,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
      * @return bool
      * @throws NotAvailableForActionException
      */
-    public function delete(BaseApiCollection $collection): bool
+    public function delete(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('This entity supports only deleteOne method');
     }
@@ -201,7 +202,7 @@ class CustomFieldGroups extends BaseEntityTypeEntity implements HasDeleteMethodI
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         $this->setEntityType($apiModel->getEntityType());
 

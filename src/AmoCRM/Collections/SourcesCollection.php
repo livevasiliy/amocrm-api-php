@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Collections;
 
 use AmoCRM\Collections\Traits\EntityApiTrait;
@@ -25,5 +23,5 @@ class SourcesCollection extends BaseApiCollection
 {
     use EntityApiTrait;
 
-    public const ITEM_CLASS = SourceModel::class;
+    const ITEM_CLASS = SourceModel::class;
 }

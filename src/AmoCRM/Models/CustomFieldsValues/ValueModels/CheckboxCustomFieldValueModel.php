@@ -16,7 +16,7 @@ class CheckboxCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return $this|BaseCustomFieldValueModel
      */
-    public function setValue($value): BaseCustomFieldValueModel
+    public function setValue($value)
     {
         $this->value = (bool)$value;
 

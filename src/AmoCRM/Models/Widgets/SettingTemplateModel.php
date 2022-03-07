@@ -32,7 +32,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
      *
      * @return self
      */
-    public static function fromArray(array $template): self
+    public static function fromArray(array $template)
     {
         $model = new self();
 
@@ -48,7 +48,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'key' => $this->getKey(),
@@ -61,7 +61,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
     /**
      * @return string|null
      */
-    public function getKey(): ?string
+    public function getKey()
     {
         return $this->key;
     }
@@ -71,7 +71,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
      *
      * @return SettingTemplateModel
      */
-    public function setKey(?string $key): SettingTemplateModel
+    public function setKey($key)
     {
         $this->key = $key;
 
@@ -81,7 +81,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
     /**
      * @return string|null
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -91,7 +91,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
      *
      * @return SettingTemplateModel
      */
-    public function setName(?string $name): SettingTemplateModel
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -101,7 +101,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
     /**
      * @return string|null
      */
-    public function getType(): ?string
+    public function getType()
     {
         return $this->type;
     }
@@ -111,7 +111,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
      *
      * @return SettingTemplateModel
      */
-    public function setType(?string $type): SettingTemplateModel
+    public function setType($type)
     {
         $this->type = $type;
 
@@ -121,7 +121,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
     /**
      * @return bool|null
      */
-    public function getIsRequired(): ?bool
+    public function getIsRequired()
     {
         return $this->isRequired;
     }
@@ -131,7 +131,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
      *
      * @return SettingTemplateModel
      */
-    public function setIsRequired(?bool $isRequired): SettingTemplateModel
+    public function setIsRequired($isRequired)
     {
         $this->isRequired = $isRequired;
 
@@ -142,7 +142,7 @@ class SettingTemplateModel extends BaseApiModel implements Arrayable
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return [];
     }

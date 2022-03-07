@@ -10,7 +10,7 @@ namespace AmoCRM\Models\CustomFieldsValues\ValueCollections;
  */
 class NullCustomFieldValueCollection extends BaseCustomFieldValueCollection
 {
-    public function toApi(): ?array
+    public function toApi()
     {
         return null;
     }

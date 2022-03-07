@@ -41,9 +41,9 @@ class CustomFieldValuesModelFactory
      * @return BaseCustomFieldValuesModel
      * @throws BadTypeException
      */
-    public static function createModel(array $field): BaseCustomFieldValuesModel
+    public static function createModel(array $field)
     {
-        $fieldType = $field['field_type'] ?? null;
+        $fieldType = isset($field['field_type']) ? $field['field_type'] : null;
 
         switch ($fieldType) {
             case CustomFieldHelper::FIELD_TYPE_CODE_BIRTHDAY:
@@ -122,9 +122,9 @@ class CustomFieldValuesModelFactory
 
         $model
             ->setValues($values)
-            ->setFieldCode($field['field_code'] ?? null)
-            ->setFieldId($field['field_id'] ?? null)
-            ->setFieldName($field['field_name'] ?? null);
+            ->setFieldCode(isset($field['field_code']) ? $field['field_code'] : null)
+            ->setFieldId(isset($field['field_id']) ? $field['field_id'] : null)
+            ->setFieldName(isset($field['field_name']) ? $field['field_name'] : null);
 
         return $model;
     }

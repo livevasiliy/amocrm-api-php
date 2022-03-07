@@ -44,7 +44,7 @@ trait CallTrait
     /**
      * @return string|null
      */
-    public function getUniq(): ?string
+    public function getUniq()
     {
         return $this->uniq;
     }
@@ -53,7 +53,7 @@ trait CallTrait
      * @param string|null $uniq
      * @return self
      */
-    public function setUniq(?string $uniq): self
+    public function setUniq($uniq)
     {
         $this->uniq = $uniq;
 
@@ -63,7 +63,7 @@ trait CallTrait
     /**
      * @return string|null
      */
-    public function getSource(): ?string
+    public function getSource()
     {
         return $this->source;
     }
@@ -72,7 +72,7 @@ trait CallTrait
      * @param string|null $source
      * @return self
      */
-    public function setSource(?string $source): self
+    public function setSource($source)
     {
         $this->source = $source;
 
@@ -101,7 +101,7 @@ trait CallTrait
     /**
      * @return string|null
      */
-    public function getLink(): ?string
+    public function getLink()
     {
         return $this->link;
     }
@@ -110,7 +110,7 @@ trait CallTrait
      * @param string|null $link
      * @return self
      */
-    public function setLink(?string $link): self
+    public function setLink($link)
     {
         $this->link = $link;
 
@@ -120,7 +120,7 @@ trait CallTrait
     /**
      * @return string|null
      */
-    public function getPhone(): ?string
+    public function getPhone()
     {
         return $this->phone;
     }
@@ -129,7 +129,7 @@ trait CallTrait
      * @param string|null $phone
      * @return self
      */
-    public function setPhone(?string $phone): self
+    public function setPhone($phone)
     {
         $this->phone = $phone;
 
@@ -139,7 +139,7 @@ trait CallTrait
     /**
      * @return string|null
      */
-    public function getCallResult(): ?string
+    public function getCallResult()
     {
         return $this->callResult;
     }
@@ -148,7 +148,7 @@ trait CallTrait
      * @param string|null $callResult
      * @return self
      */
-    public function setCallResult(?string $callResult): self
+    public function setCallResult($callResult)
     {
         $this->callResult = $callResult;
 
@@ -158,7 +158,7 @@ trait CallTrait
     /**
      * @return int|null
      */
-    public function getCallStatus(): ?int
+    public function getCallStatus()
     {
         return $this->callStatus;
     }
@@ -167,7 +167,7 @@ trait CallTrait
      * @param int|null $callStatus
      * @return self
      */
-    public function setCallStatus(?int $callStatus): self
+    public function setCallStatus($callStatus)
     {
         if (!in_array($callStatus, CallInterface::AVAILABLE_CALL_STATUSES, true)) {
             return $this;

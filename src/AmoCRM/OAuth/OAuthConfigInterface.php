@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\OAuth;
 
 /**
@@ -15,15 +13,15 @@ interface OAuthConfigInterface
     /**
      * @return string
      */
-    public function getIntegrationId(): string;
+    public function getIntegrationId();
 
     /**
      * @return string
      */
-    public function getSecretKey(): string;
+    public function getSecretKey();
 
     /**
      * @return string
      */
-    public function getRedirectDomain(): string;
+    public function getRedirectDomain();
 }

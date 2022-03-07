@@ -24,5 +24,5 @@ class UsersCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = UserModel::class;
+    const ITEM_CLASS = UserModel::class;
 }

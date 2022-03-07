@@ -15,9 +15,9 @@ abstract class OnlyTextParamNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -31,7 +31,7 @@ abstract class OnlyTextParamNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -45,7 +45,7 @@ abstract class OnlyTextParamNote extends NoteModel
      * @return array
      * @throws NotAvailableForActionException
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         throw new NotAvailableForActionException();
     }
@@ -53,7 +53,7 @@ abstract class OnlyTextParamNote extends NoteModel
     /**
      * @return string
      */
-    public function getText(): string
+    public function getText()
     {
         return $this->text;
     }
@@ -62,7 +62,7 @@ abstract class OnlyTextParamNote extends NoteModel
      * @param string $text
      * @return NoteModel
      */
-    public function setText(string $text): NoteModel
+    public function setText($text)
     {
         $this->text = $text;
 

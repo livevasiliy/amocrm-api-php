@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models;
 
 use AmoCRM\Exceptions\NotAvailableForActionException;
 
 class SubscriptionModel extends BaseApiModel
 {
-    public const TYPE_USER = 'user';
-    public const TYPE_GROUP = 'group';
+    const TYPE_USER = 'user';
+    const TYPE_GROUP = 'group';
     /** @var int */
     protected $subscriberId;
     /** @var string */
@@ -20,43 +18,43 @@ class SubscriptionModel extends BaseApiModel
      *
      * @return self
      */
-    public static function fromArray(array $subscription): self
+    public static function fromArray(array $subscription)
     {
         return (new static())
             ->setSubscriberId((int)$subscription['subscriber_id'])
             ->setType((string)$subscription['type']);
     }
 
-    public function getSubscriberId(): int
+    public function getSubscriberId()
     {
         return $this->subscriberId;
     }
 
-    public function setSubscriberId(int $subscriberId): self
+    public function setSubscriberId($subscriberId)
     {
         $this->subscriberId = $subscriberId;
 
         return $this;
     }
 
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
 
-    public function setType(string $type): self
+    public function setType($type)
     {
         $this->type = $type;
 
         return $this;
     }
 
-    public function isUser(): bool
+    public function isUser()
     {
         return $this->getType() === self::TYPE_USER;
     }
 
-    public function isGroup(): bool
+    public function isGroup()
     {
         return $this->getType() === self::TYPE_GROUP;
     }
@@ -64,7 +62,7 @@ class SubscriptionModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'subscriber_id' => $this->getSubscriberId(),
@@ -78,7 +76,7 @@ class SubscriptionModel extends BaseApiModel
      * @return array
      * @throws NotAvailableForActionException
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         throw new NotAvailableForActionException();
     }

@@ -8,8 +8,8 @@ namespace AmoCRM\Filters\Interfaces;
  */
 interface HasOrderInterface
 {
-    public const SORT_ASC = 'asc';
-    public const SORT_DESC = 'desc';
+    const SORT_ASC = 'asc';
+    const SORT_DESC = 'desc';
 
     /**
      * @param string $field
@@ -17,10 +17,10 @@ interface HasOrderInterface
      *
      * @return $this
      */
-    public function setOrder(string $field, string $direction = self::SORT_ASC);
+    public function setOrder($field, $direction = self::SORT_ASC);
 
     /**
      * @return null|array
      */
-    public function getOrder(): ?array;
+    public function getOrder();
 }

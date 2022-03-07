@@ -19,7 +19,7 @@ interface HasLinkMethodInterface
      *
      * @return LinksCollection
      */
-    public function link(BaseApiModel $mainEntity, $linkedEntities): LinksCollection;
+    public function link(BaseApiModel $mainEntity, $linkedEntities);
 
     /**
      * @param BaseApiModel $model
@@ -28,7 +28,7 @@ interface HasLinkMethodInterface
      *
      * @return LinksCollection
      */
-    public function getLinks(BaseApiModel $model, LinksFilter $filter = null): LinksCollection;
+    public function getLinks(BaseApiModel $model, LinksFilter $filter = null);
 
     /**
      * @param BaseApiModel $mainEntity
@@ -36,5 +36,5 @@ interface HasLinkMethodInterface
      *
      * @return bool
      */
-    public function unlink(BaseApiModel $mainEntity, $linkedEntities): bool;
+    public function unlink(BaseApiModel $mainEntity, $linkedEntities);
 }

@@ -19,7 +19,7 @@ class BaseArrayCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return BaseCustomFieldValueModel
      */
-    public static function fromArray($value): BaseCustomFieldValueModel
+    public static function fromArray($value)
     {
         $model = new static();
 

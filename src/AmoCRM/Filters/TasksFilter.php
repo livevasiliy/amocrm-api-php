@@ -82,7 +82,7 @@ class TasksFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     }
 
     /**
-     * @return array|int|null
+     * @return array|null
      */
     public function getCreatedBy()
     {
@@ -144,7 +144,7 @@ class TasksFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return bool|null
      */
-    public function getIsCompleted(): ?bool
+    public function getIsCompleted()
     {
         return $this->isCompleted;
     }
@@ -154,7 +154,7 @@ class TasksFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return TasksFilter
      */
-    public function setIsCompleted(?bool $isCompleted): TasksFilter
+    public function setIsCompleted($isCompleted)
     {
         $this->isCompleted = $isCompleted;
 
@@ -164,7 +164,7 @@ class TasksFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return int|null
      */
-    public function getTaskTypeId(): ?int
+    public function getTaskTypeId()
     {
         return $this->taskTypeId;
     }
@@ -174,7 +174,7 @@ class TasksFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return TasksFilter
      */
-    public function setTaskTypeId(?int $taskTypeId): TasksFilter
+    public function setTaskTypeId($taskTypeId)
     {
         $this->taskTypeId = $taskTypeId;
 
@@ -184,7 +184,7 @@ class TasksFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return string|null
      */
-    public function getEntityType(): ?string
+    public function getEntityType()
     {
         return $this->entityType;
     }
@@ -194,7 +194,7 @@ class TasksFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return TasksFilter
      */
-    public function setEntityType(?string $entityType): TasksFilter
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
@@ -224,7 +224,7 @@ class TasksFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return array|null
      */
-    public function getLeadStatuses(): ?array
+    public function getLeadStatuses()
     {
         return $this->leadStatuses;
     }
@@ -234,14 +234,14 @@ class TasksFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return TasksFilter
      */
-    public function setLeadStatuses(?array $leadStatuses): TasksFilter
+    public function setLeadStatuses($leadStatuses)
     {
         $statusesFilter = [];
 
         foreach ($leadStatuses as $status) {
             $statusesFilter[] = [
-                'status_id' => $status['status_id'] ?? null,
-                'pipeline_id' => $status['pipeline_id'] ?? null,
+                'status_id' => isset($status['status_id']) ? $status['status_id'] : null,
+                'pipeline_id' => isset($status['pipeline_id']) ? $status['pipeline_id'] : null,
             ];
         }
 
@@ -253,7 +253,7 @@ class TasksFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

@@ -8,7 +8,7 @@ class TargetingOutNote extends TargetingNote
 {
     protected $modelClass = TargetingOutNote::class;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_TARGETING_OUT;
     }

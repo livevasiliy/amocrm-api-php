@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace Tests\Cases\NoteTypes;
 
@@ -9,7 +8,7 @@ use TypeError;
 
 final class NoteModelTest extends TestCase
 {
-    public function testCannotBeCreatedFromInvalidNote(): void
+    public function testCannotBeCreatedFromInvalidNote()
     {
         $note = [
             'id' => 0,

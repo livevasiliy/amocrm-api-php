@@ -17,7 +17,7 @@ class MultitextCustomFieldValueModel extends BaseEnumCustomFieldValueModel
     /**
      * @return null|string
      */
-    public function getEnum(): ?string
+    public function getEnum()
     {
         return $this->enum;
     }
@@ -27,7 +27,7 @@ class MultitextCustomFieldValueModel extends BaseEnumCustomFieldValueModel
      *
      * @return MultitextCustomFieldValueModel
      */
-    public function setEnum(?string $enum): MultitextCustomFieldValueModel
+    public function setEnum($enum)
     {
         $this->enum = $enum;
 
@@ -39,13 +39,13 @@ class MultitextCustomFieldValueModel extends BaseEnumCustomFieldValueModel
      *
      * @return MultitextCustomFieldValueModel
      */
-    public static function fromArray($value): BaseCustomFieldValueModel
+    public static function fromArray($value)
     {
         $model = new static();
 
         $enumId = isset($value['enum_id']) ? (int)$value['enum_id'] : null;
         $enum = isset($value['enum_code']) ? (string)$value['enum_code'] : null;
-        $fieldValue = $value['value'] ?? null;
+        $fieldValue = isset($value['value']) ? $value['value'] : null;
 
         $model
             ->setValue($fieldValue)
@@ -55,7 +55,7 @@ class MultitextCustomFieldValueModel extends BaseEnumCustomFieldValueModel
         return $model;
     }
 
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return [
             'value' => $this->getValue(),
@@ -64,7 +64,7 @@ class MultitextCustomFieldValueModel extends BaseEnumCustomFieldValueModel
         ];
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'value' => $this->getValue(),

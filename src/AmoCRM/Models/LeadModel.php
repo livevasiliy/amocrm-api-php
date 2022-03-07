@@ -32,13 +32,13 @@ class LeadModel extends BaseApiModel implements
     use RequestIdTrait;
     use GetLinkTrait;
 
-    public const LOST_STATUS_ID = 143;
-    public const WON_STATUS_ID = 142;
-    public const CATALOG_ELEMENTS = 'catalog_elements';
-    public const IS_PRICE_BY_ROBOT = 'is_price_modified_by_robot';
-    public const LOSS_REASON = 'loss_reason';
-    public const SOURCE_ID = 'source_id';
-    public const CONTACTS = 'contacts';
+    const LOST_STATUS_ID = 143;
+    const WON_STATUS_ID = 142;
+    const CATALOG_ELEMENTS = 'catalog_elements';
+    const IS_PRICE_BY_ROBOT = 'is_price_modified_by_robot';
+    const LOSS_REASON = 'loss_reason';
+    const SOURCE_ID = 'source_id';
+    const CONTACTS = 'contacts';
 
     /**
      * @var int
@@ -199,7 +199,7 @@ class LeadModel extends BaseApiModel implements
      */
     protected $isMerged;
 
-    public function getType(): string
+    public function getType()
     {
         return EntityTypesInterface::LEADS;
     }
@@ -207,7 +207,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -217,7 +217,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -227,7 +227,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|string
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -237,7 +237,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -247,7 +247,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getPrice(): ?int
+    public function getPrice()
     {
         return $this->price;
     }
@@ -257,7 +257,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setPrice(?int $price): self
+    public function setPrice($price)
     {
         $this->price = $price;
 
@@ -267,7 +267,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -277,7 +277,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setAccountId(?int $id): self
+    public function setAccountId($id)
     {
         $this->accountId = $id;
 
@@ -288,7 +288,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getGroupId(): ?int
+    public function getGroupId()
     {
         return $this->groupId;
     }
@@ -298,7 +298,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setGroupId(?int $groupId): self
+    public function setGroupId($groupId)
     {
         $this->groupId = $groupId;
 
@@ -308,7 +308,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getResponsibleUserId(): ?int
+    public function getResponsibleUserId()
     {
         return $this->responsibleUserId;
     }
@@ -318,7 +318,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setResponsibleUserId(?int $userId): self
+    public function setResponsibleUserId($userId)
     {
         $this->responsibleUserId = $userId;
 
@@ -328,7 +328,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -338,7 +338,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCreatedBy(?int $userId): self
+    public function setCreatedBy($userId)
     {
         $this->createdBy = $userId;
 
@@ -348,7 +348,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -358,7 +358,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setUpdatedBy(?int $userId): self
+    public function setUpdatedBy($userId)
     {
         $this->updatedBy = $userId;
 
@@ -368,7 +368,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -378,7 +378,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCreatedAt(?int $timestamp): self
+    public function setCreatedAt($timestamp)
     {
         $this->createdAt = $timestamp;
 
@@ -388,7 +388,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -398,7 +398,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setUpdatedAt(?int $timestamp): self
+    public function setUpdatedAt($timestamp)
     {
         $this->updatedAt = $timestamp;
 
@@ -408,7 +408,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getPipelineId(): ?int
+    public function getPipelineId()
     {
         return $this->pipelineId;
     }
@@ -418,7 +418,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setPipelineId(?int $pipelineId): self
+    public function setPipelineId($pipelineId)
     {
         $this->pipelineId = $pipelineId;
 
@@ -428,7 +428,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getStatusId(): ?int
+    public function getStatusId()
     {
         return $this->statusId;
     }
@@ -438,7 +438,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setStatusId(?int $statusId): self
+    public function setStatusId($statusId)
     {
         $this->statusId = $statusId;
 
@@ -448,7 +448,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return int|null
      */
-    public function getClosedAt(): ?int
+    public function getClosedAt()
     {
         return $this->closedAt;
     }
@@ -458,7 +458,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setClosedAt(?int $timestamp): self
+    public function setClosedAt($timestamp)
     {
         $this->closedAt = $timestamp;
 
@@ -468,7 +468,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return int|null
      */
-    public function getClosestTaskAt(): ?int
+    public function getClosestTaskAt()
     {
         return $this->closestTaskAt;
     }
@@ -478,7 +478,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setClosestTaskAt(?int $timestamp): self
+    public function setClosestTaskAt($timestamp)
     {
         $this->closestTaskAt = $timestamp;
 
@@ -488,7 +488,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return int|null
      */
-    public function getLossReasonId(): ?int
+    public function getLossReasonId()
     {
         return $this->lossReasonId;
     }
@@ -498,7 +498,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setLossReasonId(?int $id): self
+    public function setLossReasonId($id)
     {
         $this->lossReasonId = $id;
 
@@ -508,7 +508,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return LossReasonModel|null
      */
-    public function getLossReason(): ?LossReasonModel
+    public function getLossReason()
     {
         return $this->lossReason;
     }
@@ -518,7 +518,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setLossReason(?LossReasonModel $lossReason): self
+    public function setLossReason($lossReason)
     {
         $this->lossReason = $lossReason;
 
@@ -528,7 +528,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|bool
      */
-    public function getIsDeleted(): ?bool
+    public function getIsDeleted()
     {
         return $this->isDeleted;
     }
@@ -538,7 +538,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setIsDeleted(?bool $flag): self
+    public function setIsDeleted($flag)
     {
         $this->isDeleted = $flag;
 
@@ -548,7 +548,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|TagsCollection
      */
-    public function getTags(): ?TagsCollection
+    public function getTags()
     {
         return $this->tags;
     }
@@ -558,7 +558,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setTags(?TagsCollection $tags): self
+    public function setTags($tags)
     {
         $this->tags = $tags;
 
@@ -568,7 +568,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return int|null
      */
-    public function getSourceId(): ?int
+    public function getSourceId()
     {
         return $this->sourceId;
     }
@@ -578,7 +578,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setSourceId(?int $id): self
+    public function setSourceId($id)
     {
         $this->sourceId = $id;
 
@@ -588,7 +588,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|CompanyModel
      */
-    public function getCompany(): ?CompanyModel
+    public function getCompany()
     {
         return $this->company;
     }
@@ -598,7 +598,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCompany(?CompanyModel $company): self
+    public function setCompany($company)
     {
         $this->company = $company;
 
@@ -606,9 +606,9 @@ class LeadModel extends BaseApiModel implements
     }
 
     /**
-     * @return CustomFieldsValuesCollection|BaseCustomFieldValuesModel[]|null
+     * @return CustomFieldsValuesCollection|null
      */
-    public function getCustomFieldsValues(): ?CustomFieldsValuesCollection
+    public function getCustomFieldsValues()
     {
         return $this->customFieldsValues;
     }
@@ -618,7 +618,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCustomFieldsValues(?CustomFieldsValuesCollection $values): self
+    public function setCustomFieldsValues($values)
     {
         $this->customFieldsValues = $values;
 
@@ -628,7 +628,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return ContactsCollection|null
      */
-    public function getContacts(): ?ContactsCollection
+    public function getContacts()
     {
         return $this->contacts;
     }
@@ -636,7 +636,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return ContactModel|null
      */
-    public function getMainContact(): ?ContactModel
+    public function getMainContact()
     {
         if ($this->contacts) {
             return $this->contacts->getBy('isMain', true);
@@ -649,7 +649,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setContacts(?ContactsCollection $contacts): self
+    public function setContacts($contacts)
     {
         $this->contacts = $contacts;
 
@@ -659,7 +659,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return int|null
      */
-    public function getScore(): ?int
+    public function getScore()
     {
         return $this->score;
     }
@@ -669,7 +669,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setScore(?int $score): self
+    public function setScore($score)
     {
         $this->score = $score;
 
@@ -679,7 +679,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|bool
      */
-    public function getIsPriceModifiedByRobot(): ?bool
+    public function getIsPriceModifiedByRobot()
     {
         return $this->isPriceModifiedByRobot;
     }
@@ -689,7 +689,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return self
      */
-    private function setIsPriceModifiedByRobot(?bool $flag): self
+    private function setIsPriceModifiedByRobot($flag)
     {
         $this->isPriceModifiedByRobot = $flag;
 
@@ -702,7 +702,7 @@ class LeadModel extends BaseApiModel implements
      * @return self
      * @throws InvalidArgumentException
      */
-    public static function fromArray(array $lead): self
+    public static function fromArray(array $lead)
     {
         if (empty($lead['id'])) {
             throw new InvalidArgumentException('Lead id is empty in ' . json_encode($lead));
@@ -824,7 +824,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = [
             'name' => $this->getName(),
@@ -884,7 +884,7 @@ class LeadModel extends BaseApiModel implements
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -977,7 +977,7 @@ class LeadModel extends BaseApiModel implements
      * @param string|null $requestId
      * @return array
      */
-    public function toComplexApi(?string $requestId = "0"): array
+    public function toComplexApi($requestId = "0")
     {
         $result = $this->toApi($requestId);
 
@@ -1011,7 +1011,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [
             self::CATALOG_ELEMENTS,
@@ -1026,7 +1026,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return CatalogElementsCollection|null
      */
-    public function getCatalogElementsLinks(): ?CatalogElementsCollection
+    public function getCatalogElementsLinks()
     {
         return $this->catalogElementsLinks;
     }
@@ -1035,7 +1035,7 @@ class LeadModel extends BaseApiModel implements
      * @param CatalogElementsCollection|null $catalogElementsLinks
      * @return LeadModel
      */
-    public function setCatalogElementsLinks(?CatalogElementsCollection $catalogElementsLinks): self
+    public function setCatalogElementsLinks($catalogElementsLinks)
     {
         $this->catalogElementsLinks = $catalogElementsLinks;
 
@@ -1045,7 +1045,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return string|null
      */
-    public function getVisitorUid(): ?string
+    public function getVisitorUid()
     {
         return $this->visitorUid;
     }
@@ -1055,7 +1055,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return LeadModel
      */
-    public function setVisitorUid(?string $visitorUid): LeadModel
+    public function setVisitorUid($visitorUid)
     {
         $this->visitorUid = $visitorUid;
 
@@ -1065,7 +1065,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return array|null
      */
-    protected function getMetadataForLink(): ?array
+    protected function getMetadataForLink()
     {
         $result = null;
 
@@ -1079,7 +1079,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return UnsortedMetadataInterface|null
      */
-    public function getMetadata(): ?UnsortedMetadataInterface
+    public function getMetadata()
     {
         return $this->metadata;
     }
@@ -1089,7 +1089,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return LeadModel
      */
-    public function setMetadata(?UnsortedMetadataInterface $metadata): LeadModel
+    public function setMetadata($metadata)
     {
         $this->metadata = $metadata;
 
@@ -1099,7 +1099,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return null|string[]
      */
-    public function getComplexRequestIds(): ?array
+    public function getComplexRequestIds()
     {
         return $this->complexRequestIds;
     }
@@ -1109,7 +1109,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return LeadModel
      */
-    public function setComplexRequestIds(array $complexRequestIds): LeadModel
+    public function setComplexRequestIds(array $complexRequestIds)
     {
         $this->complexRequestIds = $complexRequestIds;
 
@@ -1119,9 +1119,9 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return bool
      */
-    public function isMerged(): bool
+    public function isMerged()
     {
-        return $this->isMerged ?? false;
+        return isset($this->isMerged) ? $this->isMerged : false;
     }
 
     /**
@@ -1129,7 +1129,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return LeadModel
      */
-    public function setIsMerged(bool $isMerged): LeadModel
+    public function setIsMerged($isMerged)
     {
         $this->isMerged = $isMerged;
 
@@ -1139,7 +1139,7 @@ class LeadModel extends BaseApiModel implements
     /**
      * @return string|null
      */
-    public function getSourceExternalId(): ?string
+    public function getSourceExternalId()
     {
         return $this->sourceExternalId;
     }
@@ -1149,7 +1149,7 @@ class LeadModel extends BaseApiModel implements
      *
      * @return LeadModel
      */
-    public function setSourceExternalId(?string $sourceExternalId): LeadModel
+    public function setSourceExternalId($sourceExternalId)
     {
         $this->sourceExternalId = $sourceExternalId;
 

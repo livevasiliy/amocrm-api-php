@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models;
 
 use AmoCRM\Helpers\EntityTypesInterface;
@@ -15,9 +13,9 @@ use Lcobucci\JWT\Token;
  */
 class BotDisposableTokenModel extends BaseApiModel
 {
-    public const MARKETINGBOT = 'marketingbot';
+    const MARKETINGBOT = 'marketingbot';
 
-    public const SALESBOT = 'salesbot';
+    const SALESBOT = 'salesbot';
 
     /** @var string */
     protected $clientUuid;
@@ -48,7 +46,7 @@ class BotDisposableTokenModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setClientUuid(string $clientUuid): self
+    public function setClientUuid($clientUuid)
     {
         $this->clientUuid = $clientUuid;
 
@@ -58,7 +56,7 @@ class BotDisposableTokenModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getClientUuid(): string
+    public function getClientUuid()
     {
         return $this->clientUuid;
     }
@@ -68,7 +66,7 @@ class BotDisposableTokenModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setAccountDomain(string $accountDomain): self
+    public function setAccountDomain($accountDomain)
     {
         $this->accountDomain = $accountDomain;
 
@@ -78,7 +76,7 @@ class BotDisposableTokenModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getAccountDomain(): string
+    public function getAccountDomain()
     {
         return $this->accountDomain;
     }
@@ -88,7 +86,7 @@ class BotDisposableTokenModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setAccountSubdomain(string $accountSubdomain): self
+    public function setAccountSubdomain($accountSubdomain)
     {
         $this->accountSubdomain = $accountSubdomain;
 
@@ -98,7 +96,7 @@ class BotDisposableTokenModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getAccountSubdomain(): string
+    public function getAccountSubdomain()
     {
         return $this->accountSubdomain;
     }
@@ -108,7 +106,7 @@ class BotDisposableTokenModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setAccountId(int $accountId): self
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -118,7 +116,7 @@ class BotDisposableTokenModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getAccountId(): int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -126,7 +124,7 @@ class BotDisposableTokenModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getExpiresAt(): int
+    public function getExpiresAt()
     {
         return $this->expiresAt;
     }
@@ -136,7 +134,7 @@ class BotDisposableTokenModel extends BaseApiModel
      *
      * @return BotDisposableTokenModel
      */
-    public function setExpiresAt(int $expiresAt): BotDisposableTokenModel
+    public function setExpiresAt($expiresAt)
     {
         $this->expiresAt = $expiresAt;
 
@@ -146,7 +144,7 @@ class BotDisposableTokenModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getBotType(): string
+    public function getBotType()
     {
         return $this->botType;
     }
@@ -156,7 +154,7 @@ class BotDisposableTokenModel extends BaseApiModel
      *
      * @return BotDisposableTokenModel
      */
-    public function setBotType(string $botType): BotDisposableTokenModel
+    public function setBotType($botType)
     {
         $this->botType = $botType;
 
@@ -166,7 +164,7 @@ class BotDisposableTokenModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getEntityType(): string
+    public function getEntityType()
     {
         return $this->entityType;
     }
@@ -176,7 +174,7 @@ class BotDisposableTokenModel extends BaseApiModel
      *
      * @return BotDisposableTokenModel
      */
-    public function setEntityType(string $entityType): BotDisposableTokenModel
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
@@ -186,7 +184,7 @@ class BotDisposableTokenModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getEntityId(): int
+    public function getEntityId()
     {
         return $this->entityId;
     }
@@ -196,7 +194,7 @@ class BotDisposableTokenModel extends BaseApiModel
      *
      * @return BotDisposableTokenModel
      */
-    public function setEntityId(int $entityId): BotDisposableTokenModel
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
 
@@ -208,7 +206,7 @@ class BotDisposableTokenModel extends BaseApiModel
      *
      * @return static
      */
-    public static function fromJwtToken(Token $jwtToken): self
+    public static function fromJwtToken(Token $jwtToken)
     {
         $disposableToken = new self();
         $claims = $jwtToken->claims();
@@ -237,7 +235,7 @@ class BotDisposableTokenModel extends BaseApiModel
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'client_uuid' => $this->getClientUuid(),
@@ -256,7 +254,7 @@ class BotDisposableTokenModel extends BaseApiModel
      *
      * @return array
      */
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return $this->toArray();
     }

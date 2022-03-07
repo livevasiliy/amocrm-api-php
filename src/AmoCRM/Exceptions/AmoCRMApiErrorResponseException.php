@@ -20,7 +20,7 @@ class AmoCRMApiErrorResponseException extends AmoCRMApiException
      * @param array $errors
      * @return $this
      */
-    public function setValidationErrors(array $errors): self
+    public function setValidationErrors(array $errors)
     {
         $this->validationErrors = $errors;
 
@@ -30,7 +30,7 @@ class AmoCRMApiErrorResponseException extends AmoCRMApiException
     /**
      * @return array
      */
-    public function getValidationErrors(): array
+    public function getValidationErrors()
     {
         return $this->validationErrors;
     }

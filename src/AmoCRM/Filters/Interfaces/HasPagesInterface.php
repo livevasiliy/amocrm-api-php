@@ -8,11 +8,11 @@ namespace AmoCRM\Filters\Interfaces;
  */
 interface HasPagesInterface
 {
-    public function setPage(int $page);
+    public function setPage($page);
 
-    public function getPage(): int;
+    public function getPage();
 
-    public function setLimit(int $limit);
+    public function setLimit($limit);
 
-    public function getLimit(): int;
+    public function getLimit();
 }

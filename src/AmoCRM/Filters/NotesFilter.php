@@ -39,7 +39,7 @@ class NotesFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return null|array
      */
-    public function getIds(): ?array
+    public function getIds()
     {
         return $this->ids;
     }
@@ -49,7 +49,7 @@ class NotesFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return NotesFilter
      */
-    public function setIds(array $ids): self
+    public function setIds(array $ids)
     {
         $this->ids = $this->parseArrayOrNumberFilter($ids);
 
@@ -59,7 +59,7 @@ class NotesFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return array
      */
-    public function getNoteTypes(): array
+    public function getNoteTypes()
     {
         return $this->noteTypes;
     }
@@ -69,7 +69,7 @@ class NotesFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return NotesFilter
      */
-    public function setNoteTypes(array $types): self
+    public function setNoteTypes(array $types)
     {
         if (!empty($types)) {
             $this->noteTypes = $types;
@@ -101,7 +101,7 @@ class NotesFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return array|null
      */
-    public function getEntityIds(): ?array
+    public function getEntityIds()
     {
         return $this->entityIds;
     }
@@ -111,7 +111,7 @@ class NotesFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
      *
      * @return NotesFilter
      */
-    public function setEntityIds(?array $entityIds): NotesFilter
+    public function setEntityIds($entityIds)
     {
         $this->entityIds = $entityIds;
 
@@ -121,7 +121,7 @@ class NotesFilter extends BaseEntityFilter implements HasPagesInterface, HasOrde
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

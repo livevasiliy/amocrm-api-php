@@ -17,7 +17,7 @@ trait RequestIdTrait
     /**
      * @return string|null
      */
-    public function getRequestId(): ?string
+    public function getRequestId()
     {
         return $this->requestId;
     }
@@ -26,7 +26,7 @@ trait RequestIdTrait
      * @param string|int|null $requestId
      * @return self
      */
-    public function setRequestId($requestId = null): self
+    public function setRequestId($requestId = null)
     {
         $this->requestId = (string)$requestId;
 

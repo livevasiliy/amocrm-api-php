@@ -131,7 +131,8 @@ class AmoCRMApiClientTest extends TestCase
     {
         $this->assertInstanceOf(
             AmoCRMApiClient::class,
-            $this->apiClient->onAccessTokenRefresh(function () {})
+            $this->apiClient->onAccessTokenRefresh(function () {
+            })
         );
         $callback = $this->_getInnerPropertyValueByReflection('accessTokenRefreshCallback');
         $this->assertIsCallable($callback);
@@ -349,7 +350,7 @@ class AmoCRMApiClientTest extends TestCase
      * @return mixed
      * @throws ReflectionException
      */
-    private function _getInnerPropertyValueByReflection(string $property)
+    private function _getInnerPropertyValueByReflection($property)
     {
         $reflector = new ReflectionClass($this->apiClient);
         $reflectorProperty = $reflector->getProperty($property);

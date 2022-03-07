@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 namespace Cases\CustomField;
 
@@ -13,7 +12,7 @@ class NestedFieldTest extends TestCase
     /**
      * @return array
      */
-    public function getInvalidRequestIdData(): array
+    public function getInvalidRequestIdData()
     {
         return [
             ['$test'], // spec symbols
@@ -30,7 +29,7 @@ class NestedFieldTest extends TestCase
      *
      * @throws InvalidArgumentException
      */
-    public function testInvalidRequestId(string $requestId): void
+    public function testInvalidRequestId($requestId)
     {
         $this->expectException(InvalidArgumentException::class);
         (new NestedModel())->setRequestId($requestId);
@@ -43,7 +42,7 @@ class NestedFieldTest extends TestCase
      *
      * @throws InvalidArgumentException
      */
-    public function testInvalidParentRequestId(string $requestId): void
+    public function testInvalidParentRequestId($requestId)
     {
         $this->expectException(InvalidArgumentException::class);
         (new NestedModel())->setParentRequestId($requestId);
@@ -52,7 +51,7 @@ class NestedFieldTest extends TestCase
     /**
      * @throws InvalidArgumentException
      */
-    public function testFullToApiMethod(): void
+    public function testFullToApiMethod()
     {
         $correctResult = [
             'request_id'        => 'Request1',

@@ -11,16 +11,18 @@ class InvoicesSettings implements Arrayable
      */
     protected $lang;
 
-    public function __construct(
-        ?string $lang
-    ) {
+    /**
+     * @param  string|null  $lang
+     */
+    public function __construct($lang)
+    {
         $this->lang = $lang;
     }
 
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'lang' => $this->getLang(),
@@ -30,7 +32,7 @@ class InvoicesSettings implements Arrayable
     /**
      * @return string|null
      */
-    public function getLang(): ?string
+    public function getLang()
     {
         return $this->lang;
     }

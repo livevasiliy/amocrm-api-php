@@ -21,5 +21,5 @@ use AmoCRM\Models\Customers\Transactions\TransactionModel;
  */
 class TransactionsCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = TransactionModel::class;
+    const ITEM_CLASS = TransactionModel::class;
 }

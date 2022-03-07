@@ -10,26 +10,26 @@ namespace AmoCRM\Models\CustomFieldsValues\ValueModels;
 class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
 {
     /** Имя юр лицы */
-    public const NAME = 'name';
+    const NAME = 'name';
     /** Тип юр лица */
-    public const LEGAL_ENTITY_TYPE = 'entity_type';
+    const LEGAL_ENTITY_TYPE = 'entity_type';
     /** ИНН */
-    public const VAT_ID = 'vat_id';
+    const VAT_ID = 'vat_id';
     /** ОГРН/ОГРНИП */
-    public const TAX_REG_REASON_CODE = 'tax_registration_reason_code';
+    const TAX_REG_REASON_CODE = 'tax_registration_reason_code';
     /** Адрес юр лица */
-    public const ADDRESS = 'address';
+    const ADDRESS = 'address';
     /** КПП */
-    public const KPP = 'kpp';
+    const KPP = 'kpp';
     /** БИК */
-    public const BANK_CODE = 'bank_code';
+    const BANK_CODE = 'bank_code';
     /** Идентификатор юр лица во внешней учетной системе */
-    public const EXTERNAL_UID = 'external_uid';
+    const EXTERNAL_UID = 'external_uid';
 
     /** Частное лицо */
-    public const LEGAL_ENTITY_TYPE_SOLE_PROPRIETORSHIP = 1;
+    const LEGAL_ENTITY_TYPE_SOLE_PROPRIETORSHIP = 1;
     /** Юр. лицо */
-    public const LEGAL_ENTITY_TYPE_JURIDICAL_PERSON = 2;
+    const LEGAL_ENTITY_TYPE_JURIDICAL_PERSON = 2;
 
     /**
      * @var string|null
@@ -76,19 +76,23 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return BaseCustomFieldValueModel
      */
-    public static function fromArray($value): BaseCustomFieldValueModel
+    public static function fromArray($value)
     {
         $model = new static();
 
         $model
-            ->setName($value['value'][self::NAME] ?? null)
-            ->setLegalEntityType($value['value'][self::LEGAL_ENTITY_TYPE] ?? null)
-            ->setVatId($value['value'][self::VAT_ID] ?? null)
-            ->setTaxRegistrationReasonCode($value['value'][self::TAX_REG_REASON_CODE] ?? null)
-            ->setAddress($value['value'][self::ADDRESS] ?? null)
-            ->setKpp($value['value'][self::KPP] ?? null)
-            ->setBankCode($value['value'][self::BANK_CODE] ?? null)
-            ->setExternalUid($value['value'][self::EXTERNAL_UID] ?? null)
+            ->setName(isset($value['value'][self::NAME]) ? $value['value'][self::NAME] : null)
+            ->setLegalEntityType(
+                isset($value['value'][self::LEGAL_ENTITY_TYPE]) ? $value['value'][self::LEGAL_ENTITY_TYPE] : null
+            )
+            ->setVatId(isset($value['value'][self::VAT_ID]) ? $value['value'][self::VAT_ID] : null)
+            ->setTaxRegistrationReasonCode(
+                isset($value['value'][self::TAX_REG_REASON_CODE]) ? $value['value'][self::TAX_REG_REASON_CODE] : null
+            )
+            ->setAddress(isset($value['value'][self::ADDRESS]) ? $value['value'][self::ADDRESS] : null)
+            ->setKpp(isset($value['value'][self::KPP]) ? $value['value'][self::KPP] : null)
+            ->setBankCode(isset($value['value'][self::BANK_CODE]) ? $value['value'][self::BANK_CODE] : null)
+            ->setExternalUid(isset($value['value'][self::EXTERNAL_UID]) ? $value['value'][self::EXTERNAL_UID] : null)
         ;
 
         return $model;
@@ -97,7 +101,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return string|null
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -107,7 +111,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LegalEntityCustomFieldValueModel
      */
-    public function setName(?string $name): LegalEntityCustomFieldValueModel
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -117,7 +121,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return int|null
      */
-    public function getLegalEntityType(): ?int
+    public function getLegalEntityType()
     {
         return $this->legalEntityType;
     }
@@ -127,7 +131,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LegalEntityCustomFieldValueModel
      */
-    public function setLegalEntityType(?int $legalEntityType): LegalEntityCustomFieldValueModel
+    public function setLegalEntityType($legalEntityType)
     {
         $this->legalEntityType = $legalEntityType;
 
@@ -137,7 +141,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return string|null
      */
-    public function getVatId(): ?string
+    public function getVatId()
     {
         return $this->vatId;
     }
@@ -147,7 +151,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LegalEntityCustomFieldValueModel
      */
-    public function setVatId(?string $vatId): LegalEntityCustomFieldValueModel
+    public function setVatId($vatId)
     {
         $this->vatId = $vatId;
 
@@ -157,7 +161,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return string|null
      */
-    public function getTaxRegistrationReasonCode(): ?string
+    public function getTaxRegistrationReasonCode()
     {
         return $this->taxRegistrationReasonCode;
     }
@@ -167,7 +171,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LegalEntityCustomFieldValueModel
      */
-    public function setTaxRegistrationReasonCode(?string $taxRegistrationReasonCode): LegalEntityCustomFieldValueModel
+    public function setTaxRegistrationReasonCode($taxRegistrationReasonCode)
     {
         $this->taxRegistrationReasonCode = $taxRegistrationReasonCode;
 
@@ -177,7 +181,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return string|null
      */
-    public function getAddress(): ?string
+    public function getAddress()
     {
         return $this->address;
     }
@@ -187,7 +191,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LegalEntityCustomFieldValueModel
      */
-    public function setAddress(?string $address): LegalEntityCustomFieldValueModel
+    public function setAddress($address)
     {
         $this->address = $address;
 
@@ -197,7 +201,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return string|null
      */
-    public function getKpp(): ?string
+    public function getKpp()
     {
         return $this->kpp;
     }
@@ -207,7 +211,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LegalEntityCustomFieldValueModel
      */
-    public function setKpp(?string $kpp): LegalEntityCustomFieldValueModel
+    public function setKpp($kpp)
     {
         $this->kpp = $kpp;
 
@@ -217,7 +221,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return string|null
      */
-    public function getBankCode(): ?string
+    public function getBankCode()
     {
         return $this->bankCode;
     }
@@ -227,7 +231,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LegalEntityCustomFieldValueModel
      */
-    public function setBankCode(?string $bankCode): LegalEntityCustomFieldValueModel
+    public function setBankCode($bankCode)
     {
         $this->bankCode = $bankCode;
 
@@ -237,7 +241,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return string|null
      */
-    public function getExternalUid(): ?string
+    public function getExternalUid()
     {
         return $this->externalUid;
     }
@@ -247,14 +251,14 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LegalEntityCustomFieldValueModel
      */
-    public function setExternalUid(?string $externalUid): LegalEntityCustomFieldValueModel
+    public function setExternalUid($externalUid)
     {
         $this->externalUid = $externalUid;
 
         return $this;
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         return [
             self::NAME => $this->getName(),
@@ -276,7 +280,7 @@ class LegalEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
         return $this->toArray();
     }
 
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return [
             'value' => $this->getValue(),

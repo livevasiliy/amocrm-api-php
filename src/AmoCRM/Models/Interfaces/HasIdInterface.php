@@ -13,5 +13,5 @@ interface HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int;
+    public function getId();
 }

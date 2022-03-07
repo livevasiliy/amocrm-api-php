@@ -19,7 +19,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     use GetLinkTrait;
 
     /** @var string Ссылка на печатную форму счета с возможностью оплаты */
-    public const INVOICE_LINK = 'invoice_link';
+    const INVOICE_LINK = 'invoice_link';
 
     /**
      * @var int|null
@@ -93,7 +93,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -103,7 +103,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return self
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -113,7 +113,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return null|string
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -123,7 +123,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return self
      */
-    public function setName(?string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -133,7 +133,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return null|int
      */
-    public function getCatalogId(): ?int
+    public function getCatalogId()
     {
         return $this->catalogId;
     }
@@ -143,7 +143,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return self
      */
-    public function setCatalogId(?int $id): self
+    public function setCatalogId($id)
     {
         $this->catalogId = $id;
 
@@ -153,7 +153,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return null|int
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -163,7 +163,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return self
      */
-    public function setCreatedBy(?int $userId): self
+    public function setCreatedBy($userId)
     {
         $this->createdBy = $userId;
 
@@ -173,7 +173,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return null|int
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -183,7 +183,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return self
      */
-    public function setUpdatedBy(?int $userId): self
+    public function setUpdatedBy($userId)
     {
         $this->updatedBy = $userId;
 
@@ -193,7 +193,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return null|int
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -203,7 +203,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return self
      */
-    public function setCreatedAt(?int $timestamp): self
+    public function setCreatedAt($timestamp)
     {
         $this->createdAt = $timestamp;
 
@@ -213,7 +213,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return null|int
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -223,7 +223,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return self
      */
-    public function setUpdatedAt(?int $timestamp): self
+    public function setUpdatedAt($timestamp)
     {
         $this->updatedAt = $timestamp;
 
@@ -233,7 +233,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return null|bool
      */
-    public function getIsDeleted(): ?bool
+    public function getIsDeleted()
     {
         return $this->isDeleted;
     }
@@ -243,7 +243,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return self
      */
-    public function setIsDeleted(?bool $flag): self
+    public function setIsDeleted($flag)
     {
         $this->isDeleted = $flag;
 
@@ -253,7 +253,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return CustomFieldsValuesCollection|null
      */
-    public function getCustomFieldsValues(): ?CustomFieldsValuesCollection
+    public function getCustomFieldsValues()
     {
         return $this->customFieldsValues;
     }
@@ -263,7 +263,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return self
      */
-    public function setCustomFieldsValues(?CustomFieldsValuesCollection $values): self
+    public function setCustomFieldsValues($values)
     {
         $this->customFieldsValues = $values;
 
@@ -273,7 +273,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return int|null
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -283,14 +283,14 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return CatalogElementModel
      */
-    public function setAccountId(?int $accountId): CatalogElementModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
         return $this;
     }
 
-    public function getType(): string
+    public function getType()
     {
         return EntityTypesInterface::CATALOG_ELEMENTS_FULL;
     }
@@ -298,7 +298,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return string|null
      */
-    public function getInvoiceLink(): ?string
+    public function getInvoiceLink()
     {
         return $this->invoiceLink;
     }
@@ -308,7 +308,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return CatalogElementModel
      */
-    public function setInvoiceLink(?string $invoiceLink): CatalogElementModel
+    public function setInvoiceLink($invoiceLink)
     {
         $this->invoiceLink = $invoiceLink;
 
@@ -321,7 +321,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      * @return self
      * @throws InvalidArgumentException
      */
-    public static function fromArray(array $catalogElement): self
+    public static function fromArray(array $catalogElement)
     {
         if (empty($catalogElement['id'])) {
             throw new InvalidArgumentException('Catalog id is empty in ' . json_encode($catalogElement));
@@ -386,7 +386,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id'   => $this->getId(),
@@ -410,7 +410,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
         ];
     }
 
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -461,7 +461,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      * @return CatalogElementModel
      * @throws InvalidArgumentException
      */
-    public function setQuantity($quantity): CatalogElementModel
+    public function setQuantity($quantity)
     {
         if (is_int($quantity) || is_float($quantity)) {
             $this->quantity = $quantity;
@@ -469,15 +469,13 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
             throw new InvalidArgumentException('Quantity must be integer or float number');
         }
 
-        $this->quantity = $quantity;
-
         return $this;
     }
 
     /**
      * @return int|null
      */
-    public function getPriceId(): ?int
+    public function getPriceId()
     {
         return $this->priceId;
     }
@@ -487,7 +485,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
      *
      * @return CatalogElementModel
      */
-    public function setPriceId(?int $priceId): CatalogElementModel
+    public function setPriceId($priceId)
     {
         $this->priceId = $priceId;
 
@@ -497,7 +495,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return array|null
      */
-    protected function getMetadataForLink(): ?array
+    protected function getMetadataForLink()
     {
         $result = null;
 
@@ -521,7 +519,7 @@ class CatalogElementModel extends BaseApiModel implements TypeAwareInterface, Ca
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [
             self::INVOICE_LINK,

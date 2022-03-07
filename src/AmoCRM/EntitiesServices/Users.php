@@ -34,9 +34,9 @@ class Users extends BaseEntity implements HasPageMethodsInterface
 
     protected $collectionClass = UsersCollection::class;
 
-    public const ITEM_CLASS = UserModel::class;
+    const ITEM_CLASS = UserModel::class;
 
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -52,7 +52,7 @@ class Users extends BaseEntity implements HasPageMethodsInterface
      * @param array $response
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -64,7 +64,7 @@ class Users extends BaseEntity implements HasPageMethodsInterface
      * @param array $response
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -74,7 +74,7 @@ class Users extends BaseEntity implements HasPageMethodsInterface
      * @param array $response
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -85,7 +85,7 @@ class Users extends BaseEntity implements HasPageMethodsInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -106,7 +106,7 @@ class Users extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -117,7 +117,7 @@ class Users extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -125,8 +125,9 @@ class Users extends BaseEntity implements HasPageMethodsInterface
     /**
      * @param BaseApiModel|UserModel $apiModel
      * @param array $entity
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);

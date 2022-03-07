@@ -1,15 +1,16 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Enum\Chats\Templates\Buttons;
 
 class ButtonsEnums
 {
-    public const TYPE_TEXT = 'inline';
-    public const TYPE_URL = 'url';
+    const TYPE_TEXT = 'inline';
+    const TYPE_URL = 'url';
 
-    public static function getAll(): array
+    /**
+     * @return string[]
+     */
+    public static function getAll()
     {
         return [
             self::TYPE_TEXT,

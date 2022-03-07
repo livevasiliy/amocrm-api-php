@@ -231,7 +231,7 @@ class ContactsFilter extends BaseEntityFilter implements HasPagesInterface, HasO
     /**
      * @return array|null
      */
-    public function getCustomFieldsValues(): ?array
+    public function getCustomFieldsValues()
     {
         return $this->customFieldsValues;
     }
@@ -241,7 +241,7 @@ class ContactsFilter extends BaseEntityFilter implements HasPagesInterface, HasO
      *
      * @return ContactsFilter
      */
-    public function setCustomFieldsValues(?array $customFieldsValues): ContactsFilter
+    public function setCustomFieldsValues($customFieldsValues)
     {
         $cfFilter = [];
 
@@ -261,7 +261,7 @@ class ContactsFilter extends BaseEntityFilter implements HasPagesInterface, HasO
     /**
      * @return string|null
      */
-    public function getQuery(): ?string
+    public function getQuery()
     {
         return $this->query;
     }
@@ -271,7 +271,7 @@ class ContactsFilter extends BaseEntityFilter implements HasPagesInterface, HasO
      *
      * @return ContactsFilter
      */
-    public function setQuery(?string $query): self
+    public function setQuery($query)
     {
         if (!empty($query)) {
             $this->query = (string)$query;
@@ -283,7 +283,7 @@ class ContactsFilter extends BaseEntityFilter implements HasPagesInterface, HasO
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

@@ -24,5 +24,5 @@ class CatalogElementsCollection extends BaseApiCollection implements HasPagesInt
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = CatalogElementModel::class;
+    const ITEM_CLASS = CatalogElementModel::class;
 }

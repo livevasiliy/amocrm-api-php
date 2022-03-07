@@ -26,7 +26,7 @@ class TagModel extends BaseApiModel implements Arrayable, HasIdInterface, Entity
      *
      * @return self
      */
-    public static function fromArray(array $tag): self
+    public static function fromArray(array $tag)
     {
         $model = new self();
 
@@ -39,7 +39,7 @@ class TagModel extends BaseApiModel implements Arrayable, HasIdInterface, Entity
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -50,7 +50,7 @@ class TagModel extends BaseApiModel implements Arrayable, HasIdInterface, Entity
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -60,7 +60,7 @@ class TagModel extends BaseApiModel implements Arrayable, HasIdInterface, Entity
      *
      * @return TagModel
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -70,7 +70,7 @@ class TagModel extends BaseApiModel implements Arrayable, HasIdInterface, Entity
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -80,7 +80,7 @@ class TagModel extends BaseApiModel implements Arrayable, HasIdInterface, Entity
      *
      * @return TagModel
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -91,7 +91,7 @@ class TagModel extends BaseApiModel implements Arrayable, HasIdInterface, Entity
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -115,7 +115,7 @@ class TagModel extends BaseApiModel implements Arrayable, HasIdInterface, Entity
     /**
      * @return array|null
      */
-    public function toEntityApi(): ?array
+    public function toEntityApi()
     {
         $result = [];
 
@@ -127,6 +127,6 @@ class TagModel extends BaseApiModel implements Arrayable, HasIdInterface, Entity
             $result['id'] = $this->getId();
         }
 
-        return $result ?? null;
+        return isset($result) ? $result : null;
     }
 }

@@ -85,7 +85,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -95,7 +95,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -105,7 +105,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|string
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -115,7 +115,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setName(?string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -125,7 +125,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|int
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -135,7 +135,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setCreatedBy(?int $userId): self
+    public function setCreatedBy($userId)
     {
         $this->createdBy = $userId;
 
@@ -145,7 +145,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|int
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -155,7 +155,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setUpdatedBy(?int $userId): self
+    public function setUpdatedBy($userId)
     {
         $this->updatedBy = $userId;
 
@@ -165,7 +165,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|int
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -175,7 +175,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setCreatedAt(?int $timestamp): self
+    public function setCreatedAt($timestamp)
     {
         $this->createdAt = $timestamp;
 
@@ -185,7 +185,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|int
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -195,7 +195,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setUpdatedAt(?int $timestamp): self
+    public function setUpdatedAt($timestamp)
     {
         $this->updatedAt = $timestamp;
 
@@ -205,7 +205,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|bool
      */
-    public function getCanAddElements(): ?bool
+    public function getCanAddElements()
     {
         return $this->canAddElements;
     }
@@ -215,7 +215,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setCanAddElements(?bool $flag): self
+    public function setCanAddElements($flag)
     {
         $this->canAddElements = $flag;
 
@@ -225,7 +225,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|bool
      */
-    public function getCanShowInCards(): ?bool
+    public function getCanShowInCards()
     {
         return $this->canShowInCards;
     }
@@ -235,7 +235,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setCanBeDeleted(?bool $flag): self
+    public function setCanBeDeleted($flag)
     {
         $this->canBeDeleted = $flag;
 
@@ -245,7 +245,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|bool
      */
-    public function getCanBeDeleted(): ?bool
+    public function getCanBeDeleted()
     {
         return $this->canBeDeleted;
     }
@@ -255,7 +255,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setCanShowInCards(?bool $flag): self
+    public function setCanShowInCards($flag)
     {
         $this->canShowInCards = $flag;
 
@@ -265,7 +265,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|bool
      */
-    public function getCanLinkMultiple(): ?bool
+    public function getCanLinkMultiple()
     {
         return $this->canLinkMultiple;
     }
@@ -275,7 +275,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setCanLinkMultiple(?bool $flag): self
+    public function setCanLinkMultiple($flag)
     {
         $this->canLinkMultiple = $flag;
 
@@ -285,7 +285,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|int
      */
-    public function getSort(): ?int
+    public function getSort()
     {
         return $this->sort;
     }
@@ -295,7 +295,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setSort(?int $sort): self
+    public function setSort($sort)
     {
         $this->sort = $sort;
 
@@ -305,7 +305,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|string
      */
-    public function getCatalogType(): ?string
+    public function getCatalogType()
     {
         return $this->catalogType;
     }
@@ -315,7 +315,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setCatalogType(?string $type): self
+    public function setCatalogType($type)
     {
         $this->catalogType = $type;
 
@@ -325,7 +325,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return null|string
      */
-    public function getSdkWidgetCode(): ?string
+    public function getSdkWidgetCode()
     {
         return $this->sdkWidgetCode;
     }
@@ -335,7 +335,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return self
      */
-    public function setSdkWidgetCode(?string $code): self
+    public function setSdkWidgetCode($code)
     {
         $this->sdkWidgetCode = $code;
 
@@ -345,7 +345,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return int|null
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -355,7 +355,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      *
      * @return CatalogModel
      */
-    public function setAccountId(?int $accountId): CatalogModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -365,7 +365,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return EntityTypesInterface::CATALOGS;
     }
@@ -376,7 +376,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
      * @return self
      * @throws InvalidArgumentException
      */
-    public static function fromArray(array $catalog): self
+    public static function fromArray(array $catalog)
     {
         if (empty($catalog['id'])) {
             throw new InvalidArgumentException('Catalog id is empty in ' . json_encode($catalog));
@@ -432,7 +432,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -452,7 +452,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
         ];
     }
 
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -508,7 +508,7 @@ class CatalogModel extends BaseApiModel implements TypeAwareInterface, HasIdInte
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [];
     }

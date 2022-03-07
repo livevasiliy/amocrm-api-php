@@ -16,9 +16,13 @@ class AmojoRights implements Arrayable
      */
     protected $canCreateGroups;
 
+    /**
+     * @param  bool  $canDirect
+     * @param  bool  $canCreateGroups
+     */
     public function __construct(
-        bool $canDirect,
-        bool $canCreateGroups
+        $canDirect,
+        $canCreateGroups
     ) {
         $this->canDirect = $canDirect;
         $this->canCreateGroups = $canCreateGroups;
@@ -27,7 +31,7 @@ class AmojoRights implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'can_direct' => $this->getIsCanDirect(),
@@ -38,7 +42,7 @@ class AmojoRights implements Arrayable
     /**
      * @return bool
      */
-    public function getIsCanDirect(): bool
+    public function getIsCanDirect()
     {
         return $this->canDirect;
     }
@@ -46,7 +50,7 @@ class AmojoRights implements Arrayable
     /**
      * @return bool
      */
-    public function getIsCanCreateGroups(): bool
+    public function getIsCanCreateGroups()
     {
         return $this->canCreateGroups;
     }

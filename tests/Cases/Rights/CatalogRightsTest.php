@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 namespace Cases\Rights;
 
@@ -11,7 +10,7 @@ use function reset;
 
 class CatalogRightsTest extends TestCase
 {
-    public function getPriorityRightsData(): array
+    public function getPriorityRightsData()
     {
         $rightsData = [];
         $caseAllOk = [
@@ -93,7 +92,7 @@ class CatalogRightsTest extends TestCase
      * @param array $rights
      * @param array $rightsReference
      */
-    public function testRightsPriority(array $rights, array $rightsReference): void
+    public function testRightsPriority(array $rights, array $rightsReference)
     {
         $rightsModel = (new RightModel())->setCatalogRights([['catalog_id' => 1, 'rights' => $rights]]);
         $rightsFromModel = $rightsModel->getCatalogRights();

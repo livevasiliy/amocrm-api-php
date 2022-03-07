@@ -57,7 +57,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      *
      * @return self
      */
-    public static function fromArray(array $metadata): self
+    public static function fromArray(array $metadata)
     {
         $model = new self();
 
@@ -85,7 +85,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'form_id' => $this->getFormId(),
@@ -121,7 +121,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return string|null
      */
-    public function getFormName(): ?string
+    public function getFormName()
     {
         return $this->formName;
     }
@@ -130,7 +130,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $formName
      * @return FormsMetadata
      */
-    public function setFormName(?string $formName): FormsMetadata
+    public function setFormName($formName)
     {
         $this->formName = $formName;
 
@@ -140,7 +140,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return string|null
      */
-    public function getFormPage(): ?string
+    public function getFormPage()
     {
         return $this->formPage;
     }
@@ -149,7 +149,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $formPage
      * @return FormsMetadata
      */
-    public function setFormPage(?string $formPage): FormsMetadata
+    public function setFormPage($formPage)
     {
         $this->formPage = $formPage;
 
@@ -159,7 +159,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return string|null
      */
-    public function getIp(): ?string
+    public function getIp()
     {
         return $this->ip;
     }
@@ -168,7 +168,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $ip
      * @return FormsMetadata
      */
-    public function setIp(?string $ip): FormsMetadata
+    public function setIp($ip)
     {
         $this->ip = $ip;
 
@@ -178,7 +178,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return int|null
      */
-    public function getFormSentAt(): ?int
+    public function getFormSentAt()
     {
         return $this->formSentAt;
     }
@@ -187,7 +187,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param int|null $formSentAt
      * @return FormsMetadata
      */
-    public function setFormSentAt(?int $formSentAt): FormsMetadata
+    public function setFormSentAt($formSentAt)
     {
         $this->formSentAt = $formSentAt;
 
@@ -197,7 +197,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return string|null
      */
-    public function getReferer(): ?string
+    public function getReferer()
     {
         return $this->referer;
     }
@@ -206,7 +206,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $referer
      * @return FormsMetadata
      */
-    public function setReferer(?string $referer): FormsMetadata
+    public function setReferer($referer)
     {
         $this->referer = $referer;
 
@@ -216,7 +216,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return string|null
      */
-    public function getVisitorUid(): ?string
+    public function getVisitorUid()
     {
         return $this->visitorUid;
     }
@@ -225,21 +225,21 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $visitorUid
      * @return FormsMetadata
      */
-    public function setVisitorUid(?string $visitorUid): FormsMetadata
+    public function setVisitorUid($visitorUid)
     {
         $this->visitorUid = $visitorUid;
 
         return $this;
     }
 
-    public function setFormType(int $formType): self
+    public function setFormType($formType)
     {
         $this->formType = $formType;
 
         return $this;
     }
 
-    public function getFormType(): ?int
+    public function getFormType()
     {
         return $this->formType;
     }
@@ -248,13 +248,13 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [
             'form_id'      => $this->getFormId(),
             'form_name'    => $this->getFormName(),
             'form_page'    => $this->getFormPage(),
-            'form_sent_at' => $this->getFormSentAt() ?? time(),
+            'form_sent_at' => !is_null($this->getFormSentAt()) ? $this->getFormSentAt() : time(),
         ];
 
         if ($ip = $this->getIp()) {
@@ -276,7 +276,7 @@ class FormsMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataI
     /**
      * @return array
      */
-    public function toComplexApi(): array
+    public function toComplexApi()
     {
         $result = $this->toApi();
 

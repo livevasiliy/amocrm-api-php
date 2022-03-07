@@ -4,5 +4,8 @@ namespace AmoCRM\Filters;
 
 abstract class BaseEntityFilter
 {
-    abstract public function buildFilter(): array;
+    /**
+     * @return array
+     */
+    abstract public function buildFilter();
 }

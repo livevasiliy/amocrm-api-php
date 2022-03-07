@@ -13,7 +13,7 @@ class CommonNote extends OnlyTextParamNote
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = NoteModel::toApi($requestId);
 
@@ -22,7 +22,7 @@ class CommonNote extends OnlyTextParamNote
         return $result;
     }
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_COMMON;
     }

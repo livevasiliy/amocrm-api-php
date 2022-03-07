@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models;
 
 use DateTimeImmutable;
@@ -40,7 +38,7 @@ class DisposableTokenModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setTokenUuid(string $tokenUuid): self
+    public function setTokenUuid($tokenUuid)
     {
         $this->tokenUuid = $tokenUuid;
 
@@ -50,7 +48,7 @@ class DisposableTokenModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getTokenUuid(): string
+    public function getTokenUuid()
     {
         return $this->tokenUuid;
     }
@@ -60,7 +58,7 @@ class DisposableTokenModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setClientUuid(string $clientUuid): self
+    public function setClientUuid($clientUuid)
     {
         $this->clientUuid = $clientUuid;
 
@@ -70,7 +68,7 @@ class DisposableTokenModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getClientUuid(): string
+    public function getClientUuid()
     {
         return $this->clientUuid;
     }
@@ -80,7 +78,7 @@ class DisposableTokenModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setAccountDomain(string $accountDomain): self
+    public function setAccountDomain($accountDomain)
     {
         $this->accountDomain = $accountDomain;
 
@@ -90,7 +88,7 @@ class DisposableTokenModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getAccountDomain(): string
+    public function getAccountDomain()
     {
         return $this->accountDomain;
     }
@@ -100,7 +98,7 @@ class DisposableTokenModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setAccountSubdomain(string $accountSubdomain): self
+    public function setAccountSubdomain($accountSubdomain)
     {
         $this->accountSubdomain = $accountSubdomain;
 
@@ -110,7 +108,7 @@ class DisposableTokenModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getAccountSubdomain(): string
+    public function getAccountSubdomain()
     {
         return $this->accountSubdomain;
     }
@@ -120,7 +118,7 @@ class DisposableTokenModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setAccountId(int $accountId): self
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -130,7 +128,7 @@ class DisposableTokenModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getAccountId(): int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -140,7 +138,7 @@ class DisposableTokenModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setUserId(int $userId): self
+    public function setUserId($userId)
     {
         $this->userId = $userId;
 
@@ -150,7 +148,7 @@ class DisposableTokenModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getUserId(): int
+    public function getUserId()
     {
         return $this->userId;
     }
@@ -158,7 +156,7 @@ class DisposableTokenModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getExpiresAt(): int
+    public function getExpiresAt()
     {
         return $this->expiresAt;
     }
@@ -168,7 +166,7 @@ class DisposableTokenModel extends BaseApiModel
      *
      * @return DisposableTokenModel
      */
-    public function setExpiresAt(int $expiresAt): DisposableTokenModel
+    public function setExpiresAt($expiresAt)
     {
         $this->expiresAt = $expiresAt;
 
@@ -181,7 +179,7 @@ class DisposableTokenModel extends BaseApiModel
      *
      * @return static
      */
-    public static function fromJwtToken(Token $jwtToken): self
+    public static function fromJwtToken(Token $jwtToken)
     {
         $disposableToken = new self();
         $claims = $jwtToken->claims();
@@ -201,7 +199,7 @@ class DisposableTokenModel extends BaseApiModel
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'token_uuid'        => $this->getTokenUuid(),
@@ -219,7 +217,7 @@ class DisposableTokenModel extends BaseApiModel
      *
      * @return array
      */
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return $this->toArray();
     }

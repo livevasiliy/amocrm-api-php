@@ -3,7 +3,6 @@
 namespace AmoCRM\Exceptions;
 
 use Exception;
-use Throwable;
 
 /**
  * Class AmoCRMApiException
@@ -38,14 +37,14 @@ class AmoCRMApiException extends Exception
      * @param int $code
      * @param array $lastRequestInfo
      * @param string $description
-     * @param Throwable|null $previous
+     * @param Exception|null $previous
      */
     public function __construct(
         $message = "",
         $code = 0,
         array $lastRequestInfo = [],
-        string $description = "",
-        Throwable $previous = null
+        $description = "",
+        $previous = null
     ) {
         parent::__construct($message, $code, $previous);
 
@@ -59,7 +58,7 @@ class AmoCRMApiException extends Exception
     /**
      * @return int
      */
-    public function getErrorCode(): int
+    public function getErrorCode()
     {
         return $this->errorCode;
     }
@@ -68,7 +67,7 @@ class AmoCRMApiException extends Exception
      * @param int $errorCode
      * @return AmoCRMApiException
      */
-    public function setErrorCode(int $errorCode): AmoCRMApiException
+    public function setErrorCode($errorCode)
     {
         $this->errorCode = $errorCode;
 
@@ -79,7 +78,7 @@ class AmoCRMApiException extends Exception
      * @param string $title
      * @return $this
      */
-    public function setTitle(string $title): self
+    public function setTitle($title)
     {
         $this->title = $title;
 
@@ -89,7 +88,7 @@ class AmoCRMApiException extends Exception
     /**
      * @return string
      */
-    public function getTitle(): string
+    public function getTitle()
     {
         return $this->title;
     }
@@ -97,7 +96,7 @@ class AmoCRMApiException extends Exception
     /**
      * @return array|null
      */
-    public function getLastRequestInfo(): array
+    public function getLastRequestInfo()
     {
         return $this->lastRequestInfo;
     }
@@ -106,7 +105,7 @@ class AmoCRMApiException extends Exception
      * @param array $lastRequestInfo
      * @return AmoCRMApiException
      */
-    public function setLastRequestInfo(array $lastRequestInfo): self
+    public function setLastRequestInfo(array $lastRequestInfo)
     {
         $this->lastRequestInfo = $lastRequestInfo;
 
@@ -116,7 +115,7 @@ class AmoCRMApiException extends Exception
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }
@@ -125,7 +124,7 @@ class AmoCRMApiException extends Exception
      * @param string $description
      * @return AmoCRMApiException
      */
-    public function setDescription(string $description): AmoCRMApiException
+    public function setDescription($description)
     {
         $this->description = $description;
 

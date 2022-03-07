@@ -26,14 +26,14 @@ class LinksCollection extends BaseApiCollection
      * Класс модели
      * @var string
      */
-    public const ITEM_CLASS = LinkModel::class;
+    const ITEM_CLASS = LinkModel::class;
 
     /**
      * @param mixed $item
      *
      * @return BaseApiModel
      */
-    protected function checkItem($item): BaseApiModel
+    protected function checkItem($item)
     {
         if ($item instanceof CanBeLinkedInterface) {
             $item = $item->getLink();

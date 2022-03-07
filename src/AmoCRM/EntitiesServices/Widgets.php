@@ -39,14 +39,14 @@ class Widgets extends BaseEntity implements HasPageMethodsInterface
     /**
      * @var string
      */
-    public const ITEM_CLASS = WidgetModel::class;
+    const ITEM_CLASS = WidgetModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -63,7 +63,7 @@ class Widgets extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -74,7 +74,7 @@ class Widgets extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -85,7 +85,7 @@ class Widgets extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -96,7 +96,7 @@ class Widgets extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -108,7 +108,7 @@ class Widgets extends BaseEntity implements HasPageMethodsInterface
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -122,7 +122,7 @@ class Widgets extends BaseEntity implements HasPageMethodsInterface
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function install(WidgetModel $widgetModel): WidgetModel
+    public function install(WidgetModel $widgetModel)
     {
         $response = $this->request->post(
             $this->getMethod() . '/' . $widgetModel->getCode(),
@@ -145,7 +145,7 @@ class Widgets extends BaseEntity implements HasPageMethodsInterface
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function uninstall(WidgetModel $widgetModel): WidgetModel
+    public function uninstall(WidgetModel $widgetModel)
     {
         $response = $this->request->delete(
             $this->getMethod() . '/' . $widgetModel->getCode()

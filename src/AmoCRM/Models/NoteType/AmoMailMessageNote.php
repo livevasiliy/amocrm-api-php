@@ -39,7 +39,7 @@ class AmoMailMessageNote extends NoParamNote
     /** @var array|null */
     protected $deliveryStatus;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_AMOMAIL_MESSAGE;
     }
@@ -47,7 +47,7 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @return int
      */
-    public function getThreadId(): int
+    public function getThreadId()
     {
         return $this->threadId;
     }
@@ -57,7 +57,7 @@ class AmoMailMessageNote extends NoParamNote
      *
      * @return AmoMailMessageNote
      */
-    public function setThreadId(int $threadId): AmoMailMessageNote
+    public function setThreadId($threadId)
     {
         $this->threadId = $threadId;
 
@@ -67,7 +67,7 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @return int
      */
-    public function getMessageId(): int
+    public function getMessageId()
     {
         return $this->messageId;
     }
@@ -77,7 +77,7 @@ class AmoMailMessageNote extends NoParamNote
      *
      * @return AmoMailMessageNote
      */
-    public function setMessageId(int $messageId): AmoMailMessageNote
+    public function setMessageId($messageId)
     {
         $this->messageId = $messageId;
 
@@ -87,7 +87,7 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @return bool
      */
-    public function getIsPrivate(): bool
+    public function getIsPrivate()
     {
         return $this->isPrivate;
     }
@@ -97,7 +97,7 @@ class AmoMailMessageNote extends NoParamNote
      *
      * @return AmoMailMessageNote
      */
-    public function setIsPrivate(bool $isPrivate): AmoMailMessageNote
+    public function setIsPrivate($isPrivate)
     {
         $this->isPrivate = $isPrivate;
 
@@ -107,7 +107,7 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @return bool
      */
-    public function getIsIncome(): bool
+    public function getIsIncome()
     {
         return $this->isIncome;
     }
@@ -117,7 +117,7 @@ class AmoMailMessageNote extends NoParamNote
      *
      * @return AmoMailMessageNote
      */
-    public function setIsIncome(bool $isIncome): AmoMailMessageNote
+    public function setIsIncome($isIncome)
     {
         $this->isIncome = $isIncome;
 
@@ -127,7 +127,7 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @return array
      */
-    public function getFrom(): array
+    public function getFrom()
     {
         return $this->from;
     }
@@ -137,7 +137,7 @@ class AmoMailMessageNote extends NoParamNote
      *
      * @return AmoMailMessageNote
      */
-    public function setFrom(array $from): AmoMailMessageNote
+    public function setFrom(array $from)
     {
         $this->from = $from;
 
@@ -147,7 +147,7 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @return array
      */
-    public function getTo(): array
+    public function getTo()
     {
         return $this->to;
     }
@@ -157,7 +157,7 @@ class AmoMailMessageNote extends NoParamNote
      *
      * @return AmoMailMessageNote
      */
-    public function setTo(array $to): AmoMailMessageNote
+    public function setTo(array $to)
     {
         $this->to = $to;
 
@@ -167,7 +167,7 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @return string|null
      */
-    public function getSubject(): ?string
+    public function getSubject()
     {
         return $this->subject;
     }
@@ -177,7 +177,7 @@ class AmoMailMessageNote extends NoParamNote
      *
      * @return AmoMailMessageNote
      */
-    public function setSubject(?string $subject): AmoMailMessageNote
+    public function setSubject($subject)
     {
         $this->subject = $subject;
 
@@ -187,7 +187,7 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @return string|null
      */
-    public function getContentSummary(): ?string
+    public function getContentSummary()
     {
         return $this->contentSummary;
     }
@@ -197,7 +197,7 @@ class AmoMailMessageNote extends NoParamNote
      *
      * @return AmoMailMessageNote
      */
-    public function setContentSummary(?string $contentSummary): AmoMailMessageNote
+    public function setContentSummary($contentSummary)
     {
         $this->contentSummary = $contentSummary;
 
@@ -207,7 +207,7 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @return int|null
      */
-    public function getAttachCount(): ?int
+    public function getAttachCount()
     {
         return $this->attachCount;
     }
@@ -217,7 +217,7 @@ class AmoMailMessageNote extends NoParamNote
      *
      * @return AmoMailMessageNote
      */
-    public function setAttachCount(int $attachCount): AmoMailMessageNote
+    public function setAttachCount($attachCount)
     {
         $this->attachCount = $attachCount;
 
@@ -227,7 +227,7 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @return array|null
      */
-    public function getDeliveryStatus(): ?array
+    public function getDeliveryStatus()
     {
         return $this->deliveryStatus;
     }
@@ -237,7 +237,7 @@ class AmoMailMessageNote extends NoParamNote
      *
      * @return AmoMailMessageNote
      */
-    public function setDeliveryStatus(?array $deliveryStatus): AmoMailMessageNote
+    public function setDeliveryStatus($deliveryStatus)
     {
         $this->deliveryStatus = $deliveryStatus;
 
@@ -247,9 +247,9 @@ class AmoMailMessageNote extends NoParamNote
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -286,7 +286,7 @@ class AmoMailMessageNote extends NoParamNote
         }
 
         if (isset($note['params']['attach_cnt'])) {
-            $model->setAttachCount((int)$note['params']['attach_cnt']);
+            $model->setAttachCount(($note['params']['attach_cnt']));
         }
 
         if (isset($note['params']['delivery'])) {

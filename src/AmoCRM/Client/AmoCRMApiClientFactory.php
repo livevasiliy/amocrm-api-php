@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Client;
 
 use AmoCRM\OAuth\OAuthConfigInterface;
@@ -36,7 +34,7 @@ class AmoCRMApiClientFactory
     /**
      * @return AmoCRMApiClient
      */
-    public function make(): AmoCRMApiClient
+    public function make()
     {
         $client = new AmoCRMApiClient(
             $this->oAuthConfig->getIntegrationId(),
@@ -45,7 +43,7 @@ class AmoCRMApiClientFactory
         );
 
         $client->onAccessTokenRefresh(
-            function (AccessTokenInterface $accessToken, string $baseDomain) {
+            function (AccessTokenInterface $accessToken, $baseDomain) {
                 $this->oAuthService->saveOAuthToken($accessToken, $baseDomain);
             }
         );

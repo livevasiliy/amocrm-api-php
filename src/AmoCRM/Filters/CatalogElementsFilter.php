@@ -25,7 +25,7 @@ class CatalogElementsFilter extends BaseEntityFilter implements HasPagesInterfac
     /**
      * @return null|array
      */
-    public function getIds(): ?array
+    public function getIds()
     {
         return $this->ids;
     }
@@ -34,7 +34,7 @@ class CatalogElementsFilter extends BaseEntityFilter implements HasPagesInterfac
      * @param array $ids
      * @return CatalogElementsFilter
      */
-    public function setIds(array $ids): self
+    public function setIds(array $ids)
     {
         $this->ids = $this->parseArrayOrNumberFilter($ids);
 
@@ -44,7 +44,7 @@ class CatalogElementsFilter extends BaseEntityFilter implements HasPagesInterfac
     /**
      * @return string|null
      */
-    public function getQuery(): ?string
+    public function getQuery()
     {
         return $this->query;
     }
@@ -53,7 +53,7 @@ class CatalogElementsFilter extends BaseEntityFilter implements HasPagesInterfac
      * @param string|null $query
      * @return CatalogElementsFilter
      */
-    public function setQuery(?string $query): self
+    public function setQuery($query)
     {
         if (!empty($query)) {
             $this->query = (string)$query;
@@ -65,7 +65,7 @@ class CatalogElementsFilter extends BaseEntityFilter implements HasPagesInterfac
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

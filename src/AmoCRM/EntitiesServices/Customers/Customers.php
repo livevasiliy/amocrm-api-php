@@ -51,14 +51,14 @@ class Customers extends BaseEntity implements HasLinkMethodInterface, HasPageMet
     /**
      * @var string
      */
-    public const ITEM_CLASS = CustomerModel::class;
+    const ITEM_CLASS = CustomerModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -75,7 +75,7 @@ class Customers extends BaseEntity implements HasLinkMethodInterface, HasPageMet
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -88,7 +88,7 @@ class Customers extends BaseEntity implements HasLinkMethodInterface, HasPageMet
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -99,7 +99,7 @@ class Customers extends BaseEntity implements HasLinkMethodInterface, HasPageMet
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -110,7 +110,7 @@ class Customers extends BaseEntity implements HasLinkMethodInterface, HasPageMet
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -128,8 +128,10 @@ class Customers extends BaseEntity implements HasLinkMethodInterface, HasPageMet
     /**
      * @param BaseApiModel|CustomerModel $apiModel
      * @param array $entity
+     *
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);
@@ -152,7 +154,7 @@ class Customers extends BaseEntity implements HasLinkMethodInterface, HasPageMet
      * @throws AmoCRMApiNoContentException
      * @throws AmoCRMoAuthApiException
      */
-    public function setMode(string $mode, bool $isEnabled = true): ?string
+    public function setMode($mode, $isEnabled = true)
     {
         if (!in_array($mode, [AccountModel::CUSTOMERS_MODE_PERIODICITY, AccountModel::SEGMENTS], true)) {
             throw new AmoCRMApiException('Invalid mode');
@@ -166,7 +168,7 @@ class Customers extends BaseEntity implements HasLinkMethodInterface, HasPageMet
     /**
      * @return array
      */
-    protected function getAvailableLinkTypes(): array
+    protected function getAvailableLinkTypes()
     {
         return [
             EntityTypesInterface::CONTACTS,

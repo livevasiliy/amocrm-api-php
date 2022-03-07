@@ -11,7 +11,7 @@ trait EntityApiTrait
     /**
      * @return null|array
      */
-    public function toEntityApi(): ?array
+    public function toEntityApi()
     {
         $result = [];
         /** @var EntityApiInterface $item */

@@ -12,7 +12,7 @@ class WebhooksFilter extends BaseEntityFilter
     /**
      * @return string|null
      */
-    public function getDestination(): ?string
+    public function getDestination()
     {
         return $this->destination;
     }
@@ -22,7 +22,7 @@ class WebhooksFilter extends BaseEntityFilter
      *
      * @return WebhooksFilter
      */
-    public function setDestination(?string $destination): WebhooksFilter
+    public function setDestination($destination)
     {
         $this->destination = $destination;
 
@@ -32,7 +32,7 @@ class WebhooksFilter extends BaseEntityFilter
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

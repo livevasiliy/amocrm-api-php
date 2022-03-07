@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\EntitiesServices;
 
 use AmoCRM\Models\ProductsSettingsModel;
@@ -41,7 +39,7 @@ class Products extends BaseEntity
     /**
      * @var string
      */
-    public const ITEM_CLASS = ProductsSettingsModel::class;
+    const ITEM_CLASS = ProductsSettingsModel::class;
 
     /**
      * @param array $response
@@ -49,7 +47,7 @@ class Products extends BaseEntity
      * @return array
      * @throws NotAvailableForActionException
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -61,7 +59,7 @@ class Products extends BaseEntity
      * @return BaseApiCollection|null
      * @throws NotAvailableForActionException
      */
-    public function get(BaseEntityFilter $filter = null, array $with = []): ?BaseApiCollection
+    public function get(BaseEntityFilter $filter = null, array $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -74,7 +72,7 @@ class Products extends BaseEntity
      * @return BaseApiModel|null
      * @throws NotAvailableForActionException
      */
-    public function getOne($id, array $with = []): ?BaseApiModel
+    public function getOne($id, array $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -85,7 +83,7 @@ class Products extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -96,7 +94,7 @@ class Products extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -107,7 +105,7 @@ class Products extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -119,7 +117,7 @@ class Products extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -129,7 +127,7 @@ class Products extends BaseEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function settings(): ?ProductsSettingsModel
+    public function settings()
     {
         $response = $this->request->get($this->methodSettings);
 
@@ -161,7 +159,7 @@ class Products extends BaseEntity
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         if (isset($response['is_enabled'])) {
             $model->setIsEnabled($response['is_enabled']);

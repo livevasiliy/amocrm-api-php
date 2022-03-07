@@ -9,10 +9,10 @@ namespace AmoCRM\Models\CustomFieldsValues\ValueModels;
  */
 class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
 {
-    public const NAME = 'name';
-    public const ENTITY_ID = 'entity_id';
-    public const ENTITY_TYPE = 'entity_type';
-    public const CATALOG_ID = 'catalog_id';
+    const NAME = 'name';
+    const ENTITY_ID = 'entity_id';
+    const ENTITY_TYPE = 'entity_type';
+    const CATALOG_ID = 'catalog_id';
 
     /**
      * @var string|null
@@ -39,15 +39,15 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LinkedEntityCustomFieldValueModel
      */
-    public static function fromArray($value): BaseCustomFieldValueModel
+    public static function fromArray($value)
     {
         $model = new static();
 
         $model
-            ->setName($value['value'][self::NAME] ?? null)
-            ->setEntityId($value['value'][self::ENTITY_ID] ?? null)
-            ->setEntityType($value['value'][self::ENTITY_TYPE] ?? null)
-            ->setCatalogId($value['value'][self::CATALOG_ID] ?? null);
+            ->setName(isset($value['value'][self::NAME]) ? $value['value'][self::NAME] : null)
+            ->setEntityId(isset($value['value'][self::ENTITY_ID]) ? $value['value'][self::ENTITY_ID] : null)
+            ->setEntityType(isset($value['value'][self::ENTITY_TYPE]) ? $value['value'][self::ENTITY_TYPE] : null)
+            ->setCatalogId(isset($value['value'][self::CATALOG_ID]) ? $value['value'][self::CATALOG_ID] : null);
 
         return $model;
     }
@@ -55,7 +55,7 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return string|null
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -65,7 +65,7 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LinkedEntityCustomFieldValueModel
      */
-    public function setName(?string $name): LinkedEntityCustomFieldValueModel
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -75,7 +75,7 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return int|null
      */
-    public function getEntityId(): ?int
+    public function getEntityId()
     {
         return $this->entityId;
     }
@@ -85,7 +85,7 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LinkedEntityCustomFieldValueModel
      */
-    public function setEntityId(?int $entityId): LinkedEntityCustomFieldValueModel
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
 
@@ -95,7 +95,7 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return string|null
      */
-    public function getEntityType(): ?string
+    public function getEntityType()
     {
         return $this->entityType;
     }
@@ -105,7 +105,7 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LinkedEntityCustomFieldValueModel
      */
-    public function setEntityType(?string $entityType): LinkedEntityCustomFieldValueModel
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
@@ -115,7 +115,7 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     /**
      * @return int|null
      */
-    public function getCatalogId(): ?int
+    public function getCatalogId()
     {
         return $this->catalogId;
     }
@@ -125,7 +125,7 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
      *
      * @return LinkedEntityCustomFieldValueModel
      */
-    public function setCatalogId(?int $catalogId): LinkedEntityCustomFieldValueModel
+    public function setCatalogId($catalogId)
     {
         $this->catalogId = $catalogId;
 
@@ -133,7 +133,7 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     }
 
 
-    public function toArray(): array
+    public function toArray()
     {
         return [
             self::NAME => $this->getName(),
@@ -152,7 +152,7 @@ class LinkedEntityCustomFieldValueModel extends BaseArrayCustomFieldValueModel
     }
 
 
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return [
             'value' => $this->getValue(),

@@ -15,7 +15,7 @@ class TransactionNote extends NoteModel
      */
     protected $transactionId;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_TRANSACTION;
     }
@@ -23,9 +23,9 @@ class TransactionNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -39,7 +39,7 @@ class TransactionNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -53,7 +53,7 @@ class TransactionNote extends NoteModel
      * @return array
      * @throws NotAvailableForActionException
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         throw new NotAvailableForActionException();
     }
@@ -61,7 +61,7 @@ class TransactionNote extends NoteModel
     /**
      * @return int|null
      */
-    public function getTransactionId(): ?int
+    public function getTransactionId()
     {
         return $this->transactionId;
     }
@@ -70,7 +70,7 @@ class TransactionNote extends NoteModel
      * @param int|null $transactionId
      * @return TransactionNote
      */
-    public function setTransactionId(?int $transactionId): TransactionNote
+    public function setTransactionId($transactionId)
     {
         $this->transactionId = $transactionId;
 

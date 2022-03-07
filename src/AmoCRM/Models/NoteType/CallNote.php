@@ -12,24 +12,24 @@ abstract class CallNote extends NoteModel
     use CallTrait;
 
     /** @deprecated */
-    public const CALL_STATUS_LEAVE_MESSAGE = 1;
+    const CALL_STATUS_LEAVE_MESSAGE = 1;
     /** @deprecated */
-    public const CALL_STATUS_SUCCESS_RECALL = 2;
+    const CALL_STATUS_SUCCESS_RECALL = 2;
     /** @deprecated */
-    public const CALL_STATUS_SUCCESS_NOT_IN_STOCK = 3;
+    const CALL_STATUS_SUCCESS_NOT_IN_STOCK = 3;
     /** @deprecated */
-    public const CALL_STATUS_SUCCESS_CONVERSATION = 4;
+    const CALL_STATUS_SUCCESS_CONVERSATION = 4;
     /** @deprecated */
-    public const CALL_STATUS_FAIL_WRONG_NUMBER = 5;
+    const CALL_STATUS_FAIL_WRONG_NUMBER = 5;
     /** @deprecated */
-    public const CALL_STATUS_FAIL_NOT_PHONED = 6;
+    const CALL_STATUS_FAIL_NOT_PHONED = 6;
     /** @deprecated */
-    public const CALL_STATUS_FAIL_BUSY = 7;
+    const CALL_STATUS_FAIL_BUSY = 7;
     /** @deprecated */
-    public const CALL_STATUS_UNDEFINED = 8;
+    const CALL_STATUS_UNDEFINED = 8;
 
     /** @deprecated */
-    protected const AVAILABLE_CALL_STATUSES = [
+    const AVAILABLE_CALL_STATUSES = [
         self::CALL_STATUS_LEAVE_MESSAGE,
         self::CALL_STATUS_SUCCESS_RECALL,
         self::CALL_STATUS_SUCCESS_NOT_IN_STOCK,
@@ -43,9 +43,9 @@ abstract class CallNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -83,7 +83,7 @@ abstract class CallNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -104,7 +104,7 @@ abstract class CallNote extends NoteModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 

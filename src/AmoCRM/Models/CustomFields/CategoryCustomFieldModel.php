@@ -19,7 +19,7 @@ class CategoryCustomFieldModel extends CustomFieldModel
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return CustomFieldModel::TYPE_CATEGORY;
     }
@@ -27,7 +27,7 @@ class CategoryCustomFieldModel extends CustomFieldModel
     /**
      * @return CustomFieldNestedCollection|null
      */
-    public function getNested(): ?CustomFieldNestedCollection
+    public function getNested()
     {
         return $this->nested;
     }
@@ -37,7 +37,7 @@ class CategoryCustomFieldModel extends CustomFieldModel
      *
      * @return CategoryCustomFieldModel
      */
-    public function setNested(?CustomFieldNestedCollection $nested): CategoryCustomFieldModel
+    public function setNested($nested)
     {
         $this->nested = $nested;
 
@@ -47,7 +47,7 @@ class CategoryCustomFieldModel extends CustomFieldModel
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -61,7 +61,7 @@ class CategoryCustomFieldModel extends CustomFieldModel
      *
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -77,7 +77,7 @@ class CategoryCustomFieldModel extends CustomFieldModel
      *
      * @return CustomFieldModel|CategoryCustomFieldModel
      */
-    public static function fromArray(array $customField): CustomFieldModel
+    public static function fromArray(array $customField)
     {
         /** @var CategoryCustomFieldModel $result */
         $result = parent::fromArray($customField);

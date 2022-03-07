@@ -10,9 +10,9 @@ class SourcesFilter extends BaseEntityFilter
     private $externalIds;
 
     /**
-     * @return string|null
+     * @return array|null
      */
-    public function getExternalIds(): ?array
+    public function getExternalIds()
     {
         return $this->externalIds;
     }
@@ -22,7 +22,7 @@ class SourcesFilter extends BaseEntityFilter
      *
      * @return SourcesFilter
      */
-    public function setExternalIds(?array $externalIds): self
+    public function setExternalIds($externalIds)
     {
         $this->externalIds = $externalIds;
 
@@ -32,7 +32,7 @@ class SourcesFilter extends BaseEntityFilter
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

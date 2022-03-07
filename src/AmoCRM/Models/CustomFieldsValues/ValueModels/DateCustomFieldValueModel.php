@@ -28,7 +28,7 @@ class DateCustomFieldValueModel extends BaseCustomFieldValueModel
      * @return $this|BaseCustomFieldValueModel
      * @throws InvalidArgumentException
      */
-    public function setValue($value): BaseCustomFieldValueModel
+    public function setValue($value)
     {
         if ($value instanceof DateTimeInterface) {
             $this->value = $value;
@@ -59,7 +59,7 @@ class DateCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return array
      */
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return [
             'value' => $this->value->format(DateTime::RFC3339),

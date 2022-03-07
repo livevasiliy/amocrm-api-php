@@ -231,7 +231,7 @@ class CompaniesFilter extends BaseEntityFilter implements HasPagesInterface, Has
     /**
      * @return array|null
      */
-    public function getCustomFieldsValues(): ?array
+    public function getCustomFieldsValues()
     {
         return $this->customFieldsValues;
     }
@@ -241,7 +241,7 @@ class CompaniesFilter extends BaseEntityFilter implements HasPagesInterface, Has
      *
      * @return CompaniesFilter
      */
-    public function setCustomFieldsValues(?array $customFieldsValues): CompaniesFilter
+    public function setCustomFieldsValues($customFieldsValues)
     {
         $cfFilter = [];
 
@@ -261,7 +261,7 @@ class CompaniesFilter extends BaseEntityFilter implements HasPagesInterface, Has
     /**
      * @return string|null
      */
-    public function getQuery(): ?string
+    public function getQuery()
     {
         return $this->query;
     }
@@ -271,7 +271,7 @@ class CompaniesFilter extends BaseEntityFilter implements HasPagesInterface, Has
      *
      * @return CompaniesFilter
      */
-    public function setQuery(?string $query): self
+    public function setQuery($query)
     {
         if (!empty($query)) {
             $this->query = (string)$query;
@@ -283,7 +283,7 @@ class CompaniesFilter extends BaseEntityFilter implements HasPagesInterface, Has
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

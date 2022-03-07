@@ -19,15 +19,15 @@ class WithEnumCustomFieldModel extends CustomFieldModel
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return CustomFieldModel::TYPE_TEXT;
     }
 
     /**
-     * @return CustomFieldEnumsCollection|EnumModel[]|null
+     * @return CustomFieldEnumsCollection|null
      */
-    public function getEnums(): ?CustomFieldEnumsCollection
+    public function getEnums()
     {
         return $this->enums;
     }
@@ -37,7 +37,7 @@ class WithEnumCustomFieldModel extends CustomFieldModel
      *
      * @return WithEnumCustomFieldModel
      */
-    public function setEnums(?CustomFieldEnumsCollection $enums): WithEnumCustomFieldModel
+    public function setEnums($enums)
     {
         $this->enums = $enums;
 
@@ -47,7 +47,7 @@ class WithEnumCustomFieldModel extends CustomFieldModel
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -61,7 +61,7 @@ class WithEnumCustomFieldModel extends CustomFieldModel
      *
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -77,7 +77,7 @@ class WithEnumCustomFieldModel extends CustomFieldModel
      *
      * @return CustomFieldModel|WithEnumCustomFieldModel
      */
-    public static function fromArray(array $customField): CustomFieldModel
+    public static function fromArray(array $customField)
     {
         /** @var WithEnumCustomFieldModel $result */
         $result = parent::fromArray($customField);

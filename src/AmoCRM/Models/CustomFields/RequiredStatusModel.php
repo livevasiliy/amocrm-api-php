@@ -27,7 +27,7 @@ class RequiredStatusModel extends BaseApiModel implements Arrayable
      *
      * @return self
      */
-    public static function fromArray(array $status): self
+    public static function fromArray(array $status)
     {
         $model = new self();
 
@@ -41,7 +41,7 @@ class RequiredStatusModel extends BaseApiModel implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'status_id' => $this->getStatusId(),
@@ -52,7 +52,7 @@ class RequiredStatusModel extends BaseApiModel implements Arrayable
     /**
      * @return int|null
      */
-    public function getStatusId(): ?int
+    public function getStatusId()
     {
         return $this->statusId;
     }
@@ -62,7 +62,7 @@ class RequiredStatusModel extends BaseApiModel implements Arrayable
      *
      * @return RequiredStatusModel
      */
-    public function setStatusId(?int $statusId): RequiredStatusModel
+    public function setStatusId($statusId)
     {
         $this->statusId = $statusId;
 
@@ -72,7 +72,7 @@ class RequiredStatusModel extends BaseApiModel implements Arrayable
     /**
      * @return int|null
      */
-    public function getPipelineId(): ?int
+    public function getPipelineId()
     {
         return $this->pipelineId;
     }
@@ -82,7 +82,7 @@ class RequiredStatusModel extends BaseApiModel implements Arrayable
      *
      * @return RequiredStatusModel
      */
-    public function setPipelineId(?int $pipelineId): RequiredStatusModel
+    public function setPipelineId($pipelineId)
     {
         $this->pipelineId = $pipelineId;
 
@@ -93,7 +93,7 @@ class RequiredStatusModel extends BaseApiModel implements Arrayable
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return [
             'status_id' => $this->getStatusId(),

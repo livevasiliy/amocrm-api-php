@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Collections\Chats\Templates\Buttons;
 
 use AmoCRM\Collections\BaseApiCollection;
@@ -24,14 +22,14 @@ use AmoCRM\Models\Chats\Templates\Buttons\AbstractButtonModel;
  */
 class ButtonsCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = AbstractButtonModel::class;
+    const ITEM_CLASS = AbstractButtonModel::class;
 
     /**
      * @param array $array
      *
      * @return ButtonsCollection
      */
-    public static function fromArray(array $array): BaseApiCollection
+    public static function fromArray(array $array)
     {
         $items = array_map(
             static function (array $item) {

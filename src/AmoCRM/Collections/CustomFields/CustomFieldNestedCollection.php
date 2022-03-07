@@ -21,5 +21,5 @@ use AmoCRM\Models\CustomFields\NestedModel;
  */
 class CustomFieldNestedCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = NestedModel::class;
+    const ITEM_CLASS = NestedModel::class;
 }

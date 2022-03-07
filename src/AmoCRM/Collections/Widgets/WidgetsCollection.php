@@ -25,5 +25,5 @@ class WidgetsCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = WidgetModel::class;
+    const ITEM_CLASS = WidgetModel::class;
 }

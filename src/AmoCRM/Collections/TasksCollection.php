@@ -24,5 +24,5 @@ class TasksCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = TaskModel::class;
+    const ITEM_CLASS = TaskModel::class;
 }

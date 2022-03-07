@@ -10,11 +10,11 @@ class MessageCashierNote extends NoteModel
 {
     protected $modelClass = MessageCashierNote::class;
 
-    public const STATUS_CREATED = 'created';
-    public const STATUS_SHOWN = 'shown';
-    public const STATUS_CANCELED = 'canceled';
+    const STATUS_CREATED = 'created';
+    const STATUS_SHOWN = 'shown';
+    const STATUS_CANCELED = 'canceled';
 
-    public const AVAILABLE_STATUSES = [
+    const AVAILABLE_STATUSES = [
         self::STATUS_CANCELED,
         self::STATUS_CREATED,
         self::STATUS_SHOWN,
@@ -30,7 +30,7 @@ class MessageCashierNote extends NoteModel
      */
     protected $text;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_MESSAGE_CASHIER;
     }
@@ -38,10 +38,10 @@ class MessageCashierNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      * @throws InvalidArgumentException
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -59,7 +59,7 @@ class MessageCashierNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -73,7 +73,7 @@ class MessageCashierNote extends NoteModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -86,7 +86,7 @@ class MessageCashierNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getStatus(): ?string
+    public function getStatus()
     {
         return $this->status;
     }
@@ -97,7 +97,7 @@ class MessageCashierNote extends NoteModel
      * @return MessageCashierNote
      * @throws InvalidArgumentException
      */
-    public function setStatus(?string $status): MessageCashierNote
+    public function setStatus($status)
     {
         if (!in_array($status, self::AVAILABLE_STATUSES, true)) {
             throw new InvalidArgumentException('Invalid value given:' . $status);
@@ -111,7 +111,7 @@ class MessageCashierNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getText(): ?string
+    public function getText()
     {
         return $this->text;
     }
@@ -120,7 +120,7 @@ class MessageCashierNote extends NoteModel
      * @param string|null $text
      * @return MessageCashierNote
      */
-    public function setText(?string $text): MessageCashierNote
+    public function setText($text)
     {
         $this->text = $text;
 

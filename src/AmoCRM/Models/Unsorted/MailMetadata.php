@@ -43,7 +43,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
      *
      * @return self
      */
-    public static function fromArray(array $metadata): self
+    public static function fromArray(array $metadata)
     {
         $model = new self();
 
@@ -60,7 +60,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'from' => [
@@ -78,7 +78,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
     /**
      * @return array|null
      */
-    public function getFrom(): ?array
+    public function getFrom()
     {
         return $this->from;
     }
@@ -88,7 +88,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
      *
      * @return MailMetadata
      */
-    public function setFrom(?array $from): MailMetadata
+    public function setFrom($from)
     {
         $this->from = $from;
 
@@ -98,7 +98,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
     /**
      * @return string|null
      */
-    public function getSubject(): ?string
+    public function getSubject()
     {
         return $this->subject;
     }
@@ -108,7 +108,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
      *
      * @return MailMetadata
      */
-    public function setSubject(?string $subject): MailMetadata
+    public function setSubject($subject)
     {
         $this->subject = $subject;
 
@@ -118,7 +118,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
     /**
      * @return int|null
      */
-    public function getReceivedAt(): ?int
+    public function getReceivedAt()
     {
         return $this->receivedAt;
     }
@@ -128,7 +128,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
      *
      * @return MailMetadata
      */
-    public function setReceivedAt(?int $receivedAt): MailMetadata
+    public function setReceivedAt($receivedAt)
     {
         $this->receivedAt = $receivedAt;
 
@@ -138,7 +138,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
     /**
      * @return string|null
      */
-    public function getThreadId(): ?string
+    public function getThreadId()
     {
         return $this->threadId;
     }
@@ -148,7 +148,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
      *
      * @return MailMetadata
      */
-    public function setThreadId(?string $threadId): MailMetadata
+    public function setThreadId($threadId)
     {
         $this->threadId = $threadId;
 
@@ -158,7 +158,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
     /**
      * @return int|null
      */
-    public function getMessageId(): ?int
+    public function getMessageId()
     {
         return $this->messageId;
     }
@@ -168,7 +168,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
      *
      * @return MailMetadata
      */
-    public function setMessageId(?int $messageId): MailMetadata
+    public function setMessageId($messageId)
     {
         $this->messageId = $messageId;
 
@@ -178,7 +178,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
     /**
      * @return string|null
      */
-    public function getContentSummary(): ?string
+    public function getContentSummary()
     {
         return $this->contentSummary;
     }
@@ -188,7 +188,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
      *
      * @return MailMetadata
      */
-    public function setContentSummary(?string $contentSummary): MailMetadata
+    public function setContentSummary($contentSummary)
     {
         $this->contentSummary = $contentSummary;
 
@@ -199,7 +199,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return [];
     }
@@ -208,7 +208,7 @@ class MailMetadata extends BaseApiModel implements Arrayable, UnsortedMetadataIn
     /**
      * @return array
      */
-    public function toComplexApi(): array
+    public function toComplexApi()
     {
         $result = $this->toApi();
 

@@ -35,14 +35,14 @@ class Webhooks extends BaseEntity
     /**
      * @var string
      */
-    public const ITEM_CLASS = WebhookModel::class;
+    const ITEM_CLASS = WebhookModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -60,7 +60,7 @@ class Webhooks extends BaseEntity
      * @return BaseApiModel|null
      * @throws NotAvailableForActionException
      */
-    public function getOne($id, array $with = []): ?BaseApiModel
+    public function getOne($id, array $with = [])
     {
         throw new NotAvailableForActionException('Use get for this entity');
     }
@@ -71,7 +71,7 @@ class Webhooks extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -82,7 +82,7 @@ class Webhooks extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -93,7 +93,7 @@ class Webhooks extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -104,7 +104,7 @@ class Webhooks extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -116,7 +116,7 @@ class Webhooks extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -130,7 +130,7 @@ class Webhooks extends BaseEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function subscribe(WebhookModel $webhookModel): WebhookModel
+    public function subscribe(WebhookModel $webhookModel)
     {
         $response = $this->request->post($this->getMethod(), $webhookModel->toApi());
         foreach ($response as $key => $value) {
@@ -148,7 +148,7 @@ class Webhooks extends BaseEntity
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function unsubscribe(WebhookModel $webhookModel): bool
+    public function unsubscribe(WebhookModel $webhookModel)
     {
         $result = $this->request->delete($this->getMethod(), $webhookModel->toUnsubscribeApi());
 

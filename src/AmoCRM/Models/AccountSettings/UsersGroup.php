@@ -27,7 +27,7 @@ class UsersGroup extends BaseApiModel implements Arrayable
      *
      * @return self
      */
-    public static function fromArray(array $group): self
+    public static function fromArray(array $group)
     {
         $model = new self();
 
@@ -44,7 +44,7 @@ class UsersGroup extends BaseApiModel implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = [
             'id' => $this->id,
@@ -61,7 +61,7 @@ class UsersGroup extends BaseApiModel implements Arrayable
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -70,7 +70,7 @@ class UsersGroup extends BaseApiModel implements Arrayable
      * @param int $id
      * @return UsersGroup
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -80,7 +80,7 @@ class UsersGroup extends BaseApiModel implements Arrayable
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -89,7 +89,7 @@ class UsersGroup extends BaseApiModel implements Arrayable
      * @param string $name
      * @return UsersGroup
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -97,9 +97,9 @@ class UsersGroup extends BaseApiModel implements Arrayable
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUuid(): ?string
+    public function getUuid()
     {
         return $this->uuid;
     }
@@ -108,7 +108,7 @@ class UsersGroup extends BaseApiModel implements Arrayable
      * @param string $uuid
      * @return UsersGroup
      */
-    public function setUuid(string $uuid): self
+    public function setUuid($uuid)
     {
         $this->uuid = $uuid;
 
@@ -119,7 +119,7 @@ class UsersGroup extends BaseApiModel implements Arrayable
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return [];
     }

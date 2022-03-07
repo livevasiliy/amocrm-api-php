@@ -17,7 +17,7 @@ class BaseRangeFilter
     /**
      * @return int
      */
-    public function getTo(): int
+    public function getTo()
     {
         return $this->to;
     }
@@ -27,7 +27,7 @@ class BaseRangeFilter
      *
      * @return BaseRangeFilter
      */
-    public function setTo(int $to): self
+    public function setTo($to)
     {
         if ($to >= 0) {
             $this->to = $to;
@@ -39,7 +39,7 @@ class BaseRangeFilter
     /**
      * @return int
      */
-    public function getFrom(): int
+    public function getFrom()
     {
         return $this->from;
     }
@@ -49,7 +49,7 @@ class BaseRangeFilter
      *
      * @return BaseRangeFilter
      */
-    public function setFrom(int $from): self
+    public function setFrom($from)
     {
         if ($from >= 0) {
             $this->from = $from;

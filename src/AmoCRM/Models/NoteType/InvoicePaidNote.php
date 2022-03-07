@@ -24,7 +24,7 @@ class InvoicePaidNote extends NoteModel
      */
     protected $text;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_INVOICE_PAID;
     }
@@ -32,9 +32,9 @@ class InvoicePaidNote extends NoteModel
     /**
      * @param array $note
      *
-     * @return self
+     * @return NoteModel
      */
-    public function fromArray(array $note): NoteModel
+    public function fromArray(array $note)
     {
         $model = parent::fromArray($note);
 
@@ -56,7 +56,7 @@ class InvoicePaidNote extends NoteModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = parent::toArray();
 
@@ -71,7 +71,7 @@ class InvoicePaidNote extends NoteModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = parent::toApi($requestId);
 
@@ -85,7 +85,7 @@ class InvoicePaidNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getService(): ?string
+    public function getService()
     {
         return $this->service;
     }
@@ -94,7 +94,7 @@ class InvoicePaidNote extends NoteModel
      * @param string|null $service
      * @return InvoicePaidNote
      */
-    public function setService(?string $service): InvoicePaidNote
+    public function setService($service)
     {
         $this->service = $service;
 
@@ -104,7 +104,7 @@ class InvoicePaidNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getIconUrl(): ?string
+    public function getIconUrl()
     {
         return $this->iconUrl;
     }
@@ -113,7 +113,7 @@ class InvoicePaidNote extends NoteModel
      * @param string|null $iconUrl
      * @return InvoicePaidNote
      */
-    public function setIconUrl(?string $iconUrl): InvoicePaidNote
+    public function setIconUrl($iconUrl)
     {
         $this->iconUrl = $iconUrl;
 
@@ -123,7 +123,7 @@ class InvoicePaidNote extends NoteModel
     /**
      * @return string|null
      */
-    public function getText(): ?string
+    public function getText()
     {
         return $this->text;
     }
@@ -132,7 +132,7 @@ class InvoicePaidNote extends NoteModel
      * @param string|null $text
      * @return InvoicePaidNote
      */
-    public function setText(?string $text): InvoicePaidNote
+    public function setText($text)
     {
         $this->text = $text;
 

@@ -50,7 +50,7 @@ use function is_callable;
  */
 class AmoCRMApiClient
 {
-    public const API_VERSION = 4;
+    const API_VERSION = 4;
 
     /**
      * @var AmoCRMOAuth
@@ -73,21 +73,21 @@ class AmoCRMApiClient
 
     /**
      * AmoCRMApiClient constructor.
-     * @param string $clientId
-     * @param string $clientSecret
-     * @param null|string $redirectUri
+     * @param  string  $clientId
+     * @param  string  $clientSecret
+     * @param  null|string  $redirectUri
      */
-    public function __construct(string $clientId, string $clientSecret, ?string $redirectUri)
+    public function __construct($clientId, $clientSecret, $redirectUri)
     {
         $this->oAuthClient = new AmoCRMOAuth($clientId, $clientSecret, $redirectUri);
     }
 
     /**
      * Устанавливаем Access Token, который будет использован при запросах
-     * @param AccessToken $accessToken
+     * @param  AccessToken  $accessToken
      * @return $this
      */
-    public function setAccessToken(AccessToken $accessToken): self
+    public function setAccessToken(AccessToken $accessToken)
     {
         $this->accessToken = $accessToken;
 
@@ -96,10 +96,10 @@ class AmoCRMApiClient
 
     /**
      * Устанавливаем базовый домен аккаунта в amoCRM, который будет использован при запросах
-     * @param string $domain
+     * @param  string  $domain
      * @return $this
      */
-    public function setAccountBaseDomain(string $domain): self
+    public function setAccountBaseDomain($domain)
     {
         $this->oAuthClient->setBaseDomain($domain);
         $this->accountBaseDomain = $domain;
@@ -109,19 +109,19 @@ class AmoCRMApiClient
 
     /**
      * Получить базовый домен аккаунта в amoCRM, который будет использован при запросах
-     * @return $this
+     * @return string
      */
-    public function getAccountBaseDomain(): string
+    public function getAccountBaseDomain()
     {
         return $this->accountBaseDomain;
     }
 
     /**
      * Устанавливаем callback, который будет вызван при обновлении AccessToken'а библиотеки
-     * @param callable $callback
+     * @param  callable  $callback
      * @return $this
      */
-    public function onAccessTokenRefresh(callable $callback): self
+    public function onAccessTokenRefresh(callable $callback)
     {
         $this->accessTokenRefreshCallback = $callback;
 
@@ -134,7 +134,7 @@ class AmoCRMApiClient
      * @return AmoCRMApiRequest
      * @throws AmoCRMMissedTokenException
      */
-    private function buildRequest(): AmoCRMApiRequest
+    private function buildRequest()
     {
         if (!$this->isAccessTokenSet()) {
             throw new AmoCRMMissedTokenException();
@@ -143,7 +143,7 @@ class AmoCRMApiClient
         $oAuthClient = $this->getOAuthClient();
 
         $oAuthClient->setAccessTokenRefreshCallback(
-            function (AccessToken $accessToken, string $baseAccountDomain) use ($oAuthClient) {
+            function (AccessToken $accessToken, $baseAccountDomain) use ($oAuthClient) {
                 $this->setAccessToken($accessToken);
 
                 if (is_callable($this->accessTokenRefreshCallback)) {
@@ -160,7 +160,7 @@ class AmoCRMApiClient
      * Метод вернет oAuthClient
      * @return AmoCRMOAuth
      */
-    public function getOAuthClient(): AmoCRMOAuth
+    public function getOAuthClient()
     {
         return $this->oAuthClient;
     }
@@ -168,12 +168,12 @@ class AmoCRMApiClient
     /**
      * Метод вернет объект примечаний сущности
      *
-     * @param string $entityType
+     * @param  string  $entityType
      *
      * @return EntityNotes
      * @throws InvalidArgumentException|AmoCRMMissedTokenException
      */
-    public function notes(string $entityType)
+    public function notes($entityType)
     {
         $request = $this->buildRequest();
 
@@ -189,12 +189,12 @@ class AmoCRMApiClient
     /**
      * Метод вернет объект тегов
      *
-     * @param string $entityType
+     * @param  string  $entityType
      *
      * @return EntityTags
      * @throws InvalidArgumentException|AmoCRMMissedTokenException
      */
-    public function tags(string $entityType)
+    public function tags($entityType)
     {
         $request = $this->buildRequest();
 
@@ -226,7 +226,7 @@ class AmoCRMApiClient
      * @return Leads
      * @throws AmoCRMMissedTokenException
      */
-    public function leads(): Leads
+    public function leads()
     {
         $request = $this->buildRequest();
 
@@ -239,7 +239,7 @@ class AmoCRMApiClient
      * @return Contacts
      * @throws AmoCRMMissedTokenException
      */
-    public function contacts(): Contacts
+    public function contacts()
     {
         $request = $this->buildRequest();
 
@@ -275,12 +275,12 @@ class AmoCRMApiClient
     /**
      * Метод вернет объект элементов каталогов
      *
-     * @param int|null $catalogId
+     * @param  int|null  $catalogId
      *
      * @return CatalogElements
      * @throws InvalidArgumentException|AmoCRMMissedTokenException
      */
-    public function catalogElements(int $catalogId = null)
+    public function catalogElements($catalogId = null)
     {
         $request = $this->buildRequest();
         $service = new CatalogElements($request);
@@ -298,12 +298,12 @@ class AmoCRMApiClient
     /**
      * Метод вернет объект кастом полей
      *
-     * @param string $entityType
+     * @param  string  $entityType
      *
      * @return CustomFields
      * @throws InvalidArgumentException|AmoCRMMissedTokenException
      */
-    public function customFields(string $entityType)
+    public function customFields($entityType)
     {
         $request = $this->buildRequest();
 
@@ -319,12 +319,12 @@ class AmoCRMApiClient
     /**
      * Метод вернет объект связи сущностей
      *
-     * @param string $entityType
+     * @param  string  $entityType
      *
      * @return Links
      * @throws InvalidArgumentException|AmoCRMMissedTokenException
      */
-    public function links(string $entityType): Links
+    public function links($entityType)
     {
         return (new Links($this->buildRequest()))
             ->setEntityType($entityType);
@@ -333,12 +333,12 @@ class AmoCRMApiClient
     /**
      * Метод вернет объект групп кастом полей (табы в карточке)
      *
-     * @param string|null $entityType
+     * @param  string|null  $entityType
      *
      * @return CustomFieldGroups
      * @throws InvalidArgumentException|AmoCRMMissedTokenException
      */
-    public function customFieldGroups(string $entityType = null)
+    public function customFieldGroups($entityType = null)
     {
         $request = $this->buildRequest();
 
@@ -357,7 +357,7 @@ class AmoCRMApiClient
      * @return Account
      * @throws AmoCRMMissedTokenException
      */
-    public function account(): Account
+    public function account()
     {
         $request = $this->buildRequest();
 
@@ -370,7 +370,7 @@ class AmoCRMApiClient
      * @return Roles
      * @throws AmoCRMMissedTokenException
      */
-    public function roles(): Roles
+    public function roles()
     {
         $request = $this->buildRequest();
 
@@ -383,7 +383,7 @@ class AmoCRMApiClient
      * @return Users
      * @throws AmoCRMMissedTokenException
      */
-    public function users(): Users
+    public function users()
     {
         $request = $this->buildRequest();
 
@@ -397,7 +397,7 @@ class AmoCRMApiClient
      * @return Segments
      * @throws AmoCRMMissedTokenException
      */
-    public function customersSegments(): Segments
+    public function customersSegments()
     {
         $request = $this->buildRequest();
 
@@ -410,7 +410,7 @@ class AmoCRMApiClient
      * @return Events
      * @throws AmoCRMMissedTokenException
      */
-    public function events(): Events
+    public function events()
     {
         $request = $this->buildRequest();
 
@@ -423,7 +423,7 @@ class AmoCRMApiClient
      * @return Webhooks
      * @throws AmoCRMMissedTokenException
      */
-    public function webhooks(): Webhooks
+    public function webhooks()
     {
         $request = $this->buildRequest();
 
@@ -436,7 +436,7 @@ class AmoCRMApiClient
      * @return Unsorted
      * @throws AmoCRMMissedTokenException
      */
-    public function unsorted(): Unsorted
+    public function unsorted()
     {
         $request = $this->buildRequest();
 
@@ -449,7 +449,7 @@ class AmoCRMApiClient
      * @return Pipelines
      * @throws AmoCRMMissedTokenException
      */
-    public function pipelines(): Pipelines
+    public function pipelines()
     {
         $request = $this->buildRequest();
 
@@ -462,7 +462,7 @@ class AmoCRMApiClient
      * @return Sources
      * @throws AmoCRMMissedTokenException
      */
-    public function sources(): Sources
+    public function sources()
     {
         $request = $this->buildRequest();
 
@@ -475,7 +475,7 @@ class AmoCRMApiClient
      * @return Templates
      * @throws AmoCRMMissedTokenException
      */
-    public function chatTemplates(): Templates
+    public function chatTemplates()
     {
         $request = $this->buildRequest();
 
@@ -485,12 +485,12 @@ class AmoCRMApiClient
     /**
      * Метод вернет объект статусов
      *
-     * @param int $pipelineId
+     * @param  int  $pipelineId
      *
      * @return Statuses
      * @throws AmoCRMMissedTokenException
      */
-    public function statuses(int $pipelineId): Statuses
+    public function statuses($pipelineId)
     {
         $request = $this->buildRequest();
         $service = new Statuses($request);
@@ -505,7 +505,7 @@ class AmoCRMApiClient
      * @return Widgets
      * @throws AmoCRMMissedTokenException
      */
-    public function widgets(): Widgets
+    public function widgets()
     {
         $request = $this->buildRequest();
 
@@ -518,7 +518,7 @@ class AmoCRMApiClient
      * @return ShortLinks
      * @throws AmoCRMMissedTokenException
      */
-    public function shortLinks(): ShortLinks
+    public function shortLinks()
     {
         $request = $this->buildRequest();
 
@@ -531,7 +531,7 @@ class AmoCRMApiClient
      * @return LossReasons
      * @throws AmoCRMMissedTokenException
      */
-    public function lossReasons(): LossReasons
+    public function lossReasons()
     {
         $request = $this->buildRequest();
 
@@ -541,11 +541,11 @@ class AmoCRMApiClient
     /**
      * Метод вернет объект транзакций
      *
-     * @deprecated Скорее всего будет удалено в релизе 0.8 (Ориентировачно осень-зима 2021)
      * @return Transactions
      * @throws AmoCRMMissedTokenException
+     * @deprecated Скорее всего будет удалено в релизе 0.8 (Ориентировачно осень-зима 2021)
      */
-    public function transactions(): Transactions
+    public function transactions()
     {
         $request = $this->buildRequest();
 
@@ -558,7 +558,7 @@ class AmoCRMApiClient
      * @return Customers
      * @throws AmoCRMMissedTokenException
      */
-    public function customers(): Customers
+    public function customers()
     {
         $request = $this->buildRequest();
 
@@ -571,7 +571,7 @@ class AmoCRMApiClient
      * @return CustomersStatuses
      * @throws AmoCRMMissedTokenException
      */
-    public function customersStatuses(): CustomersStatuses
+    public function customersStatuses()
     {
         $request = $this->buildRequest();
 
@@ -584,7 +584,7 @@ class AmoCRMApiClient
      * @return BonusPoints
      * @throws AmoCRMMissedTokenException
      */
-    public function customersBonusPoints(): BonusPoints
+    public function customersBonusPoints()
     {
         $request = $this->buildRequest();
 
@@ -597,7 +597,7 @@ class AmoCRMApiClient
      * @return Calls
      * @throws AmoCRMMissedTokenException
      */
-    public function calls(): Calls
+    public function calls()
     {
         $request = $this->buildRequest();
 
@@ -610,19 +610,25 @@ class AmoCRMApiClient
      * @return Products
      * @throws AmoCRMMissedTokenException
      */
-    public function products(): Products
+    public function products()
     {
         $request = $this->buildRequest();
 
-        return  new Products($request);
+        return new Products($request);
     }
 
-    public function talks(): Talks
+    public function talks()
     {
         return new Talks($this->buildRequest());
     }
 
-    public function entitySubscriptions(string $entityType): EntitySubscriptions
+    /**
+     * @param  string  $entityType
+     * @return EntitySubscriptions
+     * @throws AmoCRMMissedTokenException
+     * @throws InvalidArgumentException
+     */
+    public function entitySubscriptions($entityType)
     {
         return (new EntitySubscriptions($this->buildRequest()))
             ->setEntityType($entityType);
@@ -634,7 +640,7 @@ class AmoCRMApiClient
      * @return AmoCRMApiRequest
      * @throws AmoCRMMissedTokenException
      */
-    public function getRequest(): AmoCRMApiRequest
+    public function getRequest()
     {
         return $this->buildRequest();
     }
@@ -643,7 +649,7 @@ class AmoCRMApiClient
      * Проверка, установлен ли токен
      * @return bool
      */
-    public function isAccessTokenSet(): bool
+    public function isAccessTokenSet()
     {
         return $this->accessToken !== null;
     }

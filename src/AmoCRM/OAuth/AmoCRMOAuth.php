@@ -51,7 +51,7 @@ class AmoCRMOAuth
     /**
      * Доступные цвета для кнопки авторизации
      */
-    public const BUTTON_COLORS = [
+    const BUTTON_COLORS = [
         'default' => '#339DC7',
         'blue' => '#1976D2',
         'violet' => '#6A1B9A',
@@ -60,7 +60,7 @@ class AmoCRMOAuth
         'red' => '#D84315',
     ];
 
-    protected const REQUEST_TIMEOUT = 15;
+    const REQUEST_TIMEOUT = 15;
 
     /**
      * @var AmoCRM
@@ -93,7 +93,7 @@ class AmoCRMOAuth
      * @param string $clientSecret
      * @param null|string $redirectUri
      */
-    public function __construct(string $clientId, string $clientSecret, ?string $redirectUri)
+    public function __construct($clientId, $clientSecret, $redirectUri)
     {
         $this->oauthProvider = new AmoCRM(
             [
@@ -116,7 +116,7 @@ class AmoCRMOAuth
      *
      * @return string
      */
-    public function getAuthorizeUrl(array $options = []): string
+    public function getAuthorizeUrl(array $options = [])
     {
         return $this->oauthProvider->getAuthorizationUrl($options);
     }
@@ -128,7 +128,7 @@ class AmoCRMOAuth
      * @return AccessTokenInterface
      * @throws AmoCRMoAuthApiException
      */
-    public function getAccessTokenByCode(string $code): AccessTokenInterface
+    public function getAccessTokenByCode($code)
     {
         try {
             $accessToken = $this->oauthProvider->getAccessToken(new AuthorizationCode(), [
@@ -154,7 +154,7 @@ class AmoCRMOAuth
      * @return AccessTokenInterface
      * @throws AmoCRMoAuthApiException
      */
-    public function getAccessTokenByRefreshToken(AccessTokenInterface $accessToken): AccessTokenInterface
+    public function getAccessTokenByRefreshToken(AccessTokenInterface $accessToken)
     {
         try {
             $accessToken = $this->oauthProvider->getAccessToken(new RefreshToken(), [
@@ -184,7 +184,7 @@ class AmoCRMOAuth
      *
      * @return ClientInterface
      */
-    public function getHttpClient(): ClientInterface
+    public function getHttpClient()
     {
         return $this->oauthProvider->getHttpClient();
     }
@@ -195,7 +195,7 @@ class AmoCRMOAuth
      *
      * @return $this
      */
-    public function setBaseDomain(string $domain): self
+    public function setBaseDomain($domain)
     {
         $this->oauthProvider->setBaseDomain($domain);
 
@@ -208,7 +208,7 @@ class AmoCRMOAuth
      *
      * @return $this
      */
-    public function setProtocol(string $protocol): self
+    public function setProtocol($protocol)
     {
         $this->oauthProvider->setProtocol($protocol);
 
@@ -222,7 +222,7 @@ class AmoCRMOAuth
      *
      * @return $this
      */
-    public function setRedirectUri(?string $redirectUri): self
+    public function setRedirectUri($redirectUri)
     {
         $this->oauthProvider->setRedirectUri($redirectUri);
 
@@ -234,7 +234,7 @@ class AmoCRMOAuth
      *
      * @return AmoCRM
      */
-    public function getOAuthProvider(): AmoCRM
+    public function getOAuthProvider()
     {
         return $this->oauthProvider;
     }
@@ -245,7 +245,7 @@ class AmoCRMOAuth
      *
      * @return array
      */
-    public function getAuthorizationHeaders(AccessTokenInterface $accessToken): array
+    public function getAuthorizationHeaders(AccessTokenInterface $accessToken)
     {
         return $this->oauthProvider->getHeaders($accessToken);
     }
@@ -255,7 +255,7 @@ class AmoCRMOAuth
      *
      * @return string
      */
-    public function getAccountUrl(): string
+    public function getAccountUrl()
     {
         return $this->oauthProvider->urlAccount();
     }
@@ -266,7 +266,7 @@ class AmoCRMOAuth
      *
      * @return AmoCRMOAuth
      */
-    public function setAccessTokenRefreshCallback(callable $function): self
+    public function setAccessTokenRefreshCallback(callable $function)
     {
         $this->accessTokenRefreshCallback = $function;
 
@@ -279,7 +279,7 @@ class AmoCRMOAuth
      *
      * @return ResourceOwnerInterface
      */
-    public function getResourceOwner(AccessTokenInterface $accessToken): ResourceOwnerInterface
+    public function getResourceOwner(AccessTokenInterface $accessToken)
     {
         /** @var AccessToken $accessToken */
         return $this->oauthProvider->getResourceOwner($accessToken);
@@ -299,22 +299,22 @@ class AmoCRMOAuth
      * @return string
      * @throws BadTypeException
      */
-    public function getOAuthButton(array $options = []): string
+    public function getOAuthButton(array $options = [])
     {
         if (isset($options['color']) && !array_key_exists($options['color'], self::BUTTON_COLORS)) {
             throw new BadTypeException('Invalid color selected');
         }
 
-        $title = $options['title'] ?? 'Установить интеграцию';
+        $title = isset($options['title']) ? $options['title'] : 'Установить интеграцию';
         $compact = isset($options['compact']) && $options['compact'] ? 'true' : 'false';
-        $className = $options['class_name'] ?? 'className';
-        $color = $options['color'] ?? 'default';
-        $errorCallback = $options['error_callback'] ?? 'handleOauthError';
+        $className = isset($options['class_name']) ? $options['class_name'] : 'className';
+        $color = isset($options['color']) ? $options['color'] : 'default';
+        $errorCallback = isset($options['error_callback']) ? $options['error_callback'] : 'handleOauthError';
         $mode = isset($options['mode']) && in_array($options['mode'], ['popup', 'post_message'])
             ? $options['mode']
             : 'post_message';
         try {
-            $state = $options['state'] ?? bin2hex(random_bytes(10));
+            $state = isset($options['state']) ? $options['state'] : bin2hex(random_bytes(10));
         } catch (Exception $exception) {
             $state = rand(1, 100);
         }
@@ -345,7 +345,7 @@ class AmoCRMOAuth
      * @throws AmoCRMApiTooManyRedirectsException
      * @throws AmoCRMApiErrorResponseException
      */
-    public function exchangeApiKey(string $login, string $apiKey)
+    public function exchangeApiKey($login, $apiKey)
     {
         $body = [
             'login' => $login,
@@ -398,7 +398,7 @@ class AmoCRMOAuth
      * @throws AmoCRMApiConnectExceptionException
      * @throws AmoCRMApiHttpClientException
      */
-    public function getAccountDomain(AccessTokenInterface $accessToken): AccountDomainModel
+    public function getAccountDomain(AccessTokenInterface $accessToken)
     {
         try {
             $response = $this->oauthProvider->getHttpClient()->request(
@@ -452,7 +452,7 @@ class AmoCRMOAuth
      *
      * @link https://www.amocrm.ru/developers/content/web_sdk/mechanics
      */
-    public function parseDisposableToken(string $token): DisposableTokenModel
+    public function parseDisposableToken($token)
     {
         $signer = new Sha256();
         $key = InMemory::plainText($this->clientSecret);
@@ -503,7 +503,7 @@ class AmoCRMOAuth
      * @throws DisposableTokenVerificationFailedException
      * @link https://www.amocrm.ru/developers/content/web_sdk/mechanics
      */
-    public function parseBotDisposableToken(string $token, string $receiverPath = null): BotDisposableTokenModel
+    public function parseBotDisposableToken($token, $receiverPath = null)
     {
         $signer = new Sha512();
         $key = InMemory::plainText($this->clientSecret);

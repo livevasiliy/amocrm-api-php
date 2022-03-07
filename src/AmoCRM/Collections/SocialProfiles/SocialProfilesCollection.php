@@ -21,5 +21,5 @@ use AmoCRM\Models\SocialProfiles\SocialProfileModel;
  */
 class SocialProfilesCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = SocialProfileModel::class;
+    const ITEM_CLASS = SocialProfileModel::class;
 }

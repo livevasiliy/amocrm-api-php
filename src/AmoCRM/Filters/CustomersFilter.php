@@ -233,7 +233,7 @@ class CustomersFilter extends BaseEntityFilter implements HasPagesInterface, Has
     /**
      * @return array|null
      */
-    public function getCustomFieldsValues(): ?array
+    public function getCustomFieldsValues()
     {
         return $this->customFieldsValues;
     }
@@ -243,7 +243,7 @@ class CustomersFilter extends BaseEntityFilter implements HasPagesInterface, Has
      *
      * @return CustomersFilter
      */
-    public function setCustomFieldsValues(?array $customFieldsValues): CustomersFilter
+    public function setCustomFieldsValues($customFieldsValues)
     {
         $cfFilter = [];
 
@@ -263,7 +263,7 @@ class CustomersFilter extends BaseEntityFilter implements HasPagesInterface, Has
     /**
      * @return string|null
      */
-    public function getQuery(): ?string
+    public function getQuery()
     {
         return $this->query;
     }
@@ -273,7 +273,7 @@ class CustomersFilter extends BaseEntityFilter implements HasPagesInterface, Has
      *
      * @return CustomersFilter
      */
-    public function setQuery(?string $query): self
+    public function setQuery($query)
     {
         if (!empty($query)) {
             $this->query = (string)$query;
@@ -285,7 +285,7 @@ class CustomersFilter extends BaseEntityFilter implements HasPagesInterface, Has
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

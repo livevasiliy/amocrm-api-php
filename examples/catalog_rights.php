@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use AmoCRM\Helpers\EntityTypesInterface;
 use AmoCRM\Models\Rights\RightModel;
 use AmoCRM\Models\UserModel;

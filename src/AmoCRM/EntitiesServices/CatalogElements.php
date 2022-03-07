@@ -50,14 +50,14 @@ class CatalogElements extends BaseEntityIdEntity implements HasLinkMethodInterfa
     /**
      * @var string
      */
-    public const ITEM_CLASS = CatalogElementModel::class;
+    const ITEM_CLASS = CatalogElementModel::class;
 
     /**
      * @param int $entityId
      *
      * @throws NotAvailableForActionException
      */
-    protected function validateEntityId(int $entityId): void
+    protected function validateEntityId($entityId)
     {
         if ($entityId < EntityTypesInterface::MIN_CATALOG_ID) {
             throw new NotAvailableForActionException('Doesn\'t looks like catalog exists');
@@ -69,7 +69,7 @@ class CatalogElements extends BaseEntityIdEntity implements HasLinkMethodInterfa
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -89,7 +89,7 @@ class CatalogElements extends BaseEntityIdEntity implements HasLinkMethodInterfa
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -102,7 +102,7 @@ class CatalogElements extends BaseEntityIdEntity implements HasLinkMethodInterfa
      *
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -113,7 +113,7 @@ class CatalogElements extends BaseEntityIdEntity implements HasLinkMethodInterfa
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -124,7 +124,7 @@ class CatalogElements extends BaseEntityIdEntity implements HasLinkMethodInterfa
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -143,7 +143,7 @@ class CatalogElements extends BaseEntityIdEntity implements HasLinkMethodInterfa
      * @param BaseApiModel|CatalogElementModel $apiModel
      * @param array $entity
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);
@@ -163,11 +163,11 @@ class CatalogElements extends BaseEntityIdEntity implements HasLinkMethodInterfa
      * @param BaseApiModel|CatalogElementModel $apiModel
      * @param array $with
      *
-     * @return BaseApiModel|CatalogElementModel
+     * @return BaseApiModel
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         $this->setEntityId($apiModel->getCatalogId());
 
@@ -177,7 +177,7 @@ class CatalogElements extends BaseEntityIdEntity implements HasLinkMethodInterfa
     /**
      * @return array
      */
-    protected function getAvailableLinkTypes(): array
+    protected function getAvailableLinkTypes()
     {
         return [
             EntityTypesInterface::CONTACTS,

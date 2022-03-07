@@ -47,7 +47,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return self
      */
-    public static function fromArray(array $source): self
+    public static function fromArray(array $source)
     {
         $model = new self();
 
@@ -70,7 +70,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id'          => $this->getId(),
@@ -85,7 +85,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -95,7 +95,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return SourceModel
      */
-    public function setId(?int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -105,7 +105,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -115,7 +115,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return SourceModel
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -125,7 +125,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return bool
      */
-    public function isDefault(): bool
+    public function isDefault()
     {
         return (bool)$this->default;
     }
@@ -133,7 +133,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return bool|null
      */
-    public function getDefault(): ?bool
+    public function getDefault()
     {
         return $this->default;
     }
@@ -141,7 +141,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @param  bool|null  $default
      */
-    public function setDefault(?bool $default): void
+    public function setDefault($default)
     {
         $this->default = $default;
     }
@@ -149,7 +149,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return string
      */
-    public function getExternalId(): string
+    public function getExternalId()
     {
         return $this->externalId;
     }
@@ -159,7 +159,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return SourceModel
      */
-    public function setExternalId(string $externalId): self
+    public function setExternalId($externalId)
     {
         $this->externalId = $externalId;
         return $this;
@@ -168,7 +168,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getPipelineId(): ?int
+    public function getPipelineId()
     {
         return $this->pipelineId;
     }
@@ -178,7 +178,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return SourceModel
      */
-    public function setPipelineId(?int $pipelineId): self
+    public function setPipelineId($pipelineId)
     {
         $this->pipelineId = $pipelineId;
         return $this;
@@ -187,7 +187,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return \AmoCRM\Collections\Sources\SourceServicesCollection|null
      */
-    public function getServices(): ?SourceServicesCollection
+    public function getServices()
     {
         return $this->services;
     }
@@ -195,7 +195,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @param  \AmoCRM\Collections\Sources\SourceServicesCollection|null  $services
      */
-    public function setServices(?SourceServicesCollection $services): void
+    public function setServices($services)
     {
         $this->services = $services;
     }
@@ -206,7 +206,7 @@ class SourceModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 

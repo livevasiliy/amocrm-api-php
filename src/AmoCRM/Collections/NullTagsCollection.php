@@ -9,12 +9,18 @@ namespace AmoCRM\Collections;
  */
 class NullTagsCollection extends TagsCollection
 {
-    public function toApi(): ?array
+    /**
+     * @return null|array
+     */
+    public function toApi()
     {
         return null;
     }
 
-    public function toEntityApi(): ?array
+    /**
+     * @return null|array
+     */
+    public function toEntityApi()
     {
         return null;
     }

@@ -14,21 +14,21 @@ interface HasPagesInterface
      * @param string $url
      * @return BaseApiCollection
      */
-    public function setNextPageLink(string $url);
+    public function setNextPageLink($url);
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNextPageLink(): ?string;
+    public function getNextPageLink();
 
     /**
      * @param string $url
      * @return BaseApiCollection
      */
-    public function setPrevPageLink(string $url);
+    public function setPrevPageLink($url);
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPrevPageLink(): ?string;
+    public function getPrevPageLink();
 }

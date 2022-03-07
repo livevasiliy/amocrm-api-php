@@ -15,12 +15,12 @@ interface HasPageMethodsInterface
      *
      * @return HasPagesInterface
      */
-    public function nextPage(HasPagesInterface $collection): HasPagesInterface;
+    public function nextPage(HasPagesInterface $collection);
 
     /**
      * @param HasPagesInterface $collection
      *
      * @return HasPagesInterface
      */
-    public function prevPage(HasPagesInterface $collection): HasPagesInterface;
+    public function prevPage(HasPagesInterface $collection);
 }

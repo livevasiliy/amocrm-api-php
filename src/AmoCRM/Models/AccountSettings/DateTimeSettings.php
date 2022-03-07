@@ -41,14 +41,23 @@ class DateTimeSettings implements Arrayable
      */
     protected $timezoneOffset;
 
+    /**
+     * @param  string  $datePattern
+     * @param  string  $shortDatePattern
+     * @param  string  $shortTimePattern
+     * @param  string  $dateFormat
+     * @param  string  $timeFormat
+     * @param  string  $timezone
+     * @param  string  $timezoneOffset
+     */
     public function __construct(
-        string $datePattern,
-        string $shortDatePattern,
-        string $shortTimePattern,
-        string $dateFormat,
-        string $timeFormat,
-        string $timezone,
-        string $timezoneOffset
+        $datePattern,
+        $shortDatePattern,
+        $shortTimePattern,
+        $dateFormat,
+        $timeFormat,
+        $timezone,
+        $timezoneOffset
     ) {
         $this->datePattern = $datePattern;
         $this->shortDatePattern = $shortDatePattern;
@@ -62,7 +71,7 @@ class DateTimeSettings implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'date_pattern' => $this->datePattern,
@@ -78,7 +87,7 @@ class DateTimeSettings implements Arrayable
     /**
      * @return string
      */
-    public function getDatePattern(): string
+    public function getDatePattern()
     {
         return $this->datePattern;
     }
@@ -86,7 +95,7 @@ class DateTimeSettings implements Arrayable
     /**
      * @return string
      */
-    public function getShortDatePattern(): string
+    public function getShortDatePattern()
     {
         return $this->shortDatePattern;
     }
@@ -94,7 +103,7 @@ class DateTimeSettings implements Arrayable
     /**
      * @return string
      */
-    public function getShortTimePattern(): string
+    public function getShortTimePattern()
     {
         return $this->shortTimePattern;
     }
@@ -102,7 +111,7 @@ class DateTimeSettings implements Arrayable
     /**
      * @return string
      */
-    public function getDateFormat(): string
+    public function getDateFormat()
     {
         return $this->dateFormat;
     }
@@ -110,7 +119,7 @@ class DateTimeSettings implements Arrayable
     /**
      * @return string
      */
-    public function getTimeFormat(): string
+    public function getTimeFormat()
     {
         return $this->timeFormat;
     }
@@ -118,7 +127,7 @@ class DateTimeSettings implements Arrayable
     /**
      * @return string
      */
-    public function getTimezone(): string
+    public function getTimezone()
     {
         return $this->timezone;
     }
@@ -126,7 +135,7 @@ class DateTimeSettings implements Arrayable
     /**
      * @return string
      */
-    public function getTimezoneOffset(): string
+    public function getTimezoneOffset()
     {
         return $this->timezoneOffset;
     }

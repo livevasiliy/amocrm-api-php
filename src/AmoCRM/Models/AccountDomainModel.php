@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models;
 
 /**
@@ -28,7 +26,7 @@ class AccountDomainModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -38,7 +36,7 @@ class AccountDomainModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -48,7 +46,7 @@ class AccountDomainModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setSubdomain(string $subdomain): self
+    public function setSubdomain($subdomain)
     {
         $this->subdomain = $subdomain;
 
@@ -58,7 +56,7 @@ class AccountDomainModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getSubdomain(): string
+    public function getSubdomain()
     {
         return $this->subdomain;
     }
@@ -68,7 +66,7 @@ class AccountDomainModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setDomain(string $domain): self
+    public function setDomain($domain)
     {
         $this->domain = $domain;
 
@@ -78,7 +76,7 @@ class AccountDomainModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getDomain(): string
+    public function getDomain()
     {
         return $this->domain;
     }
@@ -88,7 +86,7 @@ class AccountDomainModel extends BaseApiModel
      *
      * @return $this
      */
-    public function setTopLevelDomain(string $topLevelDomain): self
+    public function setTopLevelDomain($topLevelDomain)
     {
         $this->topLevelDomain = $topLevelDomain;
 
@@ -98,7 +96,7 @@ class AccountDomainModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getTopLevelDomain(): string
+    public function getTopLevelDomain()
     {
         return $this->topLevelDomain;
     }
@@ -108,7 +106,7 @@ class AccountDomainModel extends BaseApiModel
      *
      * @return static
      */
-    public static function fromArray(array $accountDomain): self
+    public static function fromArray(array $accountDomain)
     {
         $accountDomainModel = new self();
         $accountDomainModel->setId((int)$accountDomain['id'])
@@ -122,7 +120,7 @@ class AccountDomainModel extends BaseApiModel
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id'               => $this->getId(),
@@ -137,7 +135,7 @@ class AccountDomainModel extends BaseApiModel
      *
      * @return array
      */
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return $this->toArray();
     }

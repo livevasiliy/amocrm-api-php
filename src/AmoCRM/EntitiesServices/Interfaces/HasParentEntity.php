@@ -8,6 +8,6 @@ namespace AmoCRM\EntitiesServices\Interfaces;
  */
 interface HasParentEntity
 {
-    public const ID_KEY = 'id';
-    public const PARENT_ID_KEY = 'parent_id';
+    const ID_KEY = 'id';
+    const PARENT_ID_KEY = 'parent_id';
 }

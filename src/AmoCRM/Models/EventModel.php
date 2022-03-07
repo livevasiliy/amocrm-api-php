@@ -13,13 +13,13 @@ use AmoCRM\Models\Factories\EntityFactory;
  */
 class EventModel extends BaseApiModel
 {
-    public const CONTACT_NAME = 'contact_name';
-    public const LEAD_NAME = 'lead_name';
-    public const COMPANY_NAME = 'company_name';
-    public const CATALOG_ELEMENT_NAME = 'catalog_element_name';
-    public const CUSTOMER_NAME = 'customer_name';
-    public const CATALOG_NAME = 'catalog_name';
-    public const NOTE = 'note';
+    const CONTACT_NAME = 'contact_name';
+    const LEAD_NAME = 'lead_name';
+    const COMPANY_NAME = 'company_name';
+    const CATALOG_ELEMENT_NAME = 'catalog_element_name';
+    const CUSTOMER_NAME = 'customer_name';
+    const CATALOG_NAME = 'catalog_name';
+    const NOTE = 'note';
 
     /**
      * @var string
@@ -74,7 +74,7 @@ class EventModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }
@@ -83,7 +83,7 @@ class EventModel extends BaseApiModel
      * @param string $id
      * @return EventModel
      */
-    public function setId(string $id): EventModel
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -93,7 +93,7 @@ class EventModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -102,7 +102,7 @@ class EventModel extends BaseApiModel
      * @param string $type
      * @return EventModel
      */
-    public function setType(string $type): EventModel
+    public function setType($type)
     {
         $this->type = $type;
 
@@ -112,7 +112,7 @@ class EventModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getEntityId(): int
+    public function getEntityId()
     {
         return $this->entityId;
     }
@@ -121,7 +121,7 @@ class EventModel extends BaseApiModel
      * @param int $entityId
      * @return EventModel
      */
-    public function setEntityId(int $entityId): EventModel
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
 
@@ -131,7 +131,7 @@ class EventModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getEntityType(): string
+    public function getEntityType()
     {
         return $this->entityType;
     }
@@ -140,7 +140,7 @@ class EventModel extends BaseApiModel
      * @param string $entityType
      * @return EventModel
      */
-    public function setEntityType(string $entityType): EventModel
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
@@ -150,7 +150,7 @@ class EventModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getCreatedBy(): int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -159,7 +159,7 @@ class EventModel extends BaseApiModel
      * @param int $createdBy
      * @return EventModel
      */
-    public function setCreatedBy(int $createdBy): EventModel
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -169,7 +169,7 @@ class EventModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getCreatedAt(): int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -178,7 +178,7 @@ class EventModel extends BaseApiModel
      * @param int $createdAt
      * @return EventModel
      */
-    public function setCreatedAt(int $createdAt): EventModel
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -188,7 +188,7 @@ class EventModel extends BaseApiModel
     /**
      * @return array
      */
-    public function getValueAfter(): array
+    public function getValueAfter()
     {
         return $this->valueAfter;
     }
@@ -197,7 +197,7 @@ class EventModel extends BaseApiModel
      * @param array $valueAfter
      * @return EventModel
      */
-    public function setValueAfter(array $valueAfter): EventModel
+    public function setValueAfter(array $valueAfter)
     {
         $this->valueAfter = $valueAfter;
 
@@ -207,7 +207,7 @@ class EventModel extends BaseApiModel
     /**
      * @return array
      */
-    public function getValueBefore(): array
+    public function getValueBefore()
     {
         return $this->valueBefore;
     }
@@ -216,7 +216,7 @@ class EventModel extends BaseApiModel
      * @param array $valueBefore
      * @return EventModel
      */
-    public function setValueBefore(array $valueBefore): EventModel
+    public function setValueBefore(array $valueBefore)
     {
         $this->valueBefore = $valueBefore;
 
@@ -226,7 +226,7 @@ class EventModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getAccountId(): int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -235,7 +235,7 @@ class EventModel extends BaseApiModel
      * @param int $accountId
      * @return EventModel
      */
-    public function setAccountId(int $accountId): EventModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -245,7 +245,7 @@ class EventModel extends BaseApiModel
     /**
      * @return null|BaseApiModel
      */
-    public function getEntity(): ?BaseApiModel
+    public function getEntity()
     {
         return $this->entity;
     }
@@ -255,7 +255,7 @@ class EventModel extends BaseApiModel
      *
      * @return EventModel
      */
-    public function setEntity(?BaseApiModel $entity): EventModel
+    public function setEntity($entity)
     {
         $this->entity = $entity;
 
@@ -268,7 +268,7 @@ class EventModel extends BaseApiModel
      * @return self
      * @throws InvalidArgumentException
      */
-    public static function fromArray(array $event): self
+    public static function fromArray(array $event)
     {
         if (empty($event['id'])) {
             throw new InvalidArgumentException('Event id is empty in ' . json_encode($event));
@@ -299,7 +299,7 @@ class EventModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -314,7 +314,7 @@ class EventModel extends BaseApiModel
         ];
     }
 
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return [];
     }
@@ -322,7 +322,7 @@ class EventModel extends BaseApiModel
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [
             self::CONTACT_NAME,

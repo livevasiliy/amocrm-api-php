@@ -21,5 +21,5 @@ use AmoCRM\Models\Widgets\SettingTemplateModel;
  */
 class SettingsTemplatesCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = SettingTemplateModel::class;
+    const ITEM_CLASS = SettingTemplateModel::class;
 }

@@ -18,10 +18,10 @@ class BaseUnsortedModel extends BaseApiModel
 {
     use RequestIdTrait;
 
-    public const CATEGORY_CODE_SIP = 'sip';
-    public const CATEGORY_CODE_MAIL = 'mail';
-    public const CATEGORY_CODE_FORMS = 'forms';
-    public const CATEGORY_CODE_CHATS = 'chats';
+    const CATEGORY_CODE_SIP = 'sip';
+    const CATEGORY_CODE_MAIL = 'mail';
+    const CATEGORY_CODE_FORMS = 'forms';
+    const CATEGORY_CODE_CHATS = 'chats';
 
     /**
      * @var string
@@ -76,7 +76,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getUid(): string
+    public function getUid()
     {
         return $this->uid;
     }
@@ -85,7 +85,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param string $uid
      * @return BaseUnsortedModel
      */
-    public function setUid(string $uid): BaseUnsortedModel
+    public function setUid($uid)
     {
         $this->uid = $uid;
 
@@ -95,7 +95,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory()
     {
         return $this->category;
     }
@@ -104,7 +104,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param string $category
      * @return BaseUnsortedModel
      */
-    protected function setCategory(string $category): BaseUnsortedModel
+    protected function setCategory($category)
     {
         $this->category = $category;
 
@@ -114,7 +114,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -123,7 +123,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param int $createdAt
      * @return BaseUnsortedModel
      */
-    public function setCreatedAt(int $createdAt): BaseUnsortedModel
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -133,7 +133,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return null|int
      */
-    public function getPipelineId(): ?int
+    public function getPipelineId()
     {
         return $this->pipelineId;
     }
@@ -142,7 +142,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param int $pipelineId
      * @return BaseUnsortedModel
      */
-    public function setPipelineId(int $pipelineId): BaseUnsortedModel
+    public function setPipelineId($pipelineId)
     {
         $this->pipelineId = $pipelineId;
 
@@ -152,7 +152,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getSourceName(): ?string
+    public function getSourceName()
     {
         return $this->sourceName;
     }
@@ -161,7 +161,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param string $sourceName
      * @return BaseUnsortedModel
      */
-    public function setSourceName(string $sourceName): BaseUnsortedModel
+    public function setSourceName($sourceName)
     {
         $this->sourceName = $sourceName;
 
@@ -171,7 +171,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getSourceUid(): ?string
+    public function getSourceUid()
     {
         return $this->sourceUid;
     }
@@ -180,7 +180,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param string $sourceUid
      * @return BaseUnsortedModel
      */
-    public function setSourceUid(string $sourceUid): BaseUnsortedModel
+    public function setSourceUid($sourceUid)
     {
         $this->sourceUid = $sourceUid;
 
@@ -190,7 +190,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return LeadModel|null
      */
-    public function getLead(): ?LeadModel
+    public function getLead()
     {
         return $this->lead;
     }
@@ -199,7 +199,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param LeadModel|null $lead
      * @return BaseUnsortedModel
      */
-    public function setLead(?LeadModel $lead): BaseUnsortedModel
+    public function setLead($lead)
     {
         $this->lead = $lead;
 
@@ -209,7 +209,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return ContactsCollection|null
      */
-    public function getContacts(): ?ContactsCollection
+    public function getContacts()
     {
         return $this->contacts;
     }
@@ -218,7 +218,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param ContactsCollection|null $contacts
      * @return BaseUnsortedModel
      */
-    public function setContacts(?ContactsCollection $contacts): BaseUnsortedModel
+    public function setContacts($contacts)
     {
         $this->contacts = $contacts;
 
@@ -228,7 +228,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return CompaniesCollection|null
      */
-    public function getCompanies(): ?CompaniesCollection
+    public function getCompanies()
     {
         return $this->companies;
     }
@@ -237,7 +237,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param CompaniesCollection|null $companies
      * @return BaseUnsortedModel
      */
-    public function setCompanies(?CompaniesCollection $companies): BaseUnsortedModel
+    public function setCompanies($companies)
     {
         $this->companies = $companies;
         return $this;
@@ -246,7 +246,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return UnsortedMetadataInterface|null
      */
-    public function getMetadata(): ?UnsortedMetadataInterface
+    public function getMetadata()
     {
         return $this->metadata;
     }
@@ -255,7 +255,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param UnsortedMetadataInterface $metadata
      * @return BaseUnsortedModel
      */
-    public function setMetadata(UnsortedMetadataInterface $metadata): BaseUnsortedModel
+    public function setMetadata(UnsortedMetadataInterface $metadata)
     {
         $this->metadata = $metadata;
 
@@ -268,7 +268,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @return self
      * @throws InvalidArgumentException|BadTypeException
      */
-    public static function fromArray(array $unsorted): self
+    public static function fromArray(array $unsorted)
     {
         if (empty($unsorted['uid'])) {
             throw new InvalidArgumentException('Unsorted uid is empty in ' . json_encode($unsorted));
@@ -328,7 +328,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = [
             'uid' => $this->getUid(),
@@ -381,7 +381,7 @@ class BaseUnsortedModel extends BaseApiModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -431,7 +431,7 @@ class BaseUnsortedModel extends BaseApiModel
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [];
     }

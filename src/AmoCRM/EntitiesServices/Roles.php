@@ -39,9 +39,13 @@ class Roles extends BaseEntity implements HasPageMethodsInterface, HasDeleteMeth
 
     protected $collectionClass = RolesCollection::class;
 
-    public const ITEM_CLASS = RoleModel::class;
+    const ITEM_CLASS = RoleModel::class;
 
-    protected function getEntitiesFromResponse(array $response): array
+    /**
+     * @param  array  $response
+     * @return array
+     */
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -57,7 +61,7 @@ class Roles extends BaseEntity implements HasPageMethodsInterface, HasDeleteMeth
      * @param array $response
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -69,7 +73,7 @@ class Roles extends BaseEntity implements HasPageMethodsInterface, HasDeleteMeth
      * @param array $response
      * @return BaseApiCollection
      */
-    protected function processUpdate(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processUpdate(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -79,7 +83,7 @@ class Roles extends BaseEntity implements HasPageMethodsInterface, HasDeleteMeth
      * @param array $response
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -90,7 +94,7 @@ class Roles extends BaseEntity implements HasPageMethodsInterface, HasDeleteMeth
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -112,7 +116,7 @@ class Roles extends BaseEntity implements HasPageMethodsInterface, HasDeleteMeth
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function deleteOne(BaseApiModel $model): bool
+    public function deleteOne(BaseApiModel $model)
     {
         $result = $this->request->delete($this->getMethod() . '/' . $model->getId());
 
@@ -125,7 +129,7 @@ class Roles extends BaseEntity implements HasPageMethodsInterface, HasDeleteMeth
      * @return bool
      * @throws NotAvailableForActionException
      */
-    public function delete(BaseApiCollection $collection): bool
+    public function delete(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('This entity supports only deleteOne method');
     }
@@ -133,8 +137,9 @@ class Roles extends BaseEntity implements HasPageMethodsInterface, HasDeleteMeth
     /**
      * @param BaseApiModel|RoleModel $apiModel
      * @param array $entity
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);

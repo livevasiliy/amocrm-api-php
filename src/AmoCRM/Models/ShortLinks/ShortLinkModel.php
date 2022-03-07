@@ -32,7 +32,7 @@ class ShortLinkModel extends BaseApiModel
      *
      * @return self
      */
-    public static function fromArray(array $shortLink): self
+    public static function fromArray(array $shortLink)
     {
         if (empty($shortLink['url'])) {
             throw new InvalidArgumentException('shortLink url is empty in ' . json_encode($shortLink));
@@ -51,7 +51,7 @@ class ShortLinkModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'url' => $this->getUrl(),
@@ -63,7 +63,7 @@ class ShortLinkModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl()
     {
         return $this->url;
     }
@@ -73,7 +73,7 @@ class ShortLinkModel extends BaseApiModel
      *
      * @return ShortLinkModel
      */
-    public function setUrl(string $url): ShortLinkModel
+    public function setUrl($url)
     {
         $this->url = $url;
 
@@ -83,7 +83,7 @@ class ShortLinkModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getEntityType(): ?string
+    public function getEntityType()
     {
         return $this->entityType;
     }
@@ -93,7 +93,7 @@ class ShortLinkModel extends BaseApiModel
      *
      * @return ShortLinkModel
      */
-    public function setEntityType(?string $entityType): ShortLinkModel
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
@@ -103,7 +103,7 @@ class ShortLinkModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getEntityId(): ?int
+    public function getEntityId()
     {
         return $this->entityId;
     }
@@ -113,7 +113,7 @@ class ShortLinkModel extends BaseApiModel
      *
      * @return ShortLinkModel
      */
-    public function setEntityId(?int $entityId): ShortLinkModel
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
 
@@ -124,7 +124,7 @@ class ShortLinkModel extends BaseApiModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return [
             'url' => $this->getUrl(),

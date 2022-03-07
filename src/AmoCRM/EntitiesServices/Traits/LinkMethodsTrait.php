@@ -26,7 +26,7 @@ trait LinkMethodsTrait
      *
      * @return LinksCollection
      */
-    protected function getLinksCollectionFromResponse(array $response): LinksCollection
+    protected function getLinksCollectionFromResponse(array $response)
     {
         $links = new LinksCollection();
 
@@ -54,7 +54,7 @@ trait LinkMethodsTrait
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function getLinks(BaseApiModel $model, LinksFilter $filter = null): LinksCollection
+    public function getLinks(BaseApiModel $model, LinksFilter $filter = null)
     {
         $queryParams = [];
         if ($filter instanceof BaseEntityFilter) {
@@ -75,7 +75,7 @@ trait LinkMethodsTrait
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function link(BaseApiModel $mainEntity, $linkedEntities): LinksCollection
+    public function link(BaseApiModel $mainEntity, $linkedEntities)
     {
         if ($linkedEntities instanceof LinksCollection) {
             $body = $linkedEntities->toApi();
@@ -111,7 +111,7 @@ trait LinkMethodsTrait
      * @throws AmoCRMoAuthApiException
      * @throws InvalidArgumentException
      */
-    public function unlink(BaseApiModel $mainEntity, $linkedEntities): bool
+    public function unlink(BaseApiModel $mainEntity, $linkedEntities)
     {
         $result = false;
         if ($linkedEntities instanceof LinksCollection) {
@@ -148,7 +148,7 @@ trait LinkMethodsTrait
      * @param bool $isLink
      * @return string
      */
-    protected function getLinkMethod(int $id, bool $isLink = true): string
+    protected function getLinkMethod($id, $isLink = true)
     {
         $action = $isLink ? 'link' : 'unlink';
 
@@ -160,7 +160,7 @@ trait LinkMethodsTrait
      *
      * @return string
      */
-    protected function getLinksMethod(int $id): string
+    protected function getLinksMethod($id)
     {
         return $this->getMethod() . '/' . $id . '/links';
     }
@@ -169,5 +169,5 @@ trait LinkMethodsTrait
      * Какие типы могут быть привязанные к текущей сущности
      * @return array
      */
-    abstract protected function getAvailableLinkTypes(): array;
+    abstract protected function getAvailableLinkTypes();
 }

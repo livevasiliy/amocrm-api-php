@@ -29,10 +29,10 @@ class ContactModel extends BaseApiModel implements
     use RequestIdTrait;
     use GetLinkTrait;
 
-    public const LEADS = 'leads';
-    public const CUSTOMERS = 'customers';
-    public const CATALOG_ELEMENTS = 'catalog_elements';
-    public const SOCIAL_PROFILES = 'social_profiles';
+    const LEADS = 'leads';
+    const CUSTOMERS = 'customers';
+    const CATALOG_ELEMENTS = 'catalog_elements';
+    const SOCIAL_PROFILES = 'social_profiles';
 
     /**
      * @var int
@@ -134,7 +134,7 @@ class ContactModel extends BaseApiModel implements
      */
     protected $socialProfiles = null;
 
-    public function getType(): string
+    public function getType()
     {
         return EntityTypesInterface::CONTACTS;
     }
@@ -142,7 +142,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -152,7 +152,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -162,7 +162,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|string
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -172,7 +172,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setName(?string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -182,7 +182,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return string|null
      */
-    public function getFirstName(): ?string
+    public function getFirstName()
     {
         return $this->firstName;
     }
@@ -192,7 +192,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setFirstName(?string $name): self
+    public function setFirstName($name)
     {
         $this->firstName = $name;
 
@@ -202,7 +202,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return string|null
      */
-    public function getLastName(): ?string
+    public function getLastName()
     {
         return $this->lastName;
     }
@@ -212,7 +212,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setLastName(?string $name): self
+    public function setLastName($name)
     {
         $this->lastName = $name;
 
@@ -222,7 +222,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -232,7 +232,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setAccountId(?int $id): self
+    public function setAccountId($id)
     {
         $this->accountId = $id;
 
@@ -243,7 +243,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getGroupId(): ?int
+    public function getGroupId()
     {
         return $this->groupId;
     }
@@ -253,7 +253,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setGroupId(?int $groupId): self
+    public function setGroupId($groupId)
     {
         $this->groupId = $groupId;
 
@@ -263,7 +263,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getResponsibleUserId(): ?int
+    public function getResponsibleUserId()
     {
         return $this->responsibleUserId;
     }
@@ -273,7 +273,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setResponsibleUserId(?int $userId): self
+    public function setResponsibleUserId($userId)
     {
         $this->responsibleUserId = $userId;
 
@@ -283,7 +283,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -293,7 +293,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCreatedBy(?int $userId): self
+    public function setCreatedBy($userId)
     {
         $this->createdBy = $userId;
 
@@ -303,7 +303,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -313,7 +313,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setUpdatedBy(?int $userId): self
+    public function setUpdatedBy($userId)
     {
         $this->updatedBy = $userId;
 
@@ -323,7 +323,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -333,7 +333,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCreatedAt(?int $timestamp): self
+    public function setCreatedAt($timestamp)
     {
         $this->createdAt = $timestamp;
 
@@ -343,7 +343,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|int
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -353,7 +353,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setUpdatedAt(?int $timestamp): self
+    public function setUpdatedAt($timestamp)
     {
         $this->updatedAt = $timestamp;
 
@@ -363,7 +363,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return int|null
      */
-    public function getClosestTaskAt(): ?int
+    public function getClosestTaskAt()
     {
         return $this->closestTaskAt;
     }
@@ -373,7 +373,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setClosestTaskAt(?int $timestamp): self
+    public function setClosestTaskAt($timestamp)
     {
         $this->closestTaskAt = $timestamp;
 
@@ -383,7 +383,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|TagsCollection
      */
-    public function getTags(): ?TagsCollection
+    public function getTags()
     {
         return $this->tags;
     }
@@ -393,7 +393,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setTags(?TagsCollection $tags): self
+    public function setTags($tags)
     {
         $this->tags = $tags;
 
@@ -403,7 +403,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return CatalogElementsCollection|null
      */
-    public function getCatalogElementsLinks(): ?CatalogElementsCollection
+    public function getCatalogElementsLinks()
     {
         return $this->catalogElementsLinks;
     }
@@ -412,7 +412,7 @@ class ContactModel extends BaseApiModel implements
      * @param CatalogElementsCollection|null $catalogElementsLinks
      * @return ContactModel
      */
-    public function setCatalogElementsLinks(?CatalogElementsCollection $catalogElementsLinks): self
+    public function setCatalogElementsLinks($catalogElementsLinks)
     {
         $this->catalogElementsLinks = $catalogElementsLinks;
 
@@ -422,7 +422,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return SocialProfilesCollection|null
      */
-    public function getSocialProfiles(): ?SocialProfilesCollection
+    public function getSocialProfiles()
     {
         return $this->socialProfiles;
     }
@@ -432,7 +432,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return ContactModel
      */
-    public function setSocialProfiles(?SocialProfilesCollection $socialProfiles): ContactModel
+    public function setSocialProfiles($socialProfiles)
     {
         $this->socialProfiles = $socialProfiles;
 
@@ -442,7 +442,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return LeadsCollection|null
      */
-    public function getLeads(): ?LeadsCollection
+    public function getLeads()
     {
         return $this->leads;
     }
@@ -451,7 +451,7 @@ class ContactModel extends BaseApiModel implements
      * @param null|LeadsCollection $leads
      * @return ContactModel
      */
-    public function setLeads(?LeadsCollection $leads): self
+    public function setLeads($leads)
     {
         $this->leads = $leads;
 
@@ -461,7 +461,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|CompanyModel
      */
-    public function getCompany(): ?CompanyModel
+    public function getCompany()
     {
         return $this->company;
     }
@@ -471,7 +471,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCompany(?CompanyModel $company): self
+    public function setCompany($company)
     {
         $this->company = $company;
 
@@ -481,7 +481,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return null|CustomersCollection
      */
-    public function getCustomers(): ?CustomersCollection
+    public function getCustomers()
     {
         return $this->customers;
     }
@@ -490,7 +490,7 @@ class ContactModel extends BaseApiModel implements
      * @param null|CustomersCollection $customersCollection
      * @return self
      */
-    public function setCustomers(?CustomersCollection $customersCollection): self
+    public function setCustomers($customersCollection)
     {
         $this->customers = $customersCollection;
 
@@ -500,7 +500,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return CustomFieldsValuesCollection|null
      */
-    public function getCustomFieldsValues(): ?CustomFieldsValuesCollection
+    public function getCustomFieldsValues()
     {
         return $this->customFieldsValues;
     }
@@ -510,7 +510,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return self
      */
-    public function setCustomFieldsValues(?CustomFieldsValuesCollection $values): self
+    public function setCustomFieldsValues($values)
     {
         $this->customFieldsValues = $values;
 
@@ -524,7 +524,7 @@ class ContactModel extends BaseApiModel implements
      * @return self
      * @throws InvalidArgumentException
      */
-    public static function fromArray(array $contact): self
+    public static function fromArray(array $contact)
     {
         if (empty($contact['id'])) {
             throw new InvalidArgumentException('Contact id is empty in ' . json_encode($contact));
@@ -615,7 +615,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = [
             'name' => $this->getName(),
@@ -665,7 +665,7 @@ class ContactModel extends BaseApiModel implements
         return $result;
     }
 
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -725,7 +725,7 @@ class ContactModel extends BaseApiModel implements
      *
      * @return array
      */
-    public function toLeadApi(): array
+    public function toLeadApi()
     {
         $result = [];
 
@@ -740,7 +740,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [
             self::LEADS,
@@ -754,7 +754,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return bool|null
      */
-    public function getIsMain(): ?bool
+    public function getIsMain()
     {
         return $this->isMain;
     }
@@ -763,7 +763,7 @@ class ContactModel extends BaseApiModel implements
      * @param null|bool $isMain
      * @return ContactModel
      */
-    public function setIsMain(?bool $isMain): self
+    public function setIsMain($isMain)
     {
         $this->isMain = $isMain;
 
@@ -773,7 +773,7 @@ class ContactModel extends BaseApiModel implements
     /**
      * @return array|null
      */
-    protected function getMetadataForLink(): ?array
+    protected function getMetadataForLink()
     {
         $result = null;
 

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\EntitiesServices;
 
 use AmoCRM\Models\TalkModel;
@@ -21,7 +19,7 @@ use AmoCRM\Models\BaseApiModel;
  */
 class Talks extends BaseEntity
 {
-    public const ITEM_CLASS = TalkModel::class;
+    const ITEM_CLASS = TalkModel::class;
 
     /** @var string */
     protected $method = 'api/v' . AmoCRMApiClient::API_VERSION . '/' . EntityTypesInterface::TALKS;
@@ -31,12 +29,18 @@ class Talks extends BaseEntity
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
-        return $response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::TALKS] ?? [];
+        return isset($response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::TALKS]) ? $response[AmoCRMApiRequest::EMBEDDED][EntityTypesInterface::TALKS] : [];
     }
 
-    public function get(BaseEntityFilter $filter = null, array $with = []): ?BaseApiCollection
+    /**
+     * @param  BaseEntityFilter|null  $filter
+     * @param  array  $with
+     * @return BaseApiCollection|null
+     * @throws NotAvailableForActionException
+     */
+    public function get(BaseEntityFilter $filter = null, array $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -47,7 +51,7 @@ class Talks extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function addOne(BaseApiModel $model): BaseApiModel
+    public function addOne(BaseApiModel $model)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -58,7 +62,7 @@ class Talks extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -69,7 +73,7 @@ class Talks extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -80,7 +84,7 @@ class Talks extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -92,7 +96,7 @@ class Talks extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -107,7 +111,7 @@ class Talks extends BaseEntity
      * @throws AmoCRMoAuthApiException
      * @throws \AmoCRM\Exceptions\AmoCRMApiNoContentException
      */
-    public function close(TalkCloseActionModel $closeAction): void
+    public function close(TalkCloseActionModel $closeAction)
     {
         $body = ['force_close' => $closeAction->isForceClose()];
         /** @noinspection UnusedFunctionResultInspection */

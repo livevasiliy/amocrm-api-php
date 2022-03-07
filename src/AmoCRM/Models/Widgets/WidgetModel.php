@@ -80,7 +80,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return self
      */
-    public static function fromArray(array $widget): self
+    public static function fromArray(array $widget)
     {
         if (empty($widget['id'])) {
             throw new InvalidArgumentException('Widget id is empty in ' . json_encode($widget));
@@ -108,7 +108,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -129,7 +129,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -139,7 +139,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -149,7 +149,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getCode(): string
+    public function getCode()
     {
         return $this->code;
     }
@@ -159,7 +159,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setCode(string $code): WidgetModel
+    public function setCode($code)
     {
         $this->code = $code;
         return $this;
@@ -188,7 +188,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getRating(): ?string
+    public function getRating()
     {
         return $this->rating;
     }
@@ -198,7 +198,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setRating(?string $rating): WidgetModel
+    public function setRating($rating)
     {
         $this->rating = $rating;
 
@@ -208,7 +208,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return SettingsTemplatesCollection
      */
-    public function getSettingsTemplate(): ?SettingsTemplatesCollection
+    public function getSettingsTemplate()
     {
         return $this->settingsTemplate;
     }
@@ -218,7 +218,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setSettingsTemplate(?SettingsTemplatesCollection $settingsTemplate): WidgetModel
+    public function setSettingsTemplate($settingsTemplate)
     {
         $this->settingsTemplate = $settingsTemplate;
 
@@ -228,7 +228,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return bool|null
      */
-    public function getIsLeadSource(): ?bool
+    public function getIsLeadSource()
     {
         return $this->isLeadSource;
     }
@@ -238,7 +238,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setIsLeadSource(?bool $isLeadSource): WidgetModel
+    public function setIsLeadSource($isLeadSource)
     {
         $this->isLeadSource = $isLeadSource;
 
@@ -248,7 +248,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return bool|null
      */
-    public function getIsActiveInAccount(): ?bool
+    public function getIsActiveInAccount()
     {
         return $this->isActiveInAccount;
     }
@@ -258,7 +258,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setIsActiveInAccount(?bool $isActiveInAccount): WidgetModel
+    public function setIsActiveInAccount($isActiveInAccount)
     {
         $this->isActiveInAccount = $isActiveInAccount;
 
@@ -268,7 +268,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return bool|null
      */
-    public function getIsWorkWithDp(): ?bool
+    public function getIsWorkWithDp()
     {
         return $this->isWorkWithDp;
     }
@@ -278,7 +278,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setIsWorkWithDp(?bool $isWorkWithDp): WidgetModel
+    public function setIsWorkWithDp($isWorkWithDp)
     {
         $this->isWorkWithDp = $isWorkWithDp;
 
@@ -288,7 +288,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return bool|null
      */
-    public function getIsCrmTemplate(): ?bool
+    public function getIsCrmTemplate()
     {
         return $this->isCrmTemplate;
     }
@@ -298,7 +298,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setIsCrmTemplate(?bool $isCrmTemplate): WidgetModel
+    public function setIsCrmTemplate($isCrmTemplate)
     {
         $this->isCrmTemplate = $isCrmTemplate;
 
@@ -308,7 +308,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getClientUuid(): ?string
+    public function getClientUuid()
     {
         return $this->clientUuid;
     }
@@ -318,7 +318,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setClientUuid(?string $clientUuid): WidgetModel
+    public function setClientUuid($clientUuid)
     {
         $this->clientUuid = $clientUuid;
 
@@ -328,7 +328,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getPipelineId(): ?int
+    public function getPipelineId()
     {
         return $this->pipelineId;
     }
@@ -338,7 +338,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setPipelineId(?int $pipelineId): WidgetModel
+    public function setPipelineId($pipelineId)
     {
         $this->pipelineId = $pipelineId;
 
@@ -348,7 +348,7 @@ class WidgetModel extends BaseApiModel
     /**
      * @return array|null
      */
-    public function getSettings(): ?array
+    public function getSettings()
     {
         return $this->settings;
     }
@@ -358,7 +358,7 @@ class WidgetModel extends BaseApiModel
      *
      * @return WidgetModel
      */
-    public function setSettings(?array $settings): WidgetModel
+    public function setSettings($settings)
     {
         $this->settings = $settings;
 
@@ -369,7 +369,7 @@ class WidgetModel extends BaseApiModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         return $this->getSettings();
     }

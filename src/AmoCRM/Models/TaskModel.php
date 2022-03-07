@@ -16,10 +16,10 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     use RequestIdTrait;
 
     /** @deprecated */
-    public const TASK_TYPE_ID_CALL = 1;
+    const TASK_TYPE_ID_CALL = 1;
 
-    public const TASK_TYPE_ID_FOLLOW_UP = 1;
-    public const TASK_TYPE_ID_MEETING = 2;
+    const TASK_TYPE_ID_FOLLOW_UP = 1;
+    const TASK_TYPE_ID_MEETING = 2;
 
     /**
      * @var int
@@ -104,7 +104,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -114,7 +114,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -124,7 +124,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getResponsibleUserId(): ?int
+    public function getResponsibleUserId()
     {
         return $this->responsibleUserId;
     }
@@ -133,7 +133,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $responsibleUserId
      * @return TaskModel
      */
-    public function setResponsibleUserId(?int $responsibleUserId): TaskModel
+    public function setResponsibleUserId($responsibleUserId)
     {
         $this->responsibleUserId = $responsibleUserId;
 
@@ -143,7 +143,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getGroupId(): ?int
+    public function getGroupId()
     {
         return $this->groupId;
     }
@@ -152,7 +152,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $groupId
      * @return TaskModel
      */
-    public function setGroupId(?int $groupId): TaskModel
+    public function setGroupId($groupId)
     {
         $this->groupId = $groupId;
 
@@ -162,7 +162,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -171,7 +171,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $createdBy
      * @return TaskModel
      */
-    public function setCreatedBy(?int $createdBy): TaskModel
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -181,7 +181,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -190,7 +190,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $updatedBy
      * @return TaskModel
      */
-    public function setUpdatedBy(?int $updatedBy): TaskModel
+    public function setUpdatedBy($updatedBy)
     {
         $this->updatedBy = $updatedBy;
 
@@ -200,7 +200,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -209,7 +209,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $createdAt
      * @return TaskModel
      */
-    public function setCreatedAt(?int $createdAt): TaskModel
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -219,7 +219,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -228,7 +228,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $updatedAt
      * @return TaskModel
      */
-    public function setUpdatedAt(?int $updatedAt): TaskModel
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
 
@@ -238,7 +238,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -247,7 +247,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $accountId
      * @return TaskModel
      */
-    public function setAccountId(?int $accountId): TaskModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -257,7 +257,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getDuration(): ?int
+    public function getDuration()
     {
         return $this->duration;
     }
@@ -266,7 +266,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $duration
      * @return TaskModel
      */
-    public function setDuration(?int $duration): TaskModel
+    public function setDuration($duration)
     {
         $this->duration = $duration;
 
@@ -276,7 +276,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getEntityId(): ?int
+    public function getEntityId()
     {
         return $this->entityId;
     }
@@ -285,7 +285,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $entityId
      * @return TaskModel
      */
-    public function setEntityId(?int $entityId): TaskModel
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
 
@@ -295,7 +295,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getEntityType(): ?string
+    public function getEntityType()
     {
         return $this->entityType;
     }
@@ -304,7 +304,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param string|null $entityType
      * @return TaskModel
      */
-    public function setEntityType(?string $entityType): TaskModel
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
@@ -314,7 +314,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return bool|null
      */
-    public function getIsCompleted(): ?bool
+    public function getIsCompleted()
     {
         return $this->isCompleted;
     }
@@ -323,7 +323,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param bool|null $isCompleted
      * @return TaskModel
      */
-    public function setIsCompleted(?bool $isCompleted): TaskModel
+    public function setIsCompleted($isCompleted)
     {
         $this->isCompleted = $isCompleted;
 
@@ -333,7 +333,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getTaskTypeId(): ?int
+    public function getTaskTypeId()
     {
         return $this->taskTypeId;
     }
@@ -342,7 +342,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $taskTypeId
      * @return TaskModel
      */
-    public function setTaskTypeId(?int $taskTypeId): TaskModel
+    public function setTaskTypeId($taskTypeId)
     {
         $this->taskTypeId = $taskTypeId;
 
@@ -352,7 +352,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getText(): ?string
+    public function getText()
     {
         return $this->text;
     }
@@ -361,7 +361,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param string|null $text
      * @return TaskModel
      */
-    public function setText(?string $text): TaskModel
+    public function setText($text)
     {
         $this->text = $text;
 
@@ -371,7 +371,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getResult(): ?string
+    public function getResult()
     {
         return $this->result;
     }
@@ -380,7 +380,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param string|null $result
      * @return TaskModel
      */
-    public function setResult(?string $result): TaskModel
+    public function setResult($result)
     {
         $this->result = $result;
 
@@ -390,7 +390,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getCompleteTill(): ?int
+    public function getCompleteTill()
     {
         return $this->completeTill;
     }
@@ -399,7 +399,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @param int|null $completeTill
      * @return TaskModel
      */
-    public function setCompleteTill(?int $completeTill): TaskModel
+    public function setCompleteTill($completeTill)
     {
         $this->completeTill = $completeTill;
 
@@ -412,7 +412,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
      * @return self
      * @throws InvalidArgumentException
      */
-    public static function fromArray(array $task): self
+    public static function fromArray(array $task)
     {
         if (empty($task['id'])) {
             throw new InvalidArgumentException('Task id is empty in ' . json_encode($task));
@@ -488,7 +488,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -510,7 +510,7 @@ class TaskModel extends BaseApiModel implements HasIdInterface
         ];
     }
 
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 

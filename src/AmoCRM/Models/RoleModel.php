@@ -16,7 +16,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
 {
     use RequestIdTrait;
 
-    public const USERS = 'users';
+    const USERS = 'users';
 
     /**
      * @var int
@@ -43,7 +43,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public static function fromArray(array $role): self
+    public static function fromArray(array $role)
     {
         if (empty($role['id'])) {
             throw new InvalidArgumentException('Role id is empty in ' . json_encode($role));
@@ -73,7 +73,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -86,7 +86,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -95,7 +95,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
      * @param int $id
      * @return RoleModel
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -105,7 +105,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -114,7 +114,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
      * @param string $name
      * @return RoleModel
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -124,7 +124,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|UsersCollection
      */
-    public function getUsers(): ?UsersCollection
+    public function getUsers()
     {
         return $this->users;
     }
@@ -133,7 +133,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
      * @param UsersCollection $users
      * @return RoleModel
      */
-    public function setUsers(UsersCollection $users): self
+    public function setUsers(UsersCollection $users)
     {
         $this->users = $users;
 
@@ -143,7 +143,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|RightModel
      */
-    public function getRights(): ?RightModel
+    public function getRights()
     {
         return $this->rights;
     }
@@ -152,7 +152,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
      * @param RightModel $rights
      * @return RoleModel
      */
-    public function setRights(RightModel $rights): self
+    public function setRights(RightModel $rights)
     {
         $this->rights = $rights;
 
@@ -163,7 +163,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -184,7 +184,7 @@ class RoleModel extends BaseApiModel implements HasIdInterface
         return $result;
     }
 
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [
             self::USERS,

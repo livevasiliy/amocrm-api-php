@@ -24,5 +24,5 @@ class CatalogsCollection extends BaseApiCollection implements HasPagesInterface
 {
     use PagesTrait;
 
-    public const ITEM_CLASS = CatalogModel::class;
+    const ITEM_CLASS = CatalogModel::class;
 }

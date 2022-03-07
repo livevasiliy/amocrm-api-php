@@ -41,7 +41,7 @@ class BaseCustomFieldValuesModel extends BaseApiModel
      * @return BaseCustomFieldValuesModel
      * @throws BadTypeException
      */
-    public static function fromArray(array $value): BaseCustomFieldValuesModel
+    public static function fromArray(array $value)
     {
         return CustomFieldValuesModelFactory::createModel($value);
     }
@@ -49,7 +49,7 @@ class BaseCustomFieldValuesModel extends BaseApiModel
     /**
      * @return int|null
      */
-    public function getFieldId(): ?int
+    public function getFieldId()
     {
         return $this->fieldId;
     }
@@ -59,7 +59,7 @@ class BaseCustomFieldValuesModel extends BaseApiModel
      *
      * @return BaseCustomFieldValuesModel
      */
-    public function setFieldId(?int $fieldId): BaseCustomFieldValuesModel
+    public function setFieldId($fieldId)
     {
         $this->fieldId = $fieldId;
 
@@ -69,7 +69,7 @@ class BaseCustomFieldValuesModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getFieldType(): string
+    public function getFieldType()
     {
         return '';
     }
@@ -77,7 +77,7 @@ class BaseCustomFieldValuesModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getFieldCode(): ?string
+    public function getFieldCode()
     {
         return $this->fieldCode;
     }
@@ -87,7 +87,7 @@ class BaseCustomFieldValuesModel extends BaseApiModel
      *
      * @return BaseCustomFieldValuesModel
      */
-    public function setFieldCode(?string $fieldCode): BaseCustomFieldValuesModel
+    public function setFieldCode($fieldCode)
     {
         $this->fieldCode = $fieldCode;
 
@@ -97,15 +97,15 @@ class BaseCustomFieldValuesModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getFieldName(): ?string
+    public function getFieldName()
     {
         return $this->fieldName;
     }
 
     /**
-     * @return BaseCustomFieldValueCollection|BaseCustomFieldValueModel[]
+     * @return BaseCustomFieldValueCollection
      */
-    public function getValues(): ?BaseCustomFieldValueCollection
+    public function getValues()
     {
         return $this->values;
     }
@@ -115,7 +115,7 @@ class BaseCustomFieldValuesModel extends BaseApiModel
      *
      * @return BaseCustomFieldValuesModel
      */
-    public function setValues(BaseCustomFieldValueCollection $values): BaseCustomFieldValuesModel
+    public function setValues(BaseCustomFieldValueCollection $values)
     {
         $this->values = $values;
 
@@ -127,14 +127,17 @@ class BaseCustomFieldValuesModel extends BaseApiModel
      *
      * @return BaseCustomFieldValuesModel
      */
-    public function setFieldName(?string $fieldName): BaseCustomFieldValuesModel
+    public function setFieldName($fieldName)
     {
         $this->fieldName = $fieldName;
 
         return $this;
     }
 
-    public function toArray(): array
+    /**
+     * @return array
+     */
+    public function toArray()
     {
         return [
             'field_id' => $this->getFieldId(),
@@ -145,7 +148,12 @@ class BaseCustomFieldValuesModel extends BaseApiModel
         ];
     }
 
-    public function toApi(string $requestId = null): array
+    /**
+     * @param string $requestId
+     *
+     * @return array
+     */
+    public function toApi($requestId = null)
     {
         $values = $this->getValues();
         return [

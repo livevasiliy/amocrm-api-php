@@ -29,7 +29,7 @@ class TagsFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return null|array
      */
-    public function getIds(): ?array
+    public function getIds()
     {
         return $this->ids;
     }
@@ -39,7 +39,7 @@ class TagsFilter extends BaseEntityFilter implements HasPagesInterface
      *
      * @return TagsFilter
      */
-    public function setIds(array $ids): self
+    public function setIds(array $ids)
     {
         $this->ids = $this->parseArrayOrNumberFilter($ids);
 
@@ -49,7 +49,7 @@ class TagsFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return string|null
      */
-    public function getQuery(): ?string
+    public function getQuery()
     {
         return $this->query;
     }
@@ -59,7 +59,7 @@ class TagsFilter extends BaseEntityFilter implements HasPagesInterface
      *
      * @return TagsFilter
      */
-    public function setQuery(?string $query): self
+    public function setQuery($query)
     {
         if (!empty($query)) {
             $this->query = (string)$query;
@@ -71,7 +71,7 @@ class TagsFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return string|null
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -81,7 +81,7 @@ class TagsFilter extends BaseEntityFilter implements HasPagesInterface
      *
      * @return TagsFilter
      */
-    public function setName(?string $name): self
+    public function setName($name)
     {
         if (!empty($name)) {
             $this->name = (string)$name;
@@ -93,7 +93,7 @@ class TagsFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

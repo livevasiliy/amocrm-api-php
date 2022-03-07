@@ -11,12 +11,12 @@ abstract class BaseApiModel
     /**
      * @return array
      */
-    abstract public function toArray(): array;
+    abstract public function toArray();
 
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [];
     }
@@ -25,7 +25,7 @@ abstract class BaseApiModel
      * @param string|null $requestId
      * @return array
      */
-    abstract public function toApi(string $requestId = null): array;
+    abstract public function toApi($requestId = null);
 
     public function __get($name)
     {

@@ -8,5 +8,5 @@ namespace AmoCRM\Models\Interfaces;
  */
 interface TypeAwareInterface
 {
-    public function getType(): string;
+    public function getType();
 }

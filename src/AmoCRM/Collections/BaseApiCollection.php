@@ -32,7 +32,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * @param mixed $item
      * @return BaseApiModel
      */
-    protected function checkItem($item): BaseApiModel
+    protected function checkItem($item)
     {
         $class = static::ITEM_CLASS;
         if (!is_object($item) || !($item instanceof $class)) {
@@ -44,9 +44,9 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
 
     /**
      * @param array $array
-     * @return self
+     * @return $this
      */
-    public static function fromArray(array $array): self
+    public static function fromArray(array $array)
     {
         $itemClass = static::ITEM_CLASS;
 
@@ -66,7 +66,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * @param array $items
      * @return static
      */
-    public static function make(array $items): BaseApiCollection
+    public static function make(array $items)
     {
         $collection = new static();
         foreach ($items as $item) {
@@ -86,7 +86,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * @param BaseApiModel $value
      * @return $this
      */
-    public function add(BaseApiModel $value): self
+    public function add(BaseApiModel $value)
     {
         $this->data[] = $this->checkItem($value);
 
@@ -98,7 +98,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      *
      * @return $this
      */
-    public function prepend(BaseApiModel $value): self
+    public function prepend(BaseApiModel $value)
     {
         array_unshift($this->data, $this->checkItem($value));
 
@@ -110,7 +110,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * @param BaseApiModel $value
      * @return $this
      */
-    public function offsetSet($offset, $value): self
+    public function offsetSet($offset, $value)
     {
         $this->data[$offset] = $this->checkItem($value);
 
@@ -121,16 +121,16 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * @param string|int $offset
      * @return BaseApiModel|null
      */
-    public function offsetGet($offset): ?BaseApiModel
+    public function offsetGet($offset)
     {
-        return $this->data[$offset] ?? null;
+        return isset($this->data[$offset]) ? $this->data[$offset] : null;
     }
 
     /**
      * Get all data
      * @return array
      */
-    public function all(): array
+    public function all()
     {
         return $this->data;
     }
@@ -139,7 +139,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * Получение первого значения
      * @return BaseApiModel|null
      */
-    public function first(): ?BaseApiModel
+    public function first()
     {
         $first = reset($this->data);
         if (!$first) {
@@ -152,7 +152,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * Получение последнего значения
      * @return BaseApiModel|null
      */
-    public function last(): ?BaseApiModel
+    public function last()
     {
         $last = end($this->data);
         if (!$last) {
@@ -165,7 +165,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * Очистка коллекции
      * @return $this
      */
-    public function clear(): self
+    public function clear()
     {
         foreach ($this->keys() as $key) {
             $this->offsetUnset($key);
@@ -181,7 +181,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      *
      * @return $this
      */
-    public function offsetUnset($offset): self
+    public function offsetUnset($offset)
     {
         unset($this->data[$offset]);
 
@@ -192,7 +192,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * @param string|int $offset
      * @return bool
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset)
     {
         return array_key_exists($offset, $this->data);
     }
@@ -200,7 +200,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
     /**
      * @return int
      */
-    public function count(): int
+    public function count()
     {
         return count($this->data);
     }
@@ -208,7 +208,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
     /**
      * @return array
      */
-    public function keys(): array
+    public function keys()
     {
         return array_keys($this->data);
     }
@@ -216,7 +216,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = [];
         /** @var BaseApiModel $item */
@@ -230,7 +230,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
     /**
      * @return null|array
      */
-    public function toApi(): ?array
+    public function toApi()
     {
         $result = [];
         /** @var BaseApiModel $item */
@@ -246,7 +246,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      *
      * @return array
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return $this->toArray();
     }
@@ -254,7 +254,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
     /**
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return (string)json_encode($this->toArray());
     }
@@ -262,7 +262,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
     /**
      * @return BaseApiModel|null
      */
-    public function current(): ?BaseApiModel
+    public function current()
     {
         return current($this->data);
     }
@@ -270,7 +270,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
     /**
      * @return void
      */
-    public function next(): void
+    public function next()
     {
         next($this->data);
     }
@@ -286,7 +286,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
     /**
      * @return bool
      */
-    public function valid(): bool
+    public function valid()
     {
         return key($this->data) !== null;
     }
@@ -294,7 +294,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
     /**
      * @return void
      */
-    public function rewind(): void
+    public function rewind()
     {
         reset($this->data);
     }
@@ -303,7 +303,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * Проверяет коллекцию на пустоту
      * @return bool
      */
-    public function isEmpty(): bool
+    public function isEmpty()
     {
         return empty($this->data);
     }
@@ -324,7 +324,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * @param mixed $value
      * @return BaseApiModel|null
      */
-    public function getBy($key, $value): ?BaseApiModel
+    public function getBy($key, $value)
     {
         $result = null;
 
@@ -354,7 +354,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      *
      * @return void
      */
-    public function replaceBy($key, $value, BaseApiModel $replacement): void
+    public function replaceBy($key, $value, BaseApiModel $replacement)
     {
         $key = Str::ucfirst(Str::camel($key));
         $getter = (method_exists(static::ITEM_CLASS, 'get' . $key) ? 'get' . $key : null);
@@ -378,7 +378,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      * @param int $size
      * @return BaseApiCollection[]
      */
-    public function chunk(int $size): array
+    public function chunk($size)
     {
         if ($this->count() < $size) {
             return [$this];
@@ -401,7 +401,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      *
      * @return int count
      */
-    public function removeBy($key, $value): int
+    public function removeBy($key, $value)
     {
         $key = Str::ucfirst(Str::camel($key));
         $getter = (method_exists(static::ITEM_CLASS, 'get' . $key) ? 'get' . $key : null);
@@ -428,7 +428,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      *
      * @return bool
      */
-    public function removeFirstBy($key, $value): bool
+    public function removeFirstBy($key, $value)
     {
         $key = Str::ucfirst(Str::camel($key));
         $getter = (method_exists(static::ITEM_CLASS, 'get' . $key) ? 'get' . $key : null);
@@ -451,7 +451,7 @@ abstract class BaseApiCollection implements ArrayAccess, JsonSerializable, Itera
      *
      * @return array
      */
-    public function pluck(string $column): array
+    public function pluck($column)
     {
         $data = $this->toArray();
         $values = array_column($data, $column);

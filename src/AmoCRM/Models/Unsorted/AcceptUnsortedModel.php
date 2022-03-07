@@ -54,7 +54,7 @@ class AcceptUnsortedModel implements Arrayable
      * @param array $result
      * @return self
      */
-    public static function fromArray(array $result): self
+    public static function fromArray(array $result)
     {
         $model = new self();
 
@@ -87,7 +87,7 @@ class AcceptUnsortedModel implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'uid' => $this->getUid(),
@@ -103,7 +103,7 @@ class AcceptUnsortedModel implements Arrayable
     /**
      * @return string
      */
-    public function getUid(): string
+    public function getUid()
     {
         return $this->uid;
     }
@@ -112,7 +112,7 @@ class AcceptUnsortedModel implements Arrayable
      * @param string $uid
      * @return AcceptUnsortedModel
      */
-    public function setUid(string $uid): AcceptUnsortedModel
+    public function setUid($uid)
     {
         $this->uid = $uid;
 
@@ -122,7 +122,7 @@ class AcceptUnsortedModel implements Arrayable
     /**
      * @return int
      */
-    public function getPipelineId(): int
+    public function getPipelineId()
     {
         return $this->pipelineId;
     }
@@ -131,7 +131,7 @@ class AcceptUnsortedModel implements Arrayable
      * @param int $pipelineId
      * @return AcceptUnsortedModel
      */
-    public function setPipelineId(int $pipelineId): AcceptUnsortedModel
+    public function setPipelineId($pipelineId)
     {
         $this->pipelineId = $pipelineId;
 
@@ -141,7 +141,7 @@ class AcceptUnsortedModel implements Arrayable
     /**
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory()
     {
         return $this->category;
     }
@@ -150,7 +150,7 @@ class AcceptUnsortedModel implements Arrayable
      * @param string $category
      * @return AcceptUnsortedModel
      */
-    public function setCategory(string $category): AcceptUnsortedModel
+    public function setCategory($category)
     {
         $this->category = $category;
 
@@ -160,7 +160,7 @@ class AcceptUnsortedModel implements Arrayable
     /**
      * @return int
      */
-    public function getCreatedAt(): int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -169,7 +169,7 @@ class AcceptUnsortedModel implements Arrayable
      * @param int $createdAt
      * @return AcceptUnsortedModel
      */
-    public function setCreatedAt(int $createdAt): AcceptUnsortedModel
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -179,7 +179,7 @@ class AcceptUnsortedModel implements Arrayable
     /**
      * @return LeadsCollection|null
      */
-    public function getLeads(): ?LeadsCollection
+    public function getLeads()
     {
         return $this->leads;
     }
@@ -188,7 +188,7 @@ class AcceptUnsortedModel implements Arrayable
      * @param LeadsCollection|null $leads
      * @return AcceptUnsortedModel
      */
-    public function setLeads(?LeadsCollection $leads): AcceptUnsortedModel
+    public function setLeads($leads)
     {
         $this->leads = $leads;
 
@@ -198,7 +198,7 @@ class AcceptUnsortedModel implements Arrayable
     /**
      * @return ContactsCollection|null
      */
-    public function getContacts(): ?ContactsCollection
+    public function getContacts()
     {
         return $this->contacts;
     }
@@ -207,7 +207,7 @@ class AcceptUnsortedModel implements Arrayable
      * @param ContactsCollection|null $contacts
      * @return AcceptUnsortedModel
      */
-    public function setContacts(?ContactsCollection $contacts): AcceptUnsortedModel
+    public function setContacts($contacts)
     {
         $this->contacts = $contacts;
 
@@ -217,7 +217,7 @@ class AcceptUnsortedModel implements Arrayable
     /**
      * @return CompaniesCollection|null
      */
-    public function getCompanies(): ?CompaniesCollection
+    public function getCompanies()
     {
         return $this->companies;
     }
@@ -226,7 +226,7 @@ class AcceptUnsortedModel implements Arrayable
      * @param CompaniesCollection|null $companies
      * @return AcceptUnsortedModel
      */
-    public function setCompanies(?CompaniesCollection $companies): AcceptUnsortedModel
+    public function setCompanies($companies)
     {
         $this->companies = $companies;
 

@@ -3,6 +3,8 @@
 namespace AmoCRM\EntitiesServices;
 
 use AmoCRM\Collections\ShortLinks\ShortLinksCollection;
+use AmoCRM\Exceptions\AmoCRMApiException;
+use AmoCRM\Exceptions\AmoCRMoAuthApiException;
 use AmoCRM\Helpers\EntityTypesInterface;
 use AmoCRM\Client\AmoCRMApiClient;
 use AmoCRM\Client\AmoCRMApiRequest;
@@ -37,14 +39,14 @@ class ShortLinks extends BaseEntity
     /**
      * @var string
      */
-    public const ITEM_CLASS = ShortLinkModel::class;
+    const ITEM_CLASS = ShortLinkModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -57,12 +59,13 @@ class ShortLinks extends BaseEntity
 
 
     /**
-     * @param BaseApiCollection|ShortLinksCollection $collection
-     * @param array $response
+     * @param  BaseApiCollection|ShortLinksCollection  $collection
+     * @param  array  $response
      *
      * @return BaseApiCollection
+     * @throws CollectionAndResponseKeysNotIndenticalException
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -73,12 +76,13 @@ class ShortLinks extends BaseEntity
      * необходимо убедиться, что коллекция не имеет строковых ключей,
      * и числовые ключи являются последовательностью [0 .. size-1]
      *
-     * @param BaseApiCollection
-     *
+     * @param  BaseApiCollection  $collection
+     * @throws CollectionKeysNotSequentialException
      * @throws StringCollectionKeyException
-     * @throws ArrayKeysNotSequentialException
+     *
+     * @return void
      */
-    protected function validateCollectionKeys(BaseApiCollection $collection): void
+    protected function validateCollectionKeys(BaseApiCollection $collection)
     {
         $collectionKeys = $collection->keys();
 
@@ -102,16 +106,14 @@ class ShortLinks extends BaseEntity
 
     /**
      * Проверка ключей коллекции и добавление коллекции сущностей
-     * @param BaseApiCollection
-     *
+     * @param  BaseApiCollection  $collection
      * @return BaseApiCollection
      *
-     * @throws StringCollectionKeyException
-     * @throws ArrayKeysNotSequentialException
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
+     * @throws StringCollectionKeyException
      */
-    public function add(BaseApiCollection $collection): BaseApiCollection
+    public function add(BaseApiCollection $collection)
     {
         $this->validateCollectionKeys($collection);
 
@@ -125,7 +127,7 @@ class ShortLinks extends BaseEntity
      * @throws CollectionAndResponseKeysNotIndenticalException
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
 
@@ -146,8 +148,9 @@ class ShortLinks extends BaseEntity
     /**
      * @param BaseApiModel|ShortLinkModel $apiModel
      * @param array $entity
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['url'])) {
             $apiModel->setUrl($entity['url']);
@@ -168,7 +171,7 @@ class ShortLinks extends BaseEntity
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -179,7 +182,7 @@ class ShortLinks extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function updateOne(BaseApiModel $apiModel): BaseApiModel
+    public function updateOne(BaseApiModel $apiModel)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -191,7 +194,7 @@ class ShortLinks extends BaseEntity
      * @return BaseApiModel
      * @throws NotAvailableForActionException
      */
-    public function syncOne(BaseApiModel $apiModel, $with = []): BaseApiModel
+    public function syncOne(BaseApiModel $apiModel, $with = [])
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }

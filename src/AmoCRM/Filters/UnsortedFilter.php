@@ -32,7 +32,7 @@ class UnsortedFilter extends BaseEntityFilter implements HasPagesInterface, HasO
     /**
      * @return array|null
      */
-    public function getUids(): ?array
+    public function getUids()
     {
         return $this->uids;
     }
@@ -41,7 +41,7 @@ class UnsortedFilter extends BaseEntityFilter implements HasPagesInterface, HasO
      * @param array|null $uids
      * @return UnsortedFilter
      */
-    public function setUids(?array $uids): UnsortedFilter
+    public function setUids($uids)
     {
         $this->uids = $this->parseArrayOrStringFilter($uids);
 
@@ -70,7 +70,7 @@ class UnsortedFilter extends BaseEntityFilter implements HasPagesInterface, HasO
     /**
      * @return int|null
      */
-    public function getPipelineId(): ?int
+    public function getPipelineId()
     {
         return $this->pipelineId;
     }
@@ -79,7 +79,7 @@ class UnsortedFilter extends BaseEntityFilter implements HasPagesInterface, HasO
      * @param int|null $pipelineId
      * @return UnsortedFilter
      */
-    public function setPipelineId(?int $pipelineId): UnsortedFilter
+    public function setPipelineId($pipelineId)
     {
         $this->pipelineId = $pipelineId;
 
@@ -89,7 +89,7 @@ class UnsortedFilter extends BaseEntityFilter implements HasPagesInterface, HasO
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

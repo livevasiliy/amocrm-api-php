@@ -19,12 +19,12 @@ class BaseEnumCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return BaseCustomFieldValueModel
      */
-    public static function fromArray($value): BaseCustomFieldValueModel
+    public static function fromArray($value)
     {
         $model = new static();
 
         $enumId = isset($value['enum_id']) ? (int)$value['enum_id'] : null;
-        $fieldValue = $value['value'] ?? null;
+        $fieldValue = isset($value['value']) ? $value['value'] : null;
 
         $model
             ->setValue($fieldValue)
@@ -36,7 +36,7 @@ class BaseEnumCustomFieldValueModel extends BaseCustomFieldValueModel
     /**
      * @return int|null
      */
-    public function getEnumId(): ?int
+    public function getEnumId()
     {
         return $this->enumId;
     }
@@ -46,14 +46,14 @@ class BaseEnumCustomFieldValueModel extends BaseCustomFieldValueModel
      *
      * @return BaseEnumCustomFieldValueModel
      */
-    public function setEnumId(?int $enumId): BaseEnumCustomFieldValueModel
+    public function setEnumId($enumId)
     {
         $this->enumId = $enumId;
 
         return $this;
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'value' => $this->getValue(),
@@ -61,7 +61,7 @@ class BaseEnumCustomFieldValueModel extends BaseCustomFieldValueModel
         ];
     }
 
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         return [
             'value' => $this->getValue(),

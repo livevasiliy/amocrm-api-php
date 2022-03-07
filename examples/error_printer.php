@@ -2,7 +2,7 @@
 
 use AmoCRM\Exceptions\AmoCRMApiException;
 
-function printError(AmoCRMApiException $e): void
+function printError(AmoCRMApiException $e)
 {
     $errorTitle = $e->getTitle();
     $code = $e->getCode();

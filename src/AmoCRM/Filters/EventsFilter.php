@@ -56,7 +56,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return array|null
      */
-    public function getIds(): ?array
+    public function getIds()
     {
         return $this->ids;
     }
@@ -65,7 +65,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
      * @param array|null $ids
      * @return EventsFilter
      */
-    public function setIds(?array $ids): EventsFilter
+    public function setIds($ids)
     {
         $this->ids = $ids;
 
@@ -75,7 +75,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return array|null
      */
-    public function getTypes(): ?array
+    public function getTypes()
     {
         return $this->types;
     }
@@ -84,7 +84,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
      * @param array|null $types
      * @return EventsFilter
      */
-    public function setTypes(?array $types): EventsFilter
+    public function setTypes($types)
     {
         $this->types = $types;
 
@@ -94,7 +94,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return array|null
      */
-    public function getEntity(): ?array
+    public function getEntity()
     {
         return $this->entity;
     }
@@ -103,7 +103,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
      * @param array|null $entity
      * @return EventsFilter
      */
-    public function setEntity(?array $entity): EventsFilter
+    public function setEntity($entity)
     {
         $this->entity = $entity;
 
@@ -113,7 +113,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return array|null
      */
-    public function getValueAfter(): ?array
+    public function getValueAfter()
     {
         return $this->valueAfter;
     }
@@ -122,7 +122,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
      * @param array|null $valueAfter
      * @return EventsFilter
      */
-    public function setValueAfter(?array $valueAfter): EventsFilter
+    public function setValueAfter($valueAfter)
     {
         $this->valueAfter = $valueAfter;
 
@@ -132,7 +132,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return array|null
      */
-    public function getValueBefore(): ?array
+    public function getValueBefore()
     {
         return $this->valueBefore;
     }
@@ -141,7 +141,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
      * @param array|null $valueBefore
      * @return EventsFilter
      */
-    public function setValueBefore(?array $valueBefore): EventsFilter
+    public function setValueBefore($valueBefore)
     {
         $this->valueBefore = $valueBefore;
 
@@ -149,7 +149,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
     }
 
     /**
-     * @return array|int|null
+     * @return array|null
      */
     public function getCreatedAt()
     {
@@ -173,7 +173,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
     }
 
     /**
-     * @return array|int|null
+     * @return array|null
      */
     public function getCreatedBy()
     {
@@ -192,7 +192,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
     }
 
     /**
-     * @return array|int|null
+     * @return array|null
      */
     public function getEntityIds()
     {
@@ -213,7 +213,7 @@ class EventsFilter extends BaseEntityFilter implements HasPagesInterface
     /**
      * @return array
      */
-    public function buildFilter(): array
+    public function buildFilter()
     {
         $filter = [];
 

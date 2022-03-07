@@ -8,7 +8,7 @@ class SmsOutNote extends SmsNote
 {
     protected $modelClass = SmsOutNote::class;
 
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_SMS_OUT;
     }

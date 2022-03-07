@@ -20,12 +20,12 @@ trait PageMethodsTrait
 
     /**
      * @param HasPagesInterface|BaseApiCollection $collection
-     * @return HasPagesInterface
+     * @return BaseApiCollection|null
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      * @throws AmoCRMApiPageNotAvailableException
      */
-    public function nextPage(HasPagesInterface $collection): HasPagesInterface
+    public function nextPage(HasPagesInterface $collection)
     {
         $nextPageLink = $collection->getNextPageLink();
         if (is_null($nextPageLink)) {
@@ -43,12 +43,12 @@ trait PageMethodsTrait
 
     /**
      * @param HasPagesInterface|BaseApiCollection $collection
-     * @return HasPagesInterface
+     * @return BaseApiCollection|null
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      * @throws AmoCRMApiPageNotAvailableException
      */
-    public function prevPage(HasPagesInterface $collection): HasPagesInterface
+    public function prevPage(HasPagesInterface $collection)
     {
         $prevPageLink = $collection->getPrevPageLink();
         if (is_null($prevPageLink)) {

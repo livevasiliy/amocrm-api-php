@@ -21,59 +21,59 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
 {
     use RequestIdTrait;
 
-    public const TYPE_TEXT = 'text';
-    public const TYPE_NUMERIC = 'numeric';
-    public const TYPE_CHECKBOX = 'checkbox';
-    public const TYPE_SELECT = 'select';
-    public const TYPE_MULTISELECT = 'multiselect';
-    public const TYPE_MULTITEXT = 'multitext';
-    public const TYPE_DATE = 'date';
-    public const TYPE_URL = 'url';
-    public const TYPE_TEXTAREA = 'textarea';
-    public const TYPE_RADIOBUTTON = 'radiobutton';
-    public const TYPE_STREET_ADDRESS = 'streetaddress';
-    public const TYPE_SMART_ADDRESS = 'smart_address';
-    public const TYPE_BIRTHDAY = 'birthday';
-    public const TYPE_LEGAL_ENTITY = 'legal_entity';
-    public const TYPE_DATE_TIME = 'date_time';
-    public const TYPE_ITEMS = 'items';
-    public const TYPE_CATEGORY = 'category';
-    public const TYPE_PRICE = 'price';
-    public const TYPE_TRACKING_DATA = 'tracking_data';
-    public const TYPE_LINKED_ENTITY = 'linked_entity';
+    const TYPE_TEXT = 'text';
+    const TYPE_NUMERIC = 'numeric';
+    const TYPE_CHECKBOX = 'checkbox';
+    const TYPE_SELECT = 'select';
+    const TYPE_MULTISELECT = 'multiselect';
+    const TYPE_MULTITEXT = 'multitext';
+    const TYPE_DATE = 'date';
+    const TYPE_URL = 'url';
+    const TYPE_TEXTAREA = 'textarea';
+    const TYPE_RADIOBUTTON = 'radiobutton';
+    const TYPE_STREET_ADDRESS = 'streetaddress';
+    const TYPE_SMART_ADDRESS = 'smart_address';
+    const TYPE_BIRTHDAY = 'birthday';
+    const TYPE_LEGAL_ENTITY = 'legal_entity';
+    const TYPE_DATE_TIME = 'date_time';
+    const TYPE_ITEMS = 'items';
+    const TYPE_CATEGORY = 'category';
+    const TYPE_PRICE = 'price';
+    const TYPE_TRACKING_DATA = 'tracking_data';
+    const TYPE_LINKED_ENTITY = 'linked_entity';
     /** @deprecated */
-    public const TYPE_ORG_LEGAL_NAME = 'org_legal_name';
+    const TYPE_ORG_LEGAL_NAME = 'org_legal_name';
 
-    protected const CAN_HAVE_REQUIRED_STATUSES = [
+    const CAN_HAVE_REQUIRED_STATUSES = [
         EntityTypesInterface::LEADS,
         EntityTypesInterface::CONTACTS,
         EntityTypesInterface::COMPANIES,
     ];
 
-    protected const CAN_HAVE_SEARCH_IN = [
+    const CAN_HAVE_SEARCH_IN = [
         self::TYPE_LINKED_ENTITY,
     ];
 
-    protected const CAN_BE_API_ONLY = [
+    const CAN_BE_API_ONLY = [
         EntityTypesInterface::LEADS,
         EntityTypesInterface::CONTACTS,
         EntityTypesInterface::COMPANIES,
         EntityTypesInterface::CUSTOMERS,
     ];
 
-    protected const CAN_BE_IS_DELETABLE = [
+    const CAN_BE_IS_DELETABLE = [
         EntityTypesInterface::CATALOGS,
     ];
 
-    protected const CAN_BE_IS_VISIBLE = [
+    const CAN_BE_IS_VISIBLE = [
         EntityTypesInterface::CATALOGS,
     ];
 
-    protected const CAN_BE_IS_REQUIRED = [
+    const CAN_BE_IS_REQUIRED = [
         EntityTypesInterface::CATALOGS,
     ];
 
-    protected const CAN_BE_SEARCHED_IN = [
+    const CAN_BE_SEARCHED_IN = [
         EntityTypesInterface::CONTACTS,
         EntityTypesInterface::COMPANIES,
         EntityTypesInterface::CONTACTS_AND_COMPANIES,
@@ -172,7 +172,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      *
      * @return CustomFieldModel
      */
-    public static function fromArray(array $customField): CustomFieldModel
+    public static function fromArray(array $customField)
     {
         if (empty($customField['id'])) {
             throw new InvalidArgumentException('Custom field id is empty in ' . json_encode($customField));
@@ -236,7 +236,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -257,7 +257,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -266,7 +266,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      * @param int $id
      * @return CustomFieldModel
      */
-    public function setId(int $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -276,7 +276,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null string
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -285,7 +285,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      * @param string $name
      * @return CustomFieldModel
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -295,7 +295,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getSort(): ?int
+    public function getSort()
     {
         return $this->sort;
     }
@@ -304,7 +304,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      * @param int $sort
      * @return CustomFieldModel
      */
-    public function setSort(int $sort): self
+    public function setSort($sort)
     {
         $this->sort = $sort;
 
@@ -315,7 +315,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [
             'type' => $this->getType(),
@@ -399,7 +399,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|string
      */
-    public function getGroupId(): ?string
+    public function getGroupId()
     {
         return $this->groupId;
     }
@@ -408,7 +408,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      * @param null|string $groupId
      * @return CustomFieldModel
      */
-    public function setGroupId(?string $groupId): CustomFieldModel
+    public function setGroupId($groupId)
     {
         $this->groupId = $groupId;
 
@@ -418,7 +418,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return '';
     }
@@ -426,7 +426,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|bool
      */
-    public function getIsApiOnly(): ?bool
+    public function getIsApiOnly()
     {
         return $this->isApiOnly;
     }
@@ -435,7 +435,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      * @param bool $isApiOnly
      * @return CustomFieldModel
      */
-    public function setIsApiOnly(bool $isApiOnly): CustomFieldModel
+    public function setIsApiOnly($isApiOnly)
     {
         if ($isApiOnly) {
             $this->setRequiredStatuses(null);
@@ -448,7 +448,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|CustomFieldRequiredStatusesCollection
      */
-    public function getRequiredStatuses(): ?CustomFieldRequiredStatusesCollection
+    public function getRequiredStatuses()
     {
         return $this->requiredStatuses;
     }
@@ -457,7 +457,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      * @param null|CustomFieldRequiredStatusesCollection $requiredStatuses
      * @return CustomFieldModel
      */
-    public function setRequiredStatuses(?CustomFieldRequiredStatusesCollection $requiredStatuses): CustomFieldModel
+    public function setRequiredStatuses($requiredStatuses)
     {
         $this->requiredStatuses = $requiredStatuses;
 
@@ -467,7 +467,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getCode(): ?string
+    public function getCode()
     {
         return $this->code;
     }
@@ -477,7 +477,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      *
      * @return CustomFieldModel
      */
-    public function setCode(?string $code): CustomFieldModel
+    public function setCode($code)
     {
         $this->code = $code;
 
@@ -487,7 +487,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return null|int
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -497,7 +497,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      *
      * @return CustomFieldModel
      */
-    public function setAccountId(int $accountId): CustomFieldModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -507,7 +507,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string
      */
-    public function getEntityType(): string
+    public function getEntityType()
     {
         return $this->entityType;
     }
@@ -517,7 +517,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      *
      * @return CustomFieldModel
      */
-    public function setEntityType(string $entityType): CustomFieldModel
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
@@ -527,7 +527,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return bool|null
      */
-    public function getIsDeletable(): ?bool
+    public function getIsDeletable()
     {
         return $this->isDeletable;
     }
@@ -537,7 +537,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      *
      * @return CustomFieldModel
      */
-    public function setIsDeletable(?bool $isDeletable): CustomFieldModel
+    public function setIsDeletable($isDeletable)
     {
         $this->isDeletable = $isDeletable;
 
@@ -547,7 +547,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return bool|null
      */
-    public function getIsVisible(): ?bool
+    public function getIsVisible()
     {
         return $this->isVisible;
     }
@@ -557,7 +557,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      *
      * @return CustomFieldModel
      */
-    public function setIsVisible(?bool $isVisible): CustomFieldModel
+    public function setIsVisible($isVisible)
     {
         $this->isVisible = $isVisible;
 
@@ -567,7 +567,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return bool|null
      */
-    public function getIsRequired(): ?bool
+    public function getIsRequired()
     {
         return $this->isRequired;
     }
@@ -577,7 +577,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      *
      * @return CustomFieldModel
      */
-    public function setIsRequired(?bool $isRequired): CustomFieldModel
+    public function setIsRequired($isRequired)
     {
         $this->isRequired = $isRequired;
 
@@ -587,7 +587,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getCatalogId(): ?int
+    public function getCatalogId()
     {
         return $this->catalogId;
     }
@@ -597,7 +597,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      *
      * @return CustomFieldModel
      */
-    public function setCatalogId(?int $catalogId): CustomFieldModel
+    public function setCatalogId($catalogId)
     {
         $this->catalogId = $catalogId;
 
@@ -627,7 +627,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getTrackingCallback(): ?string
+    public function getTrackingCallback()
     {
         return $this->trackingCallback;
     }
@@ -637,7 +637,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      *
      * @return CustomFieldModel
      */
-    public function setTrackingCallback(?string $trackingCallback): CustomFieldModel
+    public function setTrackingCallback($trackingCallback)
     {
         $this->trackingCallback = $trackingCallback;
 
@@ -647,7 +647,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getSearchIn(): ?string
+    public function getSearchIn()
     {
         return $this->searchIn;
     }
@@ -657,7 +657,7 @@ class CustomFieldModel extends BaseApiModel implements HasIdInterface
      *
      * @return CustomFieldModel
      */
-    public function setSearchIn(?string $searchIn): CustomFieldModel
+    public function setSearchIn($searchIn)
     {
         $this->searchIn = $searchIn;
 

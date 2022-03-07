@@ -18,9 +18,9 @@ trait PagesTrait
 
     /**
      * @param string $url
-     * @return PagesTrait|BaseApiCollection
+     * @return PagesTrait
      */
-    public function setNextPageLink(string $url)
+    public function setNextPageLink($url)
     {
         $this->nextPageLink = $url;
 
@@ -30,16 +30,16 @@ trait PagesTrait
     /**
      * @return null|string
      */
-    public function getNextPageLink(): ?string
+    public function getNextPageLink()
     {
         return $this->nextPageLink;
     }
 
     /**
      * @param string $url
-     * @return PagesTrait|BaseApiCollection
+     * @return PagesTrait
      */
-    public function setPrevPageLink(string $url)
+    public function setPrevPageLink($url)
     {
         $this->prevPageLink = $url;
 
@@ -49,7 +49,7 @@ trait PagesTrait
     /**
      * @return null|string
      */
-    public function getPrevPageLink(): ?string
+    public function getPrevPageLink()
     {
         return $this->prevPageLink;
     }

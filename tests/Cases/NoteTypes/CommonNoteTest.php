@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace Tests\Cases\NoteTypes;
 
@@ -9,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class CommonNoteTest extends TestCase
 {
-    public function testCanBeCreatedFromValidNote(): void
+    public function testCanBeCreatedFromValidNote()
     {
         $id = 1254829;
         $entityId = 8694432;

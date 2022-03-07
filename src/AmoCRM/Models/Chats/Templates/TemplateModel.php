@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models\Chats\Templates;
 
 use AmoCRM\Collections\Chats\Templates\Buttons\ButtonsCollection;
@@ -70,7 +68,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      *
      * @return self
      */
-    public static function fromArray(array $template): TemplateModel
+    public static function fromArray(array $template)
     {
         $model = new static();
 
@@ -118,7 +116,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -138,7 +136,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         if (is_null($this->getRequestId()) && !is_null($requestId)) {
             $this->setRequestId($requestId);
@@ -157,7 +155,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -167,7 +165,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      *
      * @return TemplateModel
      */
-    public function setId(?int $id): TemplateModel
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -177,7 +175,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -187,7 +185,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      *
      * @return TemplateModel
      */
-    public function setAccountId(?int $accountId): TemplateModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -197,7 +195,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -207,7 +205,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      *
      * @return TemplateModel
      */
-    public function setName(?string $name): TemplateModel
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -217,7 +215,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getContent(): ?string
+    public function getContent()
     {
         return $this->content;
     }
@@ -227,7 +225,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      *
      * @return TemplateModel
      */
-    public function setContent(?string $content): TemplateModel
+    public function setContent($content)
     {
         $this->content = $content;
 
@@ -237,7 +235,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
     /**
      * @return ButtonsCollection|null
      */
-    public function getButtons(): ?ButtonsCollection
+    public function getButtons()
     {
         return $this->buttons;
     }
@@ -247,7 +245,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      *
      * @return TemplateModel
      */
-    public function setButtons(?ButtonsCollection $buttons): TemplateModel
+    public function setButtons($buttons)
     {
         $this->buttons = $buttons;
 
@@ -257,7 +255,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -267,7 +265,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      *
      * @return TemplateModel
      */
-    public function setCreatedAt(?int $createdAt): TemplateModel
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -277,7 +275,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
     /**
      * @return int|null
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -287,7 +285,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      *
      * @return TemplateModel
      */
-    public function setUpdatedAt(?int $updatedAt): TemplateModel
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
 
@@ -297,7 +295,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
     /**
      * @return bool|null
      */
-    public function getIsEditable(): ?bool
+    public function getIsEditable()
     {
         return $this->isEditable;
     }
@@ -307,7 +305,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      *
      * @return TemplateModel
      */
-    public function setIsEditable(?bool $isEditable): TemplateModel
+    public function setIsEditable($isEditable)
     {
         $this->isEditable = $isEditable;
 
@@ -317,7 +315,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
     /**
      * @return string|null
      */
-    public function getExternalId(): ?string
+    public function getExternalId()
     {
         return $this->externalId;
     }
@@ -327,7 +325,7 @@ class TemplateModel extends BaseApiModel implements HasIdInterface
      *
      * @return TemplateModel
      */
-    public function setExternalId(?string $externalId): TemplateModel
+    public function setExternalId($externalId)
     {
         $this->externalId = $externalId;
 

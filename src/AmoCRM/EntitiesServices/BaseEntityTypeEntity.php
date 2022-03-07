@@ -19,14 +19,14 @@ abstract class BaseEntityTypeEntity extends BaseEntity
      * @return string
      * @throws InvalidArgumentException
      */
-    abstract protected function validateEntityType(string $entityType): string;
+    abstract protected function validateEntityType($entityType);
 
     /**
      * @param string $entityType
      * @return $this
      * @throws InvalidArgumentException
      */
-    public function setEntityType(string $entityType): self
+    public function setEntityType($entityType)
     {
         $entityType = $this->validateEntityType($entityType);
         $this->entityType = $entityType;
@@ -37,7 +37,7 @@ abstract class BaseEntityTypeEntity extends BaseEntity
     /**
      * @return string
      */
-    public function getEntityType(): string
+    public function getEntityType()
     {
         return $this->entityType;
     }
@@ -45,7 +45,7 @@ abstract class BaseEntityTypeEntity extends BaseEntity
     /**
      * @return string
      */
-    protected function getMethod(): string
+    protected function getMethod()
     {
         $method = parent::getMethod();
 

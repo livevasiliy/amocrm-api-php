@@ -68,7 +68,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return self
      */
-    public function fromArray(array $note): self
+    public function fromArray(array $note)
     {
         /** @var NoteModel $model */
         $model = new $this->modelClass();
@@ -110,7 +110,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return string
      */
-    public function getNoteType(): string
+    public function getNoteType()
     {
         return NoteFactory::NOTE_TYPE_CODE_COMMON;
     }
@@ -118,9 +118,9 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
-        //Параметы в child-классах
+        //Параметры в child-классах
 
         return [
             'id' => $this->getId(),
@@ -139,7 +139,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return null|int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -149,7 +149,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      *
      * @return NoteModel
      */
-    public function setId(int $id): NoteModel
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -157,9 +157,9 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getEntityId(): int
+    public function getEntityId()
     {
         return $this->entityId;
     }
@@ -168,7 +168,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param int $entityId
      * @return NoteModel
      */
-    public function setEntityId(int $entityId): self
+    public function setEntityId($entityId)
     {
         $this->entityId = $entityId;
 
@@ -178,7 +178,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getResponsibleUserId(): ?int
+    public function getResponsibleUserId()
     {
         return $this->responsibleUserId;
     }
@@ -187,7 +187,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param int|null $responsibleUserId
      * @return NoteModel
      */
-    public function setResponsibleUserId(?int $responsibleUserId): NoteModel
+    public function setResponsibleUserId($responsibleUserId)
     {
         $this->responsibleUserId = $responsibleUserId;
 
@@ -197,7 +197,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getGroupId(): ?int
+    public function getGroupId()
     {
         return $this->groupId;
     }
@@ -206,7 +206,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param int|null $groupId
      * @return NoteModel
      */
-    public function setGroupId(?int $groupId): NoteModel
+    public function setGroupId($groupId)
     {
         $this->groupId = $groupId;
 
@@ -216,7 +216,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getCreatedBy(): ?int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -225,7 +225,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param int|null $createdBy
      * @return NoteModel
      */
-    public function setCreatedBy(?int $createdBy): NoteModel
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -235,7 +235,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getUpdatedBy(): ?int
+    public function getUpdatedBy()
     {
         return $this->updatedBy;
     }
@@ -244,7 +244,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param int|null $updatedBy
      * @return NoteModel
      */
-    public function setUpdatedBy(?int $updatedBy): NoteModel
+    public function setUpdatedBy($updatedBy)
     {
         $this->updatedBy = $updatedBy;
 
@@ -254,7 +254,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getCreatedAt(): ?int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -263,7 +263,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param int|null $createdAt
      * @return NoteModel
      */
-    public function setCreatedAt(?int $createdAt): NoteModel
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -273,7 +273,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getUpdatedAt(): ?int
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
@@ -282,7 +282,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param int|null $updatedAt
      * @return NoteModel
      */
-    public function setUpdatedAt(?int $updatedAt): NoteModel
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
 
@@ -292,7 +292,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return int|null
      */
-    public function getAccountId(): ?int
+    public function getAccountId()
     {
         return $this->accountId;
     }
@@ -301,7 +301,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param int|null $accountId
      * @return NoteModel
      */
-    public function setAccountId(?int $accountId): NoteModel
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
 
@@ -312,7 +312,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(?string $requestId = "0"): array
+    public function toApi($requestId = "0")
     {
         $result = [];
 
@@ -358,7 +358,7 @@ class NoteModel extends BaseApiModel implements Arrayable, HasIdInterface
     /**
      * @return array
      */
-    public static function getAvailableWith(): array
+    public static function getAvailableWith()
     {
         return [];
     }

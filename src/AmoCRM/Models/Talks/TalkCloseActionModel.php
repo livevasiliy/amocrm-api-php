@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace AmoCRM\Models\Talks;
 
 /**
@@ -18,30 +16,34 @@ class TalkCloseActionModel
      */
     protected $forceClose = false;
 
-    public function __construct(int $talkId, bool $forceClose = false)
+    /**
+     * @param int $talkId
+     * @param bool $forceClose
+     */
+    public function __construct($talkId, $forceClose = false)
     {
         $this->talkId = $talkId;
         $this->forceClose = $forceClose;
     }
 
-    public function getTalkId(): int
+    public function getTalkId()
     {
         return $this->talkId;
     }
 
-    public function setTalkId(int $talkId): self
+    public function setTalkId($talkId)
     {
         $this->talkId = $talkId;
 
         return $this;
     }
 
-    public function isForceClose(): bool
+    public function isForceClose()
     {
         return $this->forceClose;
     }
 
-    public function setForceClose(bool $forceClose): self
+    public function setForceClose($forceClose)
     {
         $this->forceClose = $forceClose;
 

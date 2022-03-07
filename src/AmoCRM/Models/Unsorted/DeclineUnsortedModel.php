@@ -49,7 +49,7 @@ class DeclineUnsortedModel implements Arrayable
      * @param array $result
      * @return self
      */
-    public static function fromArray(array $result): self
+    public static function fromArray(array $result)
     {
         $model = new self();
 
@@ -82,7 +82,7 @@ class DeclineUnsortedModel implements Arrayable
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'uid' => $this->getUid(),
@@ -98,7 +98,7 @@ class DeclineUnsortedModel implements Arrayable
     /**
      * @return string
      */
-    public function getUid(): string
+    public function getUid()
     {
         return $this->uid;
     }
@@ -107,7 +107,7 @@ class DeclineUnsortedModel implements Arrayable
      * @param string $uid
      * @return DeclineUnsortedModel
      */
-    public function setUid(string $uid): DeclineUnsortedModel
+    public function setUid($uid)
     {
         $this->uid = $uid;
 
@@ -117,7 +117,7 @@ class DeclineUnsortedModel implements Arrayable
     /**
      * @return int
      */
-    public function getPipelineId(): int
+    public function getPipelineId()
     {
         return $this->pipelineId;
     }
@@ -126,7 +126,7 @@ class DeclineUnsortedModel implements Arrayable
      * @param int $pipelineId
      * @return DeclineUnsortedModel
      */
-    public function setPipelineId(int $pipelineId): DeclineUnsortedModel
+    public function setPipelineId($pipelineId)
     {
         $this->pipelineId = $pipelineId;
 
@@ -136,7 +136,7 @@ class DeclineUnsortedModel implements Arrayable
     /**
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory()
     {
         return $this->category;
     }
@@ -145,7 +145,7 @@ class DeclineUnsortedModel implements Arrayable
      * @param string $category
      * @return DeclineUnsortedModel
      */
-    public function setCategory(string $category): DeclineUnsortedModel
+    public function setCategory($category)
     {
         $this->category = $category;
 
@@ -155,7 +155,7 @@ class DeclineUnsortedModel implements Arrayable
     /**
      * @return int
      */
-    public function getCreatedAt(): int
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -164,7 +164,7 @@ class DeclineUnsortedModel implements Arrayable
      * @param int $createdAt
      * @return DeclineUnsortedModel
      */
-    public function setCreatedAt(int $createdAt): DeclineUnsortedModel
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -174,7 +174,7 @@ class DeclineUnsortedModel implements Arrayable
     /**
      * @return LeadsCollection|null
      */
-    public function getLeads(): ?LeadsCollection
+    public function getLeads()
     {
         return $this->leads;
     }
@@ -183,7 +183,7 @@ class DeclineUnsortedModel implements Arrayable
      * @param LeadsCollection|null $leads
      * @return DeclineUnsortedModel
      */
-    public function setLeads(?LeadsCollection $leads): DeclineUnsortedModel
+    public function setLeads($leads)
     {
         $this->leads = $leads;
 
@@ -193,7 +193,7 @@ class DeclineUnsortedModel implements Arrayable
     /**
      * @return ContactsCollection|null
      */
-    public function getContacts(): ?ContactsCollection
+    public function getContacts()
     {
         return $this->contacts;
     }
@@ -202,7 +202,7 @@ class DeclineUnsortedModel implements Arrayable
      * @param ContactsCollection|null $contacts
      * @return DeclineUnsortedModel
      */
-    public function setContacts(?ContactsCollection $contacts): DeclineUnsortedModel
+    public function setContacts($contacts)
     {
         $this->contacts = $contacts;
 
@@ -212,7 +212,7 @@ class DeclineUnsortedModel implements Arrayable
     /**
      * @return CompaniesCollection|null
      */
-    public function getCompanies(): ?CompaniesCollection
+    public function getCompanies()
     {
         return $this->companies;
     }
@@ -221,7 +221,7 @@ class DeclineUnsortedModel implements Arrayable
      * @param CompaniesCollection|null $companies
      * @return DeclineUnsortedModel
      */
-    public function setCompanies(?CompaniesCollection $companies): DeclineUnsortedModel
+    public function setCompanies($companies)
     {
         $this->companies = $companies;
 

@@ -20,5 +20,5 @@ use AmoCRM\Models\CustomFieldGroupModel;
  */
 class CustomFieldGroupsCollection extends BaseApiCollection
 {
-    public const ITEM_CLASS = CustomFieldGroupModel::class;
+    const ITEM_CLASS = CustomFieldGroupModel::class;
 }

@@ -12,7 +12,7 @@ class TextareaCustomFieldModel extends CustomFieldModel
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return CustomFieldModel::TYPE_TEXTAREA;
     }

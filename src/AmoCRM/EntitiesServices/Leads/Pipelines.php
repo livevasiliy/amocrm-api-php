@@ -44,14 +44,14 @@ class Pipelines extends BaseEntity implements HasDeleteMethodInterface
     /**
      * @var string
      */
-    public const ITEM_CLASS = PipelineModel::class;
+    const ITEM_CLASS = PipelineModel::class;
 
     /**
      * @param array $response
      *
      * @return array
      */
-    protected function getEntitiesFromResponse(array $response): array
+    protected function getEntitiesFromResponse(array $response)
     {
         $entities = [];
 
@@ -68,7 +68,7 @@ class Pipelines extends BaseEntity implements HasDeleteMethodInterface
      * @return BaseApiCollection
      * @throws NotAvailableForActionException
      */
-    public function update(BaseApiCollection $collection): BaseApiCollection
+    public function update(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('Method not available for this entity');
     }
@@ -79,7 +79,7 @@ class Pipelines extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiModel
      */
-    protected function processUpdateOne(BaseApiModel $model, array $response): BaseApiModel
+    protected function processUpdateOne(BaseApiModel $model, array $response)
     {
         $this->processModelAction($model, $response);
 
@@ -92,7 +92,7 @@ class Pipelines extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAdd(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAdd(BaseApiCollection $collection, array $response)
     {
         return $this->processAction($collection, $response);
     }
@@ -103,7 +103,7 @@ class Pipelines extends BaseEntity implements HasDeleteMethodInterface
      *
      * @return BaseApiCollection
      */
-    protected function processAction(BaseApiCollection $collection, array $response): BaseApiCollection
+    protected function processAction(BaseApiCollection $collection, array $response)
     {
         $entities = $this->getEntitiesFromResponse($response);
         foreach ($entities as $entity) {
@@ -121,8 +121,10 @@ class Pipelines extends BaseEntity implements HasDeleteMethodInterface
     /**
      * @param BaseApiModel|PipelineModel $apiModel
      * @param array $entity
+     *
+     * @return void
      */
-    protected function processModelAction(BaseApiModel $apiModel, array $entity): void
+    protected function processModelAction(BaseApiModel $apiModel, array $entity)
     {
         if (isset($entity['id'])) {
             $apiModel->setId($entity['id']);
@@ -168,7 +170,7 @@ class Pipelines extends BaseEntity implements HasDeleteMethodInterface
      * @throws AmoCRMApiException
      * @throws AmoCRMoAuthApiException
      */
-    public function deleteOne(BaseApiModel $model): bool
+    public function deleteOne(BaseApiModel $model)
     {
         $result = $this->request->delete($this->getMethod() . '/' . $model->getId());
 
@@ -181,7 +183,7 @@ class Pipelines extends BaseEntity implements HasDeleteMethodInterface
      * @return bool
      * @throws NotAvailableForActionException
      */
-    public function delete(BaseApiCollection $collection): bool
+    public function delete(BaseApiCollection $collection)
     {
         throw new NotAvailableForActionException('This entity supports only deleteOne method');
     }

@@ -44,7 +44,7 @@ class CustomFieldGroupModel extends BaseApiModel
      *
      * @return self
      */
-    public static function fromArray(array $customFieldGroup): self
+    public static function fromArray(array $customFieldGroup)
     {
         if (empty($customFieldGroup['id'])) {
             throw new InvalidArgumentException('Custom field group id is empty in ' . json_encode($customFieldGroup));
@@ -66,7 +66,7 @@ class CustomFieldGroupModel extends BaseApiModel
     /**
      * @inheritDoc
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'id' => $this->getId(),
@@ -81,7 +81,7 @@ class CustomFieldGroupModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getId(): ?string
+    public function getId()
     {
         return $this->id;
     }
@@ -90,7 +90,7 @@ class CustomFieldGroupModel extends BaseApiModel
      * @param string $id
      * @return CustomFieldGroupModel
      */
-    public function setId(string $id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -100,7 +100,7 @@ class CustomFieldGroupModel extends BaseApiModel
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -109,7 +109,7 @@ class CustomFieldGroupModel extends BaseApiModel
      * @param string $name
      * @return CustomFieldGroupModel
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -119,7 +119,7 @@ class CustomFieldGroupModel extends BaseApiModel
     /**
      * @return int
      */
-    public function getSort(): int
+    public function getSort()
     {
         return $this->sort;
     }
@@ -128,7 +128,7 @@ class CustomFieldGroupModel extends BaseApiModel
      * @param int $sort
      * @return CustomFieldGroupModel
      */
-    public function setSort(int $sort): self
+    public function setSort($sort)
     {
         $this->sort = $sort;
 
@@ -138,7 +138,7 @@ class CustomFieldGroupModel extends BaseApiModel
     /**
      * @return bool
      */
-    public function getIsPredefined(): bool
+    public function getIsPredefined()
     {
         return $this->isPredefined;
     }
@@ -147,7 +147,7 @@ class CustomFieldGroupModel extends BaseApiModel
      * @param bool $flag
      * @return CustomFieldGroupModel
      */
-    public function setIsPredefined(bool $flag): self
+    public function setIsPredefined($flag)
     {
         $this->isPredefined = $flag;
 
@@ -157,7 +157,7 @@ class CustomFieldGroupModel extends BaseApiModel
     /**
      * @return string|null
      */
-    public function getEntityType(): ?string
+    public function getEntityType()
     {
         return $this->entityType;
     }
@@ -167,7 +167,7 @@ class CustomFieldGroupModel extends BaseApiModel
      *
      * @return CustomFieldGroupModel
      */
-    public function setEntityType(?string $entityType): CustomFieldGroupModel
+    public function setEntityType($entityType)
     {
         $this->entityType = $entityType;
 
@@ -177,7 +177,7 @@ class CustomFieldGroupModel extends BaseApiModel
     /**
      * @return array|null
      */
-    public function getFields(): ?array
+    public function getFields()
     {
         return $this->fields;
     }
@@ -186,7 +186,7 @@ class CustomFieldGroupModel extends BaseApiModel
      * @param array|null $fields
      * @return $this
      */
-    public function setFields(?array $fields): self
+    public function setFields($fields)
     {
         $this->fields = $fields;
 
@@ -197,7 +197,7 @@ class CustomFieldGroupModel extends BaseApiModel
      * @param string|null $requestId
      * @return array
      */
-    public function toApi(string $requestId = null): array
+    public function toApi($requestId = null)
     {
         $result = [];
 
